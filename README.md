@@ -1,5 +1,7 @@
 # OneDrive iOS SDK
 
+[![Build Status](https://travis-ci.org/OneDrive/onedrive-sdk-ios.svg?branch=master)](https://travis-ci.org/OneDrive/onedrive-sdk-ios)
+
 Integrate the [OneDrive API](https://dev.onedrive.com/README.htm) into your iOS app!
 
 ## 1. Installation

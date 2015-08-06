@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
 
-  s.author        = { "Ace Levenberg" => "aclev@microsoft.com" }
+  s.author        = { "onedriveapi " => "onedriveapi@microsoft.com" }
+  s.social_media_url = "http://twitter.com/onedrivedev"
 
   s.platform     = :ios, "7.0"
 
