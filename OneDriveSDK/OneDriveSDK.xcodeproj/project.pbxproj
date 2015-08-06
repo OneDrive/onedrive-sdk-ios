@@ -1,0 +1,1883 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10007C691B3081AA00E4ED17 /* ODAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 10007C641B30818F00E4ED17 /* ODAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10007C6F1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 10007C6D1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10007C701B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007C6E1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m */; };
+		10007C801B332A6A00E4ED17 /* ODClient+Authentication.h in Headers */ = {isa = PBXBuildFile; fileRef = 10007C7E1B332A6A00E4ED17 /* ODClient+Authentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10007C811B332A6A00E4ED17 /* ODClient+Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007C7F1B332A6A00E4ED17 /* ODClient+Authentication.m */; };
+		10007C841B332BBD00E4ED17 /* ODClient+DefaultConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 10007C821B332BBD00E4ED17 /* ODClient+DefaultConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10007C851B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007C831B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m */; };
+		10007C901B33609100E4ED17 /* ODError.h in Headers */ = {isa = PBXBuildFile; fileRef = 10007C8E1B33609100E4ED17 /* ODError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10007C911B33609100E4ED17 /* ODError.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007C8F1B33609100E4ED17 /* ODError.m */; };
+		10007C941B33754F00E4ED17 /* ODErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007C931B33754F00E4ED17 /* ODErrorCodes.m */; };
+		10007CA61B3B1B4100E4ED17 /* NSError+OneDriveSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 10007CA41B3B1B4100E4ED17 /* NSError+OneDriveSDK.m */; };
+		1003AABB1B0A82F30039017A /* ODKeychainWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1003AAB91B0A82F30039017A /* ODKeychainWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1003AABC1B0A82F30039017A /* ODKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AABA1B0A82F30039017A /* ODKeychainWrapper.m */; };
+		1003AAC11B0BF2750039017A /* ODAsyncURLSessionDataTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 1003AABF1B0BF2750039017A /* ODAsyncURLSessionDataTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1003AAC21B0BF2750039017A /* ODAsyncURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AAC01B0BF2750039017A /* ODAsyncURLSessionDataTask.m */; };
+		1003AAC61B0BF3DF0039017A /* ODURLSessionProgressTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 1003AAC41B0BF3DF0039017A /* ODURLSessionProgressTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1003AAC71B0BF3DF0039017A /* ODURLSessionProgressTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AAC51B0BF3DF0039017A /* ODURLSessionProgressTask.m */; };
+		1003AACA1B0BF7D40039017A /* ODAsyncOperationStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 1003AAC81B0BF7D40039017A /* ODAsyncOperationStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1003AACB1B0BF7D40039017A /* ODAsyncOperationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AAC91B0BF7D40039017A /* ODAsyncOperationStatus.m */; };
+		1003AAEE1B0FED020039017A /* ODAppConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1003AAEC1B0FED020039017A /* ODAppConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1003AAEF1B0FED020039017A /* ODAppConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AAED1B0FED020039017A /* ODAppConfiguration.m */; };
+		100B5BAC1B3DE7670066AF54 /* ODErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 10007C921B336AA700E4ED17 /* ODErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		100D33E21B3DE090003576F7 /* ODClient+HelperMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 100D33DC1B3DE090003576F7 /* ODClient+HelperMethods.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		100D33E31B3DE090003576F7 /* ODClient+HelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 100D33DD1B3DE090003576F7 /* ODClient+HelperMethods.m */; };
+		100D33E41B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 100D33DE1B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		100D33E51B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 100D33DF1B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.m */; };
+		100D33E61B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.h in Headers */ = {isa = PBXBuildFile; fileRef = 100D33E01B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		100D33E71B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 100D33E11B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.m */; };
+		100D33E91B3DE37F003576F7 /* NSError+OneDriveSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 100D33E81B3DE37F003576F7 /* NSError+OneDriveSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		101103D91B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 101103D71B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		101103DA1B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 101103D81B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.m */; };
+		101104011B1E8F7D00A83BAB /* ODAADServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 101103F81B1E8F7D00A83BAB /* ODAADServiceInfo.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104021B1E8F7D00A83BAB /* ODAADServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 101103F91B1E8F7D00A83BAB /* ODAADServiceInfo.m */; };
+		101104031B1E8F7D00A83BAB /* ODMSAServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 101103FA1B1E8F7D00A83BAB /* ODMSAServiceInfo.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104041B1E8F7D00A83BAB /* ODMSAServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 101103FB1B1E8F7D00A83BAB /* ODMSAServiceInfo.m */; };
+		101104051B1E8F7D00A83BAB /* ODServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 101103FC1B1E8F7D00A83BAB /* ODServiceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		101104061B1E8F7D00A83BAB /* ODServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 101103FD1B1E8F7D00A83BAB /* ODServiceInfo.m */; };
+		101104071B1E8F7D00A83BAB /* ODServiceInfo+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 101103FE1B1E8F7D00A83BAB /* ODServiceInfo+Protected.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104081B1E8F7D00A83BAB /* ODServiceInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 101103FF1B1E8F7D00A83BAB /* ODServiceInfoProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		101104091B1E8F7D00A83BAB /* ODServiceInfoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 101104001B1E8F7D00A83BAB /* ODServiceInfoProvider.m */; };
+		101104111B1E8F9400A83BAB /* ODAuthProvider+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 1011040A1B1E8F9400A83BAB /* ODAuthProvider+Protected.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104121B1E8F9400A83BAB /* ODBaseAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1011040B1B1E8F9400A83BAB /* ODBaseAuthProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104131B1E8F9400A83BAB /* ODBaseAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1011040C1B1E8F9400A83BAB /* ODBaseAuthProvider.m */; };
+		101104141B1E8F9400A83BAB /* ODBusinessAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1011040D1B1E8F9400A83BAB /* ODBusinessAuthProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104151B1E8F9400A83BAB /* ODBusinessAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1011040E1B1E8F9400A83BAB /* ODBusinessAuthProvider.m */; };
+		101104161B1E8F9400A83BAB /* ODPersonalAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1011040F1B1E8F9400A83BAB /* ODPersonalAuthProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		101104171B1E8F9400A83BAB /* ODPersonalAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 101104101B1E8F9400A83BAB /* ODPersonalAuthProvider.m */; };
+		1013FC481B68413A00BABCC1 /* ODItemContentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1013FC461B68413A00BABCC1 /* ODItemContentRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1013FC491B68413A00BABCC1 /* ODItemContentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1013FC471B68413A00BABCC1 /* ODItemContentRequest.m */; };
+		1013FC501B6841BE00BABCC1 /* ODThumbnailContentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1013FC4E1B6841BE00BABCC1 /* ODThumbnailContentRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1013FC511B6841BE00BABCC1 /* ODThumbnailContentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1013FC4F1B6841BE00BABCC1 /* ODThumbnailContentRequest.m */; };
+		10492F9B1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 10492F971B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		10492F9C1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10492F981B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m */; };
+		10492F9D1B6168A5004AB045 /* ODURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 10492F991B6168A5004AB045 /* ODURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10492F9E1B6168A5004AB045 /* ODURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10492F9A1B6168A5004AB045 /* ODURLSessionManager.m */; };
+		10702E931B6009B5001A85FF /* ODTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CE79A41AF97EA000033B40 /* ODTestCase.m */; };
+		10702E9D1B600A0C001A85FF /* ODActionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E941B600A0C001A85FF /* ODActionsTests.m */; };
+		10702E9E1B600A0C001A85FF /* ODErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E951B600A0C001A85FF /* ODErrorTests.m */; };
+		10702E9F1B600A0C001A85FF /* ODItemRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E961B600A0C001A85FF /* ODItemRequestTests.m */; };
+		10702EA01B600A0C001A85FF /* ODJsonResposneHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E971B600A0C001A85FF /* ODJsonResposneHelperTests.m */; };
+		10702EA11B600A0C001A85FF /* ODLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E981B600A0C001A85FF /* ODLoggerTests.m */; };
+		10702EA21B600A0C001A85FF /* ODObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E991B600A0C001A85FF /* ODObjectTests.m */; };
+		10702EA31B600A0C001A85FF /* ODRequestOptionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E9A1B600A0C001A85FF /* ODRequestOptionsTests.m */; };
+		10702EA41B600A0C001A85FF /* ODRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E9B1B600A0C001A85FF /* ODRequestTests.m */; };
+		10702EA51B600A0C001A85FF /* ODURLSessionTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10702E9C1B600A0C001A85FF /* ODURLSessionTaskTests.m */; };
+		10702EA61B600A16001A85FF /* ODAuthHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D051B03E59D00E69443 /* ODAuthHelperTests.m */; };
+		10702EA71B600A16001A85FF /* ODPersonalAuthProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D381B065A1100E69443 /* ODPersonalAuthProviderTests.m */; };
+		10702EA81B600A16001A85FF /* ODAccountStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AABD1B0A884D0039017A /* ODAccountStoreTests.m */; };
+		1086B2BB1B6B1C0600B68EAA /* ODLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1086B2B91B6B1C0600B68EAA /* ODLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1086B2BC1B6B1C0600B68EAA /* ODLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1086B2BA1B6B1C0600B68EAA /* ODLogger.m */; };
+		10A19CF41B03C90E00E69443 /* ODAuthConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19CF31B03C90E00E69443 /* ODAuthConstants.m */; };
+		10A19D071B03F63600E69443 /* ODAuthConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A19CF21B03C8FF00E69443 /* ODAuthConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10A19D0F1B042F9800E69443 /* ODItemCreateSessionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A19D0B1B042F9800E69443 /* ODItemCreateSessionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10A19D101B042F9800E69443 /* ODItemCreateSessionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D0C1B042F9800E69443 /* ODItemCreateSessionRequest.m */; };
+		10A19D111B042F9800E69443 /* ODItemCreateSessionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A19D0D1B042F9800E69443 /* ODItemCreateSessionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10A19D121B042F9800E69443 /* ODItemCreateSessionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D0E1B042F9800E69443 /* ODItemCreateSessionRequestBuilder.m */; };
+		10A19D291B053B6A00E69443 /* ODThumbnailRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A19D251B053B6A00E69443 /* ODThumbnailRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10A19D2A1B053B6A00E69443 /* ODThumbnailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D261B053B6A00E69443 /* ODThumbnailRequest.m */; };
+		10A19D2B1B053B6A00E69443 /* ODThumbnailRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A19D271B053B6A00E69443 /* ODThumbnailRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10A19D2C1B053B6A00E69443 /* ODThumbnailRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D281B053B6A00E69443 /* ODThumbnailRequestBuilder.m */; };
+		10A19D2E1B053C4500E69443 /* ODItemSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A19D2D1B053C4500E69443 /* ODItemSearchRequest.m */; };
+		10AA2BD61AFBFEBC00443969 /* ODRequestOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AA2BD51AFBFEBC00443969 /* ODRequestOptions.m */; };
+		10AA2BD91AFC185300443969 /* ODRequestOptionsBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10AA2BD71AFC185300443969 /* ODRequestOptionsBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10AA2BDA1AFC185300443969 /* ODRequestOptionsBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AA2BD81AFC185300443969 /* ODRequestOptionsBuilder.m */; };
+		10AA2BE01AFD590200443969 /* ODNameConflict.h in Headers */ = {isa = PBXBuildFile; fileRef = 10AA2BDE1AFD590200443969 /* ODNameConflict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10AA2BE11AFD590200443969 /* ODNameConflict.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AA2BDF1AFD590200443969 /* ODNameConflict.m */; };
+		10B4D21E1AF821C40083D86C /* ODAccountSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D13E1AF821C30083D86C /* ODAccountSession.m */; };
+		10B4D21F1AF821C40083D86C /* ODAccountStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1401AF821C30083D86C /* ODAccountStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2201AF821C40083D86C /* ODAccountStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1411AF821C30083D86C /* ODAccountStore.m */; };
+		10B4D2211AF821C40083D86C /* ODAuthenticationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1421AF821C30083D86C /* ODAuthenticationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2221AF821C40083D86C /* ODAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1431AF821C30083D86C /* ODAuthenticationViewController.m */; };
+		10B4D2231AF821C40083D86C /* ODAuthHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1441AF821C30083D86C /* ODAuthHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2241AF821C40083D86C /* ODAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1451AF821C30083D86C /* ODAuthHelper.m */; };
+		10B4D22C1AF821C40083D86C /* ODCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1501AF821C40083D86C /* ODCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D22D1AF821C40083D86C /* ODCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1511AF821C40083D86C /* ODCollection.m */; };
+		10B4D22E1AF821C40083D86C /* ODCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1521AF821C40083D86C /* ODCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D22F1AF821C40083D86C /* ODCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1531AF821C40083D86C /* ODCollectionRequest.m */; };
+		10B4D2301AF821C40083D86C /* ODCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1541AF821C40083D86C /* ODCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2311AF821C40083D86C /* ODCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1551AF821C40083D86C /* ODCollectionRequestBuilder.m */; };
+		10B4D2321AF821C40083D86C /* ODConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1561AF821C40083D86C /* ODConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2331AF821C40083D86C /* ODConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1571AF821C40083D86C /* ODConstants.m */; };
+		10B4D2341AF821C40083D86C /* ODObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1581AF821C40083D86C /* ODObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2351AF821C40083D86C /* ODObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1591AF821C40083D86C /* ODObject.m */; };
+		10B4D2361AF821C40083D86C /* ODRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D15A1AF821C40083D86C /* ODRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2371AF821C40083D86C /* ODRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D15B1AF821C40083D86C /* ODRequest.m */; };
+		10B4D2381AF821C40083D86C /* ODRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D15C1AF821C40083D86C /* ODRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2391AF821C40083D86C /* ODRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D15D1AF821C40083D86C /* ODRequestBuilder.m */; };
+		10B4D23C1AF821C40083D86C /* ODURLSessionDataTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1611AF821C40083D86C /* ODURLSessionDataTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D23D1AF821C40083D86C /* ODURLSessionDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1621AF821C40083D86C /* ODURLSessionDataTask.m */; };
+		10B4D23E1AF821C40083D86C /* ODURLSessionDownloadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1631AF821C40083D86C /* ODURLSessionDownloadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D23F1AF821C40083D86C /* ODURLSessionDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1641AF821C40083D86C /* ODURLSessionDownloadTask.m */; };
+		10B4D2401AF821C40083D86C /* ODURLSessionTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1651AF821C40083D86C /* ODURLSessionTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2411AF821C40083D86C /* ODURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1661AF821C40083D86C /* ODURLSessionTask.m */; };
+		10B4D2421AF821C40083D86C /* ODURLSessionUploadTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1671AF821C40083D86C /* ODURLSessionUploadTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2431AF821C40083D86C /* ODURLSessionUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1681AF821C40083D86C /* ODURLSessionUploadTask.m */; };
+		10B4D2441AF821C40083D86C /* ODExpandOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D16A1AF821C40083D86C /* ODExpandOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2451AF821C40083D86C /* ODExpandOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D16B1AF821C40083D86C /* ODExpandOptions.m */; };
+		10B4D2461AF821C40083D86C /* ODHeaderOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D16C1AF821C40083D86C /* ODHeaderOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2471AF821C40083D86C /* ODHeaderOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D16D1AF821C40083D86C /* ODHeaderOptions.m */; };
+		10B4D2481AF821C40083D86C /* ODIfMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D16E1AF821C40083D86C /* ODIfMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2491AF821C40083D86C /* ODIfMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D16F1AF821C40083D86C /* ODIfMatch.m */; };
+		10B4D24A1AF821C40083D86C /* ODIfNoneMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1701AF821C40083D86C /* ODIfNoneMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D24B1AF821C40083D86C /* ODIfNoneMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1711AF821C40083D86C /* ODIfNoneMatch.m */; };
+		10B4D24C1AF821C40083D86C /* ODOrderByOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1721AF821C40083D86C /* ODOrderByOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D24D1AF821C40083D86C /* ODOrderByOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1731AF821C40083D86C /* ODOrderByOptions.m */; };
+		10B4D24E1AF821C40083D86C /* ODQueryParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1741AF821C40083D86C /* ODQueryParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D24F1AF821C40083D86C /* ODQueryParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1751AF821C40083D86C /* ODQueryParameters.m */; };
+		10B4D2501AF821C40083D86C /* ODRequestOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1761AF821C40083D86C /* ODRequestOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2511AF821C40083D86C /* ODSelectOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1771AF821C40083D86C /* ODSelectOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2521AF821C40083D86C /* ODSelectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1781AF821C40083D86C /* ODSelectOptions.m */; };
+		10B4D2531AF821C40083D86C /* ODTopOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1791AF821C40083D86C /* ODTopOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2541AF821C40083D86C /* ODTopOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D17A1AF821C40083D86C /* ODTopOptions.m */; };
+		10B4D2551AF821C40083D86C /* ODAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D17C1AF821C40083D86C /* ODAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2561AF821C40083D86C /* ODAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D17D1AF821C40083D86C /* ODAudio.m */; };
+		10B4D2571AF821C40083D86C /* ODChunkedUploadSessionDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D17E1AF821C40083D86C /* ODChunkedUploadSessionDescriptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2581AF821C40083D86C /* ODChunkedUploadSessionDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D17F1AF821C40083D86C /* ODChunkedUploadSessionDescriptor.m */; };
+		10B4D2591AF821C40083D86C /* ODDeleted.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1801AF821C40083D86C /* ODDeleted.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D25A1AF821C40083D86C /* ODDeleted.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1811AF821C40083D86C /* ODDeleted.m */; };
+		10B4D25B1AF821C40083D86C /* ODDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1821AF821C40083D86C /* ODDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D25C1AF821C40083D86C /* ODDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1831AF821C40083D86C /* ODDrive.m */; };
+		10B4D25D1AF821C40083D86C /* ODFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1841AF821C40083D86C /* ODFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D25E1AF821C40083D86C /* ODFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1851AF821C40083D86C /* ODFile.m */; };
+		10B4D25F1AF821C40083D86C /* ODFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1861AF821C40083D86C /* ODFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2601AF821C40083D86C /* ODFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1871AF821C40083D86C /* ODFolder.m */; };
+		10B4D2611AF821C40083D86C /* ODHashes.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1881AF821C40083D86C /* ODHashes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2621AF821C40083D86C /* ODHashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1891AF821C40083D86C /* ODHashes.m */; };
+		10B4D2631AF821C40083D86C /* ODIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D18A1AF821C40083D86C /* ODIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2641AF821C40083D86C /* ODIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D18B1AF821C40083D86C /* ODIdentity.m */; };
+		10B4D2651AF821C40083D86C /* ODIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D18C1AF821C40083D86C /* ODIdentitySet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2661AF821C40083D86C /* ODIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D18D1AF821C40083D86C /* ODIdentitySet.m */; };
+		10B4D2671AF821C40083D86C /* ODImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D18E1AF821C40083D86C /* ODImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2681AF821C40083D86C /* ODImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D18F1AF821C40083D86C /* ODImage.m */; };
+		10B4D2691AF821C40083D86C /* ODItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1901AF821C40083D86C /* ODItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D26A1AF821C40083D86C /* ODItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1911AF821C40083D86C /* ODItem.m */; };
+		10B4D26B1AF821C40083D86C /* ODItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1921AF821C40083D86C /* ODItemReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D26C1AF821C40083D86C /* ODItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1931AF821C40083D86C /* ODItemReference.m */; };
+		10B4D26D1AF821C40083D86C /* ODLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1941AF821C40083D86C /* ODLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D26E1AF821C40083D86C /* ODLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1951AF821C40083D86C /* ODLocation.m */; };
+		10B4D26F1AF821C40083D86C /* ODModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1961AF821C40083D86C /* ODModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2701AF821C40083D86C /* ODOpenWithApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1971AF821C40083D86C /* ODOpenWithApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2711AF821C40083D86C /* ODOpenWithApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1981AF821C40083D86C /* ODOpenWithApp.m */; };
+		10B4D2721AF821C40083D86C /* ODOpenWithSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1991AF821C40083D86C /* ODOpenWithSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2731AF821C40083D86C /* ODOpenWithSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D19A1AF821C40083D86C /* ODOpenWithSet.m */; };
+		10B4D2741AF821C40083D86C /* ODPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D19B1AF821C40083D86C /* ODPermission.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2751AF821C40083D86C /* ODPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D19C1AF821C40083D86C /* ODPermission.m */; };
+		10B4D2761AF821C40083D86C /* ODPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D19D1AF821C40083D86C /* ODPhoto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2771AF821C40083D86C /* ODPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D19E1AF821C40083D86C /* ODPhoto.m */; };
+		10B4D2791AF821C40083D86C /* ODQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1A01AF821C40083D86C /* ODQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D27A1AF821C40083D86C /* ODQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1A11AF821C40083D86C /* ODQuota.m */; };
+		10B4D27B1AF821C40083D86C /* ODShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1A21AF821C40083D86C /* ODShare.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D27C1AF821C40083D86C /* ODShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1A31AF821C40083D86C /* ODShare.m */; };
+		10B4D27D1AF821C40083D86C /* ODSharingInvitation.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1A41AF821C40083D86C /* ODSharingInvitation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D27E1AF821C40083D86C /* ODSharingInvitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1A51AF821C40083D86C /* ODSharingInvitation.m */; };
+		10B4D27F1AF821C40083D86C /* ODSharingLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1A61AF821C40083D86C /* ODSharingLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2801AF821C40083D86C /* ODSharingLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1A71AF821C40083D86C /* ODSharingLink.m */; };
+		10B4D2811AF821C40083D86C /* ODSpecialFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1A81AF821C40083D86C /* ODSpecialFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2821AF821C40083D86C /* ODSpecialFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1A91AF821C40083D86C /* ODSpecialFolder.m */; };
+		10B4D2831AF821C40083D86C /* ODThumbnail.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1AA1AF821C40083D86C /* ODThumbnail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2841AF821C40083D86C /* ODThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1AB1AF821C40083D86C /* ODThumbnail.m */; };
+		10B4D2851AF821C40083D86C /* ODThumbnailSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1AC1AF821C40083D86C /* ODThumbnailSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2861AF821C40083D86C /* ODThumbnailSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1AD1AF821C40083D86C /* ODThumbnailSet.m */; };
+		10B4D2871AF821C40083D86C /* ODUploadSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1AE1AF821C40083D86C /* ODUploadSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2881AF821C40083D86C /* ODUploadSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1AF1AF821C40083D86C /* ODUploadSession.m */; };
+		10B4D2891AF821C40083D86C /* ODVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1B01AF821C40083D86C /* ODVideo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D28A1AF821C40083D86C /* ODVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1B11AF821C40083D86C /* ODVideo.m */; };
+		10B4D28B1AF821C40083D86C /* ODChildrenCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1B31AF821C40083D86C /* ODChildrenCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D28C1AF821C40083D86C /* ODChildrenCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1B41AF821C40083D86C /* ODChildrenCollectionRequest.m */; };
+		10B4D28D1AF821C40083D86C /* ODChildrenCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1B51AF821C40083D86C /* ODChildrenCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D28E1AF821C40083D86C /* ODChildrenCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1B61AF821C40083D86C /* ODChildrenCollectionRequestBuilder.m */; };
+		10B4D28F1AF821C40083D86C /* ODClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1B71AF821C40083D86C /* ODClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2901AF821C40083D86C /* ODClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1B81AF821C40083D86C /* ODClient.m */; };
+		10B4D2931AF821C40083D86C /* ODDriveAllPhotosRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1BB1AF821C40083D86C /* ODDriveAllPhotosRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2941AF821C40083D86C /* ODDriveAllPhotosRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1BC1AF821C40083D86C /* ODDriveAllPhotosRequest.m */; };
+		10B4D2951AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1BD1AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2961AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1BE1AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.m */; };
+		10B4D29B1AF821C40083D86C /* ODDriveRecentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1C31AF821C40083D86C /* ODDriveRecentRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D29C1AF821C40083D86C /* ODDriveRecentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1C41AF821C40083D86C /* ODDriveRecentRequest.m */; };
+		10B4D29D1AF821C40083D86C /* ODDriveRecentRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1C51AF821C40083D86C /* ODDriveRecentRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D29E1AF821C40083D86C /* ODDriveRecentRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1C61AF821C40083D86C /* ODDriveRecentRequestBuilder.m */; };
+		10B4D29F1AF821C40083D86C /* ODDriveRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1C71AF821C40083D86C /* ODDriveRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2A01AF821C40083D86C /* ODDriveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1C81AF821C40083D86C /* ODDriveRequest.m */; };
+		10B4D2A11AF821C40083D86C /* ODDriveRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1C91AF821C40083D86C /* ODDriveRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2A21AF821C40083D86C /* ODDriveRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1CA1AF821C40083D86C /* ODDriveRequestBuilder.m */; };
+		10B4D2A31AF821C40083D86C /* ODDrivesCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1CB1AF821C40083D86C /* ODDrivesCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2A41AF821C40083D86C /* ODDrivesCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1CC1AF821C40083D86C /* ODDrivesCollectionRequest.m */; };
+		10B4D2A51AF821C40083D86C /* ODDrivesCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1CD1AF821C40083D86C /* ODDrivesCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2A61AF821C40083D86C /* ODDrivesCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1CE1AF821C40083D86C /* ODDrivesCollectionRequestBuilder.m */; };
+		10B4D2A71AF821C40083D86C /* ODDriveSharedWithMeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1CF1AF821C40083D86C /* ODDriveSharedWithMeRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2A81AF821C40083D86C /* ODDriveSharedWithMeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1D01AF821C40083D86C /* ODDriveSharedWithMeRequest.m */; };
+		10B4D2A91AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1D11AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2AA1AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1D21AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.m */; };
+		10B4D2AB1AF821C40083D86C /* ODItemAllPhotosRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1D31AF821C40083D86C /* ODItemAllPhotosRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2AC1AF821C40083D86C /* ODItemAllPhotosRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1D41AF821C40083D86C /* ODItemAllPhotosRequest.m */; };
+		10B4D2AD1AF821C40083D86C /* ODItemAllPhotosRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1D51AF821C40083D86C /* ODItemAllPhotosRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2AE1AF821C40083D86C /* ODItemAllPhotosRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1D61AF821C40083D86C /* ODItemAllPhotosRequestBuilder.m */; };
+		10B4D2B31AF821C40083D86C /* ODItemCopyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1DB1AF821C40083D86C /* ODItemCopyRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2B41AF821C40083D86C /* ODItemCopyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1DC1AF821C40083D86C /* ODItemCopyRequest.m */; };
+		10B4D2B51AF821C40083D86C /* ODItemCopyRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1DD1AF821C40083D86C /* ODItemCopyRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2B61AF821C40083D86C /* ODItemCopyRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1DE1AF821C40083D86C /* ODItemCopyRequestBuilder.m */; };
+		10B4D2B71AF821C40083D86C /* ODItemCreateLinkRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1DF1AF821C40083D86C /* ODItemCreateLinkRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2B81AF821C40083D86C /* ODItemCreateLinkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1E01AF821C40083D86C /* ODItemCreateLinkRequest.m */; };
+		10B4D2B91AF821C40083D86C /* ODItemCreateLinkRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1E11AF821C40083D86C /* ODItemCreateLinkRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2BA1AF821C40083D86C /* ODItemCreateLinkRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1E21AF821C40083D86C /* ODItemCreateLinkRequestBuilder.m */; };
+		10B4D2BB1AF821C40083D86C /* ODItemRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1E31AF821C40083D86C /* ODItemRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2BC1AF821C40083D86C /* ODItemRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1E41AF821C40083D86C /* ODItemRequest.m */; };
+		10B4D2BD1AF821C40083D86C /* ODItemRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1E51AF821C40083D86C /* ODItemRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2BE1AF821C40083D86C /* ODItemRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1E61AF821C40083D86C /* ODItemRequestBuilder.m */; };
+		10B4D2BF1AF821C40083D86C /* ODItemsCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1E71AF821C40083D86C /* ODItemsCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2C01AF821C40083D86C /* ODItemsCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1E81AF821C40083D86C /* ODItemsCollectionRequest.m */; };
+		10B4D2C11AF821C40083D86C /* ODItemsCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1E91AF821C40083D86C /* ODItemsCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2C21AF821C40083D86C /* ODItemsCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1EA1AF821C40083D86C /* ODItemsCollectionRequestBuilder.m */; };
+		10B4D2C31AF821C40083D86C /* ODItemSearchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1EB1AF821C40083D86C /* ODItemSearchRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2C51AF821C40083D86C /* ODItemSearchRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1ED1AF821C40083D86C /* ODItemSearchRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2C61AF821C40083D86C /* ODItemSearchRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1EE1AF821C40083D86C /* ODItemSearchRequestBuilder.m */; };
+		10B4D2C71AF821C40083D86C /* ODODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1EF1AF821C40083D86C /* ODODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2C81AF821C40083D86C /* ODPermissionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1F01AF821C40083D86C /* ODPermissionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2C91AF821C40083D86C /* ODPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1F11AF821C40083D86C /* ODPermissionRequest.m */; };
+		10B4D2CA1AF821C40083D86C /* ODPermissionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1F21AF821C40083D86C /* ODPermissionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2CB1AF821C40083D86C /* ODPermissionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1F31AF821C40083D86C /* ODPermissionRequestBuilder.m */; };
+		10B4D2CC1AF821C40083D86C /* ODPermissionsCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1F41AF821C40083D86C /* ODPermissionsCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2CD1AF821C40083D86C /* ODPermissionsCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1F51AF821C40083D86C /* ODPermissionsCollectionRequest.m */; };
+		10B4D2CE1AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1F61AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2CF1AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1F71AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.m */; };
+		10B4D2D01AF821C40083D86C /* ODSharedCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1F81AF821C40083D86C /* ODSharedCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2D11AF821C40083D86C /* ODSharedCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1F91AF821C40083D86C /* ODSharedCollectionRequest.m */; };
+		10B4D2D21AF821C40083D86C /* ODSharedCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1FA1AF821C40083D86C /* ODSharedCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2D31AF821C40083D86C /* ODSharedCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1FB1AF821C40083D86C /* ODSharedCollectionRequestBuilder.m */; };
+		10B4D2D41AF821C40083D86C /* ODShareRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1FC1AF821C40083D86C /* ODShareRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2D51AF821C40083D86C /* ODShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1FD1AF821C40083D86C /* ODShareRequest.m */; };
+		10B4D2D61AF821C40083D86C /* ODShareRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D1FE1AF821C40083D86C /* ODShareRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2D71AF821C40083D86C /* ODShareRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D1FF1AF821C40083D86C /* ODShareRequestBuilder.m */; };
+		10B4D2D81AF821C40083D86C /* ODSharesCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D2001AF821C40083D86C /* ODSharesCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2D91AF821C40083D86C /* ODSharesCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D2011AF821C40083D86C /* ODSharesCollectionRequest.m */; };
+		10B4D2DA1AF821C40083D86C /* ODSharesCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D2021AF821C40083D86C /* ODSharesCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2DB1AF821C40083D86C /* ODSharesCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D2031AF821C40083D86C /* ODSharesCollectionRequestBuilder.m */; };
+		10B4D2DC1AF821C40083D86C /* ODSpecialCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D2041AF821C40083D86C /* ODSpecialCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2DD1AF821C40083D86C /* ODSpecialCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D2051AF821C40083D86C /* ODSpecialCollectionRequest.m */; };
+		10B4D2DE1AF821C40083D86C /* ODSpecialCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D2061AF821C40083D86C /* ODSpecialCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2DF1AF821C40083D86C /* ODSpecialCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D2071AF821C40083D86C /* ODSpecialCollectionRequestBuilder.m */; };
+		10B4D2E01AF821C40083D86C /* ODThumbnailsCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D2081AF821C40083D86C /* ODThumbnailsCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2E11AF821C40083D86C /* ODThumbnailsCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D2091AF821C40083D86C /* ODThumbnailsCollectionRequest.m */; };
+		10B4D2E21AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D20A1AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2E31AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D20B1AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.m */; };
+		10B4D2E41AF821C40083D86C /* ODThumbnailSetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D20C1AF821C40083D86C /* ODThumbnailSetRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2E51AF821C40083D86C /* ODThumbnailSetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D20D1AF821C40083D86C /* ODThumbnailSetRequest.m */; };
+		10B4D2E61AF821C40083D86C /* ODThumbnailSetRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B4D20E1AF821C40083D86C /* ODThumbnailSetRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10B4D2E71AF821C40083D86C /* ODThumbnailSetRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D20F1AF821C40083D86C /* ODThumbnailSetRequestBuilder.m */; };
+		10B4D3331AF827D80083D86C /* OneDriveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B4D1201AF8215D0083D86C /* OneDriveSDK.framework */; };
+		10C001611B4397D200B4BCC4 /* ODLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 10C001601B4397D200B4BCC4 /* ODLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10F823401B59D467008F74DE /* ODVersionsCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F8233C1B59D467008F74DE /* ODVersionsCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10F823411B59D467008F74DE /* ODVersionsCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F8233D1B59D467008F74DE /* ODVersionsCollectionRequest.m */; };
+		10F823421B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F8233E1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10F823431B59D467008F74DE /* ODVersionsCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F8233F1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.m */; };
+		10FED9D51B2F67BA0087C4D6 /* ODAccountStoreProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FED9D01B2F67BA0087C4D6 /* ODAccountStoreProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FED9D71B2F67BA0087C4D6 /* ODAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FED9D21B2F67BA0087C4D6 /* ODAuthProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FED9D81B2F67BA0087C4D6 /* ODHttpProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FED9D31B2F67BA0087C4D6 /* ODHttpProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEDA191B2F747F0087C4D6 /* OneDriveSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FEDA181B2F74550087C4D6 /* OneDriveSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEDA1A1B2F76430087C4D6 /* ODCoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A19CF01B03BF2B00E69443 /* ODCoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEE7C71B59BED800392422 /* ODItemDeltaCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FEE7C11B59BED800392422 /* ODItemDeltaCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEE7C81B59BED800392422 /* ODItemDeltaCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE7C21B59BED800392422 /* ODItemDeltaCollection.m */; };
+		10FEE7C91B59BED800392422 /* ODItemDeltaRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FEE7C31B59BED800392422 /* ODItemDeltaRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEE7CA1B59BED800392422 /* ODItemDeltaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE7C41B59BED800392422 /* ODItemDeltaRequest.m */; };
+		10FEE7CB1B59BED800392422 /* ODItemDeltaRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FEE7C51B59BED800392422 /* ODItemDeltaRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEE7CC1B59BED800392422 /* ODItemDeltaRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE7C61B59BED800392422 /* ODItemDeltaRequestBuilder.m */; };
+		10FEE7CF1B59D19000392422 /* ODFileSystemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FEE7CD1B59D19000392422 /* ODFileSystemInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEE7D01B59D19000392422 /* ODFileSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE7CE1B59D19000392422 /* ODFileSystemInfo.m */; };
+		10FEE7D31B59D1C400392422 /* ODSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FEE7D11B59D1C400392422 /* ODSearchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FEE7D41B59D1C400392422 /* ODSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE7D21B59D1C400392422 /* ODSearchResult.m */; };
+		10FF89C41B4B3E66001A2234 /* ODAccountSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FF89C31B4B3E66001A2234 /* ODAccountSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10FF89C71B4B4424001A2234 /* ODAADAccountBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FF89C51B4B4424001A2234 /* ODAADAccountBridge.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		10FF89C81B4B4424001A2234 /* ODAADAccountBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FF89C61B4B4424001A2234 /* ODAADAccountBridge.m */; };
+		28CE8267244D96C3B385DE95 /* libPods-OneDriveSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A80DBCCDB6C761D36FB8CBDD /* libPods-OneDriveSDKTests.a */; };
+		F2D50F58096095AB1860B79B /* libPods-OneDriveSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F15415D48153E70243F2B4 /* libPods-OneDriveSDK.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10702E8C1B6005E2001A85FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED7D7564B828593FD49B33F10C288624;
+			remoteInfo = ADALiOS;
+		};
+		10702E8E1B6005E2001A85FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EF79E1E8FDAAE20C7388CF14C94C9DF8;
+			remoteInfo = OCMock;
+		};
+		10702E901B6005E2001A85FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1C08354937C59AF696ACEABAB3B2197;
+			remoteInfo = "Pods-OneDriveSDKTests";
+		};
+		10B4D3341AF827D80083D86C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10B4D1171AF8215D0083D86C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10B4D11F1AF8215D0083D86C;
+			remoteInfo = OneDriveSDK;
+		};
+		10FEDA101B2F727F0087C4D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5E09DFE14EA425CAF531B702;
+			remoteInfo = "Pods-OneDriveSDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07F15415D48153E70243F2B4 /* libPods-OneDriveSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneDriveSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10007C641B30818F00E4ED17 /* ODAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODAuth.h; sourceTree = "<group>"; };
+		10007C6D1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ODAppConfiguration+DefaultConfiguration.h"; path = "../Extensions/ODAppConfiguration+DefaultConfiguration.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10007C6E1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODAppConfiguration+DefaultConfiguration.m"; path = "../Extensions/ODAppConfiguration+DefaultConfiguration.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10007C7E1B332A6A00E4ED17 /* ODClient+Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ODClient+Authentication.h"; path = "../Extensions/ODClient+Authentication.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10007C7F1B332A6A00E4ED17 /* ODClient+Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODClient+Authentication.m"; path = "../Extensions/ODClient+Authentication.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10007C821B332BBD00E4ED17 /* ODClient+DefaultConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ODClient+DefaultConfiguration.h"; path = "../Extensions/ODClient+DefaultConfiguration.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10007C831B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODClient+DefaultConfiguration.m"; path = "../Extensions/ODClient+DefaultConfiguration.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10007C8E1B33609100E4ED17 /* ODError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODError.h; path = ../Errors/ODError.h; sourceTree = "<group>"; };
+		10007C8F1B33609100E4ED17 /* ODError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODError.m; path = ../Errors/ODError.m; sourceTree = "<group>"; };
+		10007C921B336AA700E4ED17 /* ODErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ODErrorCodes.h; path = ../Errors/ODErrorCodes.h; sourceTree = "<group>"; };
+		10007C931B33754F00E4ED17 /* ODErrorCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODErrorCodes.m; path = ../Errors/ODErrorCodes.m; sourceTree = "<group>"; };
+		10007CA41B3B1B4100E4ED17 /* NSError+OneDriveSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+OneDriveSDK.m"; path = "../Extensions/NSError+OneDriveSDK.m"; sourceTree = "<group>"; };
+		1003AAB91B0A82F30039017A /* ODKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODKeychainWrapper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1003AABA1B0A82F30039017A /* ODKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODKeychainWrapper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1003AABD1B0A884D0039017A /* ODAccountStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODAccountStoreTests.m; path = AuthTests/ODAccountStoreTests.m; sourceTree = "<group>"; };
+		1003AABF1B0BF2750039017A /* ODAsyncURLSessionDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODAsyncURLSessionDataTask.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1003AAC01B0BF2750039017A /* ODAsyncURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODAsyncURLSessionDataTask.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1003AAC31B0BF30D0039017A /* ODURLSessionTask+Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ODURLSessionTask+Protected.h"; sourceTree = "<group>"; };
+		1003AAC41B0BF3DF0039017A /* ODURLSessionProgressTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionProgressTask.h; sourceTree = "<group>"; };
+		1003AAC51B0BF3DF0039017A /* ODURLSessionProgressTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionProgressTask.m; sourceTree = "<group>"; };
+		1003AAC81B0BF7D40039017A /* ODAsyncOperationStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODAsyncOperationStatus.h; sourceTree = "<group>"; };
+		1003AAC91B0BF7D40039017A /* ODAsyncOperationStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODAsyncOperationStatus.m; sourceTree = "<group>"; };
+		1003AAEC1B0FED020039017A /* ODAppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODAppConfiguration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1003AAED1B0FED020039017A /* ODAppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODAppConfiguration.m; sourceTree = "<group>"; };
+		100D33DC1B3DE090003576F7 /* ODClient+HelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ODClient+HelperMethods.h"; path = "OneDriveCoreSDK/Extensions/ODClient+HelperMethods.h"; sourceTree = SOURCE_ROOT; };
+		100D33DD1B3DE090003576F7 /* ODClient+HelperMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ODClient+HelperMethods.m"; path = "OneDriveCoreSDK/Extensions/ODClient+HelperMethods.m"; sourceTree = SOURCE_ROOT; };
+		100D33DE1B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ODItemRequestBuilder+ItemByPath.h"; path = "OneDriveCoreSDK/Extensions/ODItemRequestBuilder+ItemByPath.h"; sourceTree = SOURCE_ROOT; };
+		100D33DF1B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ODItemRequestBuilder+ItemByPath.m"; path = "OneDriveCoreSDK/Extensions/ODItemRequestBuilder+ItemByPath.m"; sourceTree = SOURCE_ROOT; };
+		100D33E01B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ODThumbnailSet+CustomThumbnail.h"; path = "OneDriveCoreSDK/Extensions/ODThumbnailSet+CustomThumbnail.h"; sourceTree = SOURCE_ROOT; };
+		100D33E11B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ODThumbnailSet+CustomThumbnail.m"; path = "OneDriveCoreSDK/Extensions/ODThumbnailSet+CustomThumbnail.m"; sourceTree = SOURCE_ROOT; };
+		100D33E81B3DE37F003576F7 /* NSError+OneDriveSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+OneDriveSDK.h"; path = "Extensions/NSError+OneDriveSDK.h"; sourceTree = SOURCE_ROOT; };
+		101103D71B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+ResponseHelper.h"; sourceTree = "<group>"; };
+		101103D81B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+ResponseHelper.m"; sourceTree = "<group>"; };
+		101103F81B1E8F7D00A83BAB /* ODAADServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODAADServiceInfo.h; sourceTree = "<group>"; };
+		101103F91B1E8F7D00A83BAB /* ODAADServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODAADServiceInfo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		101103FA1B1E8F7D00A83BAB /* ODMSAServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODMSAServiceInfo.h; sourceTree = "<group>"; };
+		101103FB1B1E8F7D00A83BAB /* ODMSAServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODMSAServiceInfo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		101103FC1B1E8F7D00A83BAB /* ODServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ODServiceInfo.h; path = ../Common/ODServiceInfo.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		101103FD1B1E8F7D00A83BAB /* ODServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ODServiceInfo.m; path = ../Common/ODServiceInfo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		101103FE1B1E8F7D00A83BAB /* ODServiceInfo+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ODServiceInfo+Protected.h"; sourceTree = "<group>"; };
+		101103FF1B1E8F7D00A83BAB /* ODServiceInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODServiceInfoProvider.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		101104001B1E8F7D00A83BAB /* ODServiceInfoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODServiceInfoProvider.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1011040A1B1E8F9400A83BAB /* ODAuthProvider+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "ODAuthProvider+Protected.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1011040B1B1E8F9400A83BAB /* ODBaseAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODBaseAuthProvider.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1011040C1B1E8F9400A83BAB /* ODBaseAuthProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODBaseAuthProvider.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1011040D1B1E8F9400A83BAB /* ODBusinessAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODBusinessAuthProvider.h; sourceTree = "<group>"; };
+		1011040E1B1E8F9400A83BAB /* ODBusinessAuthProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODBusinessAuthProvider.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1011040F1B1E8F9400A83BAB /* ODPersonalAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODPersonalAuthProvider.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		101104101B1E8F9400A83BAB /* ODPersonalAuthProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODPersonalAuthProvider.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1013FC461B68413A00BABCC1 /* ODItemContentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemContentRequest.h; sourceTree = "<group>"; };
+		1013FC471B68413A00BABCC1 /* ODItemContentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemContentRequest.m; sourceTree = "<group>"; };
+		1013FC4E1B6841BE00BABCC1 /* ODThumbnailContentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailContentRequest.h; sourceTree = "<group>"; };
+		1013FC4F1B6841BE00BABCC1 /* ODThumbnailContentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailContentRequest.m; sourceTree = "<group>"; };
+		10492F971B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODNSURLSessionTaskDelegate.h; sourceTree = "<group>"; };
+		10492F981B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODNSURLSessionTaskDelegate.m; sourceTree = "<group>"; };
+		10492F991B6168A5004AB045 /* ODURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionManager.h; sourceTree = "<group>"; };
+		10492F9A1B6168A5004AB045 /* ODURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionManager.m; sourceTree = "<group>"; };
+		10702E941B600A0C001A85FF /* ODActionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODActionsTests.m; sourceTree = "<group>"; };
+		10702E951B600A0C001A85FF /* ODErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODErrorTests.m; sourceTree = "<group>"; };
+		10702E961B600A0C001A85FF /* ODItemRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemRequestTests.m; sourceTree = "<group>"; };
+		10702E971B600A0C001A85FF /* ODJsonResposneHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODJsonResposneHelperTests.m; sourceTree = "<group>"; };
+		10702E981B600A0C001A85FF /* ODLoggerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODLoggerTests.m; sourceTree = "<group>"; };
+		10702E991B600A0C001A85FF /* ODObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODObjectTests.m; sourceTree = "<group>"; };
+		10702E9A1B600A0C001A85FF /* ODRequestOptionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRequestOptionsTests.m; sourceTree = "<group>"; };
+		10702E9B1B600A0C001A85FF /* ODRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRequestTests.m; sourceTree = "<group>"; };
+		10702E9C1B600A0C001A85FF /* ODURLSessionTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionTaskTests.m; sourceTree = "<group>"; };
+		1086B2B91B6B1C0600B68EAA /* ODLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODLogger.h; sourceTree = "<group>"; };
+		1086B2BA1B6B1C0600B68EAA /* ODLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODLogger.m; sourceTree = "<group>"; };
+		10A19CF01B03BF2B00E69443 /* ODCoreSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ODCoreSDK.h; path = OneDriveCoreSDK/ODCoreSDK.h; sourceTree = SOURCE_ROOT; };
+		10A19CF21B03C8FF00E69443 /* ODAuthConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ODAuthConstants.h; path = ../Common/ODAuthConstants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10A19CF31B03C90E00E69443 /* ODAuthConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ODAuthConstants.m; path = ../Common/ODAuthConstants.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10A19D051B03E59D00E69443 /* ODAuthHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODAuthHelperTests.m; path = AuthTests/ODAuthHelperTests.m; sourceTree = "<group>"; };
+		10A19D0B1B042F9800E69443 /* ODItemCreateSessionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemCreateSessionRequest.h; sourceTree = "<group>"; };
+		10A19D0C1B042F9800E69443 /* ODItemCreateSessionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemCreateSessionRequest.m; sourceTree = "<group>"; };
+		10A19D0D1B042F9800E69443 /* ODItemCreateSessionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemCreateSessionRequestBuilder.h; sourceTree = "<group>"; };
+		10A19D0E1B042F9800E69443 /* ODItemCreateSessionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemCreateSessionRequestBuilder.m; sourceTree = "<group>"; };
+		10A19D251B053B6A00E69443 /* ODThumbnailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailRequest.h; sourceTree = "<group>"; };
+		10A19D261B053B6A00E69443 /* ODThumbnailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailRequest.m; sourceTree = "<group>"; };
+		10A19D271B053B6A00E69443 /* ODThumbnailRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailRequestBuilder.h; sourceTree = "<group>"; };
+		10A19D281B053B6A00E69443 /* ODThumbnailRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailRequestBuilder.m; sourceTree = "<group>"; };
+		10A19D2D1B053C4500E69443 /* ODItemSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemSearchRequest.m; sourceTree = "<group>"; };
+		10A19D381B065A1100E69443 /* ODPersonalAuthProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ODPersonalAuthProviderTests.m; path = AuthTests/ODPersonalAuthProviderTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10AA2BD51AFBFEBC00443969 /* ODRequestOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRequestOptions.m; sourceTree = "<group>"; };
+		10AA2BD71AFC185300443969 /* ODRequestOptionsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRequestOptionsBuilder.h; sourceTree = "<group>"; };
+		10AA2BD81AFC185300443969 /* ODRequestOptionsBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRequestOptionsBuilder.m; sourceTree = "<group>"; };
+		10AA2BDE1AFD590200443969 /* ODNameConflict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODNameConflict.h; sourceTree = "<group>"; };
+		10AA2BDF1AFD590200443969 /* ODNameConflict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODNameConflict.m; sourceTree = "<group>"; };
+		10B4D1201AF8215D0083D86C /* OneDriveSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneDriveSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B4D1241AF8215D0083D86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10B4D13E1AF821C30083D86C /* ODAccountSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ODAccountSession.m; path = ../Common/ODAccountSession.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1401AF821C30083D86C /* ODAccountStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODAccountStore.h; sourceTree = "<group>"; };
+		10B4D1411AF821C30083D86C /* ODAccountStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODAccountStore.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1421AF821C30083D86C /* ODAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODAuthenticationViewController.h; sourceTree = "<group>"; };
+		10B4D1431AF821C30083D86C /* ODAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODAuthenticationViewController.m; sourceTree = "<group>"; };
+		10B4D1441AF821C30083D86C /* ODAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ODAuthHelper.h; path = ../Common/ODAuthHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10B4D1451AF821C30083D86C /* ODAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ODAuthHelper.m; path = ../Common/ODAuthHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1501AF821C40083D86C /* ODCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODCollection.h; sourceTree = "<group>"; };
+		10B4D1511AF821C40083D86C /* ODCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODCollection.m; sourceTree = "<group>"; };
+		10B4D1521AF821C40083D86C /* ODCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODCollectionRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10B4D1531AF821C40083D86C /* ODCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODCollectionRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1541AF821C40083D86C /* ODCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1551AF821C40083D86C /* ODCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1561AF821C40083D86C /* ODConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODConstants.h; sourceTree = "<group>"; };
+		10B4D1571AF821C40083D86C /* ODConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODConstants.m; sourceTree = "<group>"; };
+		10B4D1581AF821C40083D86C /* ODObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODObject.h; sourceTree = "<group>"; };
+		10B4D1591AF821C40083D86C /* ODObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODObject.m; sourceTree = "<group>"; };
+		10B4D15A1AF821C40083D86C /* ODRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRequest.h; sourceTree = "<group>"; };
+		10B4D15B1AF821C40083D86C /* ODRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRequest.m; sourceTree = "<group>"; };
+		10B4D15C1AF821C40083D86C /* ODRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODRequestBuilder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10B4D15D1AF821C40083D86C /* ODRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1611AF821C40083D86C /* ODURLSessionDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionDataTask.h; sourceTree = "<group>"; };
+		10B4D1621AF821C40083D86C /* ODURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionDataTask.m; sourceTree = "<group>"; };
+		10B4D1631AF821C40083D86C /* ODURLSessionDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionDownloadTask.h; sourceTree = "<group>"; };
+		10B4D1641AF821C40083D86C /* ODURLSessionDownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionDownloadTask.m; sourceTree = "<group>"; };
+		10B4D1651AF821C40083D86C /* ODURLSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionTask.h; sourceTree = "<group>"; };
+		10B4D1661AF821C40083D86C /* ODURLSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionTask.m; sourceTree = "<group>"; };
+		10B4D1671AF821C40083D86C /* ODURLSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionUploadTask.h; sourceTree = "<group>"; };
+		10B4D1681AF821C40083D86C /* ODURLSessionUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionUploadTask.m; sourceTree = "<group>"; };
+		10B4D16A1AF821C40083D86C /* ODExpandOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODExpandOptions.h; sourceTree = "<group>"; };
+		10B4D16B1AF821C40083D86C /* ODExpandOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODExpandOptions.m; sourceTree = "<group>"; };
+		10B4D16C1AF821C40083D86C /* ODHeaderOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODHeaderOptions.h; sourceTree = "<group>"; };
+		10B4D16D1AF821C40083D86C /* ODHeaderOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODHeaderOptions.m; sourceTree = "<group>"; };
+		10B4D16E1AF821C40083D86C /* ODIfMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIfMatch.h; sourceTree = "<group>"; };
+		10B4D16F1AF821C40083D86C /* ODIfMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIfMatch.m; sourceTree = "<group>"; };
+		10B4D1701AF821C40083D86C /* ODIfNoneMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIfNoneMatch.h; sourceTree = "<group>"; };
+		10B4D1711AF821C40083D86C /* ODIfNoneMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIfNoneMatch.m; sourceTree = "<group>"; };
+		10B4D1721AF821C40083D86C /* ODOrderByOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODOrderByOptions.h; sourceTree = "<group>"; };
+		10B4D1731AF821C40083D86C /* ODOrderByOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODOrderByOptions.m; sourceTree = "<group>"; };
+		10B4D1741AF821C40083D86C /* ODQueryParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODQueryParameters.h; sourceTree = "<group>"; };
+		10B4D1751AF821C40083D86C /* ODQueryParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODQueryParameters.m; sourceTree = "<group>"; };
+		10B4D1761AF821C40083D86C /* ODRequestOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRequestOptions.h; sourceTree = "<group>"; };
+		10B4D1771AF821C40083D86C /* ODSelectOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSelectOptions.h; sourceTree = "<group>"; };
+		10B4D1781AF821C40083D86C /* ODSelectOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSelectOptions.m; sourceTree = "<group>"; };
+		10B4D1791AF821C40083D86C /* ODTopOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODTopOptions.h; sourceTree = "<group>"; };
+		10B4D17A1AF821C40083D86C /* ODTopOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODTopOptions.m; sourceTree = "<group>"; };
+		10B4D17C1AF821C40083D86C /* ODAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODAudio.h; sourceTree = "<group>"; };
+		10B4D17D1AF821C40083D86C /* ODAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODAudio.m; sourceTree = "<group>"; };
+		10B4D17E1AF821C40083D86C /* ODChunkedUploadSessionDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODChunkedUploadSessionDescriptor.h; sourceTree = "<group>"; };
+		10B4D17F1AF821C40083D86C /* ODChunkedUploadSessionDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODChunkedUploadSessionDescriptor.m; sourceTree = "<group>"; };
+		10B4D1801AF821C40083D86C /* ODDeleted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDeleted.h; sourceTree = "<group>"; };
+		10B4D1811AF821C40083D86C /* ODDeleted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDeleted.m; sourceTree = "<group>"; };
+		10B4D1821AF821C40083D86C /* ODDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDrive.h; sourceTree = "<group>"; };
+		10B4D1831AF821C40083D86C /* ODDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDrive.m; sourceTree = "<group>"; };
+		10B4D1841AF821C40083D86C /* ODFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODFile.h; sourceTree = "<group>"; };
+		10B4D1851AF821C40083D86C /* ODFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODFile.m; sourceTree = "<group>"; };
+		10B4D1861AF821C40083D86C /* ODFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODFolder.h; sourceTree = "<group>"; };
+		10B4D1871AF821C40083D86C /* ODFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODFolder.m; sourceTree = "<group>"; };
+		10B4D1881AF821C40083D86C /* ODHashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODHashes.h; sourceTree = "<group>"; };
+		10B4D1891AF821C40083D86C /* ODHashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODHashes.m; sourceTree = "<group>"; };
+		10B4D18A1AF821C40083D86C /* ODIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIdentity.h; sourceTree = "<group>"; };
+		10B4D18B1AF821C40083D86C /* ODIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIdentity.m; sourceTree = "<group>"; };
+		10B4D18C1AF821C40083D86C /* ODIdentitySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIdentitySet.h; sourceTree = "<group>"; };
+		10B4D18D1AF821C40083D86C /* ODIdentitySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIdentitySet.m; sourceTree = "<group>"; };
+		10B4D18E1AF821C40083D86C /* ODImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODImage.h; sourceTree = "<group>"; };
+		10B4D18F1AF821C40083D86C /* ODImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODImage.m; sourceTree = "<group>"; };
+		10B4D1901AF821C40083D86C /* ODItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItem.h; sourceTree = "<group>"; };
+		10B4D1911AF821C40083D86C /* ODItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItem.m; sourceTree = "<group>"; };
+		10B4D1921AF821C40083D86C /* ODItemReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemReference.h; sourceTree = "<group>"; };
+		10B4D1931AF821C40083D86C /* ODItemReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemReference.m; sourceTree = "<group>"; };
+		10B4D1941AF821C40083D86C /* ODLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODLocation.h; sourceTree = "<group>"; };
+		10B4D1951AF821C40083D86C /* ODLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODLocation.m; sourceTree = "<group>"; };
+		10B4D1961AF821C40083D86C /* ODModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODModels.h; sourceTree = "<group>"; };
+		10B4D1971AF821C40083D86C /* ODOpenWithApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODOpenWithApp.h; sourceTree = "<group>"; };
+		10B4D1981AF821C40083D86C /* ODOpenWithApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODOpenWithApp.m; sourceTree = "<group>"; };
+		10B4D1991AF821C40083D86C /* ODOpenWithSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODOpenWithSet.h; sourceTree = "<group>"; };
+		10B4D19A1AF821C40083D86C /* ODOpenWithSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODOpenWithSet.m; sourceTree = "<group>"; };
+		10B4D19B1AF821C40083D86C /* ODPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODPermission.h; sourceTree = "<group>"; };
+		10B4D19C1AF821C40083D86C /* ODPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODPermission.m; sourceTree = "<group>"; };
+		10B4D19D1AF821C40083D86C /* ODPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODPhoto.h; sourceTree = "<group>"; };
+		10B4D19E1AF821C40083D86C /* ODPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODPhoto.m; sourceTree = "<group>"; };
+		10B4D1A01AF821C40083D86C /* ODQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODQuota.h; sourceTree = "<group>"; };
+		10B4D1A11AF821C40083D86C /* ODQuota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODQuota.m; sourceTree = "<group>"; };
+		10B4D1A21AF821C40083D86C /* ODShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODShare.h; sourceTree = "<group>"; };
+		10B4D1A31AF821C40083D86C /* ODShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODShare.m; sourceTree = "<group>"; };
+		10B4D1A41AF821C40083D86C /* ODSharingInvitation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSharingInvitation.h; sourceTree = "<group>"; };
+		10B4D1A51AF821C40083D86C /* ODSharingInvitation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSharingInvitation.m; sourceTree = "<group>"; };
+		10B4D1A61AF821C40083D86C /* ODSharingLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSharingLink.h; sourceTree = "<group>"; };
+		10B4D1A71AF821C40083D86C /* ODSharingLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSharingLink.m; sourceTree = "<group>"; };
+		10B4D1A81AF821C40083D86C /* ODSpecialFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSpecialFolder.h; sourceTree = "<group>"; };
+		10B4D1A91AF821C40083D86C /* ODSpecialFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSpecialFolder.m; sourceTree = "<group>"; };
+		10B4D1AA1AF821C40083D86C /* ODThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnail.h; sourceTree = "<group>"; };
+		10B4D1AB1AF821C40083D86C /* ODThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnail.m; sourceTree = "<group>"; };
+		10B4D1AC1AF821C40083D86C /* ODThumbnailSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailSet.h; sourceTree = "<group>"; };
+		10B4D1AD1AF821C40083D86C /* ODThumbnailSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailSet.m; sourceTree = "<group>"; };
+		10B4D1AE1AF821C40083D86C /* ODUploadSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODUploadSession.h; sourceTree = "<group>"; };
+		10B4D1AF1AF821C40083D86C /* ODUploadSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODUploadSession.m; sourceTree = "<group>"; };
+		10B4D1B01AF821C40083D86C /* ODVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODVideo.h; sourceTree = "<group>"; };
+		10B4D1B11AF821C40083D86C /* ODVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODVideo.m; sourceTree = "<group>"; };
+		10B4D1B31AF821C40083D86C /* ODChildrenCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = ODChildrenCollectionRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10B4D1B41AF821C40083D86C /* ODChildrenCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 2; path = ODChildrenCollectionRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1B51AF821C40083D86C /* ODChildrenCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODChildrenCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1B61AF821C40083D86C /* ODChildrenCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODChildrenCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1B71AF821C40083D86C /* ODClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = ODClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10B4D1B81AF821C40083D86C /* ODClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 2; path = ODClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1BB1AF821C40083D86C /* ODDriveAllPhotosRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveAllPhotosRequest.h; sourceTree = "<group>"; };
+		10B4D1BC1AF821C40083D86C /* ODDriveAllPhotosRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveAllPhotosRequest.m; sourceTree = "<group>"; };
+		10B4D1BD1AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveAllPhotosRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1BE1AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveAllPhotosRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1C31AF821C40083D86C /* ODDriveRecentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveRecentRequest.h; sourceTree = "<group>"; };
+		10B4D1C41AF821C40083D86C /* ODDriveRecentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveRecentRequest.m; sourceTree = "<group>"; };
+		10B4D1C51AF821C40083D86C /* ODDriveRecentRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveRecentRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1C61AF821C40083D86C /* ODDriveRecentRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveRecentRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1C71AF821C40083D86C /* ODDriveRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveRequest.h; sourceTree = "<group>"; };
+		10B4D1C81AF821C40083D86C /* ODDriveRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveRequest.m; sourceTree = "<group>"; };
+		10B4D1C91AF821C40083D86C /* ODDriveRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1CA1AF821C40083D86C /* ODDriveRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1CB1AF821C40083D86C /* ODDrivesCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDrivesCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D1CC1AF821C40083D86C /* ODDrivesCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDrivesCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D1CD1AF821C40083D86C /* ODDrivesCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDrivesCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1CE1AF821C40083D86C /* ODDrivesCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDrivesCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1CF1AF821C40083D86C /* ODDriveSharedWithMeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveSharedWithMeRequest.h; sourceTree = "<group>"; };
+		10B4D1D01AF821C40083D86C /* ODDriveSharedWithMeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveSharedWithMeRequest.m; sourceTree = "<group>"; };
+		10B4D1D11AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODDriveSharedWithMeRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1D21AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODDriveSharedWithMeRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1D31AF821C40083D86C /* ODItemAllPhotosRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemAllPhotosRequest.h; sourceTree = "<group>"; };
+		10B4D1D41AF821C40083D86C /* ODItemAllPhotosRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemAllPhotosRequest.m; sourceTree = "<group>"; };
+		10B4D1D51AF821C40083D86C /* ODItemAllPhotosRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemAllPhotosRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1D61AF821C40083D86C /* ODItemAllPhotosRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemAllPhotosRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1DB1AF821C40083D86C /* ODItemCopyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemCopyRequest.h; sourceTree = "<group>"; };
+		10B4D1DC1AF821C40083D86C /* ODItemCopyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemCopyRequest.m; sourceTree = "<group>"; };
+		10B4D1DD1AF821C40083D86C /* ODItemCopyRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemCopyRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1DE1AF821C40083D86C /* ODItemCopyRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemCopyRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1DF1AF821C40083D86C /* ODItemCreateLinkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemCreateLinkRequest.h; sourceTree = "<group>"; };
+		10B4D1E01AF821C40083D86C /* ODItemCreateLinkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemCreateLinkRequest.m; sourceTree = "<group>"; };
+		10B4D1E11AF821C40083D86C /* ODItemCreateLinkRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemCreateLinkRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1E21AF821C40083D86C /* ODItemCreateLinkRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemCreateLinkRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1E31AF821C40083D86C /* ODItemRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemRequest.h; sourceTree = "<group>"; };
+		10B4D1E41AF821C40083D86C /* ODItemRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemRequest.m; sourceTree = "<group>"; };
+		10B4D1E51AF821C40083D86C /* ODItemRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1E61AF821C40083D86C /* ODItemRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1E71AF821C40083D86C /* ODItemsCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemsCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D1E81AF821C40083D86C /* ODItemsCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemsCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D1E91AF821C40083D86C /* ODItemsCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemsCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1EA1AF821C40083D86C /* ODItemsCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemsCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1EB1AF821C40083D86C /* ODItemSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemSearchRequest.h; sourceTree = "<group>"; };
+		10B4D1ED1AF821C40083D86C /* ODItemSearchRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemSearchRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1EE1AF821C40083D86C /* ODItemSearchRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemSearchRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1EF1AF821C40083D86C /* ODODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODODataEntities.h; sourceTree = "<group>"; };
+		10B4D1F01AF821C40083D86C /* ODPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODPermissionRequest.h; sourceTree = "<group>"; };
+		10B4D1F11AF821C40083D86C /* ODPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODPermissionRequest.m; sourceTree = "<group>"; };
+		10B4D1F21AF821C40083D86C /* ODPermissionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODPermissionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1F31AF821C40083D86C /* ODPermissionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODPermissionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1F41AF821C40083D86C /* ODPermissionsCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODPermissionsCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D1F51AF821C40083D86C /* ODPermissionsCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODPermissionsCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D1F61AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODPermissionsCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1F71AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODPermissionsCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1F81AF821C40083D86C /* ODSharedCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSharedCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D1F91AF821C40083D86C /* ODSharedCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSharedCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D1FA1AF821C40083D86C /* ODSharedCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSharedCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1FB1AF821C40083D86C /* ODSharedCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSharedCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D1FC1AF821C40083D86C /* ODShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODShareRequest.h; sourceTree = "<group>"; };
+		10B4D1FD1AF821C40083D86C /* ODShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODShareRequest.m; sourceTree = "<group>"; };
+		10B4D1FE1AF821C40083D86C /* ODShareRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODShareRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D1FF1AF821C40083D86C /* ODShareRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODShareRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D2001AF821C40083D86C /* ODSharesCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSharesCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D2011AF821C40083D86C /* ODSharesCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSharesCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D2021AF821C40083D86C /* ODSharesCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSharesCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D2031AF821C40083D86C /* ODSharesCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSharesCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D2041AF821C40083D86C /* ODSpecialCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSpecialCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D2051AF821C40083D86C /* ODSpecialCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSpecialCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D2061AF821C40083D86C /* ODSpecialCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSpecialCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D2071AF821C40083D86C /* ODSpecialCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSpecialCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D2081AF821C40083D86C /* ODThumbnailsCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailsCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D2091AF821C40083D86C /* ODThumbnailsCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailsCollectionRequest.m; sourceTree = "<group>"; };
+		10B4D20A1AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailsCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D20B1AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailsCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D20C1AF821C40083D86C /* ODThumbnailSetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailSetRequest.h; sourceTree = "<group>"; };
+		10B4D20D1AF821C40083D86C /* ODThumbnailSetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailSetRequest.m; sourceTree = "<group>"; };
+		10B4D20E1AF821C40083D86C /* ODThumbnailSetRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailSetRequestBuilder.h; sourceTree = "<group>"; };
+		10B4D20F1AF821C40083D86C /* ODThumbnailSetRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailSetRequestBuilder.m; sourceTree = "<group>"; };
+		10B4D32D1AF827D80083D86C /* OneDriveSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneDriveSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B4D3301AF827D80083D86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10C001601B4397D200B4BCC4 /* ODLoggerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODLoggerProtocol.h; path = Common/ODLoggerProtocol.h; sourceTree = SOURCE_ROOT; };
+		10CE79A31AF97EA000033B40 /* ODTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODTestCase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10CE79A41AF97EA000033B40 /* ODTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODTestCase.m; sourceTree = "<group>"; };
+		10F8233C1B59D467008F74DE /* ODVersionsCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODVersionsCollectionRequest.h; sourceTree = "<group>"; };
+		10F8233D1B59D467008F74DE /* ODVersionsCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODVersionsCollectionRequest.m; sourceTree = "<group>"; };
+		10F8233E1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODVersionsCollectionRequestBuilder.h; sourceTree = "<group>"; };
+		10F8233F1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODVersionsCollectionRequestBuilder.m; sourceTree = "<group>"; };
+		10FED9D01B2F67BA0087C4D6 /* ODAccountStoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODAccountStoreProtocol.h; path = Common/ODAccountStoreProtocol.h; sourceTree = SOURCE_ROOT; };
+		10FED9D21B2F67BA0087C4D6 /* ODAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODAuthProvider.h; path = Common/ODAuthProvider.h; sourceTree = SOURCE_ROOT; };
+		10FED9D31B2F67BA0087C4D6 /* ODHttpProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ODHttpProvider.h; path = Common/ODHttpProvider.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		10FEDA181B2F74550087C4D6 /* OneDriveSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneDriveSDK.h; sourceTree = "<group>"; };
+		10FEE7C11B59BED800392422 /* ODItemDeltaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemDeltaCollection.h; sourceTree = "<group>"; };
+		10FEE7C21B59BED800392422 /* ODItemDeltaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemDeltaCollection.m; sourceTree = "<group>"; };
+		10FEE7C31B59BED800392422 /* ODItemDeltaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemDeltaRequest.h; sourceTree = "<group>"; };
+		10FEE7C41B59BED800392422 /* ODItemDeltaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemDeltaRequest.m; sourceTree = "<group>"; };
+		10FEE7C51B59BED800392422 /* ODItemDeltaRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODItemDeltaRequestBuilder.h; sourceTree = "<group>"; };
+		10FEE7C61B59BED800392422 /* ODItemDeltaRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemDeltaRequestBuilder.m; sourceTree = "<group>"; };
+		10FEE7CD1B59D19000392422 /* ODFileSystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODFileSystemInfo.h; sourceTree = "<group>"; };
+		10FEE7CE1B59D19000392422 /* ODFileSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODFileSystemInfo.m; sourceTree = "<group>"; };
+		10FEE7D11B59D1C400392422 /* ODSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSearchResult.h; sourceTree = "<group>"; };
+		10FEE7D21B59D1C400392422 /* ODSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSearchResult.m; sourceTree = "<group>"; };
+		10FF89C31B4B3E66001A2234 /* ODAccountSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODAccountSession.h; path = Common/ODAccountSession.h; sourceTree = SOURCE_ROOT; };
+		10FF89C51B4B4424001A2234 /* ODAADAccountBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODAADAccountBridge.h; sourceTree = "<group>"; };
+		10FF89C61B4B4424001A2234 /* ODAADAccountBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODAADAccountBridge.m; sourceTree = "<group>"; };
+		11BC54005EED17791D179C16 /* Pods-OneDriveSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDriveSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneDriveSDK/Pods-OneDriveSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		5E3D8C1D3DE438DDC5A5C689 /* Pods-OneDriveSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDriveSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneDriveSDK/Pods-OneDriveSDK.release.xcconfig"; sourceTree = "<group>"; };
+		7960493E1BE2BAEEAA7BD57C /* Pods-OneDriveSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDriveSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneDriveSDKTests/Pods-OneDriveSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		83146367B4F838F70DA2FC33 /* Pods-OneDriveSDK Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDriveSDK Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneDriveSDK Tests/Pods-OneDriveSDK Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A80DBCCDB6C761D36FB8CBDD /* libPods-OneDriveSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneDriveSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06A311323F5A11F244EE3DF /* Pods-OneDriveSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDriveSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneDriveSDKTests/Pods-OneDriveSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E90CCBBD2DFEF309CCA46C01 /* Pods-OneDriveSDK Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneDriveSDK Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneDriveSDK Tests/Pods-OneDriveSDK Tests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10B4D11C1AF8215D0083D86C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2D50F58096095AB1860B79B /* libPods-OneDriveSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B4D32A1AF827D80083D86C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10B4D3331AF827D80083D86C /* OneDriveSDK.framework in Frameworks */,
+				28CE8267244D96C3B385DE95 /* libPods-OneDriveSDKTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10007C891B33607300E4ED17 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				10007C921B336AA700E4ED17 /* ODErrorCodes.h */,
+				10007C931B33754F00E4ED17 /* ODErrorCodes.m */,
+				10007C8E1B33609100E4ED17 /* ODError.h */,
+				10007C8F1B33609100E4ED17 /* ODError.m */,
+			);
+			name = Errors;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		104AC3901B41B80C009EEB0F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				101103D71B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.h */,
+				101103D81B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.m */,
+				100D33E01B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.h */,
+				100D33E11B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.m */,
+				100D33DC1B3DE090003576F7 /* ODClient+HelperMethods.h */,
+				100D33DD1B3DE090003576F7 /* ODClient+HelperMethods.m */,
+				100D33DE1B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.h */,
+				100D33DF1B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1086B2B81B6B1BFA00B68EAA /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				1086B2B91B6B1C0600B68EAA /* ODLogger.h */,
+				1086B2BA1B6B1C0600B68EAA /* ODLogger.m */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		10A19CE51B02B9D100E69443 /* ODURLSessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				10492F971B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h */,
+				10492F981B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m */,
+				10492F991B6168A5004AB045 /* ODURLSessionManager.h */,
+				10492F9A1B6168A5004AB045 /* ODURLSessionManager.m */,
+			);
+			path = ODURLSessionManager;
+			sourceTree = "<group>";
+		};
+		10A19CF11B03C7CF00E69443 /* AuthUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				10A19D051B03E59D00E69443 /* ODAuthHelperTests.m */,
+				10A19D381B065A1100E69443 /* ODPersonalAuthProviderTests.m */,
+				1003AABD1B0A884D0039017A /* ODAccountStoreTests.m */,
+			);
+			name = AuthUnitTests;
+			sourceTree = "<group>";
+		};
+		10AF49701B3CCA65003A63E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				10007C6D1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.h */,
+				10007C6E1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m */,
+				10007C7E1B332A6A00E4ED17 /* ODClient+Authentication.h */,
+				10007C7F1B332A6A00E4ED17 /* ODClient+Authentication.m */,
+				10007C821B332BBD00E4ED17 /* ODClient+DefaultConfiguration.h */,
+				10007C831B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m */,
+				100D33E81B3DE37F003576F7 /* NSError+OneDriveSDK.h */,
+				10007CA41B3B1B4100E4ED17 /* NSError+OneDriveSDK.m */,
+			);
+			name = Extensions;
+			path = ../Auth;
+			sourceTree = "<group>";
+		};
+		10B4D1161AF8215D0083D86C = {
+			isa = PBXGroup;
+			children = (
+				10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */,
+				10B4D1221AF8215D0083D86C /* OneDriveSDK */,
+				10B4D32E1AF827D80083D86C /* OneDriveSDKTests */,
+				10B4D1211AF8215D0083D86C /* Products */,
+				7022A2DF8C8A7E676DE8856F /* Pods */,
+				380730D0B849C1024861E69D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		10B4D1211AF8215D0083D86C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10B4D1201AF8215D0083D86C /* OneDriveSDK.framework */,
+				10B4D32D1AF827D80083D86C /* OneDriveSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10B4D1221AF8215D0083D86C /* OneDriveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				1086B2B81B6B1BFA00B68EAA /* Logging */,
+				10FEDA181B2F74550087C4D6 /* OneDriveSDK.h */,
+				10FED9CF1B2F67AD0087C4D6 /* Common */,
+				10A19CE51B02B9D100E69443 /* ODURLSessionManager */,
+				10B4D13C1AF821C30083D86C /* Accounts */,
+				10AF49701B3CCA65003A63E1 /* Extensions */,
+				10B4D13F1AF821C30083D86C /* Auth */,
+				10B4D1481AF821C30083D86C /* OneDriveCoreSDK */,
+				10B4D1231AF8215D0083D86C /* Supporting Files */,
+			);
+			path = OneDriveSDK;
+			sourceTree = "<group>";
+		};
+		10B4D1231AF8215D0083D86C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				10B4D1241AF8215D0083D86C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10B4D13C1AF821C30083D86C /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				101103F81B1E8F7D00A83BAB /* ODAADServiceInfo.h */,
+				101103F91B1E8F7D00A83BAB /* ODAADServiceInfo.m */,
+				101103FA1B1E8F7D00A83BAB /* ODMSAServiceInfo.h */,
+				101103FB1B1E8F7D00A83BAB /* ODMSAServiceInfo.m */,
+				101103FE1B1E8F7D00A83BAB /* ODServiceInfo+Protected.h */,
+				101103FF1B1E8F7D00A83BAB /* ODServiceInfoProvider.h */,
+				101104001B1E8F7D00A83BAB /* ODServiceInfoProvider.m */,
+				1003AAEC1B0FED020039017A /* ODAppConfiguration.h */,
+				1003AAED1B0FED020039017A /* ODAppConfiguration.m */,
+			);
+			path = Accounts;
+			sourceTree = SOURCE_ROOT;
+		};
+		10B4D13F1AF821C30083D86C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1011040A1B1E8F9400A83BAB /* ODAuthProvider+Protected.h */,
+				1011040B1B1E8F9400A83BAB /* ODBaseAuthProvider.h */,
+				1011040C1B1E8F9400A83BAB /* ODBaseAuthProvider.m */,
+				1011040D1B1E8F9400A83BAB /* ODBusinessAuthProvider.h */,
+				1011040E1B1E8F9400A83BAB /* ODBusinessAuthProvider.m */,
+				1011040F1B1E8F9400A83BAB /* ODPersonalAuthProvider.h */,
+				101104101B1E8F9400A83BAB /* ODPersonalAuthProvider.m */,
+				10B4D1401AF821C30083D86C /* ODAccountStore.h */,
+				10B4D1411AF821C30083D86C /* ODAccountStore.m */,
+				1003AAB91B0A82F30039017A /* ODKeychainWrapper.h */,
+				1003AABA1B0A82F30039017A /* ODKeychainWrapper.m */,
+				10B4D1421AF821C30083D86C /* ODAuthenticationViewController.h */,
+				10B4D1431AF821C30083D86C /* ODAuthenticationViewController.m */,
+				10FF89C51B4B4424001A2234 /* ODAADAccountBridge.h */,
+				10FF89C61B4B4424001A2234 /* ODAADAccountBridge.m */,
+				10007C641B30818F00E4ED17 /* ODAuth.h */,
+			);
+			path = Auth;
+			sourceTree = SOURCE_ROOT;
+		};
+		10B4D1481AF821C30083D86C /* OneDriveCoreSDK */ = {
+			isa = PBXGroup;
+			children = (
+				104AC3901B41B80C009EEB0F /* Extensions */,
+				10A19CF01B03BF2B00E69443 /* ODCoreSDK.h */,
+				10007C891B33607300E4ED17 /* Errors */,
+				10B4D14A1AF821C30083D86C /* Core */,
+				10B4D17B1AF821C40083D86C /* model */,
+				10B4D1B21AF821C40083D86C /* requests */,
+			);
+			path = OneDriveCoreSDK;
+			sourceTree = SOURCE_ROOT;
+		};
+		10B4D14A1AF821C30083D86C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				10B4D1501AF821C40083D86C /* ODCollection.h */,
+				10B4D1511AF821C40083D86C /* ODCollection.m */,
+				10B4D1521AF821C40083D86C /* ODCollectionRequest.h */,
+				10B4D1531AF821C40083D86C /* ODCollectionRequest.m */,
+				10B4D1541AF821C40083D86C /* ODCollectionRequestBuilder.h */,
+				10B4D1551AF821C40083D86C /* ODCollectionRequestBuilder.m */,
+				10B4D1561AF821C40083D86C /* ODConstants.h */,
+				10B4D1571AF821C40083D86C /* ODConstants.m */,
+				10B4D1581AF821C40083D86C /* ODObject.h */,
+				10B4D1591AF821C40083D86C /* ODObject.m */,
+				10B4D15A1AF821C40083D86C /* ODRequest.h */,
+				10B4D15B1AF821C40083D86C /* ODRequest.m */,
+				10B4D15C1AF821C40083D86C /* ODRequestBuilder.h */,
+				10B4D15D1AF821C40083D86C /* ODRequestBuilder.m */,
+				10B4D1601AF821C40083D86C /* ODURLSession */,
+				10B4D1691AF821C40083D86C /* Options */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		10B4D1601AF821C40083D86C /* ODURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				1003AAC31B0BF30D0039017A /* ODURLSessionTask+Protected.h */,
+				10B4D1611AF821C40083D86C /* ODURLSessionDataTask.h */,
+				10B4D1621AF821C40083D86C /* ODURLSessionDataTask.m */,
+				1003AABF1B0BF2750039017A /* ODAsyncURLSessionDataTask.h */,
+				1003AAC01B0BF2750039017A /* ODAsyncURLSessionDataTask.m */,
+				10B4D1631AF821C40083D86C /* ODURLSessionDownloadTask.h */,
+				10B4D1641AF821C40083D86C /* ODURLSessionDownloadTask.m */,
+				10B4D1651AF821C40083D86C /* ODURLSessionTask.h */,
+				10B4D1661AF821C40083D86C /* ODURLSessionTask.m */,
+				10B4D1671AF821C40083D86C /* ODURLSessionUploadTask.h */,
+				10B4D1681AF821C40083D86C /* ODURLSessionUploadTask.m */,
+				1003AAC41B0BF3DF0039017A /* ODURLSessionProgressTask.h */,
+				1003AAC51B0BF3DF0039017A /* ODURLSessionProgressTask.m */,
+			);
+			path = ODURLSession;
+			sourceTree = "<group>";
+		};
+		10B4D1691AF821C40083D86C /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				10B4D16A1AF821C40083D86C /* ODExpandOptions.h */,
+				10B4D16B1AF821C40083D86C /* ODExpandOptions.m */,
+				10B4D16C1AF821C40083D86C /* ODHeaderOptions.h */,
+				10B4D16D1AF821C40083D86C /* ODHeaderOptions.m */,
+				10B4D16E1AF821C40083D86C /* ODIfMatch.h */,
+				10B4D16F1AF821C40083D86C /* ODIfMatch.m */,
+				10B4D1701AF821C40083D86C /* ODIfNoneMatch.h */,
+				10B4D1711AF821C40083D86C /* ODIfNoneMatch.m */,
+				10B4D1721AF821C40083D86C /* ODOrderByOptions.h */,
+				10B4D1731AF821C40083D86C /* ODOrderByOptions.m */,
+				10AA2BDE1AFD590200443969 /* ODNameConflict.h */,
+				10AA2BDF1AFD590200443969 /* ODNameConflict.m */,
+				10B4D1741AF821C40083D86C /* ODQueryParameters.h */,
+				10B4D1751AF821C40083D86C /* ODQueryParameters.m */,
+				10B4D1761AF821C40083D86C /* ODRequestOptions.h */,
+				10AA2BD51AFBFEBC00443969 /* ODRequestOptions.m */,
+				10AA2BD71AFC185300443969 /* ODRequestOptionsBuilder.h */,
+				10AA2BD81AFC185300443969 /* ODRequestOptionsBuilder.m */,
+				10B4D1771AF821C40083D86C /* ODSelectOptions.h */,
+				10B4D1781AF821C40083D86C /* ODSelectOptions.m */,
+				10B4D1791AF821C40083D86C /* ODTopOptions.h */,
+				10B4D17A1AF821C40083D86C /* ODTopOptions.m */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		10B4D17B1AF821C40083D86C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				10FEE7D11B59D1C400392422 /* ODSearchResult.h */,
+				10FEE7D21B59D1C400392422 /* ODSearchResult.m */,
+				10FEE7CD1B59D19000392422 /* ODFileSystemInfo.h */,
+				10FEE7CE1B59D19000392422 /* ODFileSystemInfo.m */,
+				10B4D17C1AF821C40083D86C /* ODAudio.h */,
+				10B4D17D1AF821C40083D86C /* ODAudio.m */,
+				1003AAC81B0BF7D40039017A /* ODAsyncOperationStatus.h */,
+				1003AAC91B0BF7D40039017A /* ODAsyncOperationStatus.m */,
+				10B4D17E1AF821C40083D86C /* ODChunkedUploadSessionDescriptor.h */,
+				10B4D17F1AF821C40083D86C /* ODChunkedUploadSessionDescriptor.m */,
+				10B4D1801AF821C40083D86C /* ODDeleted.h */,
+				10B4D1811AF821C40083D86C /* ODDeleted.m */,
+				10B4D1821AF821C40083D86C /* ODDrive.h */,
+				10B4D1831AF821C40083D86C /* ODDrive.m */,
+				10B4D1841AF821C40083D86C /* ODFile.h */,
+				10B4D1851AF821C40083D86C /* ODFile.m */,
+				10B4D1861AF821C40083D86C /* ODFolder.h */,
+				10B4D1871AF821C40083D86C /* ODFolder.m */,
+				10B4D1881AF821C40083D86C /* ODHashes.h */,
+				10B4D1891AF821C40083D86C /* ODHashes.m */,
+				10B4D18A1AF821C40083D86C /* ODIdentity.h */,
+				10B4D18B1AF821C40083D86C /* ODIdentity.m */,
+				10B4D18C1AF821C40083D86C /* ODIdentitySet.h */,
+				10B4D18D1AF821C40083D86C /* ODIdentitySet.m */,
+				10B4D18E1AF821C40083D86C /* ODImage.h */,
+				10B4D18F1AF821C40083D86C /* ODImage.m */,
+				10B4D1901AF821C40083D86C /* ODItem.h */,
+				10B4D1911AF821C40083D86C /* ODItem.m */,
+				10B4D1921AF821C40083D86C /* ODItemReference.h */,
+				10B4D1931AF821C40083D86C /* ODItemReference.m */,
+				10B4D1941AF821C40083D86C /* ODLocation.h */,
+				10B4D1951AF821C40083D86C /* ODLocation.m */,
+				10B4D1961AF821C40083D86C /* ODModels.h */,
+				10B4D1971AF821C40083D86C /* ODOpenWithApp.h */,
+				10B4D1981AF821C40083D86C /* ODOpenWithApp.m */,
+				10B4D1991AF821C40083D86C /* ODOpenWithSet.h */,
+				10B4D19A1AF821C40083D86C /* ODOpenWithSet.m */,
+				10B4D19B1AF821C40083D86C /* ODPermission.h */,
+				10B4D19C1AF821C40083D86C /* ODPermission.m */,
+				10B4D19D1AF821C40083D86C /* ODPhoto.h */,
+				10B4D19E1AF821C40083D86C /* ODPhoto.m */,
+				10B4D1A01AF821C40083D86C /* ODQuota.h */,
+				10B4D1A11AF821C40083D86C /* ODQuota.m */,
+				10B4D1A21AF821C40083D86C /* ODShare.h */,
+				10B4D1A31AF821C40083D86C /* ODShare.m */,
+				10B4D1A41AF821C40083D86C /* ODSharingInvitation.h */,
+				10B4D1A51AF821C40083D86C /* ODSharingInvitation.m */,
+				10B4D1A61AF821C40083D86C /* ODSharingLink.h */,
+				10B4D1A71AF821C40083D86C /* ODSharingLink.m */,
+				10B4D1A81AF821C40083D86C /* ODSpecialFolder.h */,
+				10B4D1A91AF821C40083D86C /* ODSpecialFolder.m */,
+				10B4D1AA1AF821C40083D86C /* ODThumbnail.h */,
+				10B4D1AB1AF821C40083D86C /* ODThumbnail.m */,
+				10B4D1AC1AF821C40083D86C /* ODThumbnailSet.h */,
+				10B4D1AD1AF821C40083D86C /* ODThumbnailSet.m */,
+				10B4D1AE1AF821C40083D86C /* ODUploadSession.h */,
+				10B4D1AF1AF821C40083D86C /* ODUploadSession.m */,
+				10B4D1B01AF821C40083D86C /* ODVideo.h */,
+				10B4D1B11AF821C40083D86C /* ODVideo.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		10B4D1B21AF821C40083D86C /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				1013FC4E1B6841BE00BABCC1 /* ODThumbnailContentRequest.h */,
+				1013FC4F1B6841BE00BABCC1 /* ODThumbnailContentRequest.m */,
+				1013FC461B68413A00BABCC1 /* ODItemContentRequest.h */,
+				1013FC471B68413A00BABCC1 /* ODItemContentRequest.m */,
+				10F8233C1B59D467008F74DE /* ODVersionsCollectionRequest.h */,
+				10F8233D1B59D467008F74DE /* ODVersionsCollectionRequest.m */,
+				10F8233E1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h */,
+				10F8233F1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.m */,
+				10A19D251B053B6A00E69443 /* ODThumbnailRequest.h */,
+				10FEE7C11B59BED800392422 /* ODItemDeltaCollection.h */,
+				10FEE7C21B59BED800392422 /* ODItemDeltaCollection.m */,
+				10FEE7C31B59BED800392422 /* ODItemDeltaRequest.h */,
+				10FEE7C41B59BED800392422 /* ODItemDeltaRequest.m */,
+				10FEE7C51B59BED800392422 /* ODItemDeltaRequestBuilder.h */,
+				10FEE7C61B59BED800392422 /* ODItemDeltaRequestBuilder.m */,
+				10A19D261B053B6A00E69443 /* ODThumbnailRequest.m */,
+				10A19D271B053B6A00E69443 /* ODThumbnailRequestBuilder.h */,
+				10A19D281B053B6A00E69443 /* ODThumbnailRequestBuilder.m */,
+				10A19D0B1B042F9800E69443 /* ODItemCreateSessionRequest.h */,
+				10A19D0C1B042F9800E69443 /* ODItemCreateSessionRequest.m */,
+				10A19D0D1B042F9800E69443 /* ODItemCreateSessionRequestBuilder.h */,
+				10A19D0E1B042F9800E69443 /* ODItemCreateSessionRequestBuilder.m */,
+				10B4D1B31AF821C40083D86C /* ODChildrenCollectionRequest.h */,
+				10B4D1B41AF821C40083D86C /* ODChildrenCollectionRequest.m */,
+				10B4D1B51AF821C40083D86C /* ODChildrenCollectionRequestBuilder.h */,
+				10B4D1B61AF821C40083D86C /* ODChildrenCollectionRequestBuilder.m */,
+				10B4D1B71AF821C40083D86C /* ODClient.h */,
+				10B4D1B81AF821C40083D86C /* ODClient.m */,
+				10B4D1BB1AF821C40083D86C /* ODDriveAllPhotosRequest.h */,
+				10B4D1BC1AF821C40083D86C /* ODDriveAllPhotosRequest.m */,
+				10B4D1BD1AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.h */,
+				10B4D1BE1AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.m */,
+				10B4D1C31AF821C40083D86C /* ODDriveRecentRequest.h */,
+				10B4D1C41AF821C40083D86C /* ODDriveRecentRequest.m */,
+				10B4D1C51AF821C40083D86C /* ODDriveRecentRequestBuilder.h */,
+				10B4D1C61AF821C40083D86C /* ODDriveRecentRequestBuilder.m */,
+				10B4D1C71AF821C40083D86C /* ODDriveRequest.h */,
+				10B4D1C81AF821C40083D86C /* ODDriveRequest.m */,
+				10B4D1C91AF821C40083D86C /* ODDriveRequestBuilder.h */,
+				10B4D1CA1AF821C40083D86C /* ODDriveRequestBuilder.m */,
+				10B4D1CB1AF821C40083D86C /* ODDrivesCollectionRequest.h */,
+				10B4D1CC1AF821C40083D86C /* ODDrivesCollectionRequest.m */,
+				10B4D1CD1AF821C40083D86C /* ODDrivesCollectionRequestBuilder.h */,
+				10B4D1CE1AF821C40083D86C /* ODDrivesCollectionRequestBuilder.m */,
+				10B4D1CF1AF821C40083D86C /* ODDriveSharedWithMeRequest.h */,
+				10B4D1D01AF821C40083D86C /* ODDriveSharedWithMeRequest.m */,
+				10B4D1D11AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.h */,
+				10B4D1D21AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.m */,
+				10B4D1D31AF821C40083D86C /* ODItemAllPhotosRequest.h */,
+				10B4D1D41AF821C40083D86C /* ODItemAllPhotosRequest.m */,
+				10B4D1D51AF821C40083D86C /* ODItemAllPhotosRequestBuilder.h */,
+				10B4D1D61AF821C40083D86C /* ODItemAllPhotosRequestBuilder.m */,
+				10B4D1DB1AF821C40083D86C /* ODItemCopyRequest.h */,
+				10B4D1DC1AF821C40083D86C /* ODItemCopyRequest.m */,
+				10B4D1DD1AF821C40083D86C /* ODItemCopyRequestBuilder.h */,
+				10B4D1DE1AF821C40083D86C /* ODItemCopyRequestBuilder.m */,
+				10B4D1DF1AF821C40083D86C /* ODItemCreateLinkRequest.h */,
+				10B4D1E01AF821C40083D86C /* ODItemCreateLinkRequest.m */,
+				10B4D1E11AF821C40083D86C /* ODItemCreateLinkRequestBuilder.h */,
+				10B4D1E21AF821C40083D86C /* ODItemCreateLinkRequestBuilder.m */,
+				10B4D1E31AF821C40083D86C /* ODItemRequest.h */,
+				10B4D1E41AF821C40083D86C /* ODItemRequest.m */,
+				10B4D1E51AF821C40083D86C /* ODItemRequestBuilder.h */,
+				10B4D1E61AF821C40083D86C /* ODItemRequestBuilder.m */,
+				10B4D1E71AF821C40083D86C /* ODItemsCollectionRequest.h */,
+				10B4D1E81AF821C40083D86C /* ODItemsCollectionRequest.m */,
+				10B4D1E91AF821C40083D86C /* ODItemsCollectionRequestBuilder.h */,
+				10B4D1EA1AF821C40083D86C /* ODItemsCollectionRequestBuilder.m */,
+				10B4D1EB1AF821C40083D86C /* ODItemSearchRequest.h */,
+				10A19D2D1B053C4500E69443 /* ODItemSearchRequest.m */,
+				10B4D1ED1AF821C40083D86C /* ODItemSearchRequestBuilder.h */,
+				10B4D1EE1AF821C40083D86C /* ODItemSearchRequestBuilder.m */,
+				10B4D1EF1AF821C40083D86C /* ODODataEntities.h */,
+				10B4D1F01AF821C40083D86C /* ODPermissionRequest.h */,
+				10B4D1F11AF821C40083D86C /* ODPermissionRequest.m */,
+				10B4D1F21AF821C40083D86C /* ODPermissionRequestBuilder.h */,
+				10B4D1F31AF821C40083D86C /* ODPermissionRequestBuilder.m */,
+				10B4D1F41AF821C40083D86C /* ODPermissionsCollectionRequest.h */,
+				10B4D1F51AF821C40083D86C /* ODPermissionsCollectionRequest.m */,
+				10B4D1F61AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.h */,
+				10B4D1F71AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.m */,
+				10B4D1F81AF821C40083D86C /* ODSharedCollectionRequest.h */,
+				10B4D1F91AF821C40083D86C /* ODSharedCollectionRequest.m */,
+				10B4D1FA1AF821C40083D86C /* ODSharedCollectionRequestBuilder.h */,
+				10B4D1FB1AF821C40083D86C /* ODSharedCollectionRequestBuilder.m */,
+				10B4D1FC1AF821C40083D86C /* ODShareRequest.h */,
+				10B4D1FD1AF821C40083D86C /* ODShareRequest.m */,
+				10B4D1FE1AF821C40083D86C /* ODShareRequestBuilder.h */,
+				10B4D1FF1AF821C40083D86C /* ODShareRequestBuilder.m */,
+				10B4D2001AF821C40083D86C /* ODSharesCollectionRequest.h */,
+				10B4D2011AF821C40083D86C /* ODSharesCollectionRequest.m */,
+				10B4D2021AF821C40083D86C /* ODSharesCollectionRequestBuilder.h */,
+				10B4D2031AF821C40083D86C /* ODSharesCollectionRequestBuilder.m */,
+				10B4D2041AF821C40083D86C /* ODSpecialCollectionRequest.h */,
+				10B4D2051AF821C40083D86C /* ODSpecialCollectionRequest.m */,
+				10B4D2061AF821C40083D86C /* ODSpecialCollectionRequestBuilder.h */,
+				10B4D2071AF821C40083D86C /* ODSpecialCollectionRequestBuilder.m */,
+				10B4D2081AF821C40083D86C /* ODThumbnailsCollectionRequest.h */,
+				10B4D2091AF821C40083D86C /* ODThumbnailsCollectionRequest.m */,
+				10B4D20A1AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.h */,
+				10B4D20B1AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.m */,
+				10B4D20C1AF821C40083D86C /* ODThumbnailSetRequest.h */,
+				10B4D20D1AF821C40083D86C /* ODThumbnailSetRequest.m */,
+				10B4D20E1AF821C40083D86C /* ODThumbnailSetRequestBuilder.h */,
+				10B4D20F1AF821C40083D86C /* ODThumbnailSetRequestBuilder.m */,
+			);
+			path = requests;
+			sourceTree = "<group>";
+		};
+		10B4D32E1AF827D80083D86C /* OneDriveSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				10CE79A31AF97EA000033B40 /* ODTestCase.h */,
+				10CE79A41AF97EA000033B40 /* ODTestCase.m */,
+				10A19CF11B03C7CF00E69443 /* AuthUnitTests */,
+				10CE799D1AF9584500033B40 /* Core Unit Tests */,
+				10B4D32F1AF827D80083D86C /* Supporting Files */,
+			);
+			path = OneDriveSDKTests;
+			sourceTree = "<group>";
+		};
+		10B4D32F1AF827D80083D86C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				10B4D3301AF827D80083D86C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10CE799D1AF9584500033B40 /* Core Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				10702E941B600A0C001A85FF /* ODActionsTests.m */,
+				10702E951B600A0C001A85FF /* ODErrorTests.m */,
+				10702E961B600A0C001A85FF /* ODItemRequestTests.m */,
+				10702E971B600A0C001A85FF /* ODJsonResposneHelperTests.m */,
+				10702E981B600A0C001A85FF /* ODLoggerTests.m */,
+				10702E991B600A0C001A85FF /* ODObjectTests.m */,
+				10702E9A1B600A0C001A85FF /* ODRequestOptionsTests.m */,
+				10702E9B1B600A0C001A85FF /* ODRequestTests.m */,
+				10702E9C1B600A0C001A85FF /* ODURLSessionTaskTests.m */,
+			);
+			name = "Core Unit Tests";
+			path = CoreUnitTests;
+			sourceTree = "<group>";
+		};
+		10FED9CF1B2F67AD0087C4D6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				10FED9D01B2F67BA0087C4D6 /* ODAccountStoreProtocol.h */,
+				10FED9D21B2F67BA0087C4D6 /* ODAuthProvider.h */,
+				10FF89C31B4B3E66001A2234 /* ODAccountSession.h */,
+				10B4D13E1AF821C30083D86C /* ODAccountSession.m */,
+				10A19CF21B03C8FF00E69443 /* ODAuthConstants.h */,
+				10A19CF31B03C90E00E69443 /* ODAuthConstants.m */,
+				101103FC1B1E8F7D00A83BAB /* ODServiceInfo.h */,
+				101103FD1B1E8F7D00A83BAB /* ODServiceInfo.m */,
+				10B4D1441AF821C30083D86C /* ODAuthHelper.h */,
+				10B4D1451AF821C30083D86C /* ODAuthHelper.m */,
+				10FED9D31B2F67BA0087C4D6 /* ODHttpProvider.h */,
+				10C001601B4397D200B4BCC4 /* ODLoggerProtocol.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		10FEDA0A1B2F727F0087C4D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10702E8D1B6005E2001A85FF /* libADALiOS.a */,
+				10702E8F1B6005E2001A85FF /* libOCMock.a */,
+				10FEDA111B2F727F0087C4D6 /* libPods-OneDriveSDK.a */,
+				10702E911B6005E2001A85FF /* libPods-OneDriveSDKTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		380730D0B849C1024861E69D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07F15415D48153E70243F2B4 /* libPods-OneDriveSDK.a */,
+				A80DBCCDB6C761D36FB8CBDD /* libPods-OneDriveSDKTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7022A2DF8C8A7E676DE8856F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E90CCBBD2DFEF309CCA46C01 /* Pods-OneDriveSDK Tests.debug.xcconfig */,
+				83146367B4F838F70DA2FC33 /* Pods-OneDriveSDK Tests.release.xcconfig */,
+				11BC54005EED17791D179C16 /* Pods-OneDriveSDK.debug.xcconfig */,
+				5E3D8C1D3DE438DDC5A5C689 /* Pods-OneDriveSDK.release.xcconfig */,
+				D06A311323F5A11F244EE3DF /* Pods-OneDriveSDKTests.debug.xcconfig */,
+				7960493E1BE2BAEEAA7BD57C /* Pods-OneDriveSDKTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		10B4D11D1AF8215D0083D86C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10C001611B4397D200B4BCC4 /* ODLoggerProtocol.h in Headers */,
+				100D33E41B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.h in Headers */,
+				10AA2BD91AFC185300443969 /* ODRequestOptionsBuilder.h in Headers */,
+				100D33E21B3DE090003576F7 /* ODClient+HelperMethods.h in Headers */,
+				10B4D22C1AF821C40083D86C /* ODCollection.h in Headers */,
+				100D33E61B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.h in Headers */,
+				10FEDA1A1B2F76430087C4D6 /* ODCoreSDK.h in Headers */,
+				10FEDA191B2F747F0087C4D6 /* OneDriveSDK.h in Headers */,
+				101103D91B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.h in Headers */,
+				10B4D26B1AF821C40083D86C /* ODItemReference.h in Headers */,
+				10FED9D51B2F67BA0087C4D6 /* ODAccountStoreProtocol.h in Headers */,
+				10B4D27F1AF821C40083D86C /* ODSharingLink.h in Headers */,
+				10B4D2551AF821C40083D86C /* ODAudio.h in Headers */,
+				10B4D2AD1AF821C40083D86C /* ODItemAllPhotosRequestBuilder.h in Headers */,
+				1003AAC61B0BF3DF0039017A /* ODURLSessionProgressTask.h in Headers */,
+				10B4D2D21AF821C40083D86C /* ODSharedCollectionRequestBuilder.h in Headers */,
+				10B4D2DA1AF821C40083D86C /* ODSharesCollectionRequestBuilder.h in Headers */,
+				10B4D2D61AF821C40083D86C /* ODShareRequestBuilder.h in Headers */,
+				10B4D2C31AF821C40083D86C /* ODItemSearchRequest.h in Headers */,
+				10B4D2301AF821C40083D86C /* ODCollectionRequestBuilder.h in Headers */,
+				10A19D0F1B042F9800E69443 /* ODItemCreateSessionRequest.h in Headers */,
+				10B4D27D1AF821C40083D86C /* ODSharingInvitation.h in Headers */,
+				1003AAEE1B0FED020039017A /* ODAppConfiguration.h in Headers */,
+				10B4D2401AF821C40083D86C /* ODURLSessionTask.h in Headers */,
+				1003AABB1B0A82F30039017A /* ODKeychainWrapper.h in Headers */,
+				10B4D2701AF821C40083D86C /* ODOpenWithApp.h in Headers */,
+				10B4D29D1AF821C40083D86C /* ODDriveRecentRequestBuilder.h in Headers */,
+				10B4D22E1AF821C40083D86C /* ODCollectionRequest.h in Headers */,
+				10B4D2A11AF821C40083D86C /* ODDriveRequestBuilder.h in Headers */,
+				10B4D25F1AF821C40083D86C /* ODFolder.h in Headers */,
+				101104051B1E8F7D00A83BAB /* ODServiceInfo.h in Headers */,
+				10B4D2651AF821C40083D86C /* ODIdentitySet.h in Headers */,
+				10B4D2931AF821C40083D86C /* ODDriveAllPhotosRequest.h in Headers */,
+				10B4D23E1AF821C40083D86C /* ODURLSessionDownloadTask.h in Headers */,
+				10B4D2BB1AF821C40083D86C /* ODItemRequest.h in Headers */,
+				10B4D2691AF821C40083D86C /* ODItem.h in Headers */,
+				10B4D2BF1AF821C40083D86C /* ODItemsCollectionRequest.h in Headers */,
+				10B4D2CE1AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.h in Headers */,
+				10B4D2381AF821C40083D86C /* ODRequestBuilder.h in Headers */,
+				10B4D25D1AF821C40083D86C /* ODFile.h in Headers */,
+				10B4D2321AF821C40083D86C /* ODConstants.h in Headers */,
+				10B4D2DC1AF821C40083D86C /* ODSpecialCollectionRequest.h in Headers */,
+				10B4D2AB1AF821C40083D86C /* ODItemAllPhotosRequest.h in Headers */,
+				10B4D21F1AF821C40083D86C /* ODAccountStore.h in Headers */,
+				10B4D2D01AF821C40083D86C /* ODSharedCollectionRequest.h in Headers */,
+				10B4D2D81AF821C40083D86C /* ODSharesCollectionRequest.h in Headers */,
+				10B4D2A31AF821C40083D86C /* ODDrivesCollectionRequest.h in Headers */,
+				10B4D2361AF821C40083D86C /* ODRequest.h in Headers */,
+				10B4D2811AF821C40083D86C /* ODSpecialFolder.h in Headers */,
+				10B4D2A51AF821C40083D86C /* ODDrivesCollectionRequestBuilder.h in Headers */,
+				10B4D2671AF821C40083D86C /* ODImage.h in Headers */,
+				1003AAC11B0BF2750039017A /* ODAsyncURLSessionDataTask.h in Headers */,
+				10B4D2851AF821C40083D86C /* ODThumbnailSet.h in Headers */,
+				10B4D27B1AF821C40083D86C /* ODShare.h in Headers */,
+				10A19D071B03F63600E69443 /* ODAuthConstants.h in Headers */,
+				10B4D2791AF821C40083D86C /* ODQuota.h in Headers */,
+				101104081B1E8F7D00A83BAB /* ODServiceInfoProvider.h in Headers */,
+				10B4D2741AF821C40083D86C /* ODPermission.h in Headers */,
+				1003AACA1B0BF7D40039017A /* ODAsyncOperationStatus.h in Headers */,
+				10B4D29B1AF821C40083D86C /* ODDriveRecentRequest.h in Headers */,
+				10B4D2831AF821C40083D86C /* ODThumbnail.h in Headers */,
+				10B4D2591AF821C40083D86C /* ODDeleted.h in Headers */,
+				10B4D2511AF821C40083D86C /* ODSelectOptions.h in Headers */,
+				10B4D2951AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.h in Headers */,
+				10B4D2E01AF821C40083D86C /* ODThumbnailsCollectionRequest.h in Headers */,
+				10B4D2A71AF821C40083D86C /* ODDriveSharedWithMeRequest.h in Headers */,
+				10B4D2231AF821C40083D86C /* ODAuthHelper.h in Headers */,
+				10B4D28F1AF821C40083D86C /* ODClient.h in Headers */,
+				10B4D2E21AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.h in Headers */,
+				10B4D2421AF821C40083D86C /* ODURLSessionUploadTask.h in Headers */,
+				10B4D2E61AF821C40083D86C /* ODThumbnailSetRequestBuilder.h in Headers */,
+				10B4D2E41AF821C40083D86C /* ODThumbnailSetRequest.h in Headers */,
+				10B4D2721AF821C40083D86C /* ODOpenWithSet.h in Headers */,
+				10B4D2571AF821C40083D86C /* ODChunkedUploadSessionDescriptor.h in Headers */,
+				10B4D23C1AF821C40083D86C /* ODURLSessionDataTask.h in Headers */,
+				10B4D26D1AF821C40083D86C /* ODLocation.h in Headers */,
+				10B4D2871AF821C40083D86C /* ODUploadSession.h in Headers */,
+				10B4D24E1AF821C40083D86C /* ODQueryParameters.h in Headers */,
+				10B4D2D41AF821C40083D86C /* ODShareRequest.h in Headers */,
+				10AA2BE01AFD590200443969 /* ODNameConflict.h in Headers */,
+				10A19D291B053B6A00E69443 /* ODThumbnailRequest.h in Headers */,
+				10B4D25B1AF821C40083D86C /* ODDrive.h in Headers */,
+				10B4D2C71AF821C40083D86C /* ODODataEntities.h in Headers */,
+				10B4D2441AF821C40083D86C /* ODExpandOptions.h in Headers */,
+				10FED9D71B2F67BA0087C4D6 /* ODAuthProvider.h in Headers */,
+				10B4D2CA1AF821C40083D86C /* ODPermissionRequestBuilder.h in Headers */,
+				10B4D2461AF821C40083D86C /* ODHeaderOptions.h in Headers */,
+				10B4D2501AF821C40083D86C /* ODRequestOptions.h in Headers */,
+				10B4D28D1AF821C40083D86C /* ODChildrenCollectionRequestBuilder.h in Headers */,
+				10B4D2891AF821C40083D86C /* ODVideo.h in Headers */,
+				10B4D2C11AF821C40083D86C /* ODItemsCollectionRequestBuilder.h in Headers */,
+				10B4D2211AF821C40083D86C /* ODAuthenticationViewController.h in Headers */,
+				10B4D2B71AF821C40083D86C /* ODItemCreateLinkRequest.h in Headers */,
+				10A19D111B042F9800E69443 /* ODItemCreateSessionRequestBuilder.h in Headers */,
+				10B4D2611AF821C40083D86C /* ODHashes.h in Headers */,
+				10B4D2B31AF821C40083D86C /* ODItemCopyRequest.h in Headers */,
+				10A19D2B1B053B6A00E69443 /* ODThumbnailRequestBuilder.h in Headers */,
+				10B4D2BD1AF821C40083D86C /* ODItemRequestBuilder.h in Headers */,
+				10B4D2B91AF821C40083D86C /* ODItemCreateLinkRequestBuilder.h in Headers */,
+				10B4D2341AF821C40083D86C /* ODObject.h in Headers */,
+				10B4D2DE1AF821C40083D86C /* ODSpecialCollectionRequestBuilder.h in Headers */,
+				10B4D2CC1AF821C40083D86C /* ODPermissionsCollectionRequest.h in Headers */,
+				10B4D24C1AF821C40083D86C /* ODOrderByOptions.h in Headers */,
+				10B4D2481AF821C40083D86C /* ODIfMatch.h in Headers */,
+				10B4D2B51AF821C40083D86C /* ODItemCopyRequestBuilder.h in Headers */,
+				10B4D24A1AF821C40083D86C /* ODIfNoneMatch.h in Headers */,
+				10B4D2A91AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.h in Headers */,
+				10B4D28B1AF821C40083D86C /* ODChildrenCollectionRequest.h in Headers */,
+				10B4D2C51AF821C40083D86C /* ODItemSearchRequestBuilder.h in Headers */,
+				10B4D2631AF821C40083D86C /* ODIdentity.h in Headers */,
+				10B4D2761AF821C40083D86C /* ODPhoto.h in Headers */,
+				100B5BAC1B3DE7670066AF54 /* ODErrorCodes.h in Headers */,
+				10B4D29F1AF821C40083D86C /* ODDriveRequest.h in Headers */,
+				10FED9D81B2F67BA0087C4D6 /* ODHttpProvider.h in Headers */,
+				10B4D2C81AF821C40083D86C /* ODPermissionRequest.h in Headers */,
+				10FEE7D31B59D1C400392422 /* ODSearchResult.h in Headers */,
+				10FEE7CB1B59BED800392422 /* ODItemDeltaRequestBuilder.h in Headers */,
+				10007C691B3081AA00E4ED17 /* ODAuth.h in Headers */,
+				10007C841B332BBD00E4ED17 /* ODClient+DefaultConfiguration.h in Headers */,
+				10FEE7CF1B59D19000392422 /* ODFileSystemInfo.h in Headers */,
+				1013FC481B68413A00BABCC1 /* ODItemContentRequest.h in Headers */,
+				10F823421B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h in Headers */,
+				10F823401B59D467008F74DE /* ODVersionsCollectionRequest.h in Headers */,
+				10007C6F1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.h in Headers */,
+				10007C801B332A6A00E4ED17 /* ODClient+Authentication.h in Headers */,
+				1013FC501B6841BE00BABCC1 /* ODThumbnailContentRequest.h in Headers */,
+				10492F9D1B6168A5004AB045 /* ODURLSessionManager.h in Headers */,
+				10B4D2531AF821C40083D86C /* ODTopOptions.h in Headers */,
+				10FF89C41B4B3E66001A2234 /* ODAccountSession.h in Headers */,
+				10FEE7C71B59BED800392422 /* ODItemDeltaCollection.h in Headers */,
+				10007C901B33609100E4ED17 /* ODError.h in Headers */,
+				10FEE7C91B59BED800392422 /* ODItemDeltaRequest.h in Headers */,
+				100D33E91B3DE37F003576F7 /* NSError+OneDriveSDK.h in Headers */,
+				1086B2BB1B6B1C0600B68EAA /* ODLogger.h in Headers */,
+				10FF89C71B4B4424001A2234 /* ODAADAccountBridge.h in Headers */,
+				10B4D26F1AF821C40083D86C /* ODModels.h in Headers */,
+				101104121B1E8F9400A83BAB /* ODBaseAuthProvider.h in Headers */,
+				101104111B1E8F9400A83BAB /* ODAuthProvider+Protected.h in Headers */,
+				101104141B1E8F9400A83BAB /* ODBusinessAuthProvider.h in Headers */,
+				10492F9B1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h in Headers */,
+				101104161B1E8F9400A83BAB /* ODPersonalAuthProvider.h in Headers */,
+				101104011B1E8F7D00A83BAB /* ODAADServiceInfo.h in Headers */,
+				101104071B1E8F7D00A83BAB /* ODServiceInfo+Protected.h in Headers */,
+				101104031B1E8F7D00A83BAB /* ODMSAServiceInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		10B4D11F1AF8215D0083D86C /* OneDriveSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10B4D1361AF8215D0083D86C /* Build configuration list for PBXNativeTarget "OneDriveSDK" */;
+			buildPhases = (
+				40E37A4C6F880EE888BC1750 /* Check Pods Manifest.lock */,
+				10B4D11B1AF8215D0083D86C /* Sources */,
+				10B4D11C1AF8215D0083D86C /* Frameworks */,
+				10B4D11D1AF8215D0083D86C /* Headers */,
+				10B4D11E1AF8215D0083D86C /* Resources */,
+				95C8F43AA7F2936CE94EF4CE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneDriveSDK;
+			productName = OneDriveSDK;
+			productReference = 10B4D1201AF8215D0083D86C /* OneDriveSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		10B4D32C1AF827D80083D86C /* OneDriveSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10B4D3361AF827D80083D86C /* Build configuration list for PBXNativeTarget "OneDriveSDKTests" */;
+			buildPhases = (
+				C503E913A39CE9C0B7FBB048 /* Check Pods Manifest.lock */,
+				10B4D3291AF827D80083D86C /* Sources */,
+				10B4D32A1AF827D80083D86C /* Frameworks */,
+				10B4D32B1AF827D80083D86C /* Resources */,
+				6571E6AB65E86A4F7FB685F3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10B4D3351AF827D80083D86C /* PBXTargetDependency */,
+			);
+			name = OneDriveSDKTests;
+			productName = "OneDriveSDK Tests";
+			productReference = 10B4D32D1AF827D80083D86C /* OneDriveSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10B4D1171AF8215D0083D86C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					10B4D11F1AF8215D0083D86C = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					10B4D32C1AF827D80083D86C = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 10B4D11A1AF8215D0083D86C /* Build configuration list for PBXProject "OneDriveSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 10B4D1161AF8215D0083D86C;
+			productRefGroup = 10B4D1211AF8215D0083D86C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 10FEDA0A1B2F727F0087C4D6 /* Products */;
+					ProjectRef = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				10B4D11F1AF8215D0083D86C /* OneDriveSDK */,
+				10B4D32C1AF827D80083D86C /* OneDriveSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		10702E8D1B6005E2001A85FF /* libADALiOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libADALiOS.a;
+			remoteRef = 10702E8C1B6005E2001A85FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		10702E8F1B6005E2001A85FF /* libOCMock.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOCMock.a;
+			remoteRef = 10702E8E1B6005E2001A85FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		10702E911B6005E2001A85FF /* libPods-OneDriveSDKTests.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-OneDriveSDKTests.a";
+			remoteRef = 10702E901B6005E2001A85FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		10FEDA111B2F727F0087C4D6 /* libPods-OneDriveSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-OneDriveSDK.a";
+			remoteRef = 10FEDA101B2F727F0087C4D6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10B4D11E1AF8215D0083D86C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B4D32B1AF827D80083D86C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40E37A4C6F880EE888BC1750 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6571E6AB65E86A4F7FB685F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDKTests/Pods-OneDriveSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95C8F43AA7F2936CE94EF4CE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDK/Pods-OneDriveSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C503E913A39CE9C0B7FBB048 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10B4D11B1AF8215D0083D86C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1003AABC1B0A82F30039017A /* ODKeychainWrapper.m in Sources */,
+				10B4D2BA1AF821C40083D86C /* ODItemCreateLinkRequestBuilder.m in Sources */,
+				10B4D2C01AF821C40083D86C /* ODItemsCollectionRequest.m in Sources */,
+				10B4D25A1AF821C40083D86C /* ODDeleted.m in Sources */,
+				10492F9C1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m in Sources */,
+				10B4D2661AF821C40083D86C /* ODIdentitySet.m in Sources */,
+				10B4D2411AF821C40083D86C /* ODURLSessionTask.m in Sources */,
+				10B4D2A01AF821C40083D86C /* ODDriveRequest.m in Sources */,
+				10B4D2A81AF821C40083D86C /* ODDriveSharedWithMeRequest.m in Sources */,
+				10B4D2601AF821C40083D86C /* ODFolder.m in Sources */,
+				10B4D2E31AF821C40083D86C /* ODThumbnailsCollectionRequestBuilder.m in Sources */,
+				10B4D2241AF821C40083D86C /* ODAuthHelper.m in Sources */,
+				10B4D2751AF821C40083D86C /* ODPermission.m in Sources */,
+				10B4D2881AF821C40083D86C /* ODUploadSession.m in Sources */,
+				10B4D2C91AF821C40083D86C /* ODPermissionRequest.m in Sources */,
+				10B4D26E1AF821C40083D86C /* ODLocation.m in Sources */,
+				10FEE7CA1B59BED800392422 /* ODItemDeltaRequest.m in Sources */,
+				10B4D2621AF821C40083D86C /* ODHashes.m in Sources */,
+				10B4D2D91AF821C40083D86C /* ODSharesCollectionRequest.m in Sources */,
+				1003AAC71B0BF3DF0039017A /* ODURLSessionProgressTask.m in Sources */,
+				10B4D2CB1AF821C40083D86C /* ODPermissionRequestBuilder.m in Sources */,
+				10B4D2E11AF821C40083D86C /* ODThumbnailsCollectionRequest.m in Sources */,
+				10B4D2901AF821C40083D86C /* ODClient.m in Sources */,
+				10B4D2351AF821C40083D86C /* ODObject.m in Sources */,
+				10FEE7D01B59D19000392422 /* ODFileSystemInfo.m in Sources */,
+				10B4D2801AF821C40083D86C /* ODSharingLink.m in Sources */,
+				10B4D2561AF821C40083D86C /* ODAudio.m in Sources */,
+				100D33E71B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.m in Sources */,
+				101104021B1E8F7D00A83BAB /* ODAADServiceInfo.m in Sources */,
+				10B4D2B41AF821C40083D86C /* ODItemCopyRequest.m in Sources */,
+				10B4D2581AF821C40083D86C /* ODChunkedUploadSessionDescriptor.m in Sources */,
+				10B4D28E1AF821C40083D86C /* ODChildrenCollectionRequestBuilder.m in Sources */,
+				1003AAEF1B0FED020039017A /* ODAppConfiguration.m in Sources */,
+				10AA2BE11AFD590200443969 /* ODNameConflict.m in Sources */,
+				10B4D2D11AF821C40083D86C /* ODSharedCollectionRequest.m in Sources */,
+				10B4D2201AF821C40083D86C /* ODAccountStore.m in Sources */,
+				100D33E51B3DE090003576F7 /* ODItemRequestBuilder+ItemByPath.m in Sources */,
+				10B4D2CF1AF821C40083D86C /* ODPermissionsCollectionRequestBuilder.m in Sources */,
+				10B4D23F1AF821C40083D86C /* ODURLSessionDownloadTask.m in Sources */,
+				1003AACB1B0BF7D40039017A /* ODAsyncOperationStatus.m in Sources */,
+				10B4D2311AF821C40083D86C /* ODCollectionRequestBuilder.m in Sources */,
+				10B4D2681AF821C40083D86C /* ODImage.m in Sources */,
+				10007C811B332A6A00E4ED17 /* ODClient+Authentication.m in Sources */,
+				10B4D2D51AF821C40083D86C /* ODShareRequest.m in Sources */,
+				10A19D2E1B053C4500E69443 /* ODItemSearchRequest.m in Sources */,
+				10A19D2A1B053B6A00E69443 /* ODThumbnailRequest.m in Sources */,
+				10B4D29E1AF821C40083D86C /* ODDriveRecentRequestBuilder.m in Sources */,
+				101104061B1E8F7D00A83BAB /* ODServiceInfo.m in Sources */,
+				10B4D2AE1AF821C40083D86C /* ODItemAllPhotosRequestBuilder.m in Sources */,
+				101104151B1E8F9400A83BAB /* ODBusinessAuthProvider.m in Sources */,
+				1003AAC21B0BF2750039017A /* ODAsyncURLSessionDataTask.m in Sources */,
+				10B4D2BE1AF821C40083D86C /* ODItemRequestBuilder.m in Sources */,
+				10B4D2B61AF821C40083D86C /* ODItemCopyRequestBuilder.m in Sources */,
+				10B4D2431AF821C40083D86C /* ODURLSessionUploadTask.m in Sources */,
+				10B4D2471AF821C40083D86C /* ODHeaderOptions.m in Sources */,
+				10B4D27A1AF821C40083D86C /* ODQuota.m in Sources */,
+				101104131B1E8F9400A83BAB /* ODBaseAuthProvider.m in Sources */,
+				10B4D24B1AF821C40083D86C /* ODIfNoneMatch.m in Sources */,
+				10B4D2521AF821C40083D86C /* ODSelectOptions.m in Sources */,
+				10007C911B33609100E4ED17 /* ODError.m in Sources */,
+				10B4D22D1AF821C40083D86C /* ODCollection.m in Sources */,
+				10B4D2DB1AF821C40083D86C /* ODSharesCollectionRequestBuilder.m in Sources */,
+				10B4D28A1AF821C40083D86C /* ODVideo.m in Sources */,
+				10B4D2821AF821C40083D86C /* ODSpecialFolder.m in Sources */,
+				10B4D2841AF821C40083D86C /* ODThumbnail.m in Sources */,
+				10B4D2DD1AF821C40083D86C /* ODSpecialCollectionRequest.m in Sources */,
+				10B4D2CD1AF821C40083D86C /* ODPermissionsCollectionRequest.m in Sources */,
+				10B4D2AC1AF821C40083D86C /* ODItemAllPhotosRequest.m in Sources */,
+				10B4D2491AF821C40083D86C /* ODIfMatch.m in Sources */,
+				10B4D2E51AF821C40083D86C /* ODThumbnailSetRequest.m in Sources */,
+				10B4D26A1AF821C40083D86C /* ODItem.m in Sources */,
+				10B4D2DF1AF821C40083D86C /* ODSpecialCollectionRequestBuilder.m in Sources */,
+				10A19CF41B03C90E00E69443 /* ODAuthConstants.m in Sources */,
+				10B4D2941AF821C40083D86C /* ODDriveAllPhotosRequest.m in Sources */,
+				1013FC491B68413A00BABCC1 /* ODItemContentRequest.m in Sources */,
+				10FEE7C81B59BED800392422 /* ODItemDeltaCollection.m in Sources */,
+				10B4D2371AF821C40083D86C /* ODRequest.m in Sources */,
+				10B4D22F1AF821C40083D86C /* ODCollectionRequest.m in Sources */,
+				10B4D2711AF821C40083D86C /* ODOpenWithApp.m in Sources */,
+				10B4D2391AF821C40083D86C /* ODRequestBuilder.m in Sources */,
+				10B4D24F1AF821C40083D86C /* ODQueryParameters.m in Sources */,
+				10B4D2C21AF821C40083D86C /* ODItemsCollectionRequestBuilder.m in Sources */,
+				10007C851B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m in Sources */,
+				10B4D2A61AF821C40083D86C /* ODDrivesCollectionRequestBuilder.m in Sources */,
+				10492F9E1B6168A5004AB045 /* ODURLSessionManager.m in Sources */,
+				10B4D2BC1AF821C40083D86C /* ODItemRequest.m in Sources */,
+				10B4D21E1AF821C40083D86C /* ODAccountSession.m in Sources */,
+				10B4D2A41AF821C40083D86C /* ODDrivesCollectionRequest.m in Sources */,
+				10B4D23D1AF821C40083D86C /* ODURLSessionDataTask.m in Sources */,
+				10B4D2AA1AF821C40083D86C /* ODDriveSharedWithMeRequestBuilder.m in Sources */,
+				100D33E31B3DE090003576F7 /* ODClient+HelperMethods.m in Sources */,
+				10B4D2C61AF821C40083D86C /* ODItemSearchRequestBuilder.m in Sources */,
+				10B4D2861AF821C40083D86C /* ODThumbnailSet.m in Sources */,
+				10A19D2C1B053B6A00E69443 /* ODThumbnailRequestBuilder.m in Sources */,
+				10B4D2771AF821C40083D86C /* ODPhoto.m in Sources */,
+				10B4D25C1AF821C40083D86C /* ODDrive.m in Sources */,
+				10F823411B59D467008F74DE /* ODVersionsCollectionRequest.m in Sources */,
+				10B4D26C1AF821C40083D86C /* ODItemReference.m in Sources */,
+				101103DA1B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.m in Sources */,
+				10FF89C81B4B4424001A2234 /* ODAADAccountBridge.m in Sources */,
+				10B4D28C1AF821C40083D86C /* ODChildrenCollectionRequest.m in Sources */,
+				101104091B1E8F7D00A83BAB /* ODServiceInfoProvider.m in Sources */,
+				10B4D25E1AF821C40083D86C /* ODFile.m in Sources */,
+				10B4D2541AF821C40083D86C /* ODTopOptions.m in Sources */,
+				10FEE7D41B59D1C400392422 /* ODSearchResult.m in Sources */,
+				1086B2BC1B6B1C0600B68EAA /* ODLogger.m in Sources */,
+				10A19D121B042F9800E69443 /* ODItemCreateSessionRequestBuilder.m in Sources */,
+				10B4D2961AF821C40083D86C /* ODDriveAllPhotosRequestBuilder.m in Sources */,
+				10B4D2641AF821C40083D86C /* ODIdentity.m in Sources */,
+				10B4D2D71AF821C40083D86C /* ODShareRequestBuilder.m in Sources */,
+				101104041B1E8F7D00A83BAB /* ODMSAServiceInfo.m in Sources */,
+				10A19D101B042F9800E69443 /* ODItemCreateSessionRequest.m in Sources */,
+				10007C701B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m in Sources */,
+				10B4D2B81AF821C40083D86C /* ODItemCreateLinkRequest.m in Sources */,
+				10B4D27C1AF821C40083D86C /* ODShare.m in Sources */,
+				10B4D2D31AF821C40083D86C /* ODSharedCollectionRequestBuilder.m in Sources */,
+				10B4D27E1AF821C40083D86C /* ODSharingInvitation.m in Sources */,
+				10007CA61B3B1B4100E4ED17 /* NSError+OneDriveSDK.m in Sources */,
+				10B4D2A21AF821C40083D86C /* ODDriveRequestBuilder.m in Sources */,
+				10AA2BD61AFBFEBC00443969 /* ODRequestOptions.m in Sources */,
+				10B4D29C1AF821C40083D86C /* ODDriveRecentRequest.m in Sources */,
+				10B4D2731AF821C40083D86C /* ODOpenWithSet.m in Sources */,
+				101104171B1E8F9400A83BAB /* ODPersonalAuthProvider.m in Sources */,
+				10B4D2451AF821C40083D86C /* ODExpandOptions.m in Sources */,
+				10FEE7CC1B59BED800392422 /* ODItemDeltaRequestBuilder.m in Sources */,
+				10B4D24D1AF821C40083D86C /* ODOrderByOptions.m in Sources */,
+				10B4D2331AF821C40083D86C /* ODConstants.m in Sources */,
+				10007C941B33754F00E4ED17 /* ODErrorCodes.m in Sources */,
+				10B4D2E71AF821C40083D86C /* ODThumbnailSetRequestBuilder.m in Sources */,
+				10B4D2221AF821C40083D86C /* ODAuthenticationViewController.m in Sources */,
+				10AA2BDA1AFC185300443969 /* ODRequestOptionsBuilder.m in Sources */,
+				1013FC511B6841BE00BABCC1 /* ODThumbnailContentRequest.m in Sources */,
+				10F823431B59D467008F74DE /* ODVersionsCollectionRequestBuilder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B4D3291AF827D80083D86C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10702EA51B600A0C001A85FF /* ODURLSessionTaskTests.m in Sources */,
+				10702E9D1B600A0C001A85FF /* ODActionsTests.m in Sources */,
+				10702E9F1B600A0C001A85FF /* ODItemRequestTests.m in Sources */,
+				10702E9E1B600A0C001A85FF /* ODErrorTests.m in Sources */,
+				10702E931B6009B5001A85FF /* ODTestCase.m in Sources */,
+				10702EA61B600A16001A85FF /* ODAuthHelperTests.m in Sources */,
+				10702EA71B600A16001A85FF /* ODPersonalAuthProviderTests.m in Sources */,
+				10702EA81B600A16001A85FF /* ODAccountStoreTests.m in Sources */,
+				10702EA11B600A0C001A85FF /* ODLoggerTests.m in Sources */,
+				10702EA31B600A0C001A85FF /* ODRequestOptionsTests.m in Sources */,
+				10702EA21B600A0C001A85FF /* ODObjectTests.m in Sources */,
+				10702EA01B600A0C001A85FF /* ODJsonResposneHelperTests.m in Sources */,
+				10702EA41B600A0C001A85FF /* ODRequestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10B4D3351AF827D80083D86C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10B4D11F1AF8215D0083D86C /* OneDriveSDK */;
+			targetProxy = 10B4D3341AF827D80083D86C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10B4D1341AF8215D0083D86C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		10B4D1351AF8215D0083D86C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		10B4D1371AF8215D0083D86C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11BC54005EED17791D179C16 /* Pods-OneDriveSDK.debug.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OneDriveSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		10B4D1381AF8215D0083D86C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E3D8C1D3DE438DDC5A5C689 /* Pods-OneDriveSDK.release.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OneDriveSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		10B4D3371AF827D80083D86C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D06A311323F5A11F244EE3DF /* Pods-OneDriveSDKTests.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OneDriveSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		10B4D3381AF827D80083D86C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7960493E1BE2BAEEAA7BD57C /* Pods-OneDriveSDKTests.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OneDriveSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10B4D11A1AF8215D0083D86C /* Build configuration list for PBXProject "OneDriveSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B4D1341AF8215D0083D86C /* Debug */,
+				10B4D1351AF8215D0083D86C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10B4D1361AF8215D0083D86C /* Build configuration list for PBXNativeTarget "OneDriveSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B4D1371AF8215D0083D86C /* Debug */,
+				10B4D1381AF8215D0083D86C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10B4D3361AF827D80083D86C /* Build configuration list for PBXNativeTarget "OneDriveSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B4D3371AF827D80083D86C /* Debug */,
+				10B4D3381AF827D80083D86C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10B4D1171AF8215D0083D86C /* Project object */;
+}
