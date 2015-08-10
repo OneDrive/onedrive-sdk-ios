@@ -25,28 +25,28 @@
 #import <Foundation/Foundation.h>
 
 /**
- This class is used to store account sessions in the keychain
- @warning If you subclass this class to be used with ODAccountStore make sure to overload all three methods
+ This class is used to store account sessions in the keychain.
+ Warning: If this class is a subclass that is used with ODAccountStore, make sure to overload all three methods.
  */
 @interface ODKeychainWrapper : NSObject
 
 /**
- Adds or Updates a given account in the keychain
- @param account the account to store in the keychain
+ Adds or updates a given account in the keychain.
+ @param account The account to store in the keychain.
  */
 - (void)addOrUpdateAccount:(ODAccountSession *)account;
 
 /**
- Retrieves an account with the given accountId
- @param accountId the accountId to use as the key for the account
- @param serviceInfo the service info used to create the ODAccountSession
- @return A complete ODAccountSession object
+ Retrieves an account with the given accountId.
+ @param accountId The accountId to use as the key for the account.
+ @param serviceInfo The service info used to create the ODAccountSession.
+ @return A complete ODAccountSession object.
  */
 - (ODAccountSession *)readFromKeychainWithAccountId:(NSString *)accountId serviceInfo:(ODServiceInfo *)serviceInfo;
 
 /**
- Removes an accountSession from the keychain
- @param account the account to remove from the keychain
+ Removes an accountSession from the keychain.
+ @param account The account to remove from the keychain.
  */
 - (void)removeAccountFormKeychain:(ODAccountSession *)account;
 

@@ -31,17 +31,17 @@
 #import "ODLoggerProtocol.h"
 
 /**
- The base class for ODAuthProvider
+ The base class for ODAuthProvider.
  */
 @interface ODBaseAuthProvider : NSObject <ODAuthProvider>
 
 /**
- The current account session
+ The current account session.
  */
 @property (nonatomic) ODAccountSession *accountSession;
 
 /**
- The logger to log error/warning/debug messgages.
+ The logger to log error/warning/debug messages.
  */
 @property (nonatomic) id<ODLogger> logger;
 

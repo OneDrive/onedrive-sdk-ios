@@ -25,13 +25,13 @@
 #import <Foundation/Foundation.h>
 
 /**
- The `ODAccountSession` object is a property bag for storing information needed to make authentication requests
- @see https://dev.onedrive.com/auth/readme.htm
+ The `ODAccountSession` object is a property bag for storing information needed to make authentication requests.
+ @see https://dev.onedrive.com/auth/readme.htm.
  */
 @interface ODAccountSession : NSObject <NSCopying>
 
 /**
- The access token for the user
+ The access token for the user.
 */
 @property NSString *accessToken;
 
@@ -41,28 +41,28 @@
 @property NSDate *expires;
 
 /**
- The refreshed token to be used when refreshing the access token, this may be nil
+ The refresh token to when refreshing the access token. This may be nil.
  */
 @property NSString *refreshToken;
 
 /**
- The users accountId, this will be a unique string
+ The users accountId. A unique string.
  */
 @property (readonly) NSString *accountId;
 
 /**
- The ServiceInfo object to be used by the account session
+ The ServiceInfo object used by the account session.
  @see ODServiceInfo
  */
 @property (readonly) ODServiceInfo *serviceInfo;
 
 /**
- Creates an ODAccountSession
- @param accountId the accountId of the user, must not be nil
- @param accessToken the access token for the user, must not be nil
- @param expires the datetime stamp indicating when the token expires, must not be nil
- @param refreshToken the refresh token to be used to refresh the access token
- @param serviceInfo the serviceInfo object
+ Creates an ODAccountSession.
+ @param accountId The accountId of the user. Must not be nil.
+ @param accessToken The access token for the user. Must not be nil.
+ @param expires The datetime stamp indicating when the token expires. Must not be nil.
+ @param refreshToken The refresh token to use when refreshing the access token.
+ @param serviceInfo The serviceInfo object.
  */
 - (instancetype) initWithId:(NSString *)accountId
                 accessToken:(NSString *)accessToken
@@ -71,32 +71,32 @@
                 serviceInfo:(ODServiceInfo *)serviceInfo;
 
 /**
- Creates an ODAccountSession from a dictionary
- @param dictionary a dictionary containing account session information, must not be nil
- @param serviceInfo the serviceInfo for the account session
+ Creates an ODAccountSession from a dictionary.
+ @param dictionary A dictionary containing account session information. Must not be nil.
+ @param serviceInfo The serviceInfo for the account session.
  @see initWithId:token:expires:refresh:serviceInfo:
- @warning the dictionary must contain Strings for the following values:
+ @warning The dictionary must contain Strings for the following values:
  
- 1. OD_AUTH_EXPIRES, ticks since 1970 represented as an NSString
- 2. OD_AUTH_USER_ID, the accountId
- 3. OD_AUTH_ACCESS_TOKEN, the access token
+ 1. OD_AUTH_EXPIRES - Ticks since 1970, represented as an NSString
+ 2. OD_AUTH_USER_ID - The accountId
+ 3. OD_AUTH_ACCESS_TOKEN - The access token
 
- It may also contain
+ It may also contain:
  
- -  OD_AUTH_REFRESH_TOKEN, the refresh token to be used when the access token expires
+ -  OD_AUTH_REFRESH_TOKEN - The refresh token to use when the access token expires.
  
  */
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary serviceInfo:(ODServiceInfo *)serviceInfo;
 
 /**
- Creates an NSDictionary of the session containing all of the properties except the service info object
+ Creates an NSDictionary of the session containing all of the properties except the service info object.
  @returns NSDictionary
  */
 - (NSDictionary *)toDictionary;
 
 /**
- The service info flags
- @returns NSDictionary of service info flags
+ The service info flags.
+ @returns NSDictionary of service info flags.
  @see [ODServiceInfo flags]
  */
 - (NSDictionary *)sessionFlags;

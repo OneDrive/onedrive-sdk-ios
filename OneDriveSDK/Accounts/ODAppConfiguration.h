@@ -30,87 +30,88 @@
 #import "ODLoggerProtocol.h"
 
 /**
- Configuration for the application
- All app information should match your app portal with Microsoft Accounts or Azure Active Directory
- visit https://dev.onedrive.com/README.htm for more information
+ Configuration for the application.
+ All app information should match the information in your app portal with Microsoft Accounts or Azure Active Directory.
+ Visit https://dev.onedrive.com/README.htm for more information.
  */
 @interface ODAppConfiguration : NSObject
 
 /**
- Application Id for OneDrive Microsoft Account 
- @see https://dev.onedrive.com/auth/msa_oauth.htm for registration information
+ Application Id for OneDrive registered with Microsoft Account. 
+ See https://dev.onedrive.com/auth/msa_oauth.htm for registration information.
  */
 @property (strong, nonatomic) NSString *microsoftAccountAppId;
 
 /**
- Scopes to be used for OneDrive Microsoft Account 
- @see https://dev.onedrive.com/auth/msa_oauth.htm for registration information
+ Scopes to be used for OneDrive registered with Microsoft Account. 
+ See https://dev.onedrive.com/auth/msa_oauth.htm for registration information.
  */
 @property (strong, nonatomic) NSArray  *microsoftAccountScopes;
 
 /**
- Any flags to be passed into the ODClient if the client is a OneDrive Microsoft Account 
+ Any flags to be passed into the ODClient if the client is OneDrive registered with Microsoft Account. 
  */
 @property (strong, nonatomic) NSDictionary *microsoftAccountFlags;
 
 /**
- Application Id for OneDrive for Business 
- @see https://dev.onedrive.com/auth/aad_oauth.htm for registration information
+ Application Id for OneDrive for Business. 
+ See https://dev.onedrive.com/auth/aad_oauth.htm for registration information.
  */
 @property (strong, nonatomic) NSString *activeDirectoryAppId;
 
 /**
- Redirect URL for OneDrive for Business 
- @see https://dev.onedrive.com/auth/aad_oauth.htm for registration information
- @warning this must be the same as the RedirectURL provided in the Azure Active Directory portal
+ Redirect URL for OneDrive for Business. 
+ See https://dev.onedrive.com/auth/aad_oauth.htm for registration information.
+ Warning: This value must be the same as the RedirectURL provided in the Azure Active Directory portal.
  */
 @property (strong, nonatomic) NSString *activeDirectoryRedirectURL;
 
 /**
- Scopes to be used for OneDrive for Business @see https://dev.onedrive.com/auth/aad_oauth.htm for registration information
+ Scopes to be used for OneDrive for Business.
+ See https://dev.onedrive.com/auth/aad_oauth.htm for registration information.
  */
 @property (strong, nonatomic) NSArray  *activeDirectoryScopes;
 
 /**
- Any flags to be passed into the ODClient if the client is a OneDrive for Business account 
- @see [ODClient serviceFlags]
+ Any flags to be passed into the ODClient if the client is a OneDrive for Business account. 
+ See [ODClient serviceFlags].
  */
 @property (strong, nonatomic) NSDictionary *activeDirectoryFlags;
 
 /**
- The parent view controller to present the Authentication View controller on top of
- @warning if no ParentAuthController is provided, the default will be the root view controller of the application
+ The parent view controller to present the Authentication View controller on top of.
+ Warning: If no ParentAuthController is provided, the default will be the root view controller of the application.
  */
 @property (strong, nonatomic) UIViewController *parentAuthController;
 
 /**
- The Service Info Provider to be used to discovery the correct authentication service
- @warning if this is nil you must provide an authentication provider
- @see authProvider
+ The Service Info Provider to be used to discover the correct authentication service.
+ Warning: If this is nil you must provide an authentication provider.
+ See authProvider.
  */
 @property (strong, nonatomic) ODServiceInfoProvider *serviceInfoProvider;
 
 /**
- The httpProvider to be used for all network requests
- @warning this must not be nil
+ The httpProvider to be used for all network requests.
+ Warning: This must not be nil.
  */
 @property (strong, nonatomic) id <ODHttpProvider> httpProvider;
 
 /**
- The accountStore to be used for persistent access to the service
- @warning if this is nil there will be no storage of accounts, users will have to sign in every time they re-open the application
+ The accountStore to be used for persistent access to the service.
+ Warning: If this is nil there will be no storage of accounts. Users will have to sign in every time they re-open the application.
  */
 @property (strong, nonatomic) id <ODAccountStore> accountStore;
 
 /**
  The Authentication Provider to be used.
- @warning This may be nil, if it is there must be an ODServiceInfoProvider to discover the correct authentication provider to use
- @see serviceInfoProvider
+ Warning: This may be nil, and if it is, there must be an ODServiceInfoProvider to discover the correct authentication provider to use.
+ See serviceInfoProvider.
  */
 @property (strong, nonatomic) id <ODAuthProvider> authProvider;
 
 /**
- The logger to be used in the ODClient
+ The logger to be used in the ODClient.
  */
 @property (strong, nonatomic) id <ODLogger> logger;
 

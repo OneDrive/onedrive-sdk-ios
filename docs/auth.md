@@ -29,11 +29,11 @@ If you know you want to invoke the UI you can make a direct call to authenticate
     }
 }];
 ```
-This method will work the same as clientWithCompletion but it will not check on disk for a client first.
+This method will work the same as clientWithCompletion but it will not check the disk for a client first.
 
 ## Loading accounts from disk
 
-If you know that you already have accounts on disk and want to select which account to use, you can call:
+If you know that you already have accounts on the disk and want to select which account to use, you can call:
 
 ```
 NSArray *accounts = [ODClient loadClients];
@@ -59,6 +59,6 @@ To load the client by the client's account id:
 [ODClient loadClientWithAccountId:<account_id>];
 ```
 
-To get a clients account id, use the `client.accountId` property on ODClient.
+To get a client's account id, use the `client.accountId` property on ODClient.
 
 

@@ -34,52 +34,52 @@
 
 /**
  Creates an error from a URL returned by an authentication service.
- @param url the return returned by the service
- @retun an error object constructed from the url
+ @param url The URL returned by the service.
+ @return An error object constructed from the url.
  */
 - (NSError *)errorFromURL:(NSURL *)url;
 
 /**
- Retrieves the token with the given authentication code
- @param code the code retrieved from the OAuth Service using the code flow method.
- @param completion the completion handler to call when the request is complete.
+ Retrieves the token with the given authentication code.
+ @param code The code retrieved from the OAuth Service using the code flow method.
+ @param completion The completion handler to call when the request is complete.
  */
 - (void)getTokenWithCode:(NSString *)code completion:(AuthCompletion)completion;
 
 /**
- The authentication URL with query parameters used to start the authentication process
+ The authentication URL with query parameters used to start the authentication process.
  */
 - (NSURL *)authURL;
 
 /**
- Creates the first request to the authentication service
- @return the request
+ Creates the first request to the authentication service.
+ @return The request.
  */
 - (NSURLRequest *)authRequest;
 
 /**
- Creates the request to retrieve a token from the authentication service
- @param  code the code retrieved from the initial auth request @see authRequests
- @return the request to be sent
+ Creates the request to retrieve a token from the authentication service.
+ @param  code The code retrieved from the initial auth request. @see authRequests.
+ @return The request to be sent.
  */
 - (NSURLRequest *)tokenRequestWithCode:(NSString *)code;
 
 /**
- Creates a dictionary with the params for a refresh request from the authentication service
- @param  refreshToken the refresh token acquired from the initial token requests @see tokenRequestWithCode:
- @return a dictionary that contains the parameters as key value pairs
+ Creates a dictionary that contains the parameters for a refresh request from the authentication service.
+ @param  refreshToken The refresh token acquired from the initial token requests. @see tokenRequestWithCode:
+ @return A dictionary that contains the parameters as key value pairs.
  */
 - (NSDictionary *)refreshRequestParametersWithRefreshToken:(NSString *)refreshToken;
 
 /**
- Creates the refresh request with the given refreshToken
- @param  refreshToken the token to be used in the request
- @return a request to be made against the authentication service
+ Creates the refresh request with the given refreshToken.
+ @param  refreshToken The token to use in the request.
+ @return A request to the authentication service.
  */
 - (NSURLRequest *)refreshRequestWithRefreshToken:(NSString *)refreshToken;
 
 /**
- @return a request to be used to logout of the current session
+ @return A request to log out of the current session.
  */
 - (NSURLRequest *)logoutRequest;
 

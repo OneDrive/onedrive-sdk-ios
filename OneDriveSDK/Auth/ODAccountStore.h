@@ -26,33 +26,33 @@
 #import "ODLoggerProtocol.h"
 
 /**
- `ODAccountStore` is used to store account information on disk and in keychain
+ `ODAccountStore` stores account information on disk and in keychain.
  */
 @interface ODAccountStore : NSObject <ODAccountStore>
 
 /**
- The logger to be used, may be nil
+ The logger to use. May be nil.
  */
 @property (strong, nonatomic) id <ODLogger> logger;
 
 /**
- Gets the shared instance of the account store
+ Gets the shared instance of the account store.
  The accounts are stored using the ADAL keychain, and the account ids 
- are stored in the documents directory
+ are stored in the Documents directory.
  */
 + (instancetype)defaultAccountStore;
 
 /**
- Creates an account store with the given file
- @param filePath the path to the given file to be used for the store
+ Creates an account store with the given file.
+ @param filePath The path to the given file, used for the store.
  */
 - (instancetype)initWithStoreLocation:(NSString *)filePath;
 
 /**
- Creates an account store with a given file path and a keychain wrapper
- @param filePath the path to the given file to be used for the store
- @param keychainWrapper a keychain wrapper object
- @param logger the logger to be used
+ Creates an account store with a given file path and a keychain wrapper.
+ @param filePath The path to the given file used for the store.
+ @param keychainWrapper A keychain wrapper object.
+ @param logger The logger to use.
  @see ODKeychainWrapper
  */
 - (instancetype)initWithStoreLocation:(NSString *)filePath
@@ -60,8 +60,8 @@
                                logger:(id <ODLogger>)logger;
 
 /**
- Creates an account store with a keychain wrapper
- @param keychainWrapper a keychain wrapper that conforms to the ODKeychainWrapper protocol
+ Creates an account store with a keychain wrapper.
+ @param keychainWrapper A keychain wrapper that conforms to the ODKeychainWrapper protocol.
  @see ODKeychainWrapper
  */
 - (instancetype)initWithKeychainWrapper:(ODKeychainWrapper *)keychainWrapper;

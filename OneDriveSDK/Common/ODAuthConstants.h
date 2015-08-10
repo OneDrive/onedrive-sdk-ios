@@ -28,19 +28,19 @@ typedef NS_ENUM(NSInteger, ODAccountType){
 };
 
 /**
- Enum for the possible error types during the authentication process
- These will be codes for the NSError
+ Enum for the possible error types during the authentication process.
+ These will be codes for the NSError.
  */
 typedef NS_ENUM(NSInteger, ODAuthErrorType) {
-    /** A network error occurred during authentication */
+    /** A network error occurred during authentication. */
     ODNetworkError,
-    /** The authentication service had an error */
+    /** The authentication service had an error. */
     ODServiceError,
-    /** The was an error serializing the response from the service */
+    /** The was an error serializing the response from the service. */
     ODSerializationError,
-    /** The user canceled the authentication flow */
+    /** The user canceled the authentication flow. */
     ODAuthCanceled,
-    /** You do not have the correct account information to be used */
+    /** You do not have the correct account information. */
     ODInvalidAccountType
 };
 

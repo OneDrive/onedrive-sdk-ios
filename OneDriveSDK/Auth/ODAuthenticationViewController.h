@@ -24,28 +24,28 @@
 typedef void (^ODEndURLCompletion)(NSURL *endURL, NSError *error);
 
 /**
- This View Controller is used for OAuth flow
- It will load the startURL and follow all redirects and web requests until the endURL is reached
- It will call the success completion handler if it reaches the endURL or there was an error 
- If the users cancels the error will be a user canceled error
+ This View Controller is used for OAuth flow.
+ It will load the startURL and follow all redirects and web requests until it reaches the endURL.
+ It will call the success completion handler if it reaches the endURL or there was an error. 
+ If the user cancels, the error will be a user canceled error.
  */
 @interface ODAuthenticationViewController : UIViewController
 
 /**
- Starts the OAuth flow
- @param  startURL the URL for web view
- @param  endURL once this URL is reached the completion handler will be called
- @param  successCompletion the completion handler to be called when the endURL is reached or there was an error
+ Starts the OAuth flow.
+ @param  startURL The URL for web view.
+ @param  endURL Once this URL is reached the completion handler will be called.
+ @param  successCompletion The completion handler to call when the endURL is reached or there was an error.
  */
 - (instancetype)initWithStartURL:(NSURL *)startURL
                           endURL:(NSURL *)endURL
                          success:(ODEndURLCompletion)successCompletion;
 
 /**
- Redirects the current view to the startURL
- @param  startURL the URL for the redirect request
- @param  endURL once this URL is reached the completion handler will be called
- @param  successCompletion the completion handler to be called once the flow is complete or there was an error
+ Redirects the current view to the startURL.
+ @param  startURL The URL for the redirect request.
+ @param  endURL Once this URL is reached, the completion handler will be called.
+ @param  successCompletion The completion handler to be called once the flow is complete or there was an error.
  @see initWithStartURL:endURL:success:
  */
 - (void)redirectWithStartURL:(NSURL *)startURL
@@ -53,7 +53,7 @@ typedef void (^ODEndURLCompletion)(NSURL *endURL, NSError *error);
                       success:(ODEndURLCompletion)successCompletion;
 
 /**
- Loads the initial request created from startURL
+ Loads the initial request created from startURL.
  @see initWithStartURL:endURL:success:
  */
 - (void)loadInitialRequest;

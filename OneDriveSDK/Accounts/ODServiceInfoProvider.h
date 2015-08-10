@@ -24,20 +24,20 @@
 #import <UIKit/UIKit.h>
 
 /**
- A completion handler to be called when the discovery service has completed
+ A completion handler to be called when the discovery service has completed.
  */
 typedef void(^disambiguationCompletion)(UIViewController *presentedDiscoveryController, ODServiceInfo *serviceInfo, NSError *error);
 
 /**
- The `ODServiceInfoProvider` Provides the correct service info to use. It will invoke the UI to ask the user their email.
+ The `ODServiceInfoProvider` provides the correct service info to use. It will invoke the UI to prompt the user for their email.
  */
 @interface ODServiceInfoProvider : NSObject <UIWebViewDelegate>
 
 /**
- Starts the Discovery Service flow to discover the correct service info object to use
- @param viewController The provider will Invoke the UI to ask the user for their email. This is the parent view controller to present the UI on
- @param appConfig The app configuration for this application
- @param completionHandler A disambiguationCompletionHandler that will be called when the Discovery Service has returned
+ Starts the discovery service flow to discover the correct service info object to use.
+ @param viewController The provider will Invoke the UI to prompt the user for their email. This is the parent view controller to present the UI on.
+ @param appConfig The app configuration for this application.
+ @param completionHandler A disambiguationCompletion handler that will be called when the discovery service has completed.
  */
 - (void)getServiceInfoWithViewController:(UIViewController *)viewController
                         appConfiguration:(ODAppConfiguration *)appConfig

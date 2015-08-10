@@ -24,39 +24,39 @@
 #import <Foundation/Foundation.h>
 
 /**
- `ODAccountSession` is a protocol to store account information on disk/keychain
+ `ODAccountSession` is a protocol to store account information on disk/keychain.
  */
 @protocol ODAccountStore <NSObject>
 
 /**
- Loads the account that is currently in use
- @return the current account that is in use
+ Loads the account that is currently in use.
+ @return The current account that is in use.
  */
 - (ODAccountSession *)loadCurrentAccount;
 
 /**
- Loads all accounts known
- @return an array of ODAccountSessions
+ Loads all known accounts.
+ @return An array of ODAccountSessions.
  */
 - (NSArray *)loadAccounts;
 
 /**
- Stores the account
- @param account the account to store
- @warning this does not set the current account
+ Stores the account.
+ @param account The account to store.
+ @warning This does not set the current account.
  @see storeCurrentAccount:
  */
 - (void)storeAccount:(ODAccountSession *)account;
 
 /**
- Stores the account as the current account in use
- @param account the account to store as the current account in use
+ Stores the account as the current account in use.
+ @param account The account to store as the current account in use.
  */
 - (void)storeCurrentAccount:(ODAccountSession *)account;
 
 /**
- Deletes the account from the store
- @param account the account to remove from the store
+ Deletes the account from the store.
+ @param account The account to remove from the store.
  */
 - (void)deleteAccount:(ODAccountSession *)account;
 
