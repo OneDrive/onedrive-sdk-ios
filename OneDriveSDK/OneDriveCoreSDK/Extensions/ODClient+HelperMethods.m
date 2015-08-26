@@ -37,11 +37,6 @@
     return [[self drive] items:@"root"];
 }
 
-- (ODItemRequestBuilder *)itemByPath:(NSString *)path
-{
-    return [[ODItemRequestBuilder alloc] initWithURL:[self.baseURL URLByAppendingPathComponent:path] client:self];
-}
-
 - (void)signOutWithCompletion:(void (^)(NSError *error))completionHandler
 {
     if ([self.authProvider respondsToSelector:@selector(signOutWithCompletion:)]){

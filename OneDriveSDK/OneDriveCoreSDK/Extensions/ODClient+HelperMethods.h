@@ -30,9 +30,7 @@
 
 - (ODItemRequestBuilder *)root;
 
-- (ODItemRequestBuilder *)itemByPath:(NSString *)path;
-
-- (void)signOutWithCompletion:(void (^)(NSError *erro))completionHandler;
+- (void)signOutWithCompletion:(void (^)(NSError *error))completionHandler;
 
 - (NSDictionary *)serviceFlags;
 
