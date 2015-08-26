@@ -61,4 +61,13 @@ To load the client by the client's account id:
 
 To get a client's account id, use the `client.accountId` property on ODClient.
 
+## Signing out
 
+To sign out you can call:
+
+```
+[currentClient signOutWithCompletion:^(NSError *error){
+    // This will remove any client information from disk.
+    // An error will be passed back if an error occured during the sign out process.
+}];
+```
