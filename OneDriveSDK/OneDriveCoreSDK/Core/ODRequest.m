@@ -130,7 +130,7 @@
                                                        timeoutInterval:60];
     request.HTTPMethod = method;
     
-    [request setValue:[NSString stringWithFormat:@"iOS-v%@", ODSDKVersion] forHTTPHeaderField:@"X-RequestStats"];
+    [request setValue:[NSString stringWithFormat:@"SDK-Version=iOS-v%@", ODSDKVersion] forHTTPHeaderField:@"X-RequestStats"];
 
     if (body){
         request.HTTPBody = body;
