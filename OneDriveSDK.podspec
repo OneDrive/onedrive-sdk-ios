@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OneDriveSDK"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "OneDrive iOS SDK"
 
   s.description  = <<-DESC
@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "7.0"
 
-  s.source       = { :git => "https://github.com/OneDrive/onedrive-sdk-ios.git" ,
-                     :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/OneDrive/onedrive-sdk-ios.git",
+                     :tag => "#{s.version}"}
 
   s.source_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h" 
   s.public_header_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h" 
