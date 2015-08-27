@@ -22,63 +22,63 @@
 #import <Foundation/Foundation.h>
 
 /**
- Completion handler to be called from ODHttpProvider on download completion
+ Completion handler to be called from ODHttpProvider on download completion.
  */
 typedef void (^ODRawDownloadCompletionHandler)(NSURL *location, NSURLResponse *response, NSError *error);
 
 /**
- Completion handler to be called from ODHttpProvider on upload completion
+ Completion handler to be called from ODHttpProvider on upload completion.
  */
 typedef void (^ODRawUploadCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
 
 /**
- Completion handler to be called form ODHttpProvider on a data task completion
+ Completion handler to be called form ODHttpProvider on a data task completion.
  */
 typedef void (^ODDataCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
 
 /**
- The `ODHttpProvider` protocol is meant to inject all network access from ODClient and ODRequests
+ The `ODHttpProvider` protocol is meant to inject all network access from ODClient and ODRequests.
  */
 @protocol ODHttpProvider <NSObject>
 
 
 /**
- Creates an NSURLSessionDataTask ready to be resumed
- @param  request the request that should be sent
- @param  completionHandler the completion handler to be called on completion. It may be nil.
- @return the NSURLSessionDataTask ready to be resumed
+ Creates an NSURLSessionDataTask ready to be resumed.
+ @param  request The request that should be sent.
+ @param  completionHandler The completion handler to be called on completion. It may be nil.
+ @return The NSURLSessionDataTask ready to be resumed.
  */
 - (NSURLSessionDataTask *) dataTaskWithRequest:(NSURLRequest *)request
                              completionHandler:(ODDataCompletionHandler)completionHandler;
 /**
- Creates an NSURLSessionDataTask ready to be resumed
- @param  request the request that should be sent
- @param  progress a reference to an NSProgress object that will be updated as the download completes. It may be nil
- @param  completionHandler the completion handler to be called on completion. It may be nil.
- @return the NSURLSessionDownloadTask ready to be resumed
+ Creates an NSURLSessionDataTask ready to be resumed.
+ @param  request The request that should be sent.
+ @param  progress A reference to an NSProgress object that will be updated when the download completes. It may be nil.
+ @param  completionHandler The completion handler to be called on completion. It may be nil.
+ @return The NSURLSessionDownloadTask ready to be resumed.
  */
 - (NSURLSessionDownloadTask *) downloadTaskWithRequest:(NSURLRequest *)request
                                               progress:(NSProgress * __autoreleasing *)progress
                                      completionHandler:(ODRawDownloadCompletionHandler)completionHandler;
 /**
- Creates an NSURLSessionUploadTask ready to be resumed
- @param  request the request that should be sent
- @param  fileURL the file to upload
- @param  progress a reference to an NSProgress to be updated as the upload completes. It may be nil
- @param  completionHandler the completion handler to be called on completion. It may be nil.
- @return the NSURLSessionDownloadTask ready to be resumed
+ Creates an NSURLSessionUploadTask ready to be resumed.
+ @param  request The request that should be sent.
+ @param  fileURL The file to upload.
+ @param  progress A reference to an NSProgress to be updated as the upload completes. It may be nil.
+ @param  completionHandler The completion handler to be called on completion. It may be nil.
+ @return The NSURLSessionDownloadTask ready to be resumed.
  */
 - (NSURLSessionUploadTask *) uploadTaskWithRequest:(NSURLRequest *)request
                                           fromFile:(NSURL *)fileURL
                                           progress:(NSProgress * __autoreleasing *)progress
                                  completionHandler:(ODRawUploadCompletionHandler)completionHandler;
 /**
- Creates an NSURLSessionUploadTask ready to be resumed
- @param  request the request that should be sent
- @param  data the data to be uploaded
- @param  progress a reference to an NSProgress to be updated as the upload completes. It may be nil
- @param  completionHandler the completion handler to be called on completion. It may be nil.
- @return the NSURLSessionDownloadTask ready to be resumed
+ Creates an NSURLSessionUploadTask ready to be resumed.
+ @param  request The request to be sent.
+ @param  data The data to be uploaded.
+ @param  progress A reference to an NSProgress to be updated as the upload completes. It may be nil.
+ @param  completionHandler The completion handler to be called on completion. It may be nil.
+ @return The NSURLSessionDownloadTask ready to be resumed.
  */
 - (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request
                                          fromData:(NSData *)data

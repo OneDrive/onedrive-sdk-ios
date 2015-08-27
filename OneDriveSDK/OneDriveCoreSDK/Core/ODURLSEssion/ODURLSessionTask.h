@@ -26,7 +26,7 @@
 #import "ODHttpProvider.h"
 
 /**
- States for the ODURLSessionTask
+ States for the ODURLSessionTask.
  */
 typedef NS_ENUM(NSInteger, ODURLSessionTaskState){
     ODTaskCreated = 0,
@@ -38,12 +38,12 @@ typedef NS_ENUM(NSInteger, ODURLSessionTaskState){
 };
 
 /**
- The Upload Completion Handler to be called when an upload is completed
+ The Upload Completion Handler to be called when an upload is completed.
  */
 typedef void (^ODUploadCompletionHandler)(NSDictionary *response, NSError *error);
 
 /**
- Downlaod completion handler to be called when a download is completed
+ The download completion handler to be called when a download is completed.
  */
 typedef ODRawDownloadCompletionHandler ODDownloadCompletionHandler;
 
@@ -51,37 +51,37 @@ typedef ODRawDownloadCompletionHandler ODDownloadCompletionHandler;
 @interface ODURLSessionTask : NSObject
 
 /**
- The NSURLSessionTask that is created and used to make the actual request
- This may be nil until the inner task is actually created
+ The NSURLSessionTask that is created and used to make the actual request.
+ This may be nil until the inner task is actually created.
  */
 @property (readonly) NSURLSessionTask *innerTask;
 
 /**
- The client that sends the request
+ The client that sends the request.
  */
 @property (strong) ODClient *client;
 
 /**
- The state of the task
+ The state of the task.
  @see ODURLSessionTaskState
  */
 @property (readonly) ODURLSessionTaskState state;
 
 /**
- Creates an `ODURLSessionTask` with the given requests and client
- @param request the request to use, must not be nil
- @param client the client to make the request, must not be nil
+ Creates an `ODURLSessionTask` with the given requests and client.
+ @param request The request to use. Must not be nil.
+ @param client The client to make the request. Must not be nil.
  */
 - (instancetype)initWithRequest:(NSMutableURLRequest *)request client:(ODClient *)client;
 
 /**
- Executes the task
- @warning the task may send an extra request to reauthenticate the session if the auth token has expired
+ Executes the task.
+ @warning The task may send an extra request to reauthenticate the session if the auth token has expired.
  */
 - (void)execute;
 
 /**
- Cancels the task
+ Cancels the task.
  */
 - (void)cancel;
 

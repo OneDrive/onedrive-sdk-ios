@@ -23,15 +23,15 @@
 #import "ODRequest.h"
 
 /**
- An `ODRequest` that is used to make collection requests from the service
+ An `ODRequest` that is used to make collection requests from the service.
  */
 @interface ODCollectionRequest : ODRequest
 
 /**
- Creates an `ODURLSessionDataTask` with the given requests
- @param request the request to create the task with
- @param castBlock a block that will convert a response dictionary to an `ODCollection`
- @param completionHandler the ocmpletion handler to be called when the request is complete
+ Creates an `ODURLSessionDataTask` with the given requests.
+ @param request The request to create the task with.
+ @param castBlock A block that will convert a response dictionary to an `ODCollection`.
+ @param completionHandler The completion handler to be called when the request is complete.
  */
 - (ODURLSessionDataTask *)collectionTaskWithRequest:(NSMutableURLRequest *)request
                              odObjectWithDictionary:(ODObject* (^)(NSDictionary *response))castBlock

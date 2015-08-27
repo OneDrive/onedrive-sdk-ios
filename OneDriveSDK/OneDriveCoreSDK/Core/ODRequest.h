@@ -29,12 +29,12 @@
 @class ODObject, ODURLSessionDataTask, ODURLSessionUploadTask;
 
 /**
- The completion handler to be called when the request is finished
+ The completion handler to be called when the request is finished.
  */
 typedef void (^ODObjectCompletionHandler)(id response, NSError *error);
 
 /**
- The block to be called when the requests needs to construct an ODObject from a response dictionary
+ The block to be called when the requests needs to construct an ODObject from a response dictionary.
  */
 typedef id (^ODObjectWithDictionary)(NSDictionary *response);
 
@@ -44,95 +44,95 @@ typedef id (^ODObjectWithDictionary)(NSDictionary *response);
 @interface ODRequest : NSObject
 
 /**
- The client to make the request
+ The client to make the request.
  */
 @property (readonly) ODClient *client;
 
 /**
- The URL of the request
+ The URL of the request.
  */
 @property (readonly) NSURL *requestURL;
 
 /**
- Creates an `ODRequest` object with the given url and client
- @param url the url to request from the service
- @param client the client to make the request
+ Creates an `ODRequest` object with the given url and client.
+ @param url The url to request from the service.
+ @param client The client to make the request.
  */
 - (instancetype)initWithURL:(NSURL *)url client:(ODClient *)client;
 
 /**
- Creates an `ODRequest` object with the given url, client, and options
- @param url the url to request from the service
- @param options the options for the given request
- @param client the client to make the request
+ Creates an `ODRequest` object with the given url, client, and options.
+ @param url The url to request from the service.
+ @param options The options for the given request.
+ @param client The client to make the request.
  @see ODRequestOptionsBuilder
  */
 - (instancetype)initWithURL:(NSURL *)url options:(NSArray *)options client:(ODClient *)client;
 
 /**
- Appends a select option to the request
- @param select select string
- @return ODRequest the same request with the appended options
+ Appends a select option to the request.
+ @param select Select string.
+ @return An ODRequest that represents the same request with the appended options.
  */
 - (instancetype) select:(NSString *)select;
 
 /**
- Appends an expand option to the request
- @param expand expand string
- @return ODRequest the same request with the appended options
+ Appends an expand option to the request.
+ @param expand Expand string.
+ @return An ODRequest that represents the same request with the appended options.
  */
 - (instancetype) expand:(NSString *)expand;
 
 /**
- Appends an orderBy parameter to the request
- @param orderBy orderBy string
- @return ODRequest the same request with the appended options
+ Appends an orderBy parameter to the request.
+ @param orderBy orderBy string.
+ @return An ODRequest that represents the same request with the appended options.
  */
 - (instancetype) orderBy:(NSString *)orderBy;
 
 /**
- Appends a top parameter to the request
- @param top the amount of objects in the page
- @return ODRequest the same request with the appended options
+ Appends a top parameter to the request.
+ @param top The amount of objects in the page.
+ @return An ODRequest that represents the same request with the appended options.
 */
 - (instancetype) top:(NSInteger)top;
 
 /**
- Appends an ifMatch header to the request
- @param ifMatch a string of comma seperated etags/ctags
- @return ODRequest the same request with the appended options
+ Appends an ifMatch header to the request.
+ @param ifMatch A string of comma separated etags/ctags.
+ @return An ODRequest that represents the same request with the appended options.
  */
 - (instancetype) ifMatch:(NSString *)ifMatch;
 
 /**
- Appends an ifNoneMatch header to the request 
- @param ifNoneMatch a string of comma seperated etags/ctags
- @return ODRequest the same request with the appended options
+ Appends an ifNoneMatch header to the request. 
+ @param ifNoneMatch A string of comma separated etags/ctags.
+ @return An ODRequest that represents the same request with the appended options.
  */
 - (instancetype) ifNoneMatch:(NSString *)ifNoneMatch;
 
 /**
- Appends a name conflict parameter to the request
- @param nameConflict the ODNameConflict object to appaent to the request
- @return ODRequest the same request with the appended options
+ Appends a name conflict parameter to the request.
+ @param nameConflict The ODNameConflict object to append to the request.
+ @return An ODRequest that represents the same request with the appended options.
  */
 - (instancetype) nameConflict:(ODNameConflict *)nameConflict;
 
 /**
- Creates an `ODURLSessionDataTask` with the given request
- @param the request to create the task with
- @param castBlock a block that converts an NSDictionary to an ODObject 
- @param completionHandler the completion handler to be called when the task has finished
+ Creates an `ODURLSessionDataTask` with the given request.
+ @param The request to create the task with.
+ @param castBlock A block that converts an NSDictionary to an ODObject. 
+ @param completionHandler The completion handler to be called when the task has finished.
  */
 - (ODURLSessionDataTask *)taskWithRequest:(NSMutableURLRequest *)request
                    odObjectWithDictionary:(ODObjectWithDictionary)castBlock
                                completion:(ODObjectCompletionHandler)completionHandler;
 
 /**
- Creates an `ODAsyncURLSessionDataTask` with the given request
- @param request the request to create the task with
- @param castBlock a block that converts and NSDictionary into an ODObject
- @param completionHandler a completion handler to be called when the task is complete and/or when the status has been updated
+ Creates an `ODAsyncURLSessionDataTask` with the given request.
+ @param request The request to create the task with.
+ @param castBlock A block that converts and NSDictionary into an ODObject.
+ @param completionHandler A completion handler to be called when the task is complete and/or when the status has been updated.
  */
 - (ODAsyncURLSessionDataTask *)asyncTaskWithRequest:(NSMutableURLRequest *)request
                              odObjectWithDictionary:(ODObjectWithDictionary)castBlock

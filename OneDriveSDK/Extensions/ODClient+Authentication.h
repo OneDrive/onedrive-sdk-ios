@@ -24,42 +24,42 @@
 #import "ODAppConfiguration.h"
 
 /**
- Called when the Authentication has completed
+ Called when the Authentication has completed.
  */
 typedef void (^ODClientAuthenticationCompletion)(ODClient *client, NSError *error);
 
 @interface ODClient (Authentication)
 
 /**
- Reads the current client from the AccountStore
- @param  appConfig the Application Configuration to retrieve the accountStore object from
- @return a Client if one is present
- @return nil if there is no currently logged in client
+ Reads the current client from the AccountStore.
+ @param  appConfig The Application Configuration to retrieve the accountStore object from.
+ @return A Client, if one is present.
+ @return nil if there is no currently logged in client.
  @see ODAccountStore
  */
 + (ODClient *)currentClientWithAppConfig:(ODAppConfiguration *)appConfig;
 
 /**
- Reads all the clients from the AccountStore (@see ODAccountStoreProtocol.h)
- @param appConfig the Application Configuration to retrieve the accountStore object from
+ Reads all the clients from the AccountStore (@see ODAccountStoreProtocol.h).
+ @param appConfig The Application Configuration to retrieve the accountStore object from.
  */
 + (NSArray *)clientsFromAppConfig:(ODAppConfiguration *)appConfig;
 
 /**
- Creates and authenticates an ODClient object
- @param appConfig the Application Configuration object to use
- @param completion the completion handler to be called when the authentication is complete
-        The completion handler will receive an ODClient that has been authenticated or an NSError if one occurred
+ Creates and authenticates an ODClient object.
+ @param appConfig The Application Configuration object to use.
+ @param completion The completion handler to be called when the authentication is complete.
+        The completion handler will receive an ODClient that has been authenticated, or an NSError if one occurred.
  */
 + (void)authenticatedClientWithAppConfig:(ODAppConfiguration *)appConfig completion:(ODClientAuthenticationCompletion)completion;
 
 /**
- Authenticates the client 
- @param  authProvider the Authentication Provider to be used to authenticate the client
- @param  httpProvider the http provider to handle all http requests
- @param  logger the logger used to log messages
- @param  completion the completion handler to be called when authentication is complete
-         error will be nil unless there was an error
+ Authenticates the client using an authentication provider. 
+ @param  authProvider The Authentication Provider to be used to authenticate the client.
+ @param  httpProvider The http provider to handle all http requests.
+ @param  logger The logger used to log messages.
+ @param  completion The completion handler to be called when authentication is complete.
+         error will be nil unless there was an error.
  */
 - (void)authenticateWithAuthProvider:(id <ODAuthProvider>)authProvider
                         httpProvider:(id <ODHttpProvider>)httpProvider
@@ -67,12 +67,12 @@ typedef void (^ODClientAuthenticationCompletion)(ODClient *client, NSError *erro
                           completion:(void (^)(NSError *error))completion;
 
 /**
- @param  viewController the parent view controller on which to display the authenticationViewController
- @param  authProvider the Authentication Provider to be used to authenticate the client
- @param  httpProvider the http provider to handle all http requests
- @param  logger the logger used to log messages
- @param  completion the completion handler to be called when authentication is complete
-         error will be nil unless there was an error
+ @param  viewController The parent view controller on which to display the authenticationViewController.
+ @param  authProvider The Authentication Provider to be used to authenticate the client.
+ @param  httpProvider The http provider to handle all http requests.
+ @param  logger The logger used to log messages.
+ @param  completion The completion handler to be called when authentication is complete.
+         error will be nil unless there was an error.
  @see ODAuthenticationViewController
  */
 - (void)authenticateWithAuthProvider:(id<ODAuthProvider>)authProvider
@@ -82,10 +82,10 @@ typedef void (^ODClientAuthenticationCompletion)(ODClient *client, NSError *erro
                           completion:(void (^)(NSError *))completion;
 
 /**
- Authenticates the client
- @param  appConfig the Application Configuration object to use
- @param  completion the completion handler to be called when authentication is complete
-         error will be nil unless there was an error
+ Authenticates the client using an application configuration.
+ @param  appConfig The Application Configuration object to use.
+ @param  completion The completion handler to be called when authentication is complete.
+         error will be nil unless there was an error.
  */
 - (void)authenticateWithAppConfig:(ODAppConfiguration *)appConfig
                       completion:(void (^)(NSError *error))completion;

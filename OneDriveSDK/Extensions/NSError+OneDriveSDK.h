@@ -25,7 +25,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- Helper methods to determine the type of error received
+ Helper methods to determine the type of error received.
  ## Usage
 
  
@@ -45,26 +45,26 @@
 @interface NSError (OneDriveSDK)
 
 /**
- @return YES if the error was an authentication error
- @return NO if the error was not an authentication error
+ @return YES if the error was an authentication error.
+ @return NO if the error was not an authentication error.
  */
 - (BOOL)isAuthenticationError;
 
 /**
- @return YES if the error was caused by a user canceling the request
- @return NO if the error was not caused by a user canceling the request
+ @return YES if the error was caused by a user cancelling the request.
+ @return NO if the error was not caused by a user cancelling the request.
  */
 - (BOOL)isAuthCanceledError;
 
 /**
- @return YES if the error was a client error
- @return NO if the error was not a client error
+ @return YES if the error was a client error.
+ @return NO if the error was not a client error.
  */
 - (BOOL)isClientError;
 
 /**
- @return the Client error if there was one (see ODError.h)
- @return nil if it was not a client error
+ @return The Client error if there was one (see ODError.h).
+ @return nil if it was not a client error.
  */
 - (ODError *)clientError;
 

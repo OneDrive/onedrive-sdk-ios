@@ -25,26 +25,26 @@
 #import "ODURLSessionTask.h"
 
 /**
- An `ODURLSessionTask` to be used for async tasks.  These tasks will poll a monitor request in the background.
- As the monitor requests complete they will call the ODAsyncActionCompletionHandler only one of the parameters will be non nil at a time
+ An `ODURLSessionTask` to be used for async tasks. These tasks will poll a monitor request in the background.
+ As the monitor requests complete they will call the ODAsyncActionCompletionHandler, and only one of the parameters will be non nil at a time.
  */
 @interface ODAsyncURLSessionDataTask : ODURLSessionTask
 
 /**
- An NSProgress representing the progress of the async task
+ An NSProgress representing the progress of the async task.
  */
 @property NSProgress *progress;
 
 /**
- The Async Action Completion, to be called when the task is completed, has an updated monitor response, or if there was an error
+ The Async Action Completion, to be called when the task is completed, has an updated monitor response, or if there was an error.
  */
 typedef void(^ODAsyncActionCompletion)(id response, ODAsyncOperationStatus *status, NSError *error);
 
 /**
- Creates an `ODAsyncURLSessionDataTask` with the given requests and client
- @param request the request to use, must not be nil
- @param client the client to make the request, must not be nil
- @param completionHandler the completionHandler to be called whenever the task was completed, the status was updated, or there was an error
+ Creates an `ODAsyncURLSessionDataTask` with the given requests and client.
+ @param request The request to use. Must not be nil.
+ @param client The client to make the request. Must not be nil.
+ @param completionHandler The completionHandler to be called whenever the task was completed, the status was updated, or there was an error.
  */
 - (instancetype)initWithRequest:(NSMutableURLRequest *)request
                          client:(ODClient *)client
