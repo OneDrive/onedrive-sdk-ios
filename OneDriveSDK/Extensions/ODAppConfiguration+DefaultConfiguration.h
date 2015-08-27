@@ -24,7 +24,7 @@
 /**
  ## Default Configuration
  
- The shared app configuration uses the provided :
+ The shared app configuration uses the following provided:
  
   1.  ODServiceInfoProvider as the serviceInfoProvider to discover the correct Authentication Provider to use
   2.  ODURLSessionManager as the httpProvider
@@ -43,7 +43,7 @@
 @interface ODAppConfiguration (DefaultConfiguration)
 
 /**
-    Gets the default configuration for the app
+    Gets the default configuration for the app.
  */
 + (instancetype)defaultConfiguration;
 

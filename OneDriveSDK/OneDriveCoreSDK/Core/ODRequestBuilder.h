@@ -28,25 +28,25 @@
 @class ODObject, ODClient;
 
 /**
- The `ODRequestBuilder` constructs `ODRequest` objects from the given url and client
+ The `ODRequestBuilder` constructs `ODRequest` objects from the given url and client.
  @see `ODItemRequestBuilder`
  */
 @interface ODRequestBuilder : NSObject
 
 /**
- The client used to create and send the `ODRequest`
+ The client used to create and send the `ODRequest`.
  */
 @property (readonly) ODClient *client;
 
 /**
- The url of the request
+ The url of the request.
  */
 @property (readonly) NSURL *requestURL;
 
 /**
- Creates an `ODRequestBuilder` with the given url and client
- @param url the url of the request
- @param client the client used to create and send the `ODRequest`
+ Creates an `ODRequestBuilder` with the given url and client.
+ @param url The url of the request.
+ @param client The client used to create and send the `ODRequest`.
  */
 - (instancetype)initWithURL:(NSURL *)url client:(ODClient *)client;
 

@@ -23,28 +23,28 @@
 #import <Foundation/Foundation.h>
 
 /**
- The `ODObject` is the base class for all OneDrive objects
- @see ODItem for an example
+ The `ODObject` is the base class for all OneDrive objects.
+ @see ODItem for an example.
  */
 @interface ODObject : NSObject
 
 /**
- Creates an ODObject with the given dictionary
- @param dictionary the dictionary representation of the object
- @warning this method will return nil if the dictionary is nil
+ Creates an ODObject with the given dictionary.
+ @param dictionary The dictionary representation of the object.
+ @warning This method will return nil if the dictionary is nil.
  */
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
 /**
- Creates a dictionary from the given item
- @return dictionary representation for the given item
+ Creates a dictionary from the given item.
+ @return dictionary Representation for the given item.
  */
 - (NSDictionary*)dictionaryFromItem;
 
 /**
- Creates an NSDate from a string returned from the servers
- @param A date string in ISO 1601 format
- @return an NSDate object of the string
+ Creates an NSDate from a string returned by the server.
+ @param A date string in ISO 1601 format.
+ @return An NSDate object of the string.
  */
 - (NSDate *)dateFromString:(NSString *)dateString;
 

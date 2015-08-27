@@ -23,16 +23,16 @@
 #import "ODURLSessionTask.h"
 
 /**
- An `ODURLSessionTask` to be used for retrieving data
+ An `ODURLSessionTask` to be used for retrieving data.
  @see ODURLSessionTask
  */
 @interface ODURLSessionDataTask : ODURLSessionTask
 
 /**
- Creates a Download task with the given request and client
- @param request the mutableURL request, must not be nil
- @param client the client that will send the request, must not be nil
- @param completionHandler the completion handler to call when the task has completed
+ Creates a Download task with the given request and client.
+ @param request The mutableURL request. Must not be nil.
+ @param client The client that will send the request. Must not be nil.
+ @param completionHandler The completion handler to call when the task has completed.
  */
 - (instancetype)initWithRequest:(NSMutableURLRequest *)request
                          client:(ODClient *)client

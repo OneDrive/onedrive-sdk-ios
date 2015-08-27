@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  LogLevels for the logger
+ *  LogLevels for the logger.
  */
 typedef NS_ENUM(NSInteger, ODLogLevel){
     ODLogError = 0,
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, ODLogLevel){
  
  ## Usage
  
- The logger should only log messages when they are at the same level or below the level of the logger
+ The logger should only log messages when they are at the same level or below the level of the logger.
  
         [logger setLogLevel:ODLogInfo];
         [logger logWithLevel:ODLogWarn message:@"This should get logged"]; // logs " OneDriveSDK WARNING: This should get logged"
@@ -49,17 +49,17 @@ typedef NS_ENUM(NSInteger, ODLogLevel){
 @protocol ODLogger <NSObject>
 
 /**
- Sets the logging level of the logger
- @param logLevel the level to start logging
+ Sets the logging level of the logger.
+ @param logLevel The level to start logging.
  @see ODLogLevel
  */
 - (void)setLogLevel:(ODLogLevel)logLevel;
 
 /**
- Logs the message at the current level
- @param level the level to log the message at @see ODLogLevel
- @param messageFormat a string or format string and objects for the format string
- @warning should only log messages if the logLevel of the logger is set to that level or below
+ Logs the message at the current level.
+ @param level The level to log the message at @see ODLogLevel.
+ @param messageFormat A string or format string and objects for the format string.
+ @warning You should only log messages if the logLevel of the logger is set to that level or below.
  */
 - (void)logWithLevel:(ODLogLevel)level message:(NSString *)messageFormat, ...;
 

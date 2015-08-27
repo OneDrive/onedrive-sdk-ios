@@ -27,56 +27,56 @@
 typedef void(^AuthCompletion)(NSError *error);
 
 /**
-   The `ODAuthProvider` a protocol should be use to inject authentication into the ODClient.
-   It should handle all initial authentication, refreshing, and appending authentication headers to http requests
+   The `ODAuthProvider` is a protocol that is used to inject authentication into the ODClient.
+   It should handle all initial authentication, refreshing, and appending authentication headers to http requests.
  */
 @protocol ODAuthProvider <NSObject>
 
 /**
-   The base URL of the service you want to access
+   The base URL of the service you want to access.
  */
 @property (readonly) NSString *baseURL;
 
 
 /**
-  A dictionary of user defined flags, may be nil
+  A dictionary of user defined flags, may be nil.
  */
 @property (readonly) NSDictionary *serviceFlags;
 
 /**
-   Appends the proper authentication headers to the given request
-   @param request the request to append headers to
-   @param completionHandler the completion handler to be called when the auth headers have been appended
-          error should be non nil if there was no error and should contain any error that occurred
+   Appends the proper authentication headers to the given request.
+   @param request The request to append headers to.
+   @param completionHandler The completion handler to be called when the auth headers have been appended.
+          error should be non nil if there was no error, and should contain any error(s) that occurred.
  */
 - (void) appendAuthHeaders:(NSMutableURLRequest *)request completion:(void (^)(NSMutableURLRequest *requests, NSError *error))completionHandler;
 
 @optional
 /**
-   Authenticates the AuthProvider with UI, viewController should be used as the parent view controller
-   @param viewController the view controller to present the UI on
-   @param completionHandler the completion handler to be called when the authentication has completed
-          error should be non nil if there was no error and should contain any error that occurred
+   Authenticates the AuthProvider with UI, where viewController specifies the parent view controller.
+   @param viewController The view controller to present the UI on.
+   @param completionHandler The completion handler to be called when the authentication has completed.
+          error should be non nil if there was no error, and should contain any error(s) that occurred.
  */
 - (void) authenticateWithViewController:(UIViewController*)viewController completion:(void (^)(NSError *error))completionHandler;
 
 /**
-   Authenticates with a given AccountSession. This method should not invoke any UI
-   @param session the Account Session to authenticate with
-   @param completionHandler the completion handler to be called when the authentication has completed
-          error should be non nil if there was no error and should contain any error that occurred
+   Authenticates with a given AccountSession. This method should not invoke any UI.
+   @param session The Account Session to authenticate with.
+   @param completionHandler The completion handler to be called when the authentication has completed.
+          error should be non nil if there was no error, and should contain any error(s) that occurred.
  */
 - (void) authenticateWithAccountSession:(ODAccountSession *)session completion:(void (^)(NSError *error))completionHandler;
 
 /**
-   Signs out the current AuthProvider
-   @param completionHandler the completion handler to be called when sign out has completed
-          error should be non nil if there was no error and should contain any error that occurred
+   Signs out the current AuthProvider.
+   @param completionHandler The completion handler to be called when sign out has completed.
+          error should be non nil if there was no error, and should contain any error(s) that occurred.
  */
 - (void) signOutWithCompletion:(void (^)(NSError *error))completionHandler;
 
 /**
-   Gets the current account session
+   Gets the current account session.
  */
 - (ODAccountSession *)accountSession;
 
