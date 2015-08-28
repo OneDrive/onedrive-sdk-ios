@@ -26,7 +26,7 @@
 
 + (instancetype) orderBy:(NSString *)orderBy
 {
-    return [[ODOrderByOptions alloc] initWithKey:@"orderBy" value:orderBy];
+    return [[ODOrderByOptions alloc] initWithKey:@"orderby" value:orderBy];
 }
 
 @end
