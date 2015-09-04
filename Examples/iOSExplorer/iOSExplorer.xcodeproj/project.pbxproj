@@ -10,6 +10,7 @@
 		10007C751B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10007C731B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard */; };
 		10007C761B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10007C741B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard */; };
 		1003AADC1B0E52460039017A /* ODXActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AADB1B0E52460039017A /* ODXActionController.m */; };
+		105857821B9A1F8000B71550 /* ODXProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105857811B9A1F8000B71550 /* ODXProgressViewController.m */; };
 		106DAAE61AF82DE9001FF917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 106DAAE51AF82DE9001FF917 /* main.m */; };
 		106DAB2C1AF82E68001FF917 /* ODXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 106DAB131AF82E68001FF917 /* ODXAppDelegate.m */; };
 		106DAB2D1AF82E68001FF917 /* ODXItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106DAB151AF82E68001FF917 /* ODXItemCollectionViewCell.m */; };
@@ -38,6 +39,8 @@
 		10007C741B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPhone_Storyboard.storyboard; path = ../../../OneDriveSDK/Pods/ADALiOS/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
 		1003AADA1B0E52460039017A /* ODXActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODXActionController.h; path = iOSExplorer/ODXActionController.h; sourceTree = SOURCE_ROOT; };
 		1003AADB1B0E52460039017A /* ODXActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODXActionController.m; path = iOSExplorer/ODXActionController.m; sourceTree = SOURCE_ROOT; };
+		105857801B9A1F8000B71550 /* ODXProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODXProgressViewController.h; sourceTree = "<group>"; };
+		105857811B9A1F8000B71550 /* ODXProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODXProgressViewController.m; sourceTree = "<group>"; };
 		106DAAE01AF82DE9001FF917 /* iOSExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106DAAE41AF82DE9001FF917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		106DAAE51AF82DE9001FF917 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				106DAB151AF82E68001FF917 /* ODXItemCollectionViewCell.m */,
 				106DAB1F1AF82E68001FF917 /* ODXItemCollectionViewController.h */,
 				106DAB201AF82E68001FF917 /* ODXItemCollectionViewController.m */,
+				105857801B9A1F8000B71550 /* ODXProgressViewController.h */,
+				105857811B9A1F8000B71550 /* ODXProgressViewController.m */,
 				106DAB251AF82E68001FF917 /* ODXTextViewController.h */,
 				106DAB261AF82E68001FF917 /* ODXTextViewController.m */,
 				10007C721B31D86800E4ED17 /* Resources */,
@@ -273,6 +278,7 @@
 				1003AADC1B0E52460039017A /* ODXActionController.m in Sources */,
 				106DAB351AF82E68001FF917 /* ODXTextViewController.m in Sources */,
 				106DAB321AF82E68001FF917 /* ODXItemCollectionViewController.m in Sources */,
+				105857821B9A1F8000B71550 /* ODXProgressViewController.m in Sources */,
 				106DAB2C1AF82E68001FF917 /* ODXAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
