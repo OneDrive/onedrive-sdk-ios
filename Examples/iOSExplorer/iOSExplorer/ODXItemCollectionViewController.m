@@ -22,6 +22,7 @@
 #import "ODXItemCollectionViewController.h"
 #import "ODXTextViewController.h"
 #import "ODXActionController.h"
+#import "ODXProgressViewController.h"
 
 @interface ODXItemCollectionViewController()
 
@@ -37,8 +38,11 @@
 
 @property UIBarButtonItem *actions;
 
+@property ODXProgressViewController *progressController;
+
 @end
 
+static void *ProgressObserverContext = &ProgressObserverContext;
 
 @implementation ODXItemCollectionViewController
 
@@ -50,6 +54,7 @@
     self.thumbnails = [NSMutableDictionary dictionary];
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.storyBoardId = @"ItemViewController";
+    self.progressController = [[ODXProgressViewController alloc] initWithParentViewController:self];
     
     [self.collectionView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
@@ -215,7 +220,8 @@
         [self.collectionView reloadData];
     }
     else if ([item.file.mimeType isEqualToString:@"text/plain"]){
-        [[[[self.client drive] items:item.id] contentRequest] downloadWithCompletion:^(NSURL *filePath, NSURLResponse *response, NSError *error){
+    ODURLSessionDownloadTask *task = [[[[self.client drive] items:item.id] contentRequest] downloadWithCompletion:^(NSURL *filePath, NSURLResponse *response, NSError *error){
+        [self.progressController hideProgress];
             if (!error){
                 NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
                 NSString *newFilePath = [documentPath stringByAppendingPathComponent:item.name];
@@ -245,6 +251,7 @@
                 [self.selectedItems removeObject:item];
             }
         }];
+        [self.progressController showProgressWithTitle:[NSString stringWithFormat:@"Downloading %@", item.name] progress:task.progress];
     }
 }
 

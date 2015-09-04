@@ -23,10 +23,13 @@
 #import "ODXTextViewController.h"
 #import <OneDriveSDK/OneDriveSDK.h>
 #import "ODXActionController.h"
+#import "ODXProgressViewController.h"
 
 @interface ODXTextViewController ()
 
 @property (strong, nonatomic) void(^itemSaveCompletion)(ODItem *item);
+
+@property ODXProgressViewController *progressController;
 
 @end
 
@@ -35,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = (self.item) ? self.item.name : [self.filePath lastPathComponent];
+    self.progressController = [[ODXProgressViewController alloc] initWithParentViewController:self];
     [self.textView setText:[NSString stringWithContentsOfURL:[NSURL fileURLWithPath:self.filePath] encoding:NSUTF8StringEncoding error:nil]];
     UIBarButtonItem *save= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveFile)];
     self.navigationController.topViewController.navigationItem.rightBarButtonItem = save;
@@ -65,9 +69,10 @@
 
 - (void)uploadContentRequest:(ODItemContentRequest*)contentRequest fromFile:(NSURL *)url
 {
-    [contentRequest uploadFromFile:url completion:^(ODItem *item, NSError *error){
+    ODURLSessionUploadTask *task = [contentRequest uploadFromFile:url completion:^(ODItem *item, NSError *error){
         [self showUploadResponse:item contentRequest:contentRequest fromUrl:url error:error];
     }];
+    [self.progressController showProgressWithTitle:[NSString stringWithFormat:@"Uploading!"] progress:task.progress];
 }
 
 - (void)showUploadResponse:(ODItem *)item
@@ -75,6 +80,7 @@
                    fromUrl:(NSURL *)fileURL
                      error:(NSError *)error
 {
+    [self.progressController hideProgress];
     UIAlertController *responseController = nil;
     if (error){
         responseController = [UIAlertController alertControllerWithTitle:@"Fialed To Upload item" message:nil preferredStyle:UIAlertControllerStyleAlert];
