@@ -64,9 +64,9 @@
     NSParameterAssert(sentBytes);
     NSParameterAssert(expectedByes);
     
-    if (_progress){
-        _progress.totalUnitCount = expectedByes;
-        _progress.completedUnitCount = sentBytes;
+    if (self.progress){
+        self.progress.totalUnitCount = expectedByes;
+        self.progress.completedUnitCount = sentBytes;
     }
     
 }

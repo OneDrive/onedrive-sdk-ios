@@ -24,21 +24,11 @@
 
 @implementation ODURLSessionProgressTask
 
-- (instancetype)initWithRequest:(NSMutableURLRequest *)request client:(ODClient *)client
+- (NSProgress *)createProgress
 {
-    self = [super initWithRequest:request client:client];
-    if (self){
-        _innerProgress = nil;
-    }
-    return self;
-}
-
-- (NSProgress *)progress
-{
-    if (_innerProgress){
-        return *_innerProgress;
-    }
-    return nil;
+    NSProgress *progress = [NSProgress progressWithTotalUnitCount:0];
+    _progress = progress;
+    return progress;
 }
 
 @end

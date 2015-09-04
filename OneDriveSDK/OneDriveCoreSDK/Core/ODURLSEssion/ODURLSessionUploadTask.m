@@ -70,13 +70,14 @@
 -(NSURLSessionUploadTask *)taskWithRequest:(NSMutableURLRequest *)request
 {
     NSURLSessionUploadTask *uploadTask = nil;
+    NSProgress *progress = [self createProgress];
     if (self.data){
-        uploadTask = [self.client.httpProvider uploadTaskWithRequest:request fromData:self.data progress:_innerProgress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        uploadTask = [self.client.httpProvider uploadTaskWithRequest:request fromData:self.data progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
             [self onCompletion:data response:response error:error];
         }];
     }
     else{
-        uploadTask = [self.client.httpProvider uploadTaskWithRequest:request fromFile:self.fileURL progress:_innerProgress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        uploadTask = [self.client.httpProvider uploadTaskWithRequest:request fromFile:self.fileURL progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
             [self onCompletion:data response:response error:error];
         }];
     }

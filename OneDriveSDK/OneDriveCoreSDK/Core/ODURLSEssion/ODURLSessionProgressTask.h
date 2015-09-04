@@ -25,13 +25,14 @@
 /**
  An `ODURLSessionTask` that contains a NSProgress object.  When you create the task, the progress property will be updated as the task completes.
  */
-@interface ODURLSessionProgressTask : ODURLSessionTask{
-    NSProgress * __autoreleasing *_innerProgress;
-}
+@interface ODURLSessionProgressTask : ODURLSessionTask
+
 
 /**
  The NSProgress to monitor.
  */
-@property (readonly) NSProgress *progress;
+@property (strong, readonly) NSProgress *progress;
+
+- (NSProgress *)createProgress;
 
 @end
