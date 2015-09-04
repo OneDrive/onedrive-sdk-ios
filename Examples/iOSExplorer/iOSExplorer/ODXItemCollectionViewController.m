@@ -86,7 +86,6 @@ static void *ProgressObserverContext = &ProgressObserverContext;
     [ODClient authenticatedClientWithCompletion:^(ODClient *client, NSError *error){
         if (!error){
             self.client = client;
-            [self.client setLogLevel:ODLogVerbose];
             [self loadChildren];
             self.navigationItem.rightBarButtonItem = self.actions;
         }
