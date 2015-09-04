@@ -1,6 +1,6 @@
 # Authentication
 
-To authenticate your app, you only need to get a ODClient, which will handle all authentication for you. Note that if the user changes their password, you must re-authenticate.  If you see `401` error codes, this is most likley the case. See [Errors](error.md) for more info.
+To authenticate your app, you only need to get a ODClient, which will handle all authentication for you. Note that if the user changes their password, you must re-authenticate.  If you see `401` error codes, this is most likley the case. See [Errors](errors.md) for more info.
 
 ## Simple authentication
 The easiest way to get authenticated is to call the clientWithCompletion method:
