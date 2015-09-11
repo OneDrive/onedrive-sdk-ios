@@ -67,7 +67,7 @@ static void *ProgressObserverContext = &ProgressObserverContext;
     self.progressController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
     self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
     self.progressView.progressTintColor = [UIColor blueColor];
-    [self.progressView setProgress:0.25 animated:YES];
+    [self.progressView setProgress:0 animated:YES];
     [self.progressController.view addSubview:self.progressView];
     [self.parentViewController presentViewController:self.progressController animated:YES completion:nil];
     [progress addObserver:self forKeyPath:NSStringFromSelector(@selector(fractionCompleted)) options:0 context:ProgressObserverContext];
