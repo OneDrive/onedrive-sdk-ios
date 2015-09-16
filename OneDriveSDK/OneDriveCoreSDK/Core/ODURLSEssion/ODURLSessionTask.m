@@ -54,11 +54,11 @@
         if (self.state != ODTaskCanceled){
             if (!error){
                 _state = ODTaskExecuting;
-                    _innerTask = [self taskWithRequest:request];
-                    [self.client.logger logWithLevel:ODLogInfo message:@"Created NSURLSessionTask"];
-                    [self.client.logger logWithLevel:ODLogVerbose message:@"Task Id : %ld", _innerTask.taskIdentifier];
-                    [_innerTask resume];
-                }
+                _innerTask = [self taskWithRequest:request];
+                [self.client.logger logWithLevel:ODLogInfo message:@"Created NSURLSessionTask"];
+                [self.client.logger logWithLevel:ODLogVerbose message:@"Task Id : %ld", _innerTask.taskIdentifier];
+                [_innerTask resume];
+            }
             else{
                 _state = ODTaskAuthFailed;
                 [self.client.logger logWithLevel:ODLogError message:@"Authentication Failed with error :%@", error];
@@ -80,13 +80,13 @@
 
 - (NSURLSessionTask *)taskWithRequest:(NSMutableURLRequest *)request
 {
-    NSAssert(YES, @"Not Implemented, must implement in sub class");
+    NSAssert(NO, @"Not Implemented, must implement in sub class");
     return nil;
 }
 
 - (void)authenticationFailedWithError:(NSError *)authError
 {
-    NSAssert(YES, @"Not Implemented, must implement in sub class");
+    NSAssert(NO, @"Not Implemented, must implement in sub class");
 }
 
 @end

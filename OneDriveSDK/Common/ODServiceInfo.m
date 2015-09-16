@@ -92,7 +92,7 @@
                                         accountStore:(id <ODAccountStore>)accountStore
                                               logger:(id <ODLogger> )logger
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
