@@ -29,6 +29,26 @@
 #import "NSJSONSerialization+ResponseHelper.h"
 #import "ODError.h"
 
+/*
+ iOS 9 changed NSURLSessionDataTask properties to dynamic, OCMock does not support mocking dynamic properties in 
+ the current release (3.1.5) but will in 3.2, for now we will create a mock task ourselves.
+ See commit (https://github.com/erikdoe/ocmock/commit/8556be0d744d4a4c770ce73416035885dc6c7871) for changes.
+ */
+@interface NSURLSessionDataTask(Test)
+
+@property (readonly) NSUInteger taskIdentifier;
+
+@end
+
+@implementation NSURLSessionDataTask (Test)
+
+- (NSUInteger)taskIdentifier
+{
+    return 0;
+}
+
+@end
+
 @interface ODAsyncURLSessionDataTask()
 
 @property NSMutableURLRequest *monitorRequest;
@@ -93,7 +113,7 @@
 
 - (void)testTaskDidStart{
     [self setAuthProvider:self.mockAuthProvider appendHeaderResponseWith:self.mockRequest error:nil];
-    NSURLSessionTask *mockTask = OCMStrictClassMock([NSURLSessionDataTask class]);
+    id mockTask = OCMStrictClassMock([NSURLSessionDataTask class]);
     OCMStub([mockTask taskIdentifier]).andReturn(1);
 
     __block ODURLSessionDataTask *dataTask = [[ODURLSessionDataTask alloc] initWithRequest:self.mockRequest client:self.mockClient completion:nil];
@@ -107,7 +127,7 @@
     .andDo(^(NSInvocation *invocation){
     });
     
-    [dataTask execute];
+    [mockDataTask execute];
     XCTAssertEqual(mockDataTask.state, ODTaskExecuting);
     OCMVerify([mockTask resume]);
     OCMVerify([mockDataTask taskWithRequest:[OCMArg any]]);

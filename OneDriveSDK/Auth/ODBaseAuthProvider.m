@@ -176,8 +176,15 @@
     [self.logger logWithLevel:ODLogDebug message:@"Signing out session: %@", self.accountSession.accountId];
     [self.accountStore deleteAccount:self.accountSession];
     self.accountSession = nil;
-    [[self.httpProvider dataTaskWithRequest:[self logoutRequest] completionHandler:nil] resume];
-    if (completionHandler){
+    NSURLRequest *logoutRequest = [self logoutRequest];
+    if (logoutRequest){
+        [[self.httpProvider dataTaskWithRequest:[self logoutRequest] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+            if (completionHandler){
+                completionHandler(error);
+            }
+        }] resume];
+    }
+    else if (completionHandler){
         completionHandler(nil);
     }
 }
@@ -205,7 +212,7 @@
 
 - (NSError *)errorFromURL:(NSURL *)url
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
@@ -228,7 +235,7 @@
 
 - (NSDictionary *)authRequestParameters
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
@@ -239,51 +246,51 @@
 
 - (NSURLRequest *)authRequest
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 - (NSDictionary *)tokenRequestParametersWithCode:(NSString *)code
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 - (NSURLRequest *)tokenRequestWithCode:(NSString *)code
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 - (NSDictionary *)refreshRequestParametersWithRefreshToken:(NSString *)refreshToken;
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 - (NSURLRequest *)tokenRequestWithParameters:(NSDictionary *)params
 {
     
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 
 - (NSURLRequest *)refreshRequestWithRefreshToken:(NSString *)refreshToken
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 - (NSDictionary *)logoutRequestParameters
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
 - (NSURLRequest *)logoutRequest
 {
-    NSAssert(YES, @"Must Implement in base class");
+    NSAssert(NO, @"Must Implement in base class");
     return nil;
 }
 
