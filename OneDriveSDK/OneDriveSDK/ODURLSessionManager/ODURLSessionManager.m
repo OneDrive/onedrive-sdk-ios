@@ -152,7 +152,7 @@
     ODURLSessionTaskDelegate *delegate = [self getDelegateForTask:task];
     
     if (delegate){
-        [delegate updateProgressWithBytesSent:bytesSent expectedBytes:totalBytesExpectedToSend];
+        [delegate updateProgressWithBytesSent:totalBytesSent expectedBytes:totalBytesExpectedToSend];
     }
 }
 
@@ -165,7 +165,7 @@
     ODURLSessionTaskDelegate *delegate = [self getDelegateForTask:downloadTask];
     
     if (delegate){
-        [delegate updateProgressWithBytesSent:bytesWritten expectedBytes:totalBytesExpectedToWrite];
+        [delegate updateProgressWithBytesSent:totalBytesWritten expectedBytes:totalBytesExpectedToWrite];
     }
 }
 

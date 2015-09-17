@@ -8,7 +8,7 @@ To retrieve a collection, like a folder's children, you call getWithCompletion:
 
 ```
 [[[[[odClient drive] items:<item_id>] children] request] getWithCompletion:
-    ^(ODCollection *children, ODChilrenCollectionRequest *nextRequest, NSError *error){
+    ^(ODCollection *children, ODChildrenCollectionRequest *nextRequest, NSError *error){
         // Returns an ODCollection, 
         // another children request if there are more children to get, 
         // or an error if one occurred.
@@ -23,7 +23,7 @@ To retrieve a collection, like a folder's children, you call getWithCompletion:
 |**nextLink**| An NSURL used to get to the next page of items, if another page exists.|
 |**additionData**| An NSDictionary to any additional values returned by the service. In this case, none.|
 
-The completion handler also takes an `ODChilrenCollectionRequest` called `nextRequest`. This is the same type returned by `[[[[[odClient drive] items:<item_id>] children] request]`.  If there is another page of items this object can be used to make the next page request on the collection. If there are no pages left this object will be nil.
+The completion handler also takes an `ODChildrenCollectionRequest` called `nextRequest`. This is the same type returned by `[[[[[odClient drive] items:<item_id>] children] request]`.  If there is another page of items this object can be used to make the next page request on the collection. If there are no pages left this object will be nil.
 
 ## Adding to a Collection
 
@@ -45,7 +45,7 @@ To expand a collection, you call expand on the **CollectionRequest** object with
 ```
 ODChildrenCollectionRequest *request = [[[[[[odClient] drive] items:<item_id>] children] request] expand:@"thumbnails"];
 
-[request getWithCompletion:^(ODCollection *children, ODChilrenCollectionRequest *nextRequest, NSError *error){
+[request getWithCompletion:^(ODCollection *children, ODChildrenCollectionRequest *nextRequest, NSError *error){
     // children will have an array of ODItems, that will have a non nil 
     // thumbnails property if there are thumbnails
 }];

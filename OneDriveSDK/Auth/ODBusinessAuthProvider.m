@@ -178,4 +178,9 @@
     return _authContext;
 }
 
+- (NSURLRequest*)logoutRequest
+{
+    return nil;
+}
+
 @end
