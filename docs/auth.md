@@ -1,6 +1,6 @@
-# Authentication
+# Authenticate your iOS app for OneDrive
 
-To authenticate your app, you only need to get a ODClient, which will handle all authentication for you. Note that if the user changes their password, you must re-authenticate.  If you see `401` error codes, this is most likley the case. See [Errors](errors.md) for more info.
+To authenticate your app to use OneDrive, you only need to get a ODClient, which will handle all authentication for you. Note that if the user changes their password, you must re-authenticate.  If you see `401` error codes, this is most likley the case. See [Error codes for the OneDrive iOS SDK](errors.md) for more info.
 
 ## Simple authentication
 The easiest way to get authenticated is to call the clientWithCompletion method:
@@ -16,11 +16,11 @@ The easiest way to get authenticated is to call the clientWithCompletion method:
 This method will do two things:
 
 1. Try and retrieve the last used ODClient from the keychain.
-2. If this fails, the method will invoke UI and promt the user to log in.
+2. If this fails, the method will invoke the OneDrive UI and prompt the user to log in.
 
-If there was an error in either of these steps, an error will be handed back.
+If there was an error in either of these steps, the error will be returned.
 
-If you know you want to invoke the UI you can make a direct call to authenticatedClientWithCompletion:
+If you want to invoke the UI, you can make a direct call to authenticatedClientWithCompletion:
 
 ```
 [ODClient authenticatedClientWithCompletion:(ODClient *client, NSError *error){
@@ -29,11 +29,11 @@ If you know you want to invoke the UI you can make a direct call to authenticate
     }
 }];
 ```
-This method will work the same as clientWithCompletion but it will not check the disk for a client first.
+This method will work like clientWithCompletion but it will not check the disk for a client first.
 
 ## Loading accounts from disk
 
-If you know that you already have accounts on the disk and want to select which account to use, you can call:
+If you already have accounts on the disk and want to select which account to use, you can call:
 
 ```
 NSArray *accounts = [ODClient loadClients];
