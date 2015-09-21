@@ -11,7 +11,7 @@ When accessing the OneDrive APIs, all requests will be made through an ODClient 
 
 Resources, like [items](/docs/items.md) or drives, are represented by ODItem and ODDrive, respectively. These objects contain properties that represent the properties of a resource. These objects are just property bags and cannot make calls against the service-they are purely models.
 
-To get the name of an item you would address the `name` property. It is possible for any of these properties to be nil at any time. To check if an item is a folder you can address the `folder` property on an time. If the item is a folder an `ODFolder` object will be returned, and it contains all of the properties described by the [folder](https://github.com/OneDrive/onedrive-api-docs/blob/master/facets/folder_facet.md) facet.
+To get the name of an item you would address the `name` property. It is possible for any of these properties to be nil at any time. To check if an item is a folder you can address the `folder` property. If the item is a folder an `ODFolder` object will be returned, and it contains all of the properties described by the [folder](https://github.com/OneDrive/onedrive-api-docs/blob/master/facets/folder_facet.md) facet.
 
 See [Resource model](https://github.com/onedrive/onedrive-api-docs/#resource-model) for more info.
 
@@ -84,7 +84,7 @@ You could also chain this together with call above :
 }];
 ```
 
-See [items](/docs/items.md) for more on items and [errors](/docs/errors.md) for more on errors.
+See [items](/docs/items.md) for more info on items and [errors](/docs/errors.md) for more info on errors.
 
 ## Query options
 
