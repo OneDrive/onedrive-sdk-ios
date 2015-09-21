@@ -41,33 +41,33 @@
 @implementation ODQuota	
 
 
-- (NSInteger)deleted
+- (long long)deleted
 {
     
     if (self.dictionary[@"deleted"]){
-        return [self.dictionary[@"deleted"] intValue];
+        return [self.dictionary[@"deleted"] longLongValue];
     }
     //default value if it doesn't exists
-    return [@(0) intValue];
+    return [@(0) longLongValue];
 }
 
-- (void)setDeleted:(NSInteger)deleted
+- (void)setDeleted:(long long)deleted
 {
     self.dictionary[@"deleted"] = @(deleted);
 }
 
 
-- (NSInteger)remaining
+- (long long)remaining
 {
     
     if (self.dictionary[@"remaining"]){
-        return [self.dictionary[@"remaining"] intValue];
+        return [self.dictionary[@"remaining"] longLongValue];
     }
     //default value if it doesn't exists
-    return [@(0) intValue];
+    return [@(0) longLongValue];
 }
 
-- (void)setRemaining:(NSInteger)remaining
+- (void)setRemaining:(long long)remaining
 {
     self.dictionary[@"remaining"] = @(remaining);
 }
@@ -83,33 +83,33 @@
 }
 
 
-- (NSInteger)total
+- (long long)total
 {
     
     if (self.dictionary[@"total"]){
-        return [self.dictionary[@"total"] intValue];
+        return [self.dictionary[@"total"] longLongValue];
     }
     //default value if it doesn't exists
-    return [@(0) intValue];
+    return [@(0) longLongValue];
 }
 
-- (void)setTotal:(NSInteger)total
+- (void)setTotal:(long long)total
 {
     self.dictionary[@"total"] = @(total);
 }
 
 
-- (NSInteger)used
+- (long long)used
 {
     
     if (self.dictionary[@"used"]){
-        return [self.dictionary[@"used"] intValue];
+        return [self.dictionary[@"used"] longLongValue];
     }
     //default value if it doesn't exists
-    return [@(0) intValue];
+    return [@(0) longLongValue];
 }
 
-- (void)setUsed:(NSInteger)used
+- (void)setUsed:(long long)used
 {
     self.dictionary[@"used"] = @(used);
 }
