@@ -1,7 +1,7 @@
-Items
+Items in the OneDrive SDK for iOS
 =====
 
-Items in the SDK behave just like items through the API. For more information see the [Items Reference](https://dev.onedrive.com/README.htm#item-resource). All actions on items described there are available through the SDK.
+Items in the OneDrive SDK for iOS behave just like items through the API. For more information see the [Items Reference](https://dev.onedrive.com/README.htm#item-resource). All actions on items described there are available through the SDK.
 
 The examples below assume that you have [Authenticated](/docs/auth.md) your app with an ODClient object.
 
@@ -18,7 +18,7 @@ Get an Item
 
 ```
 [[[[odClient drive] items:<item_id>] request] getWithCompletion:^(ODItem *item, NSError *error){
-    //Returns an ODItem object or an error if there was one
+    //Returns an ODItem object or an error if there was one.
 }];
 ```
 
@@ -26,7 +26,7 @@ Get an Item
 
 ```
 [[[[odClient root] itemByPath:@"Documents/Foo.txt"] request] getWithCompletion:^(ODItem *item, NSError *error){
-    //Returns an ODItem object or an error if there was one
+    //Returns an ODItem object or an error if there was one.
 }];
 
 ```
@@ -35,7 +35,7 @@ Access an item by path from a folder item:
 
 ```
 [[[[odClient drive] items:<item_id>] itemByPath:@"relative/path/to/file.txt"] request] getWithCompletion:^(ODItem *item, NSError *error){
-    //Returns an ODItem object or an error if there was one
+    //Returns an ODItem object or an error if there was one.
 }];
 
 ```
@@ -44,7 +44,7 @@ Delete an Item
 ---------------
 ```
 [[[[odClient drive] items:<item_id>] request] deleteWithCompletion:^(NSError *error){
-    //Returns an error if there was one 
+    //Returns an error if there was one. 
 }];
 
 ```
@@ -58,7 +58,7 @@ More info about collections [here](/docs/collections.md).
 [[[[odClient drive] items:<item_id>] children] getWithCompletion:
     ^(ODCollection *children, ODChilrenCollectionRequest *nextRequest, NSError *error){
         // Returns an ODCollection, 
-        // another children request if there are more children to get 
+        // another children request if there are more children to get, 
         // and an error if one occurred.
     }];
 ```
@@ -70,16 +70,16 @@ Downloading and uploading contents
 ODItemContentRequest *request = [[[odClient drive] items:<item_id>] contentRequest];
 
 [request downloadWithCompletion:^(NSURL *filePath, NSURLResponse *urlResponse, NSError){
-   // The file path to the item on disk, this is a temporary file and will be removed
+   // The file path to the item on disk. This is a temporary file and will be removed
    // after the block is done executing.
 }];
 
 [request uploadFromFile:<file_path> completion:^(ODItem *item, NSError *error){
-    //returns the item that was just uploaded
+    // Returns the item that was just uploaded.
 }];
 
 [request uploadFromData:<data_object> completion:*(ODItem *item, NSError *error){
-    // Same as above but uploaded from memory 
+    // Returns the item that was just uploaded from memory. 
 }];
 
 ```
