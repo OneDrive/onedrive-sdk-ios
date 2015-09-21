@@ -1,4 +1,4 @@
-# Collections
+# Collections in the OneDrive SDK for iOS
 
 The iOS SDK allows you to work with item collections in OneDrive.
 
