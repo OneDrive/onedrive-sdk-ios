@@ -36,10 +36,10 @@
 
 @interface ODQuota : ODObject
 
-@property NSInteger deleted;
-@property NSInteger remaining;
+@property long long deleted;
+@property long long remaining;
 @property NSString *state;
-@property NSInteger total;
-@property NSInteger used;
+@property long long total;
+@property long long used;
 
 @end
