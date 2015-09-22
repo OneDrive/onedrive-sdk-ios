@@ -1,5 +1,5 @@
-# Handling Errors
-Errors in the OneDriveSDK behave just like errors returned from the service. You can read more about them [here](https://github.com/OneDrive/onedrive-api-docs/blob/master/misc/errors.md).
+# Handling errors in the OneDrive SDK for iOS
+Errors in the OneDriveSDK for iOS behave just like errors returned from the service. You can read more about them [here](https://github.com/OneDrive/onedrive-api-docs/blob/master/misc/errors.md).
 
 Anytime you make a request against the service there is the potential for an error. You will see that all requests to the service can return an error. The error returned is a native `NSError` object, and inside of the NSErrors user dictionary you can obtain the ODError object.
 
