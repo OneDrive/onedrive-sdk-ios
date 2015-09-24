@@ -19,8 +19,7 @@
 //  THE SOFTWARE.
 //
 
-
-#import "ADAuthenticationContext.h"
+@class ADAuthenticationContext;
 
 #import "ODBaseAuthProvider.h"
 
