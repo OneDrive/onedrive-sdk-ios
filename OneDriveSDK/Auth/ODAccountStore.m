@@ -26,6 +26,8 @@
 
 static const NSString *ODAccountStoreFileName = @"oneDriveAccountStore.plist";
 
+static const NSString *ODSDKDirectoryName = @"OneDriveSDK";
+
 static const NSString *ODCurrentSession = @"currentSession";
 
 static const NSString *ODAccountSessions = @"accountSessions";
@@ -56,8 +58,42 @@ static const NSString *ODAccountSessions = @"accountSessions";
 
 + (NSString *)defaultStoreLocation
 {
-    NSString *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    return [documents stringByAppendingPathComponent:[ODAccountStoreFileName copy]];
+    return [ODAccountStore defaultStoreLocationWithLogger:nil];
+}
+
++(NSString *)defaultStoreLocationWithLogger:(id<ODLogger>)logger
+{
+   NSString *library = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+    //Create the OneDriveSDK directory in the library directory
+    NSString *sdkDirectory = [library stringByAppendingPathComponent:[ODSDKDirectoryName copy]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:sdkDirectory isDirectory:nil]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:sdkDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSString *libraryFilePath = [sdkDirectory stringByAppendingPathComponent:[ODAccountStoreFileName copy]];
+   
+    NSString *documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *documentsFilePath = [documentsDirectoryPath stringByAppendingPathComponent:[ODAccountStoreFileName copy]];
+    if ([ODAccountStore migrateStoreLocation:libraryFilePath oldLocation:documentsFilePath logger:logger]){
+        return libraryFilePath;
+    }
+    else{
+        return documentsFilePath;
+    }
+}
+
++(BOOL)migrateStoreLocation:(NSString *)newLocation oldLocation:(NSString *)oldLocation logger:(id<ODLogger>)logger
+{
+    BOOL success = YES;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:oldLocation isDirectory:nil]) {
+        [logger logWithLevel:ODLogInfo message:@"Removing old location at : %@", oldLocation];
+        NSError *fileSystemError = nil;
+        if (![[NSFileManager defaultManager] moveItemAtPath:oldLocation toPath:newLocation error:&fileSystemError]){
+            success = NO;
+            [logger logWithLevel:ODLogError
+                         message:@"Failed to migrate accountstore from %@ to %@ with error %@", oldLocation, newLocation, fileSystemError];
+        }
+    }
+    return success;
 }
 
 - (instancetype)initWithStoreLocation:(NSString *)filePath
