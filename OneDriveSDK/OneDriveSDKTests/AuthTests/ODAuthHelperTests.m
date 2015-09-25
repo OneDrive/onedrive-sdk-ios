@@ -54,7 +54,8 @@
 }
 
 - (void)testAccountSessionWithValidResponseAndRefreshToken{
-    NSDate *expiresDate = [NSDate date];
+    NSDate *expiresDate = [NSDate dateWithTimeIntervalSince1970:0];
+    id dateMock = OCMClassMock([NSDate class]);
     NSString *dateTimeString = [NSDateFormatter localizedStringFromDate:expiresDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
     NSDictionary *responseDictionary = @{OD_AUTH_EXPIRES : @"0",
                                          OD_AUTH_ACCESS_TOKEN : @"foo",
@@ -62,9 +63,10 @@
                                          OD_AUTH_REFRESH_TOKEN : @"baz"
                                          };
     id mockServiceInfo = OCMClassMock([ODServiceInfo class]);
-    
+    OCMStub([dateMock dateWithTimeIntervalSinceNow:0]).andReturn(expiresDate);
     ODAccountSession *session = [ODAuthHelper accountSessionWithResponse:responseDictionary serviceInfo:mockServiceInfo];
-    
+   
+    [dateMock stopMocking];
     XCTAssertEqualObjects(session.accountId, responseDictionary[OD_AUTH_USER_ID]);
     XCTAssertNotNil(session.expires);
     NSString *expiresDateString = [NSDateFormatter localizedStringFromDate:session.expires dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
