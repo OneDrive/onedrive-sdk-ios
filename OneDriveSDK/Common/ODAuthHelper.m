@@ -67,9 +67,9 @@
     }
     if (accountId && expires){
         return [[ODAccountSession alloc] initWithId:accountId
-                                              accessToken:session[OD_AUTH_ACCESS_TOKEN]
+                                        accessToken:session[OD_AUTH_ACCESS_TOKEN]
                                             expires:expires
-                                            refreshToken:session[OD_AUTH_REFRESH_TOKEN]
+                                       refreshToken:session[OD_AUTH_REFRESH_TOKEN]
                                         serviceInfo:serviceInfo];
     }
     return nil;
