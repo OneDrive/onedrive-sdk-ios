@@ -165,6 +165,11 @@
     [ODAppConfiguration defaultConfiguration].logger = logger;
 }
 
++ (void)setDefaultLogLevel:(ODLogLevel)level
+{
+    [[ODAppConfiguration defaultConfiguration].logger setLogLevel:level];
+}
+
 - (void)setLogLevel:(ODLogLevel)level
 {
     [self.logger setLogLevel:level];

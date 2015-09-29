@@ -26,7 +26,9 @@
 
 - (ODItemRequestBuilder *)itemByPath:(NSString *)path
 {
-    NSString *fullPath = [[NSString stringWithFormat:@"%@:/%@:/", self.requestURL, path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *encPath = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
+    NSString *fullPath = [NSString stringWithFormat:@"%@:/%@:/", self.requestURL, encPath];
     return [[ODItemRequestBuilder alloc] initWithURL:[NSURL URLWithString:fullPath] client:self.client];
 }
 
