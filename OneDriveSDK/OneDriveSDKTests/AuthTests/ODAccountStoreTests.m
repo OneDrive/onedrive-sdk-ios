@@ -34,6 +34,12 @@
 
 - (void)storeAccounts;
 
++ (NSString *)defaultStoreLocation;
+
++ (BOOL)migrateStoreLocationFromPath:(NSString *)oldLocation toPath:(NSString *)newLocation logger:(id<ODLogger>)logger;
+
++ (NSString *)libraryAccountStorePathWithLogger:(id<ODLogger>)logger;
+
 @end
 
 
@@ -230,11 +236,98 @@
     [mockArchiver stopMocking];
 }
 
+- (void)testDefaultAccountStoreLocationMigrationFailed{
+    [self accountStoreLocationContains:@"Documents" migrationSuccess:NO];
+}
+
+- (void)testDefualtAccountStoreLocationMigrationSuccess{
+    [self accountStoreLocationContains:@"Library" migrationSuccess:YES];
+}
+
+- (void)testMigrateAccountStoreRemoveOldLocation{
+    NSString *oldPath = @"foo/bar/baz";
+    id fileManagerMock = OCMPartialMock([NSFileManager defaultManager]);
+    OCMStub([fileManagerMock fileExistsAtPath:oldPath isDirectory:[OCMArg anyPointer]]).andReturn(NO);
+    OCMStub(ClassMethod([fileManagerMock defaultManager])).andReturn(fileManagerMock);
+    
+    //If the file doesn't exist it has either been migrated or doesn't need to be
+    XCTAssertTrue([ODAccountStore migrateStoreLocationFromPath:oldPath toPath:nil logger:nil]);
+    [fileManagerMock stopMocking];
+}
+
+- (void)testMigrateAccountStoreNeedsMigrationFailMove{
+    NSString *oldPath = @"foo/bar/baz";
+    NSString *newPath = @"qux/norf";
+    
+    id fileManagerMock = OCMPartialMock([NSFileManager defaultManager]);
+    OCMStub([fileManagerMock fileExistsAtPath:oldPath isDirectory:[OCMArg anyPointer]]).andReturn(YES);
+    OCMStub([fileManagerMock moveItemAtPath:oldPath toPath:newPath error:[OCMArg anyObjectRef]]).andReturn(NO);
+    
+    //The migrate fails because the move failed
+    XCTAssertFalse([ODAccountStore migrateStoreLocationFromPath:oldPath toPath:newPath logger:nil]);
+    [fileManagerMock stopMocking];
+}
+
+- (void)testMigrateAccountStoreNeedsMigrationSuccess{
+    NSString *oldPath = @"foo/bar/baz";
+    NSString *newPath = @"qux/norf";
+    
+    id fileManagerMock = OCMPartialMock([NSFileManager defaultManager]);
+    OCMStub([fileManagerMock fileExistsAtPath:oldPath isDirectory:[OCMArg anyPointer]]).andReturn(YES);
+    OCMStub([fileManagerMock moveItemAtPath:oldPath toPath:newPath error:[OCMArg anyObjectRef]]).andReturn(YES);
+    
+    XCTAssertTrue([ODAccountStore migrateStoreLocationFromPath:oldPath toPath:newPath logger:nil]);
+    [fileManagerMock stopMocking];
+}
+
+- (void)testDefaultLocationWithMigration{
+    
+    id fileManagerMock = OCMPartialMock([NSFileManager defaultManager]);
+    OCMStub([fileManagerMock fileExistsAtPath:[OCMArg any] isDirectory:[OCMArg anyPointer]]).andReturn(YES);
+    OCMStub([fileManagerMock moveItemAtPath:[OCMArg any] toPath:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(YES);
+    OCMStub([fileManagerMock createDirectoryAtPath:[OCMArg any] withIntermediateDirectories:YES attributes:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(YES);
+    
+    XCTAssertTrue([[ODAccountStore defaultStoreLocation] containsString:@"Library"]);
+    [fileManagerMock stopMocking];
+}
+
+- (void)testDefualtLocationFailedLibraryCreation{
+    id mockStore = OCMPartialMock(self.accountStore);
+    OCMStub(ClassMethod([mockStore libraryAccountStorePathWithLogger:nil])).andReturn(nil);
+   
+    // The locaiton should be in the documents directory if the library path failed.
+    XCTAssertTrue([[ODAccountStore defaultStoreLocation] containsString:@"Documents"]);
+    [mockStore stopMocking];
+}
+
 /**
- * Calls loadAccounts with a mocked keychain wrapper and NSDictionary
- *  @param accountIds the Dictionary returned by dictionaryWithURL
- *  @param keyChainDictionary mock keychain as a dictionary
- *  @warning asserts the returned accounts contains the correct info (from accountIds)
+ Calls defaultStoreLocation
+ @param folderName the expected folderName of the defaultStoreLocation
+ @param migrationSuccess the BOOL returned by [ODAccountStore migrateStoreLocation: oldLocation: logger:]
+ @warning asserts if the folderName doesn't match or no location was returned from defaultStoreLocation
+ */
+- (void)accountStoreLocationContains:(NSString *)folderNmae migrationSuccess:(BOOL)migrationSuccess{
+    id fileManagerMock = OCMPartialMock([NSFileManager defaultManager]);
+    OCMStub([fileManagerMock fileExistsAtPath:[OCMArg any] isDirectory:[OCMArg anyPointer]]).andReturn(YES);
+    OCMStub(ClassMethod([fileManagerMock defaultManager])).andReturn(fileManagerMock);
+    
+    id mockStore = OCMPartialMock(self.accountStore);
+    OCMStub(ClassMethod([mockStore migrateStoreLocationFromPath:[OCMArg any] toPath:[OCMArg any] logger:nil])).andReturn(migrationSuccess);
+    
+    NSString *location = [ODAccountStore defaultStoreLocation];
+    XCTAssertNotNil(location);
+    // The old path was in the documents folder
+    XCTAssertTrue([location containsString:folderNmae]);
+    
+    [fileManagerMock stopMocking];
+    [mockStore stopMocking];
+}
+
+/**
+ Calls loadAccounts with a mocked keychain wrapper and NSDictionary
+ @param accountIds the Dictionary returned by dictionaryWithURL
+ @param keyChainDictionary mock keychain as a dictionary
+ @warning asserts the returned accounts contains the correct info (from accountIds)
  */
 - (void)loadAccountsWithAccountIds:(NSDictionary *)accountIds mockKeyChainDictionary:(NSDictionary *)keyChainDictionary
 {
@@ -250,10 +343,10 @@
 }
 
 /**
- * mocks the ContentsOfURL dictionary class method
- *  @prams the dictionary to return
- *  @returns the mocked dictionary
- *  @warning you MUST call stopMocking on this object when you are done with it
+ mocks the ContentsOfURL dictionary class method
+ @prams the dictionary to return
+ @returns the mocked dictionary
+ @warning you MUST call stopMocking on this object when you are done with it
  */
 - (NSKeyedUnarchiver *)mockArchiverWithDictionary:(NSDictionary *)dictionary
 {
@@ -264,10 +357,10 @@
 }
 
 /**
- * asserts that the accountArray contains the same accounts as the accountIds
- *  @param accountArray the array of ODAccountSessions
- *  @param accountIds the array of accountIds
- *  @warning asserts if the arrays do not contain the same objects
+ asserts that the accountArray contains the same accounts as the accountIds
+ @param accountArray the array of ODAccountSessions
+ @param accountIds the array of accountIds
+ @warning asserts if the arrays do not contain the same objects
  */
 - (void)assertAccountArray:(NSArray *)accountArray expectedAccountIdArray:(NSArray *)accountIds
 {
@@ -279,10 +372,10 @@
 }
 
 /**
- * asserts that the first session is equal to the second session
- *  @param session the session to check
- *  @param expectedSession the expected session
- *  @warning this method asserts if the sessions are not equal
+ asserts that the first session is equal to the second session
+ @param session the session to check
+ @param expectedSession the expected session
+ @warning this method asserts if the sessions are not equal
  */
 - (void)assertSession:(ODAccountSession *)session isEqual:(ODAccountSession *)expectedSession
 {
