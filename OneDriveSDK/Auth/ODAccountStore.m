@@ -61,19 +61,12 @@ static const NSString *ODAccountSessions = @"accountSessions";
     return [ODAccountStore defaultStoreLocationWithLogger:nil];
 }
 
-+(NSString *)defaultStoreLocationWithLogger:(id<ODLogger>)logger
++ (NSString *)defaultStoreLocationWithLogger:(id<ODLogger>)logger
 {
-   NSString *library = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-    //Create the OneDriveSDK directory in the library directory
-    NSString *sdkDirectory = [library stringByAppendingPathComponent:[ODSDKDirectoryName copy]];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:sdkDirectory isDirectory:nil]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:sdkDirectory withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSString *libraryFilePath = [sdkDirectory stringByAppendingPathComponent:[ODAccountStoreFileName copy]];
-   
     NSString *documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *documentsFilePath = [documentsDirectoryPath stringByAppendingPathComponent:[ODAccountStoreFileName copy]];
-    if ([ODAccountStore migrateStoreLocation:libraryFilePath oldLocation:documentsFilePath logger:logger]){
+    NSString *libraryFilePath = [ODAccountStore libraryAccountStorePathWithLogger:logger];
+    if (libraryFilePath && [ODAccountStore migrateStoreLocationFromPath:documentsFilePath toPath:libraryFilePath logger:nil]){
         return libraryFilePath;
     }
     else{
@@ -81,9 +74,27 @@ static const NSString *ODAccountSessions = @"accountSessions";
     }
 }
 
-+(BOOL)migrateStoreLocation:(NSString *)newLocation oldLocation:(NSString *)oldLocation logger:(id<ODLogger>)logger
++ (NSString *)libraryAccountStorePathWithLogger:(id<ODLogger>)logger
+{
+    NSString *library = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
+    //Create the OneDriveSDK directory in the library directory
+    NSString *sdkDirectory = [library stringByAppendingPathComponent:[ODSDKDirectoryName copy]];
+    NSString *libraryFilePath = [sdkDirectory stringByAppendingPathComponent:[ODAccountStoreFileName copy]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:sdkDirectory isDirectory:nil]) {
+        NSError *directoryCreationError = nil;
+        if (![[NSFileManager defaultManager] createDirectoryAtPath:sdkDirectory withIntermediateDirectories:YES attributes:nil error:&directoryCreationError]){
+            [logger logWithLevel:ODLogError message:@"Failed to create OneDriveSDK library directory with error : %@",directoryCreationError];
+            // If we failed to create the OneDriveSDK directory don't use this path.
+            libraryFilePath = nil;
+        }
+    }
+    return libraryFilePath;
+}
+
++ (BOOL)migrateStoreLocationFromPath:(NSString *)oldLocation toPath:(NSString *)newLocation logger:(id<ODLogger>)logger
 {
     BOOL success = YES;
+    // If the old file doesn't exist, it is already migrated.
     if ([[NSFileManager defaultManager] fileExistsAtPath:oldLocation isDirectory:nil]) {
         [logger logWithLevel:ODLogInfo message:@"Removing old location at : %@", oldLocation];
         NSError *fileSystemError = nil;
@@ -165,7 +176,7 @@ static const NSString *ODAccountSessions = @"accountSessions";
                 self.currentAccountSession = currentSession;
             }
             else {
-                [self.logger logWithLevel:ODLogError message:@"Failed load to load %@ as current account", currentAccountId];
+                [self.logger logWithLevel:ODLogError message:@"Failed to load %@ as current account", currentAccountId];
             }
         }
         accounts = [[self.accountSessions allValues] copy];
