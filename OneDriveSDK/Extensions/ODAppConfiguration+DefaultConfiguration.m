@@ -41,7 +41,6 @@
         sharedConfig.logger = [[ODLogger alloc] initWithLogLevel:ODLogError];
         [ODAccountStore defaultAccountStore].logger = sharedConfig.logger;
         sharedConfig.accountStore = [ODAccountStore defaultAccountStore];
-        sharedConfig.parentAuthController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     });
     return sharedConfig;
 }
