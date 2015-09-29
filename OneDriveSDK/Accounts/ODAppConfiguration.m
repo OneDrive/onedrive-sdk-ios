@@ -23,4 +23,13 @@
 
 @implementation ODAppConfiguration
 
+- (UIViewController *)parentAuthController
+{
+    if (!_parentAuthController){
+        _parentAuthController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    }
+    return _parentAuthController;
+}
+
+
 @end
