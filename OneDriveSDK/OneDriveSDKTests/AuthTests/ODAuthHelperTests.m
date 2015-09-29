@@ -34,43 +34,33 @@
 @implementation ODAuthHelperTests
 
 - (void)testAccountSessionWithValidResponseNoRefreshToken{
-    NSDate *expiresDate = [NSDate date];
-    NSString *dateTimeString = [NSDateFormatter localizedStringFromDate:expiresDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
     NSDictionary *responseDictionary = @{OD_AUTH_EXPIRES : @"0",
                                          OD_AUTH_ACCESS_TOKEN : @"foo",
                                          OD_AUTH_USER_ID : @"bar"
                                          };
     id mockServiceInfo = OCMStrictClassMock([ODServiceInfo class]);
     
-    ODAccountSession *session = [ODAuthHelper accountSessionWithResponse:responseDictionary serviceInfo:mockServiceInfo];
-    XCTAssertEqualObjects(session.accountId, responseDictionary[OD_AUTH_USER_ID]);
+    ODAccountSession *session = [self accountSessionWithMockResponse:responseDictionary
+                                                     mockServiceInfo:mockServiceInfo];
     
-    XCTAssertNotNil(session.expires);
-    NSString *expiresDateString = [NSDateFormatter localizedStringFromDate:session.expires dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
-    XCTAssertEqualObjects(dateTimeString, expiresDateString);
+    XCTAssertEqualObjects(session.accountId, responseDictionary[OD_AUTH_USER_ID]);
     XCTAssertEqualObjects(session.accessToken, responseDictionary[OD_AUTH_ACCESS_TOKEN]);
     XCTAssertEqual(session.serviceInfo, mockServiceInfo);
     XCTAssertNil(session.refreshToken);
 }
 
 - (void)testAccountSessionWithValidResponseAndRefreshToken{
-    NSDate *expiresDate = [NSDate dateWithTimeIntervalSince1970:0];
-    id dateMock = OCMClassMock([NSDate class]);
-    NSString *dateTimeString = [NSDateFormatter localizedStringFromDate:expiresDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
+    
+    id mockServiceInfo = OCMStrictClassMock([ODServiceInfo class]);
     NSDictionary *responseDictionary = @{OD_AUTH_EXPIRES : @"0",
-                                         OD_AUTH_ACCESS_TOKEN : @"foo",
-                                         OD_AUTH_USER_ID : @"bar",
-                                         OD_AUTH_REFRESH_TOKEN : @"baz"
-                                         };
-    id mockServiceInfo = OCMClassMock([ODServiceInfo class]);
-    OCMStub([dateMock dateWithTimeIntervalSinceNow:0]).andReturn(expiresDate);
-    ODAccountSession *session = [ODAuthHelper accountSessionWithResponse:responseDictionary serviceInfo:mockServiceInfo];
-   
-    [dateMock stopMocking];
+                                        OD_AUTH_ACCESS_TOKEN : @"foo",
+                                             OD_AUTH_USER_ID : @"bar",
+                                        OD_AUTH_REFRESH_TOKEN : @"baz"};
+    
+    ODAccountSession *session = [self accountSessionWithMockResponse:responseDictionary
+                                                     mockServiceInfo:mockServiceInfo];
+    
     XCTAssertEqualObjects(session.accountId, responseDictionary[OD_AUTH_USER_ID]);
-    XCTAssertNotNil(session.expires);
-    NSString *expiresDateString = [NSDateFormatter localizedStringFromDate:session.expires dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
-    XCTAssertEqualObjects(dateTimeString, expiresDateString);
     XCTAssertEqualObjects(session.accessToken, responseDictionary[OD_AUTH_ACCESS_TOKEN]);
     XCTAssertEqualObjects(session.refreshToken, responseDictionary[OD_AUTH_REFRESH_TOKEN]);
     XCTAssertEqual(session.serviceInfo, mockServiceInfo);
@@ -212,6 +202,28 @@
     NSURL *testURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@=%@&%@=%@", [self.testBaseURL absoluteString], keyFoo, valueBar, keyBaz, valueQux]];
     NSDictionary *params = @{ keyFoo : valueBar, keyBaz : valueQux };
     XCTAssertEqualObjects([ODAuthHelper decodeQueryParameters:testURL], params);
+}
+
+/**
+ Calls accountSessionWithResposne:serviceInfo with mocked NSDate and datetimestring
+ @param response the mockResponse from the service to pass to the accountSessionWithResponse:serviceInfo: method
+ @param mockServiceInfo the mock service info to pass to the accountSessionWithResponse:serviceInfo: method
+ @warning Asserts the expiresDate on the session is correct
+ */
+- (ODAccountSession *)accountSessionWithMockResponse:(NSDictionary *)responseDictionary mockServiceInfo:(ODServiceInfo *)mockServiceInfo
+{
+    NSDate *expiresDate = [NSDate dateWithTimeIntervalSince1970:0];
+    id dateMock = OCMClassMock([NSDate class]);
+    NSString *dateTimeString = [NSDateFormatter localizedStringFromDate:expiresDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
+    
+    OCMStub([dateMock dateWithTimeIntervalSinceNow:0]).andReturn(expiresDate);
+    ODAccountSession *session = [ODAuthHelper accountSessionWithResponse:responseDictionary serviceInfo:mockServiceInfo];
+    [dateMock stopMocking];
+    if (session.expires){
+        NSString *expiresDateString = [NSDateFormatter localizedStringFromDate:session.expires dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle];
+        XCTAssertEqualObjects(dateTimeString, expiresDateString);
+    }
+    return session;
 }
 
 
