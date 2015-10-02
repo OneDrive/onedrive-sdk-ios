@@ -1,4 +1,4 @@
-# OneDrive iOS SDK
+# OneDrive SDK for iOS overview
 
 The OneDrive iOS SDK is designed to look just like the [OneDrive API](https://github.com/onedrive/onedrive-api-docs/).  
 
