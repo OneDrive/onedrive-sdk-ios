@@ -1,4 +1,4 @@
-# OneDrive iOS SDK
+# Get started with the OneDrive SDK for iOS
 
 [![Build Status](https://travis-ci.org/OneDrive/onedrive-sdk-ios.svg?branch=master)](https://travis-ci.org/OneDrive/onedrive-sdk-ios)
 
