@@ -64,13 +64,13 @@ Once you have constructed the request you call the `request` method on the reque
 
 For an item you call:
 
-```
+```objc
 ODItemRequest *itemRequest = [[[odClient drive] items:<item_id>] request];
 ```
 
 All request builders have a `request` method that can generate a `ODRequest` object. Request objects may have different methods on them depending on the type of request. To get an item you call:
 
-```
+```objc
 [itemRequest getWithCompletion:^(ODItem *item, NSError *error){
     // This will make the network request and return the item
     // or an error if there was one
@@ -78,7 +78,7 @@ All request builders have a `request` method that can generate a `ODRequest` obj
 ```
 
 You could also chain this together with call above :
-```
+```objc
 [[[[odClient drive] items:<item_id>] request] getWithCompletion:^(ODItem *item, NSError *error){
 
 }];
@@ -90,7 +90,7 @@ See [items](/docs/items.md) for more info on items and [errors](/docs/errors.md)
 
 If you only want to retrieve certain properties of a resource you can select them. Here's how to get only the names and ids of an item:
 
-```
+```objc
 [[[[[odClient drive] items:<item_id>] request] select:@"name,id"] getWithCompletion:^(ODItem *item, NSError *error){
     // the item object will have nil properties for everything except name and id
 }];
@@ -98,7 +98,7 @@ If you only want to retrieve certain properties of a resource you can select the
 ```
 To expand certain properties on resources you can call a similar expand method, like this:
 
-```
+```objc
 [[[[[odClient drive] items:<item_id>] request] expand:@"thumbnails"] getWithCompletion:^(ODItem *item, NSError *error){
     // the item object will have a non nil thumbnails property if thumbnails exist.
 }];

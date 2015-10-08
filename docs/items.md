@@ -16,7 +16,7 @@ Get an Item
 ---------------
 ### 1. By ID
 
-```
+```objc
 [[[[odClient drive] items:<item_id>] request] getWithCompletion:^(ODItem *item, NSError *error){
     //Returns an ODItem object or an error if there was one.
 }];
@@ -24,7 +24,7 @@ Get an Item
 
 ### 2. By path
 
-```
+```objc
 [[[[odClient root] itemByPath:@"Documents/Foo.txt"] request] getWithCompletion:^(ODItem *item, NSError *error){
     //Returns an ODItem object or an error if there was one.
 }];
@@ -33,7 +33,7 @@ Get an Item
 
 Access an item by path from a folder item:
 
-```
+```objc
 [[[[odClient drive] items:<item_id>] itemByPath:@"relative/path/to/file.txt"] request] getWithCompletion:^(ODItem *item, NSError *error){
     //Returns an ODItem object or an error if there was one.
 }];
@@ -42,7 +42,7 @@ Access an item by path from a folder item:
 
 Delete an Item
 ---------------
-```
+```objc
 [[[[odClient drive] items:<item_id>] request] deleteWithCompletion:^(NSError *error){
     //Returns an error if there was one. 
 }];
@@ -54,7 +54,7 @@ Get Children for an Item
 
 More info about collections [here](/docs/collections.md).
 
-```
+```objc
 [[[[odClient drive] items:<item_id>] children] getWithCompletion:
     ^(ODCollection *children, ODChilrenCollectionRequest *nextRequest, NSError *error){
         // Returns an ODCollection, 
@@ -66,7 +66,7 @@ More info about collections [here](/docs/collections.md).
 Downloading and uploading contents
 ------------------------------
 
-```
+```objc
 ODItemContentRequest *request = [[[odClient drive] items:<item_id>] contentRequest];
 
 [request downloadWithCompletion:^(NSURL *filePath, NSURLResponse *urlResponse, NSError){
@@ -89,7 +89,7 @@ Moving and updating an Item
 --------------
 To [move](https://dev.onedrive.com/items/move.htm) an item you must update its parent reference.
 
-```
+```objc
 ODItem *updatedItem = [ODItem alloc] init];
 updatedItem.id = <item_id>;
 updatedItem.parentReference = [ODItemReference alloc] init];
@@ -103,7 +103,7 @@ updatedItem.parentReference.id = <new_parent_id>;
 
 To change an item's name or other property you could:
 
-```
+```objc
 ODItem *updatedItem = [ODItem alloc] init];
 updatedItem.id = <item_id>;
 updatedItem.name = @"New Item Name!";
@@ -119,7 +119,7 @@ Copy an Item
 ---------------
 Copying and item is an async action described [here](https://dev.onedrive.com/items/copy.htm).
 
-```
+```objc
 ODItemReference *newParent = [ODItemReference alloc] init];
 newParent.id = <new_parent_id>;
 ODItemCopyRequest *copyRequest = [[[[odClient drive] items:<item_id>] copyWithName:@"new item name" parentReference:newParent] request];
