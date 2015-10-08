@@ -6,7 +6,7 @@ The OneDrive SDK for iOS allows you to work with item collections in OneDrive.
 
 To retrieve a collection, like a folder's children, you call getWithCompletion:
 
-```
+```objc
 [[[[[odClient drive] items:<item_id>] children] request] getWithCompletion:
     ^(ODCollection *children, ODChildrenCollectionRequest *nextRequest, NSError *error){
         // Returns an ODCollection, 
@@ -29,7 +29,7 @@ The completion handler also takes an `ODChildrenCollectionRequest` called `nextR
 
 Some collections, like the children of a folder, can be changed. To add a folder to the children of an item you can call the addItem method:
 
-```
+```objc
 ODItem *newFolder = [[ODIem alloc] init];
 newFolder.name = <new_folder_name>;
 newFolder.folder = [[ODFolder alloc] init];
@@ -42,7 +42,7 @@ newFolder.folder = [[ODFolder alloc] init];
 
 To expand a collection, you call expand on the **CollectionRequest** object with the string you want to expand:
 
-```
+```objc
 ODChildrenCollectionRequest *request = [[[[[[odClient] drive] items:<item_id>] children] request] expand:@"thumbnails"];
 
 [request getWithCompletion:^(ODCollection *children, ODChildrenCollectionRequest *nextRequest, NSError *error){
@@ -57,7 +57,7 @@ Some API calls will return collections with added properties.  These properties 
 
 To get the delta of an item you call:
 
-```
+```objc
 [[[[[odClient drive] items:itemId] deltaWithToken:nil] request] 
 executeWithCompletion:^(ODItemDeltaCollection *collection, ODItemDeltaRequest *nextReuqest, NSError *error){
         
