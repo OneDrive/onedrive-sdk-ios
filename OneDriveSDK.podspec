@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://dev.onedrive.com"
 
- 
+
 
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
@@ -24,12 +24,12 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/OneDrive/onedrive-sdk-ios.git",
                      :tag => "#{s.version}"}
 
-  s.source_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h" 
-  s.public_header_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h" 
+  s.source_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h"
+  s.public_header_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h"
 
   s.exclude_files = "Examples/*","OneDriveSDK/Test/*"
 
-  
+
   s.subspec "Common" do |odp|
     odp.source_files = "OneDriveSDK/Common/*.{h,m}"
     odp.public_header_files = "OneDriveSDK/Common/*.h"
@@ -38,12 +38,12 @@ Pod::Spec.new do |s|
   s.subspec "Implementations" do |usm|
     usm.dependency 'OneDriveSDK/Common'
     usm.source_files = "OneDriveSDK/OneDriveSDK/ODURLSessionManager/*{h,m}", "OneDriveSDK/OneDriveSDK/*{h,m}"
-    usm.public_header_files = "OneDriveSDK/OneDriveSDK/**/*.h" 
+    usm.public_header_files = "OneDriveSDK/OneDriveSDK/**/*.h"
   end
 
 
   s.subspec "Auth" do |oda|
-    oda.dependency 'ADALiOS', '~> 1.0.2'
+    oda.dependency 'ADALiOS', '~> 1.2.4'
     oda.dependency 'OneDriveSDK/Common'
 
     oda.source_files = "OneDriveSDK/Auth/*.{h,m}", "OneDriveSDK/Accounts/*.{h,m}"
@@ -56,7 +56,7 @@ Pod::Spec.new do |s|
 
     core.source_files = "OneDriveSDK/OneDriveCoreSDK/**/*.{h,m}"
     core.public_header_files = "OneDriveSDK/OneDriveCoreSDK/**/*.h"
-    
+
   end
 
   s.subspec "Extensions" do |ext|

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10007C751B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10007C731B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard */; };
-		10007C761B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10007C741B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard */; };
 		1003AADC1B0E52460039017A /* ODXActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003AADB1B0E52460039017A /* ODXActionController.m */; };
 		105857821B9A1F8000B71550 /* ODXProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105857811B9A1F8000B71550 /* ODXProgressViewController.m */; };
 		106DAAE61AF82DE9001FF917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 106DAAE51AF82DE9001FF917 /* main.m */; };
@@ -20,6 +18,8 @@
 		106DAB3E1AF82E77001FF917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106DAB3A1AF82E77001FF917 /* Main.storyboard */; };
 		106DAB3F1AF82E77001FF917 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106DAB3C1AF82E77001FF917 /* Images.xcassets */; };
 		51037E9C92F08CDC45500AAD /* libPods-iOSExplorer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DFCFC19ED153A38DAF7A55 /* libPods-iOSExplorer.a */; };
+		96DEE06E1BC5E4F700F02AF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DEE06A1BC5E4F700F02AF8 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		96DEE06F1BC5E4F700F02AF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DEE06C1BC5E4F700F02AF8 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,8 +35,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		10007C731B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPad_Storyboard.storyboard; path = ../../../OneDriveSDK/Pods/ADALiOS/ADALiOS/ADALiOS/ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
-		10007C741B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ADAL_iPhone_Storyboard.storyboard; path = ../../../OneDriveSDK/Pods/ADALiOS/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
 		1003AADA1B0E52460039017A /* ODXActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODXActionController.h; path = iOSExplorer/ODXActionController.h; sourceTree = SOURCE_ROOT; };
 		1003AADB1B0E52460039017A /* ODXActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODXActionController.m; path = iOSExplorer/ODXActionController.m; sourceTree = SOURCE_ROOT; };
 		105857801B9A1F8000B71550 /* ODXProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODXProgressViewController.h; sourceTree = "<group>"; };
@@ -55,6 +53,8 @@
 		106DAB391AF82E77001FF917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		106DAB3B1AF82E77001FF917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		106DAB3C1AF82E77001FF917 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		96DEE06B1BC5E4F700F02AF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		96DEE06D1BC5E4F700F02AF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB0C0620E9767D1127AEF938 /* Pods-iOSExplorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExplorer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSExplorer/Pods-iOSExplorer.debug.xcconfig"; sourceTree = "<group>"; };
 		D3DFCFC19ED153A38DAF7A55 /* libPods-iOSExplorer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSExplorer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDADC01A80AB5DE8181D87E /* Pods-iOSExplorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExplorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSExplorer/Pods-iOSExplorer.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,8 +75,8 @@
 		10007C721B31D86800E4ED17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				10007C731B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard */,
-				10007C741B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard */,
+				96DEE06A1BC5E4F700F02AF8 /* LaunchScreen.xib */,
+				96DEE06C1BC5E4F700F02AF8 /* Main.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -225,10 +225,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DEE06E1BC5E4F700F02AF8 /* LaunchScreen.xib in Resources */,
+				96DEE06F1BC5E4F700F02AF8 /* Main.storyboard in Resources */,
 				106DAB3F1AF82E77001FF917 /* Images.xcassets in Resources */,
-				10007C751B31D88C00E4ED17 /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				106DAB3D1AF82E77001FF917 /* LaunchScreen.xib in Resources */,
-				10007C761B31D88C00E4ED17 /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				106DAB3E1AF82E77001FF917 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +298,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				106DAB3B1AF82E77001FF917 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		96DEE06A1BC5E4F700F02AF8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96DEE06B1BC5E4F700F02AF8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		96DEE06C1BC5E4F700F02AF8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96DEE06D1BC5E4F700F02AF8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
