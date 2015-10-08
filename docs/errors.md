@@ -12,7 +12,7 @@ There can be errors during the authentication process. If the error occurred dur
 
 You can easily check if an error is an authentication error by calling `[error IsAuthenticationError]`:
 
-```
+```objc
 [ODClient clientWithCompletion:^(ODClient *client, NSError *error){
     if (error && [error isAuthenticationError]){
         // handle auth error
@@ -28,7 +28,7 @@ See ODAuthConstants.h for a list of error codes during authentication. To retrie
 
 To check if an error is a client error, you can call `[error isClientError]` and  `[error clientError]`, like this:
 
-```
+```objc
 [[[[odClient drive] items:@"foo"] request] getWithCompletion:^(ODItem *item, NSError *error){
     if (error && [error isClientError]){
         [self handleClientError:[error clientError]];
@@ -40,7 +40,7 @@ When a client error arises there will be an ODError object stored in the userInf
 
 To check the code of an error, you can call the matches method on an error:
 
-```
+```objc
 if ([odError matches:@"accessDenied"]){
     // handle access denied error
 }
