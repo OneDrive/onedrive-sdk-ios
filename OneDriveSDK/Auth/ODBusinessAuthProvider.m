@@ -40,6 +40,11 @@
 
 - (void) authenticateWithViewController:(UIViewController*)viewController completion:(void (^)(NSError *error))completionHandler
 {
+    UIView *blankView = [[UIView alloc] initWithFrame:viewController.view.frame];
+    blankView.backgroundColor = [UIColor whiteColor];
+    [viewController.navigationController setNavigationBarHidden:YES];
+    [viewController.view addSubview:blankView];
+    
     self.authContext.parentController = viewController;
     [self.authContext acquireTokenWithResource:self.serviceInfo.resourceId
                                       clientId:self.serviceInfo.appId
@@ -48,46 +53,51 @@
                                         userId:self.serviceInfo.userEmail
                           extraQueryParameters:nil
                                completionBlock:^(ADAuthenticationResult *result){
-                              if (result.status == AD_SUCCEEDED){
-                                  // If the resourceId being used is for the discovery service
-                                  if ([self.serviceInfo.discoveryServiceURL containsString:self.serviceInfo.resourceId]){
-                                      // Find the resourceIds needed
-                                      [self discoverResourceWithAuthResult:result completion:^(NSString *resourceIds, NSError *error){
-                                          //Refresh the token with the correct resource Ids
-                                          if (result.tokenCacheStoreItem.refreshToken){
-                                              [self.authContext acquireTokenByRefreshToken:result.tokenCacheStoreItem.refreshToken clientId:self.serviceInfo.appId resource:resourceIds completionBlock:^(ADAuthenticationResult *innerResult){
-                                                  if (innerResult.status == AD_SUCCEEDED) {
-                                                      innerResult.tokenCacheStoreItem.userInformation = result.tokenCacheStoreItem.userInformation;
-                                                      
-                                                      // the refresh response doesn't contain the user information so we must set it from the previous response
-                                                      self.serviceInfo.resourceId = resourceIds;
-                                                      [self setAccountSessionWithAuthResult:innerResult];
-                                                      completionHandler(nil);
-                                                  }
-                                                  else {
-                                                      completionHandler(innerResult.error);
-                                                  }
-                                              }];
-                                          }
-                                          else {
-                                              NSError *error = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
-                                                                                   code:ODServiceError
-                                                                               userInfo:@{
-                                                                                          NSLocalizedDescriptionKey : @"There was a problem logging you in",
-                                                                                          OD_AUTH_ERROR_KEY : @" The auth result must have a refresh token" }];
-                                              completionHandler(error);
-                                          }
-                                      }];
-                                  }
-                                  else {
-                                      [self setAccountSessionWithAuthResult:result];
-                                      completionHandler(nil);
-                                  }
-                              }
-                              else {
-                                  completionHandler(result.error);
-                              }
-    }];
+                                   
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       [self.authContext.parentController dismissViewControllerAnimated:NO completion:nil];
+                                   });
+                                   
+                                   if (result.status == AD_SUCCEEDED){
+                                       // If the resourceId being used is for the discovery service
+                                       if ([self.serviceInfo.discoveryServiceURL containsString:self.serviceInfo.resourceId]){
+                                           // Find the resourceIds needed
+                                           [self discoverResourceWithAuthResult:result completion:^(NSString *resourceIds, NSError *error){
+                                               //Refresh the token with the correct resource Ids
+                                               if (result.tokenCacheStoreItem.refreshToken){
+                                                   [self.authContext acquireTokenByRefreshToken:result.tokenCacheStoreItem.refreshToken clientId:self.serviceInfo.appId resource:resourceIds completionBlock:^(ADAuthenticationResult *innerResult){
+                                                       if (innerResult.status == AD_SUCCEEDED) {
+                                                           innerResult.tokenCacheStoreItem.userInformation = result.tokenCacheStoreItem.userInformation;
+                                                           
+                                                           // the refresh response doesn't contain the user information so we must set it from the previous response
+                                                           self.serviceInfo.resourceId = resourceIds;
+                                                           [self setAccountSessionWithAuthResult:innerResult];
+                                                           completionHandler(nil);
+                                                       }
+                                                       else {
+                                                           completionHandler(innerResult.error);
+                                                       }
+                                                   }];
+                                               }
+                                               else {
+                                                   NSError *error = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
+                                                                                        code:ODServiceError
+                                                                                    userInfo:@{
+                                                                                               NSLocalizedDescriptionKey : @"There was a problem logging you in",
+                                                                                               OD_AUTH_ERROR_KEY : @" The auth result must have a refresh token" }];
+                                                   completionHandler(error);
+                                               }
+                                           }];
+                                       }
+                                       else {
+                                           [self setAccountSessionWithAuthResult:result];
+                                           completionHandler(nil);
+                                       }
+                                   }
+                                   else {
+                                       completionHandler(result.error);
+                                   }
+                               }];
 }
 
 - (void)setAccountSessionWithAuthResult:(ADAuthenticationResult *)result
