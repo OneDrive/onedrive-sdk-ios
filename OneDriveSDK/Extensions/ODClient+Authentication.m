@@ -198,7 +198,7 @@
                                                                     [self authenticateWithAuthProvider:authProvider
                                                                                           httpProvider:appConfig.httpProvider
                                                                                                 logger:appConfig.logger
-                                                                                        viewController:presentedViewController
+                                                                                        viewController:presentedViewController.parentViewController
                                                                                             completion:completion];
                                                                 }
                                                                 else {
