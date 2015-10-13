@@ -1,4 +1,4 @@
-# OneDrive iOS SDK
+# Get started with the OneDrive SDK for iOS
 
 [![Build Status](https://travis-ci.org/OneDrive/onedrive-sdk-ios.svg?branch=master)](https://travis-ci.org/OneDrive/onedrive-sdk-ios)
 
@@ -25,7 +25,7 @@ If you are targeting iOS 9 with XCode 7, you need to temporarily enable PFS exce
 
 To do this, add the following to your Info.plist :
 
-```
+```xml
 <key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -66,7 +66,7 @@ These domains enable MSA and standard AAD authentication. It's possible that an 
 
 **Warning** This it not the recommended approach and is only necessary if you wish to target all tenants that do not use standard AAD authentication and do not support Transport Layer Security v1.2.
 
-```
+```xml
 <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowArbitraryLoads</key>

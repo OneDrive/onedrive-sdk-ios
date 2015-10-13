@@ -28,6 +28,7 @@
 #import "ODAuthConstants.h"
 #import "ODAccountSession.h"
 #import "ODAADAccountBridge.h"
+#import "ODAuthenticationViewController.h"
 
 @interface ODBusinessAuthProvider(){
     @private
@@ -41,6 +42,16 @@
 - (void) authenticateWithViewController:(UIViewController*)viewController completion:(void (^)(NSError *error))completionHandler
 {
     self.authContext.parentController = viewController;
+    // If the disambiguation page is still being displayed remove it from the view
+    if (self.authContext.parentController){
+        UIViewController *childViewController = [viewController childViewControllers][0];
+        if (childViewController && [childViewController respondsToSelector:@selector(redirectWithStartURL:endURL:success:)]){
+            self.authContext.parentController = viewController.presentingViewController;
+           dispatch_async(dispatch_get_main_queue(), ^{
+               [childViewController dismissViewControllerAnimated:NO completion:nil];
+           });
+       }
+    }
     [self.authContext acquireTokenWithResource:self.serviceInfo.resourceId
                                       clientId:self.serviceInfo.appId
                                    redirectUri:[NSURL URLWithString:self.serviceInfo.redirectURL]
