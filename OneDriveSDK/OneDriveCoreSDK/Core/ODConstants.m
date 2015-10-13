@@ -34,4 +34,4 @@ NSString *const ODHeaderPrefer = @"Prefer";
 NSString *const ODHeaderContentType = @"Content-Type";
 NSString *const ODHeaderApplicationJson = @"application/json";
 NSString *const ODHeaderRespondAsync = @"respond-async";
-NSString *const ODSDKVersion = @"1.0.4";
+NSString *const ODSDKVersion = @"1.0.5";
