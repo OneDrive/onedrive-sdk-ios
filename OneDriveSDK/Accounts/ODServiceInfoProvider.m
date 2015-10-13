@@ -39,8 +39,8 @@
 @implementation ODServiceInfoProvider
 
 - (void)getServiceInfoWithViewController:(UIViewController *)viewController
-                    appConfiguration:(ODAppConfiguration *)appConfig
-                          completion:(disambiguationCompletion)completionHandler;
+                        appConfiguration:(ODAppConfiguration *)appConfig
+                              completion:(disambiguationCompletion)completionHandler;
 {
     NSParameterAssert(viewController);
     NSParameterAssert(appConfig);
@@ -70,7 +70,7 @@
                                                            }];
         dispatch_async(dispatch_get_main_queue(), ^(){
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:discoveryViewController];
-            navController.modalPresentationStyle = UIModalPresentationFormSheet;
+            navController.modalPresentationStyle = viewController.modalPresentationStyle;
             UIViewController *viewControllerToPresentOn = viewController;
             while (viewControllerToPresentOn.presentedViewController) {
                 viewControllerToPresentOn = viewControllerToPresentOn.presentedViewController;
