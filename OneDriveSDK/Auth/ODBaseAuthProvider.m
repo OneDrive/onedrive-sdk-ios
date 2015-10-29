@@ -60,7 +60,7 @@
                                           success:^(NSURL *endURL, NSError *error){
                                               [self authorizationFlowCompletedWithURL:endURL
                                                                                 error:error
-                                                             presentingViewControlelr:presentingViewController
+                                                             presentingViewController:presentingViewController
                                                                            completion:completionHandler];
                                           }];
     }
@@ -69,10 +69,10 @@
         [[ODAuthenticationViewController alloc] initWithStartURL:[self authURL]
                                                           endURL:[NSURL URLWithString:self.serviceInfo.redirectURL]
                                                          success:^(NSURL *endURL, NSError *error){
-                                                           [self authorizationFlowCompletedWithURL:endURL
-                                                                                error:error
-                                                             presentingViewControlelr:authViewController
-                                                                           completion:completionHandler];
+                                                             [self authorizationFlowCompletedWithURL:endURL
+                                                                                               error:error
+                                                                            presentingViewController:authViewController
+                                                                                          completion:completionHandler];
                                                            
                                                        }];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -91,8 +91,8 @@
 
 - (void)authorizationFlowCompletedWithURL:(NSURL *)endURL
                                     error:(NSError *)error
-                 presentingViewControlelr:(UIViewController *)presentingViewController
-                              completion:(AuthCompletion)completionHandler
+                 presentingViewController:(UIViewController *)presentingViewController
+                               completion:(AuthCompletion)completionHandler
 {
     // Always remove the auth view when we finished loading.
     dispatch_async(dispatch_get_main_queue(), ^{
