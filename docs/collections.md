@@ -1,10 +1,10 @@
 # Collections in the OneDrive SDK for iOS
 
-The OneDrive SDK for iOS allows you to work with item collections in OneDrive.
+You can use the OneDrive SDK for iOS to work with item collections in OneDrive.
 
-## Getting a Collection
+## Getting a collection
 
-To retrieve a collection, like a folder's children, you call getWithCompletion:
+To retrieve a collection, like a folder's children, you call `getWithCompletion`:
 
 ```objc
 [[[[[odClient drive] items:<item_id>] children] request] getWithCompletion:
@@ -19,15 +19,15 @@ To retrieve a collection, like a folder's children, you call getWithCompletion:
 
 |Name|Description|
 |----|-----------|
-|**value**|An NSArray of ODItems.|
-|**nextLink**| An NSURL used to get to the next page of items, if another page exists.|
-|**additionData**| An NSDictionary to any additional values returned by the service. In this case, none.|
+|**value**|An `NSArray` of `ODItems`.|
+|**nextLink**| An `NSURL` used to get to the next page of items, if another page exists.|
+|**additionData**| An `NSDictionary` to any additional values returned by the service. In this case, none.|
 
 The completion handler also takes an `ODChildrenCollectionRequest` called `nextRequest`. This is the same type returned by `[[[[[odClient drive] items:<item_id>] children] request]`.  If there is another page of items this object can be used to make the next page request on the collection. If there are no pages left this object will be nil.
 
-## Adding to a Collection
+## Adding to a collection
 
-Some collections, like the children of a folder, can be changed. To add a folder to the children of an item you can call the addItem method:
+Some collections, like the children of a folder, can be changed. To add a folder to the children of an item you can call the `addItem` method:
 
 ```objc
 ODItem *newFolder = [[ODIem alloc] init];
@@ -38,9 +38,9 @@ newFolder.folder = [[ODFolder alloc] init];
 }];
 ```
 
-## Expanding a Collection
+## Expanding a collection
 
-To expand a collection, you call expand on the **CollectionRequest** object with the string you want to expand:
+To expand a collection, you call expand on the `CollectionRequest` object with the string you want to expand:
 
 ```objc
 ODChildrenCollectionRequest *request = [[[[[[odClient] drive] items:<item_id>] children] request] expand:@"thumbnails"];
@@ -51,9 +51,9 @@ ODChildrenCollectionRequest *request = [[[[[[odClient] drive] items:<item_id>] c
 }];
 ```
 
-## Special Collections
+## Special collections
 
-Some API calls will return collections with added properties.  These properties will always be in the additional data dictionary. These collections are also their own objects (subclasses of ODCollection) that will have these properties attached to them.  
+Some API calls will return collections with added properties.  These properties will always be in the additional data dictionary. These collections are also their own objects (subclasses of `ODCollection`) that will have these properties attached to them.  
 
 To get the delta of an item you call:
 
@@ -63,5 +63,5 @@ executeWithCompletion:^(ODItemDeltaCollection *collection, ODItemDeltaRequest *n
         
 }];
 ```
-`ODItemDeltaRequest` is an ODCollection object with a `token` property and a `deltaLink` property. The token link can be used to pass into `deltaWithToken:` when you want to check for more changes. You can also construct a delta request with the `deltaLink` property. The `nextRequest` is an `ODItemDeltaRequest` to be used for paging purposes and will be nil when there are no more changes.
+`ODItemDeltaRequest` is an `ODCollection` object with a `token` property and a `deltaLink` property. The token link can be used to pass into `deltaWithToken:` when you want to check for more changes. You can also construct a delta request with the `deltaLink` property. The `nextRequest` is an `ODItemDeltaRequest` to be used for paging purposes and will be nil when there are no more changes.
 
