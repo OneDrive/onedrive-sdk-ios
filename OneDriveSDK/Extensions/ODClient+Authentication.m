@@ -104,9 +104,9 @@
 }
 
 + (ODClient *)clientWithAccountSession:(ODAccountSession *)accountSession
-                             httpProvider:(id <ODHttpProvider>)httpProvider
-                            accountStore:(id <ODAccountStore>)accountStore
-                                  logger:(id <ODLogger >)logger
+                          httpProvider:(id <ODHttpProvider>)httpProvider
+                          accountStore:(id <ODAccountStore>)accountStore
+                                logger:(id <ODLogger >)logger
 {
     NSParameterAssert(accountSession);
     NSParameterAssert(accountStore);
@@ -178,7 +178,7 @@
 {
     NSParameterAssert(appConfig);
     
-    UIViewController *rootViewController = appConfig.parentAuthController;
+    __block UIViewController *rootViewController = appConfig.parentAuthController;
     if (appConfig.authProvider){
         [self authenticateWithAuthProvider:appConfig.authProvider
                               httpProvider:appConfig.httpProvider
@@ -189,8 +189,8 @@
     else {
         // We may not know which authentication service to use we have to discover it
         [appConfig.serviceInfoProvider getServiceInfoWithViewController:rootViewController
-                                                      appConfiguration:appConfig
-                                                            completion:^(UIViewController *presentedViewController, ODServiceInfo *serviceInfo, NSError *error){
+                                                       appConfiguration:appConfig
+                                                             completion:^(UIViewController *presentedViewController, ODServiceInfo *serviceInfo, NSError *error){
                                                                 if (!error){
                                                                     id <ODAuthProvider> authProvider = [serviceInfo authProviderWithURLSession:appConfig.httpProvider
                                                                                                                                   accountStore:appConfig.accountStore
@@ -198,11 +198,13 @@
                                                                     [self authenticateWithAuthProvider:authProvider
                                                                                           httpProvider:appConfig.httpProvider
                                                                                                 logger:appConfig.logger
-                                                                                        viewController:presentedViewController.parentViewController
+                                                                                        viewController:(presentedViewController.parentViewController) ? presentedViewController.parentViewController : rootViewController
                                                                                             completion:completion];
                                                                 }
                                                                 else {
-                                                                    [presentedViewController dismissViewControllerAnimated:YES completion:nil];
+                                                                    if (presentedViewController){
+                                                                        [presentedViewController dismissViewControllerAnimated:YES completion:nil];
+                                                                    }
                                                                     completion(error);
                                                                 }
         }];

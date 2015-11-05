@@ -24,6 +24,8 @@
 
 @interface ODMSAServiceInfo : ODServiceInfo
 
-- (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes flags:(NSDictionary *)flags;
-
+- (instancetype)initWithClientId:(NSString *)clientId
+                          scopes:(NSArray *)scopes
+                           flags:(NSDictionary *)flags
+                     apiEndpoint:(NSString *)apiEndpoint;
 @end

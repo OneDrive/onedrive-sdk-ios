@@ -87,7 +87,9 @@ static void *ProgressObserverContext = &ProgressObserverContext;
         if (!error){
             self.client = client;
             [self loadChildren];
-            self.navigationItem.rightBarButtonItem = self.actions;
+            dispatch_async(dispatch_get_main_queue(), ^(){
+                self.navigationItem.rightBarButtonItem = self.actions;
+            });
         }
         else{
             [self showErrorAlert:error];
