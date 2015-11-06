@@ -157,6 +157,11 @@
     }];
 }
 
+- (NSString*)telemtryHeaderField
+{
+    return [OD_AAD_TELEMTRY_HEADER copy];
+}
+
 - (ADAuthenticationContext *)authContext
 {
     if (!_authContext){

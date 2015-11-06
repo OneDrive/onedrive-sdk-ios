@@ -148,6 +148,8 @@
     NSParameterAssert(completionHandler);
     NSParameterAssert(request);
     
+    NSString *telemtryValue = [NSString stringWithFormat:OD_TELEMTRY_HEADER_VALUE_FORMAT, OD_SDK_VERSION];
+    [request setValue:telemtryValue forHTTPHeaderField:self.telemtryHeaderField];
     if([ODAuthHelper shouldRefreshSession:self.accountSession]){
         [self.logger logWithLevel:ODLogDebug message:@"Refreshing session %@", self.accountSession.accountId];
         [self refreshAndStoreAccountSession:self.accountSession withCompletion:^(NSError *error){
@@ -216,7 +218,6 @@
         }
     }] resume];
 }
-
 
 - (NSError *)errorFromURL:(NSURL *)url
 {

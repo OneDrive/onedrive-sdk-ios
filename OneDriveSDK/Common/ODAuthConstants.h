@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, ODAuthErrorType) {
     ODInvalidAccountType
 };
 
+extern NSString * const OD_SDK_VERSION;
+
 extern NSString * const OD_AUTH_ERROR_DOMAIN;
 extern NSString * const OD_AUTH_ERROR_KEY;
 
@@ -71,6 +73,9 @@ extern NSString * const OD_AUTH_TOKEN_ID;
 extern NSString * const OD_AUTH_USER_NAME;
 extern NSString * const OD_AUTH_USER_EMAIL;
 
+extern NSString * const OD_MSA_TELEMTRY_HEADER;
+extern NSString * const OD_AAD_TELEMTRY_HEADER;
+extern NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT;
 
 extern NSString * const OD_DISCOVERY_ACCOUNT_TYPE;
 extern NSString * const OD_DISCOVERY_ACCOUNT_TYPE_AAD;

@@ -116,4 +116,10 @@
     }
     return request;
 }
+
+- (NSString *)telemtryHeaderField
+{
+    return [OD_MSA_TELEMTRY_HEADER copy];
+}
+
 @end

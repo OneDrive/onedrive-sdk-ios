@@ -33,6 +33,11 @@
 @property ODServiceInfo *serviceInfo;
 
 /**
+ The proper telemtryHeaderField for the given service.
+ */
+@property (readonly) NSString *telemtryHeaderField;
+
+/**
  Creates an error from a URL returned by an authentication service.
  @param url The URL returned by the service.
  @return An error object constructed from the url.
@@ -82,6 +87,8 @@
  @return A request to log out of the current session.
  */
 - (NSURLRequest *)logoutRequest;
+
+
 
 @end
 

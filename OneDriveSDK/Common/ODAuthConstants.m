@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 #import "ODAuthConstants.h"
 
+NSString * const OD_SDK_VERSION = @"1.0.5";
+
 NSString * const OD_AUTH_ERROR_DOMAIN = @"com.microsoft.onedrivesdk.autherror";
 NSString * const OD_AUTH_ERROR_KEY = @"ODAuthErrorKey";
 
@@ -30,6 +32,11 @@ NSString * const OD_API_HEADER_CONTENTTYPE = @"Content-Type";
 NSString * const OD_API_HEADER_CONTENTTYPE_FORMENCODED = @"application/x-www-form-urlencoded";
 NSString * const OD_API_HEADER_APPLICATION_JSON = @"application/json";
 NSString * const OD_API_HEADER_ACCEPT = @"accept";
+
+NSString * const OD_MSA_TELEMTRY_HEADER = @"X-Request-Stats";
+NSString * const OD_AAD_TELEMTRY_HEADER = @"X-Service-ClientTag";
+
+NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT = @"SDK-Version=iOS-%@";
 
 NSString * const OD_AUTH_ACCESS_TOKEN = @"access_token";
 NSString * const OD_AUTH_CODE = @"code";
@@ -47,6 +54,7 @@ NSString * const OD_AUTH_USER_ID = @"user_id";
 NSString * const OD_AUTH_TOKEN_ID = @"id_token";
 NSString * const OD_AUTH_USER_NAME = @"username";
 NSString * const OD_AUTH_USER_EMAIL = @"user_email";
+
 
 
 NSString * const OD_DISCOVERY_ACCOUNT_TYPE = @"account_type";
