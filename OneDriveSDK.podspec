@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OneDriveSDK"
-  s.version      = "1.0.5"
+  s.version      = "1.1.0"
   s.summary      = "OneDrive iOS SDK"
 
   s.description  = <<-DESC
