@@ -34,6 +34,8 @@
 
 @property (strong) NSMutableURLRequest *monitorRequest;
 
+@property (strong) ODURLSessionTask *monitorTask;
+
 @end
 
 
@@ -63,17 +65,16 @@
                                               // If there was a client error set it
                                               [NSJSONSerialization dictionaryWithResponse:response responseData:data error:&error];
                                           }
-                                          [self onRequestStarted:response error:error completion:self.asyncActionCompletion];
+                                          [self onRequestStarted:response error:error];
                                       }
                                   }];
 }
 
 - (void)onRequestStarted:(NSURLResponse *)response
                    error:(NSError *)error
-              completion:(void (^)(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error))completion
 {
     if (error){
-        completion(nil, nil, error);
+        self.asyncActionCompletion(nil, nil, error);
     }
     else {
          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -85,51 +86,56 @@
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:60];
             
-            [self sendMonitorRequest:self.monitorRequest completion:completion];
+            [self sendMonitorRequest:self.monitorRequest];
         }
         else {
             // If the response was not ODAccepted and unknown error occurred
-            completion(nil, nil, [NSError errorWithDomain:ODErrorDomain code:ODUnknownError userInfo:@{ODHttpFailingResponseKey : httpResponse}]);
+            self.asyncActionCompletion(nil, nil, [NSError errorWithDomain:ODErrorDomain code:ODUnknownError userInfo:@{ODHttpFailingResponseKey : httpResponse}]);
         }
     }
 }
 
-- (void)sendMonitorRequest:(NSMutableURLRequest *)request completion:(void (^)(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error))completion
+- (void)sendMonitorRequest:(NSMutableURLRequest *)request;
 {
-    __block ODURLSessionDataTask *monitorRequest = [[ODURLSessionDataTask alloc] initWithRequest:request client:self.client completion:^(NSDictionary *response, NSError *error){
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)monitorRequest.innerTask.response;
-        [self onMonitorRequestResponse:response httpResponse:httpResponse error:error completion:completion];
+    __block ODURLSessionDataTask *task = [[ODURLSessionDataTask alloc] initWithRequest:request client:self.client completion:^(NSDictionary *response, NSError *error){
+        [self onMonitorRequestResponse:response httpResponse:(NSHTTPURLResponse *)task.innerTask.response error:error];
+        // We must set task to nil to drop the retain count from above. The task matains a strong reference to this call back which holds
+        // a refence to the asyncCompletionHandler which leads to a retain cycle.
+        task = nil;
     }];
-    [monitorRequest execute];
+    [task execute];
 }
 
 - (void)onMonitorRequestResponse:(NSDictionary *)response
                     httpResponse:(NSHTTPURLResponse *)httpResponse
                            error:(NSError *)error
-                      completion:(void (^)(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error))completion
 {
     ODAsyncOperationStatus *status = nil;
     if (!error){
-        // When an async action returns it will redirect to the final location
         if (httpResponse.statusCode == ODOK){
             _state = ODTaskCompleted;
             self.progress.completedUnitCount = 100;
-            completion(response, nil, nil);
+            // When an async action returns it will redirect to the final location
+            self.asyncActionCompletion(response, nil, nil);
+            self.asyncActionCompletion = nil;
         }
-        else if (response && httpResponse.statusCode == ODAccepted){
+        else if (httpResponse.statusCode == ODAccepted){
             status = [[ODAsyncOperationStatus alloc] initWithDictionary:response];
+            [self.client.logger logWithLevel:ODLogInfo message:@"Async Status = %@", status];
             self.progress.completedUnitCount = status.percentageComplete;
-            completion(nil, status, nil);
+            self.asyncActionCompletion(nil, status, nil);
             // if the response was a valid status report send another one
-            [self sendMonitorRequest:self.monitorRequest completion:completion];
+            [self sendMonitorRequest:self.monitorRequest];
         }
         else {
             NSError *unknownError = [NSError errorWithDomain:ODErrorDomain code:ODUnknownError userInfo:@{ODHttpFailingResponseKey : httpResponse }];
-            completion(nil, nil, unknownError);
+            self.asyncActionCompletion(nil, nil, unknownError);
+            self.asyncActionCompletion = nil;
         }
     }
     else {
-        completion(nil, nil, error);
+        self.asyncActionCompletion(nil, nil, error);
+        self.asyncActionCompletion = nil;
     }
 }
 
