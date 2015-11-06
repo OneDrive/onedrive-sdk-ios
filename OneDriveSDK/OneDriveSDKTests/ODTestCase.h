@@ -33,6 +33,8 @@
 
 @property ODClient *mockClient;
 
+@property (readonly, nonatomic) NSDictionary *cannedItem;
+
 @property id <ODHttpProvider> mockSession;
 
 @property id <ODAuthProvider> mockAuthProvider;

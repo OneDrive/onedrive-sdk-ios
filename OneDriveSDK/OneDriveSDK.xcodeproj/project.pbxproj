@@ -58,6 +58,9 @@
 		1013FC491B68413A00BABCC1 /* ODItemContentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1013FC471B68413A00BABCC1 /* ODItemContentRequest.m */; };
 		1013FC501B6841BE00BABCC1 /* ODThumbnailContentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1013FC4E1B6841BE00BABCC1 /* ODThumbnailContentRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1013FC511B6841BE00BABCC1 /* ODThumbnailContentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1013FC4F1B6841BE00BABCC1 /* ODThumbnailContentRequest.m */; };
+		10345C0C1BED2852000A3166 /* CannedItem.json in Resources */ = {isa = PBXBuildFile; fileRef = 10345C0B1BED2852000A3166 /* CannedItem.json */; };
+		10345C1C1BED5068000A3166 /* NSDate+ODSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 10345C1A1BED5068000A3166 /* NSDate+ODSerialization.h */; };
+		10345C1D1BED5068000A3166 /* NSDate+ODSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 10345C1B1BED5068000A3166 /* NSDate+ODSerialization.m */; };
 		10492F9B1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 10492F971B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		10492F9C1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10492F981B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m */; };
 		10492F9D1B6168A5004AB045 /* ODURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 10492F991B6168A5004AB045 /* ODURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -344,11 +347,11 @@
 		07F15415D48153E70243F2B4 /* libPods-OneDriveSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneDriveSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10007C641B30818F00E4ED17 /* ODAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ODAuth.h; sourceTree = "<group>"; };
 		10007C6D1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ODAppConfiguration+DefaultConfiguration.h"; path = "../Extensions/ODAppConfiguration+DefaultConfiguration.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		10007C6E1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODAppConfiguration+DefaultConfiguration.m"; path = "../Extensions/ODAppConfiguration+DefaultConfiguration.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10007C6E1B309D5200E4ED17 /* ODAppConfiguration+DefaultConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODAppConfiguration+DefaultConfiguration.m"; path = "../Extensions/ODAppConfiguration+DefaultConfiguration.m"; sourceTree = "<group>"; };
 		10007C7E1B332A6A00E4ED17 /* ODClient+Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ODClient+Authentication.h"; path = "../Extensions/ODClient+Authentication.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		10007C7F1B332A6A00E4ED17 /* ODClient+Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODClient+Authentication.m"; path = "../Extensions/ODClient+Authentication.m"; sourceTree = "<group>"; };
 		10007C821B332BBD00E4ED17 /* ODClient+DefaultConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ODClient+DefaultConfiguration.h"; path = "../Extensions/ODClient+DefaultConfiguration.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		10007C831B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODClient+DefaultConfiguration.m"; path = "../Extensions/ODClient+DefaultConfiguration.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10007C831B332BBD00E4ED17 /* ODClient+DefaultConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "ODClient+DefaultConfiguration.m"; path = "../Extensions/ODClient+DefaultConfiguration.m"; sourceTree = "<group>"; };
 		10007C8E1B33609100E4ED17 /* ODError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODError.h; path = ../Errors/ODError.h; sourceTree = "<group>"; };
 		10007C8F1B33609100E4ED17 /* ODError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODError.m; path = ../Errors/ODError.m; sourceTree = "<group>"; };
 		10007C921B336AA700E4ED17 /* ODErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ODErrorCodes.h; path = ../Errors/ODErrorCodes.h; sourceTree = "<group>"; };
@@ -357,8 +360,8 @@
 		1003AAB91B0A82F30039017A /* ODKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODKeychainWrapper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1003AABA1B0A82F30039017A /* ODKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODKeychainWrapper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1003AABD1B0A884D0039017A /* ODAccountStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODAccountStoreTests.m; path = AuthTests/ODAccountStoreTests.m; sourceTree = "<group>"; };
-		1003AABF1B0BF2750039017A /* ODAsyncURLSessionDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODAsyncURLSessionDataTask.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1003AAC01B0BF2750039017A /* ODAsyncURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODAsyncURLSessionDataTask.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1003AABF1B0BF2750039017A /* ODAsyncURLSessionDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODAsyncURLSessionDataTask.h; sourceTree = "<group>"; };
+		1003AAC01B0BF2750039017A /* ODAsyncURLSessionDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ODAsyncURLSessionDataTask.m; sourceTree = "<group>"; };
 		1003AAC31B0BF30D0039017A /* ODURLSessionTask+Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ODURLSessionTask+Protected.h"; sourceTree = "<group>"; };
 		1003AAC41B0BF3DF0039017A /* ODURLSessionProgressTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionProgressTask.h; sourceTree = "<group>"; };
 		1003AAC51B0BF3DF0039017A /* ODURLSessionProgressTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODURLSessionProgressTask.m; sourceTree = "<group>"; };
@@ -395,6 +398,9 @@
 		1013FC471B68413A00BABCC1 /* ODItemContentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODItemContentRequest.m; sourceTree = "<group>"; };
 		1013FC4E1B6841BE00BABCC1 /* ODThumbnailContentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODThumbnailContentRequest.h; sourceTree = "<group>"; };
 		1013FC4F1B6841BE00BABCC1 /* ODThumbnailContentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODThumbnailContentRequest.m; sourceTree = "<group>"; };
+		10345C0B1BED2852000A3166 /* CannedItem.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CannedItem.json; sourceTree = "<group>"; };
+		10345C1A1BED5068000A3166 /* NSDate+ODSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ODSerialization.h"; sourceTree = "<group>"; };
+		10345C1B1BED5068000A3166 /* NSDate+ODSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ODSerialization.m"; sourceTree = "<group>"; };
 		10492F971B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODNSURLSessionTaskDelegate.h; sourceTree = "<group>"; };
 		10492F981B6168A5004AB045 /* ODNSURLSessionTaskDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODNSURLSessionTaskDelegate.m; sourceTree = "<group>"; };
 		10492F991B6168A5004AB045 /* ODURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODURLSessionManager.h; sourceTree = "<group>"; };
@@ -684,6 +690,8 @@
 		104AC3901B41B80C009EEB0F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				10345C1A1BED5068000A3166 /* NSDate+ODSerialization.h */,
+				10345C1B1BED5068000A3166 /* NSDate+ODSerialization.m */,
 				101103D71B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.h */,
 				101103D81B1693B700A83BAB /* NSJSONSerialization+ResponseHelper.m */,
 				100D33E01B3DE090003576F7 /* ODThumbnailSet+CustomThumbnail.h */,
@@ -1105,6 +1113,7 @@
 			isa = PBXGroup;
 			children = (
 				10B4D3301AF827D80083D86C /* Info.plist */,
+				10345C0B1BED2852000A3166 /* CannedItem.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1258,6 +1267,7 @@
 				10B4D2E61AF821C40083D86C /* ODThumbnailSetRequestBuilder.h in Headers */,
 				10B4D2E41AF821C40083D86C /* ODThumbnailSetRequest.h in Headers */,
 				10B4D2721AF821C40083D86C /* ODOpenWithSet.h in Headers */,
+				10345C1C1BED5068000A3166 /* NSDate+ODSerialization.h in Headers */,
 				10B4D2571AF821C40083D86C /* ODChunkedUploadSessionDescriptor.h in Headers */,
 				10B4D23C1AF821C40083D86C /* ODURLSessionDataTask.h in Headers */,
 				10B4D26D1AF821C40083D86C /* ODLocation.h in Headers */,
@@ -1459,6 +1469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10345C0C1BED2852000A3166 /* CannedItem.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1591,6 +1602,7 @@
 				101104131B1E8F9400A83BAB /* ODBaseAuthProvider.m in Sources */,
 				10B4D24B1AF821C40083D86C /* ODIfNoneMatch.m in Sources */,
 				10B4D2521AF821C40083D86C /* ODSelectOptions.m in Sources */,
+				10345C1D1BED5068000A3166 /* NSDate+ODSerialization.m in Sources */,
 				10007C911B33609100E4ED17 /* ODError.m in Sources */,
 				10B4D22D1AF821C40083D86C /* ODCollection.m in Sources */,
 				10B4D2DB1AF821C40083D86C /* ODSharesCollectionRequestBuilder.m in Sources */,
