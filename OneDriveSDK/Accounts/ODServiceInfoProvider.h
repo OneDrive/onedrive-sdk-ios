@@ -42,4 +42,5 @@ typedef void(^disambiguationCompletion)(UIViewController *presentedDiscoveryCont
 - (void)getServiceInfoWithViewController:(UIViewController *)viewController
                         appConfiguration:(ODAppConfiguration *)appConfig
                               completion:(disambiguationCompletion)completionHandler;
+
 @end

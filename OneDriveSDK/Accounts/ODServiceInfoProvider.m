@@ -48,57 +48,64 @@
     self.appConfig = appConfig;
     self.completionHandler = completionHandler;
     
-    NSURL *endURL = [NSURL URLWithString:@"https://localhost:777"];
-    NSURL *startURL =[NSURL URLWithString:@"https://api.office.com/discovery/v2.0/me/FirstSignIn?redirect_uri=https://localhost:777&scope=MyFiles"];
+    if (appConfig.microsoftAccountAppId && appConfig.activeDirectoryAppId){
+        [self discoverServiceInfoWithViewController:viewController];
+    }
+    // If we only have a one AppId there is no need to display the disambiguation page we can only select an MSA service info
+    else if(appConfig.microsoftAccountAppId){
+        ODServiceInfo *serviceInfo = [self serviceInfoWithType:ODMSAAccount appConfig:self.appConfig];
+        self.completionHandler(viewController, serviceInfo, nil);
+    }
+    else if(appConfig.activeDirectoryAppId){
+        ODServiceInfo *serviceInfo = [self serviceInfoWithType:ODADAccount appConfig:self.appConfig];
+        self.completionHandler(viewController, serviceInfo, nil);
+    }
+    
+}
+
+- (void)discoverServiceInfoWithViewController:(UIViewController *)viewController
+{
+    NSURL *endURL = [NSURL URLWithString:OD_DISCOVERY_REDIRECT_URL];
+    NSURL *startURL =[NSURL URLWithString:[NSString stringWithFormat:@"%@&ru=%@", OD_DISAMBIGUATION_URL, OD_DISCOVERY_REDIRECT_URL]];
     [self.appConfig.logger logWithLevel:ODLogDebug message:@"ServiceInfo provider starting discovery service with URL:", startURL];
         __block ODAuthenticationViewController *discoveryViewController =
         [[ODAuthenticationViewController alloc] initWithStartURL:startURL
-                                                            endURL:endURL
-                                                           success:^(NSURL *endURL, NSError *error){
-                                                               if (!error){
-                                                                   [self.appConfig.logger logWithLevel:ODLogDebug message:@"discovered account from response : %@", endURL];
-                                                                   ODServiceInfo *serviceInfo = [self serviceInfoFromDiscoveryResponse:endURL appConfig:self.appConfig error:&error];
-                                                                   if (error){
-                                                                       [self.appConfig.logger logWithLevel:ODLogError message:@"Error parsing authentication service response %@", error];
-                                                                   }
-                                                                   self.completionHandler(discoveryViewController, serviceInfo, error);
-                                                               }
-                                                               else {
-                                                                   self.completionHandler(discoveryViewController, nil, error);
-                                                               }
-                                                               
+                                                          endURL:endURL
+                                                         success:^(NSURL *endURL, NSError *error){
+                                                             if (!error){
+                                                                 [self.appConfig.logger logWithLevel:ODLogDebug message:@"discovered account from response : %@", endURL];
+                                                                 ODServiceInfo *serviceInfo = [self serviceInfoFromDiscoveryResponse:endURL appConfig:self.appConfig error:&error];
+                                                                 if (error){
+                                                                     [self.appConfig.logger logWithLevel:ODLogError message:@"Error parsing authentication service response %@", error];
+                                                                 }
+                                                                 self.completionHandler(discoveryViewController, serviceInfo, error);
+                                                             }
+                                                             else {
+                                                                 self.completionHandler(discoveryViewController, nil, error);
+                                                             }
                                                            }];
-        dispatch_async(dispatch_get_main_queue(), ^(){
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:discoveryViewController];
-            navController.modalPresentationStyle = viewController.modalPresentationStyle;
-            UIViewController *viewControllerToPresentOn = viewController;
-            while (viewControllerToPresentOn.presentedViewController) {
-                viewControllerToPresentOn = viewControllerToPresentOn.presentedViewController;
-            }
-            [viewControllerToPresentOn presentViewController:navController animated:YES  completion:^{
-                [discoveryViewController loadInitialRequest];
-            }];
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:discoveryViewController];
+        navController.modalPresentationStyle = viewController.modalPresentationStyle;
+        UIViewController *viewControllerToPresentOn = viewController;
+        while (viewControllerToPresentOn.presentedViewController) {
+            viewControllerToPresentOn = viewControllerToPresentOn.presentedViewController;
+        }
+        [viewControllerToPresentOn presentViewController:navController animated:YES  completion:^{
+            [discoveryViewController loadInitialRequest];
+        }];
     });
-    
 }
 
 - (ODServiceInfo *)serviceInfoFromDiscoveryResponse:(NSURL *)url appConfig:(ODAppConfiguration *)appConfig error:(NSError * __autoreleasing *)error
 {
     NSDictionary *queryParams = [ODAuthHelper decodeQueryParameters:url];
-    NSString *authRequestString = queryParams[OD_DISCOVERY_AUTH_SERVICE];
-    NSString *tokenService = queryParams[OD_DISCOVERY_TOKEN_SERVICE];
-    NSString *discoverResource = queryParams[OD_DISCOVERY_RESROUCE];
-    NSString *discoveryService = queryParams[OD_DISCOVERY_SERVICE];
-    NSInteger accountType = [queryParams[OD_DISCOVERY_ACCOUNT_TYPE] integerValue];
+    NSString *accountType = queryParams[OD_DISCOVERY_ACCOUNT_TYPE];
     NSString *userEmail = queryParams[OD_AUTH_USER_EMAIL];
   
-    ODServiceInfo *serviceInfo = [self serviceInfoWithType:accountType appConfig:appConfig];
+    ODServiceInfo *serviceInfo = [self serviceInfoWithString:accountType appConfig:appConfig];
     if (serviceInfo){
         serviceInfo.userEmail = userEmail;
-        serviceInfo.authorityURL = authRequestString;
-        serviceInfo.tokenURL = tokenService;
-        serviceInfo.resourceId = ([discoverResource isEqualToString:@""]) ? serviceInfo.resourceId : discoverResource ;
-        serviceInfo.discoveryServiceURL = [NSString stringWithFormat:@"%@/services", discoveryService];
     }
     else {
         if (error){
@@ -108,14 +115,39 @@
     return serviceInfo;
 }
 
+- (ODServiceInfo *)serviceInfoWithString:(NSString *)accountType appConfig:(ODAppConfiguration *)appConfig
+{
+    return [self serviceInfoWithType:[self accountTypeFromString:accountType] appConfig:appConfig];
+}
+
+- (ODAccountType)accountTypeFromString:(NSString *)accountType
+{
+    ODAccountType type = ODUnknownAccount;
+    if (accountType){
+        if ([accountType isEqualToString:OD_DISCOVERY_ACCOUNT_TYPE_MSA]){
+            type = ODMSAAccount;
+        }
+        else if ( [accountType isEqualToString:OD_DISCOVERY_ACCOUNT_TYPE_AAD]){
+            type = ODADAccount;
+        }
+    }
+    return type;
+}
+
 - (ODServiceInfo *)serviceInfoWithType:(ODAccountType)type appConfig:(ODAppConfiguration *)appConfig
 {
     ODServiceInfo *serviceInfo = nil;
     switch (type) {
         case ODADAccount:
             if (appConfig.activeDirectoryAppId){
+                NSString *resourceId = appConfig.activeDirectoryResourceId;
+                // If we don't know the resourceId we must discover it using the discovery service
+                if (!resourceId){
+                    resourceId = OD_DISCOVERY_SERVICE_RESOURCEID;
+                }
                 serviceInfo = [[ODAADServiceInfo alloc] initWithClientId:appConfig.activeDirectoryAppId
-                                                                  scopes:appConfig.activeDirectoryScopes
+                                                              capability:appConfig.activeDirectoryCapability
+                                                              resourceId:resourceId
                                                              redirectURL:appConfig.activeDirectoryRedirectURL
                                                                    flags:appConfig.activeDirectoryFlags];
             }
@@ -124,9 +156,12 @@
             if (appConfig.microsoftAccountAppId){
                 serviceInfo = [[ODMSAServiceInfo alloc] initWithClientId:appConfig.microsoftAccountAppId
                                                                   scopes:appConfig.microsoftAccountScopes
-                                                                   flags:appConfig.microsoftAccountFlags];
+                                                                   flags:appConfig.microsoftAccountFlags
+                                                             apiEndpoint:appConfig.microsoftAccountApiEndpoint];
             }
             break;
+        case ODUnknownAccount:
+        default : break;
     }
     return serviceInfo;
 }

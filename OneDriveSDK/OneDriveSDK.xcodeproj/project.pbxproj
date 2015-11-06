@@ -276,6 +276,8 @@
 		10B4D2E71AF821C40083D86C /* ODThumbnailSetRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4D20F1AF821C40083D86C /* ODThumbnailSetRequestBuilder.m */; };
 		10B4D3331AF827D80083D86C /* OneDriveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B4D1201AF8215D0083D86C /* OneDriveSDK.framework */; };
 		10C001611B4397D200B4BCC4 /* ODLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 10C001601B4397D200B4BCC4 /* ODLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10E216CE1BEBF9F800EF108B /* ODServiceInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E216CD1BEBF9F800EF108B /* ODServiceInfoTests.m */; };
+		10E216D41BEBFA0900EF108B /* ODServiceInfoProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E216D31BEBFA0900EF108B /* ODServiceInfoProviderTests.m */; };
 		10F823401B59D467008F74DE /* ODVersionsCollectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F8233C1B59D467008F74DE /* ODVersionsCollectionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10F823411B59D467008F74DE /* ODVersionsCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F8233D1B59D467008F74DE /* ODVersionsCollectionRequest.m */; };
 		10F823421B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F8233E1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -617,6 +619,8 @@
 		10C001601B4397D200B4BCC4 /* ODLoggerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODLoggerProtocol.h; path = Common/ODLoggerProtocol.h; sourceTree = SOURCE_ROOT; };
 		10CE79A31AF97EA000033B40 /* ODTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ODTestCase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		10CE79A41AF97EA000033B40 /* ODTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODTestCase.m; sourceTree = "<group>"; };
+		10E216CD1BEBF9F800EF108B /* ODServiceInfoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODServiceInfoTests.m; path = AuthTests/ODServiceInfoTests.m; sourceTree = "<group>"; };
+		10E216D31BEBFA0900EF108B /* ODServiceInfoProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ODServiceInfoProviderTests.m; path = AuthTests/ODServiceInfoProviderTests.m; sourceTree = "<group>"; };
 		10F8233C1B59D467008F74DE /* ODVersionsCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODVersionsCollectionRequest.h; sourceTree = "<group>"; };
 		10F8233D1B59D467008F74DE /* ODVersionsCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODVersionsCollectionRequest.m; sourceTree = "<group>"; };
 		10F8233E1B59D467008F74DE /* ODVersionsCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODVersionsCollectionRequestBuilder.h; sourceTree = "<group>"; };
@@ -722,6 +726,8 @@
 				10A19D051B03E59D00E69443 /* ODAuthHelperTests.m */,
 				10A19D381B065A1100E69443 /* ODPersonalAuthProviderTests.m */,
 				1003AABD1B0A884D0039017A /* ODAccountStoreTests.m */,
+				10E216CD1BEBF9F800EF108B /* ODServiceInfoTests.m */,
+				10E216D31BEBFA0900EF108B /* ODServiceInfoProviderTests.m */,
 			);
 			name = AuthUnitTests;
 			sourceTree = "<group>";
@@ -1672,6 +1678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E216CE1BEBF9F800EF108B /* ODServiceInfoTests.m in Sources */,
 				10702EA51B600A0C001A85FF /* ODURLSessionTaskTests.m in Sources */,
 				10702E9D1B600A0C001A85FF /* ODActionsTests.m in Sources */,
 				10702E9F1B600A0C001A85FF /* ODItemRequestTests.m in Sources */,
@@ -1680,6 +1687,7 @@
 				10702EA61B600A16001A85FF /* ODAuthHelperTests.m in Sources */,
 				10702EA71B600A16001A85FF /* ODPersonalAuthProviderTests.m in Sources */,
 				10702EA81B600A16001A85FF /* ODAccountStoreTests.m in Sources */,
+				10E216D41BEBFA0900EF108B /* ODServiceInfoProviderTests.m in Sources */,
 				10702EA11B600A0C001A85FF /* ODLoggerTests.m in Sources */,
 				10702EA31B600A0C001A85FF /* ODRequestOptionsTests.m in Sources */,
 				10702EA21B600A0C001A85FF /* ODObjectTests.m in Sources */,

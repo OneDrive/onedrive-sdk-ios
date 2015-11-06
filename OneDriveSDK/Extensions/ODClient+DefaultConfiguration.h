@@ -70,28 +70,62 @@
 + (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
                           scopes:(NSArray *)microsoftAccounntScopes;
 
+
+
+/**
+ Calls setActiveDirectoryAppId:capability:redirectURL with OneDrive for business Capability (MyFiles) 
+ @param activeDirectoryAppId The applicaiton id. Must not be nil.
+ @param redirectURL the redirect url to be used with Azure Active Directory. Most not be nil.
+ */
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
+                    redirectURL:(NSString *)activeDirectoryRedirectURL;
+
+/**
+ Calls setActiveDirectoryAppId:capability:resouceId:apiEndpoint:redirectURL:flags: with the given information.
+ @param activeDirectoryAppId The application id. Must not be nil.
+ @param redirectURL the direct url to be used with Azure Active Directory. Must not be nil
+ */
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
+                    redirectURL:(NSString *)activeDirectoryRedirectURL
+                          flags:(NSDictionary *)flags;
+/**
+ Calls setActiveDirectoryAppId:capability:redirectURL:flags: with nil flags.
+ @param  activeDirectoryAppId The application id. Must not be nil.
+ @param  activeDirectoryCapabilty The capability to use for active directoy. Must not be nil.
+ @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
+ */
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
+                     capability:(NSString *)activeDirectoryCapability
+                    redirectURL:(NSString *)activeDirectoryRedirectURL;
+
+/**
+ Calls setActiveDirectoryAppId:capability:redirectURL:flags: with nil flags.
+ @param  activeDirectoryAppId The application id. Must not be nil.
+ @param  activeDirectoryResouceId The active directory reosuce id. Must not be nil.
+ @param  activeDirectoryApiEndpoint The active directory api endpoint. Must not be nil.
+ @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
+ */
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
+                     resourceId:(NSString *)activeDirectoryResourceId
+                    apiEndpoint:(NSString *)activeDirectoryApiEndpoint
+                    redirectURL:(NSString *)activeDirectoryRedirectURL;
+
 /**
  Sets the OneDrive for Business app information.
  @param  activeDirectoryAppId The application id. Must not be nil.
- @param  activeDirectoryScopes The scopes to be used with authentication. Must not be nil.
+ @param  activeDirectoryCapability The active directory capability.  Must not be nil if resouceId and apiEndpoint are nil.
+ @param  activeDirectoryResouceId The active directroy resouceId.  Must not be nil if capability is nil. 
+ @param  activeDirectoryApiEndpoint The active directory ApiEndpoing. Must not be nil if capability is nil.
  @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
  @param  activeDirectoryFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive for Business authentication flow.
  @see https://dev.onedrive.com/auth/aad_oauth.htm
  */
 + (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
-                         scopes:(NSArray *)activeDirectoryScopes
+                     capability:(NSString *)activeDirectoryCapability
+                     resourceId:(NSString *)activeDirectoryResourceId
+                    apiEndpoint:(NSString *)activeDirectoryApiEndpoint
                     redirectURL:(NSString *)activeDirectoryRedirectURL
                           flags:(NSDictionary *)activeDirectoryFlags;
-
-/**
- Calls the setBusinessAppId:scopes:redirectURL:flags: with nil flags.
- @param  activeDirectoryAppId The application id. Must not be nil.
- @param  activeDirectoryScopes The scopes to be used with authentication. Must not be nil.
- @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
- */
-+ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
-                         scopes:(NSArray *)activeDirectoryScopes
-                    redirectURL:(NSString *)activeDirectoryRedirectURL;
 
 /**
  Calls the setActiveDirectoryAppId and setMicrosoftAccountAppId methods to set both microsoftAccounnt and Business application info.
@@ -99,7 +133,7 @@
  @param  microsoftAccounntScopes The scopes to be used with authentication. Must not be nil.
  @param  microsoftAccounntFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccounnt authentication flow.
  @param  activeDirectoryAppId The application id. Must not be nil.
- @param  activeDirectoryScopes The scopes to be used with authentication. Must not be nil.
+ @param  activeDirectoryCapabilty The active directroy capability must not be nil
  @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
  @param  activeDirectoryFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive for Business authentication flow.
  */
@@ -107,10 +141,28 @@
           microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
            microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
            activeDirectoryAppId:(NSString *)activeDirectoryAppId
-          activeDirectoryScopes:(NSArray *)activeDirectoryScopes
+       activeDirectoryCapability:(NSString *)activeDirectoryCapability
      activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
            activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags;
-
+/**
+ Calls the setActiveDirectoryAppId and setMicrosoftAccountAppId methods to set both microsoftAccounnt and Business application info.
+ @param  microsoftAccounntAppId The application id. Must not be nil.
+ @param  microsoftAccounntScopes The scopes to be used with authentication. Must not be nil.
+ @param  microsoftAccounntFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccounnt authentication flow.
+ @param  activeDirectoryAppId The application id. Must not be nil.
+ @param  activeDirectoryResouceId The active directroy resource Id. Must not be nil.
+ @param  activeDirectoryApiEndpoint The active directroy Api Endpoint. Must not be nil.
+ @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
+ @param  activeDirectoryFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive for Business authentication flow.
+ */
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
+          microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
+           microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
+            activeDirectoryAppId:(NSString *)activeDirectoryAppId
+       activeDirectoryResourceId:(NSString *)activeDirectoryResourceId
+      activeDirectoryApiEndpoint:(NSString *)activeDirectoryApiEndpoint
+      activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
+            activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags;
 /**
  Sets the authentication provider.
  @param authProvider The auth provider.

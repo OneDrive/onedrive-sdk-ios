@@ -66,6 +66,5 @@ extern NSString *const ODHeaderPrefer;
 extern NSString *const ODHeaderContentType;
 extern NSString *const ODHeaderApplicationJson;
 extern NSString *const ODHeaderRespondAsync;
-extern NSString *const ODSDKVersion;
 
 #endif

@@ -25,6 +25,7 @@
 #import "ODAuthProvider.h"
 #import "ODAccountStoreProtocol.h"
 #import "ODLoggerProtocol.h"
+#import "ODAuthConstants.h"
 
 /**
  The 'ODServiceInfo' object will provide information for the specific authentication service.
@@ -45,17 +46,17 @@
 /**
  The URL to retrieve the token with the code from the authentication service.
  */
-@property NSString *tokenURL;
+@property (readonly) NSString *tokenURL;
 
 /**
  The URL to the authentication authority, this is just the host for authority not the full URL.
  */
-@property NSString *authorityURL;
+@property (readonly) NSString *authorityURL;
 
 /**
  The URL to logout of the session.  This may be nil.
  */
-@property NSString *logoutURL;
+@property (readonly) NSString *logoutURL;
 
 /**
  The resourceId of the service being access.
@@ -67,7 +68,7 @@
 /**
  The URL to use to discovery the resource id. This may be nil.
  */
-@property NSString *discoveryServiceURL;
+@property (readonly) NSString *discoveryServiceURL;
 
 /**
  The email of the user. This may be nil.
@@ -75,15 +76,20 @@
 @property NSString *userEmail;
 
 /**
- The host for the api being accessed.
- For Personal OneDrive, the host will be https://api.onedrive.com/v1.0/
+ The Api Endpoint
+ For Personal OneDrive, this will be https://api.onedrive.com/v1.0/
  */
 @property NSString *apiEndpoint;
 
 /**
- An array of strings containing the scopes for the authentication service.
+ An array of strings containing the scopes for the authentication service. This may be nil.
  */
 @property NSArray *scopes;
+
+/**
+ The Active Directory Capability. This may be nil.
+ */
+@property NSString *capability;
 
 /**
  Flags for the given service, these are user defined.
@@ -92,13 +98,19 @@
 @property (readonly) NSDictionary *flags;
 
 /**
+ The account type for the ServiceInfo.
+ */
+@property (readonly) ODAccountType accountType;
+
+/**
  Creates and authentication provider with a given ODHttpProvider and ODAccountStore.
  @param  session The ODHttpProvider to be used for network requests.
  @param  accountStore The accountStore for the auth provider to use.
  @return ODAuthProvider An authentication provider to be used for correct service, created with the given parameters.
  */
-- (id <ODAuthProvider>)authProviderWithURLSession:(id <ODHttpProvider> )session
+- (id <ODAuthProvider>)authProviderWithURLSession:(id <ODHttpProvider>)session
                                      accountStore:(id <ODAccountStore>)accountStore
                                            logger:(id<ODLogger>)logger;
+
 
 @end

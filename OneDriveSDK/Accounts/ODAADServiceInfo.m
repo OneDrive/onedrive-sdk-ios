@@ -23,28 +23,50 @@
 #import "ODServiceInfo+Protected.h"
 #import "ODAADServiceInfo.h"
 #import "ODBusinessAuthProvider.h"
+#import "ODAuthConstants.h"
 
 @implementation ODAADServiceInfo
 
-
-- (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes redirectURL:(NSString *)redirectURL flags:(NSDictionary *)flags
+- (instancetype) initWithCoder:(NSCoder *)aDecoder
 {
-    NSParameterAssert(redirectURL);
-    self = [super initWithClientId:clientId scopes:scopes flags:flags];
+    self = [super initWithCoder:aDecoder];
     if (self){
-        _redirectURL = redirectURL;
+        //Migrate ApiEndpoint
+        if (!_apiEndpoint){
+            //old versions of the SDK only supported /_api/v2.0/me attached to resourceId
+            _apiEndpoint = [_resourceId stringByAppendingPathComponent:[OD_ACTIVE_DIRECTORY_URL_SUFFIX copy]];
+        }
     }
     return self;
 }
 
-- (NSString *)apiEndpoint
+- (instancetype)initWithClientId:(NSString *)clientId
+                      capability:(NSString *)capability
+                      resourceId:(NSString *)resourceId
+                     redirectURL:(NSString *)redirectURL
+                           flags:(NSDictionary *)flags
 {
-    return [self.resourceId stringByAppendingPathComponent:@"_api/v2.0/me/"];
+    NSParameterAssert(redirectURL);
+    
+    self = [super initWithClientId:clientId scopes:nil flags:flags];
+    if (self){
+        _capability = capability;
+        _redirectURL = redirectURL;
+        _resourceId = resourceId;
+        _authorityURL = [OD_ACTIVE_DIRECTORY_AUTH_URL copy];
+        _discoveryServiceURL = [OD_DISCOVERY_SERVICE_URL copy];
+    }
+    return self;
 }
 
 - (id <ODAuthProvider>)createAuthProviderWithSession:(id<ODHttpProvider> )session accountStore:(id <ODAccountStore>)accountStore logger:(id <ODLogger>)logger
 {
     return [[ODBusinessAuthProvider alloc] initWithServiceInfo:self httpProvider:session accountStore:accountStore logger:logger];
+}
+
+- (ODAccountType)accountType
+{
+    return ODADAccount;
 }
 
 @end

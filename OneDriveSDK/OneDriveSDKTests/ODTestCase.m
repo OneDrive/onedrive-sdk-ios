@@ -205,7 +205,7 @@ uploadTaskCompletionWithRequest:(NSMutableURLRequest *)mockRequest
     XCTAssertEqualObjects(request.HTTPMethod, expectedRequest.HTTPMethod);
     XCTAssertEqualObjects(request.HTTPBody, expectedRequest.HTTPBody);
     // all requests that were made have the SDK version on them
-    XCTAssertEqual([request.allHTTPHeaderFields count], [expectedRequest.allHTTPHeaderFields count] + 1);
+    XCTAssertEqual([request.allHTTPHeaderFields count], [expectedRequest.allHTTPHeaderFields count]);
     [expectedRequest.allHTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop){
         XCTAssertEqualObjects(request.allHTTPHeaderFields[key], value);
     }];

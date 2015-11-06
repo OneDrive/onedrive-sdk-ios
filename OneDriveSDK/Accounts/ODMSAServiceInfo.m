@@ -26,22 +26,34 @@
 
 @implementation ODMSAServiceInfo
 
-- (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes flags:(NSDictionary *)flags
+- (instancetype)initWithClientId:(NSString *)clientId
+                          scopes:(NSArray *)scopes
+                           flags:(NSDictionary *)flags
+                     apiEndpoint:(NSString *)apiEndpoint;
 {
     NSParameterAssert(scopes);
     
     self = [super initWithClientId:clientId scopes:scopes flags:flags];
     if (self){
-        _resourceId = [OD_microsoftAccounnt_ENDPOINT copy];
-        _redirectURL = [MSARedirectURL copy];
-        _logoutURL = [MSALogOutURL copy];
+        _authorityURL = [OD_MICROSOFT_ACCOUNT_AUTH_URL copy];
+        _tokenURL = [OD_MICROSOFT_ACCOUNT_TOKEN_URL copy];
+        _apiEndpoint = apiEndpoint;
+        _redirectURL = [OD_MICROSOFT_ACCOUNT_REDIRECT_URL copy];
+        _logoutURL = [OD_MICROSOFT_ACCOUNT_LOGOUT_URL copy];
     }
     return self;
 }
 
-- (NSString *)apiEndpoint
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    return self.resourceId;
+    self = [super initWithCoder:aDecoder];
+    if (self){
+        //Migrate the APIEndpoint from resource Id if this was loaded from an older SDK version
+        if (!_apiEndpoint){
+            _apiEndpoint = _resourceId;
+        }
+    }
+    return self;
 }
 
 - (NSDictionary *)authRequestParameters
@@ -54,6 +66,11 @@
 - (id <ODAuthProvider>)createAuthProviderWithSession:(id<ODHttpProvider> )session accountStore:(id <ODAccountStore>)accountStore logger:(id <ODLogger>)logger
 {
     return [[ODPersonalAuthProvider alloc] initWithServiceInfo:self httpProvider:session accountStore:accountStore logger:logger];
+}
+
+- (ODAccountType)accountType
+{
+    return ODMSAAccount;
 }
 
 @end
