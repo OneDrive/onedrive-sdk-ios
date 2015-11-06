@@ -53,16 +53,16 @@
 
 @property NSMutableURLRequest *monitorRequest;
 
-- (void)onRequestStarted:(NSURLResponse *)response
-                   error:(NSError *)error
-              completion:(void (^)(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error))completion;
+@property (strong) ODAsyncActionCompletion asyncActionCompletion;
 
-- (void)sendMonitorRequest:(NSMutableURLRequest *)request completion:(void (^)(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error))completion;
+- (void)onRequestStarted:(NSURLResponse *)response
+                   error:(NSError *)error;
+
+- (void)sendMonitorRequest:(NSMutableURLRequest *)request;
 
 - (void)onMonitorRequestResponse:(NSDictionary *)response
                     httpResponse:(NSHTTPURLResponse *)httpResponse
-                           error:(NSError *)error
-                      completion:(void (^)(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error))completion;
+                           error:(NSError *)error;
 
 @end
 
@@ -341,22 +341,24 @@
     
     ODAsyncURLSessionDataTask *asyncTask = [[ODAsyncURLSessionDataTask alloc] initWithRequest:self.mockRequest client:self.mockClient completion:nil];
     ODAsyncURLSessionDataTask *mockTask = OCMPartialMock(asyncTask);
-    OCMStub([mockTask sendMonitorRequest:[OCMArg any] completion:nil]);
-    [mockTask onRequestStarted:accepted error:nil completion:nil];
+    OCMStub([mockTask sendMonitorRequest:[OCMArg any]]);
+    [mockTask onRequestStarted:accepted error:nil];
     OCMVerify([mockTask sendMonitorRequest:[OCMArg checkWithBlock:^(NSMutableURLRequest *request){
-        return [[request.URL absoluteString] isEqualToString:[self.testBaseURL absoluteString]];}]
-                                completion:nil]);
+        return [[request.URL absoluteString] isEqualToString:[self.testBaseURL absoluteString]];
+    }]]);
 }
 
 - (void)testAsyncTaskOnMonitorRequestError{
     ODAsyncURLSessionDataTask *asyncTask = [[ODAsyncURLSessionDataTask alloc] initWithRequest:self.mockRequest client:self.mockClient];
     __block NSError *unknownError = [NSError errorWithDomain:ODErrorDomain code:ODUnknownError userInfo:@{}];
     
-    [asyncTask onMonitorRequestResponse:nil httpResponse:nil error:unknownError completion:^(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error){
+    asyncTask.asyncActionCompletion = ^(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error){
         XCTAssertNil(response);
         XCTAssertNil(status);
         XCTAssertEqual(error, unknownError);
-    }];
+    };
+    
+    [asyncTask onMonitorRequestResponse:nil httpResponse:nil error:unknownError];
 }
 
 - (void)testAsyncTaskValidMonitorUpdate{
@@ -369,26 +371,30 @@
     
     ODAsyncURLSessionDataTask *mockTask = OCMPartialMock(asyncTask);
     mockTask.monitorRequest = self.mockRequest;
-    OCMStub([mockTask sendMonitorRequest:[OCMArg any] completion:[OCMArg any]]);
-    [mockTask onMonitorRequestResponse:[mockStatus dictionaryFromItem] httpResponse:response error:nil completion:^(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error){
+    OCMStub([mockTask sendMonitorRequest:[OCMArg any]]);
+    
+    
+    mockTask.asyncActionCompletion = ^(NSDictionary *response, ODAsyncOperationStatus *status, NSError *error){
         XCTAssertNil(response);
         XCTAssertNil(error);
         XCTAssertEqualObjects(status.status, mockStatus.status);
         XCTAssertEqualObjects(status.operation, mockStatus.operation);
         XCTAssertEqual(status.percentageComplete, mockStatus.percentageComplete);
-    }];
-    
+     };
+    [mockTask onMonitorRequestResponse:[mockStatus dictionaryFromItem] httpResponse:response error:nil];
     XCTAssertEqual(mockTask.progress.completedUnitCount, mockStatus.percentageComplete);
-    OCMVerify([mockTask sendMonitorRequest:self.mockRequest completion:[OCMArg any]]);
+    OCMVerify([mockTask sendMonitorRequest:self.mockRequest]);
 }
 
 - (void)testAsyncTaskValidItemReturned{
-    ODAsyncURLSessionDataTask *asyncTask = [[ODAsyncURLSessionDataTask alloc] initWithRequest:self.mockRequest client:self.mockClient completion:nil];
     ODItem *mockItem = [[ODItem alloc] init];
     mockItem.name = @"foo";
     mockItem.id = @"bar";
     NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:self.testBaseURL statusCode:ODOK HTTPVersion:@"foo" headerFields:nil];
-    [asyncTask onMonitorRequestResponse:[mockItem dictionaryFromItem] httpResponse:response error:nil completion:^(NSDictionary *dictionary, ODAsyncOperationStatus *status, NSError *error){
+    
+    ODAsyncURLSessionDataTask *asyncTask = [[ODAsyncURLSessionDataTask alloc] initWithRequest:self.mockRequest
+                                                                                       client:self.mockClient
+                                                                                   completion:^(NSDictionary *dictionary, ODAsyncOperationStatus *status, NSError *error){
         XCTAssertNil(status);
         XCTAssertNil(error);
         XCTAssertNotNil(dictionary);
@@ -396,17 +402,18 @@
         XCTAssertEqualObjects(receivedItem.id, mockItem.id);
         XCTAssertEqualObjects(receivedItem.name, mockItem.name);
     }];
+    [asyncTask onMonitorRequestResponse:[mockItem dictionaryFromItem] httpResponse:response error:nil];
     XCTAssertEqual(asyncTask.progress.completedUnitCount, 100);
     XCTAssertEqual(asyncTask.state, ODTaskCompleted);
 }
 
 - (void)testAsyncTaskInvalidResponse{
-    ODAsyncURLSessionDataTask *asyncTask = [[ODAsyncURLSessionDataTask alloc] initWithRequest:self.mockRequest client:self.mockClient completion:nil];
-    
-    NSHTTPURLResponse *badResponse = [[NSHTTPURLResponse alloc] initWithURL:self.testBaseURL statusCode:42 HTTPVersion:@"foo" headerFields:@{}];
-    [asyncTask onMonitorRequestResponse:nil httpResponse:badResponse error:nil completion:^(NSDictionary *dictionary, ODAsyncOperationStatus *status, NSError *error) {
+    ODAsyncURLSessionDataTask *asyncTask = [[ODAsyncURLSessionDataTask alloc] initWithRequest:self.mockRequest client:self.mockClient completion:^(NSDictionary *resposne, ODAsyncOperationStatus *status, NSError *error){
         XCTAssertNotNil(error);
     }];
+    
+    NSHTTPURLResponse *badResponse = [[NSHTTPURLResponse alloc] initWithURL:self.testBaseURL statusCode:42 HTTPVersion:@"foo" headerFields:@{}];
+    [asyncTask onMonitorRequestResponse:nil httpResponse:badResponse error:nil];
 }
 
 
