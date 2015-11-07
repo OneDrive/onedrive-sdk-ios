@@ -34,9 +34,9 @@ NSString * const OD_API_HEADER_APPLICATION_JSON = @"application/json";
 NSString * const OD_API_HEADER_ACCEPT = @"accept";
 
 NSString * const OD_MSA_TELEMTRY_HEADER = @"X-Request-Stats";
-NSString * const OD_AAD_TELEMTRY_HEADER = @"X-Service-ClientTag";
+NSString * const OD_AAD_TELEMTRY_HEADER = @"X-ClientService-ClientTag";
 
-NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT = @"SDK-Version=iOS-%@";
+NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT = @"SDK-Version=iOS-v%@";
 
 NSString * const OD_AUTH_ACCESS_TOKEN = @"access_token";
 NSString * const OD_AUTH_CODE = @"code";
