@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 #import "ODAuthConstants.h"
 
-NSString * const OD_SDK_VERSION = @"1.0.5";
+NSString * const OD_SDK_VERSION = @"1.1.0";
 
 NSString * const OD_AUTH_ERROR_DOMAIN = @"com.microsoft.onedrivesdk.autherror";
 NSString * const OD_AUTH_ERROR_KEY = @"ODAuthErrorKey";
