@@ -27,10 +27,6 @@
 
 @property (readonly, nonatomic) id <ODAuthProvider> authProvider;
 
-- (id <ODAuthProvider>)createAuthProviderWithSession:(id<ODHttpProvider> )session
-                                        accountStore:(id <ODAccountStore>)accountStore
-                                              logger:(id <ODLogger> )logger;
-
 @end
 
 @implementation ODServiceInfo
@@ -59,6 +55,8 @@
     [aCoder encodeObject:self.flags forKey:@"flags"];
     [aCoder encodeObject:self.scopes forKey:@"scopes"];
     [aCoder encodeObject:self.logoutURL forKey:@"logoutURL"];
+    [aCoder encodeObject:self.apiEndpoint forKey:@"apiEndpoint"];
+    [aCoder encodeObject:self.capability forKey:@"capability"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -74,6 +72,8 @@
         _flags = [aDecoder decodeObjectForKey:@"flags"];
         _scopes = [aDecoder decodeObjectForKey:@"scopes"];
         _logoutURL = [aDecoder decodeObjectForKey:@"logoutURL"];
+        _capability = [aDecoder decodeObjectForKey:@"capability"];
+        _apiEndpoint = [aDecoder decodeObjectForKey:@"apiEndpoint"];
     }
     return self;
 }

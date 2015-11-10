@@ -86,18 +86,18 @@
     return [ODClient clientsFromAppConfig:[ODAppConfiguration defaultConfiguration]];
 }
 
-
 + (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
                           scopes:(NSArray *)microsoftAccounntScopes
                            flags:(NSDictionary *)microsoftAccounntFlags
 {
     NSParameterAssert(microsoftAccounntAppId);
     NSParameterAssert(microsoftAccounntScopes);
-    
-    ODAppConfiguration *defaultConfig = [ODAppConfiguration defaultConfiguration];
-    defaultConfig.microsoftAccountAppId = microsoftAccounntAppId;
-    defaultConfig.microsoftAccountScopes = microsoftAccounntScopes;
-    defaultConfig.microsoftAccountFlags = microsoftAccounntFlags;
+    // default to OneDrive
+    NSString *onedriveApiEndpoint  = [NSString stringWithFormat:@"%@/%@", OD_MICROSOFT_ACCOUNT_ENDPOINT, OD_MICROSOFT_ACCOUNT_API_VERSION];
+    [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId
+                                scopes:microsoftAccounntScopes
+                                 flags:microsoftAccounntFlags
+                           apiEndpoint:onedriveApiEndpoint];
 }
 
 + (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId scopes:(NSArray *)microsoftAccounntScopes
@@ -105,39 +105,117 @@
     [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId scopes:microsoftAccounntScopes flags:nil];
 }
 
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
+                          scopes:(NSArray *)microsoftAccounntScopes
+                           flags:(NSDictionary *)microsoftAccounntFlags
+                     apiEndpoint:(NSString *)apiEndpoint
+{
+    ODAppConfiguration *defaultConfig = [ODAppConfiguration defaultConfiguration];
+    defaultConfig.microsoftAccountAppId = microsoftAccounntAppId;
+    defaultConfig.microsoftAccountScopes = microsoftAccounntScopes;
+    defaultConfig.microsoftAccountFlags = microsoftAccounntFlags;
+    defaultConfig.microsoftAccountApiEndpoint = apiEndpoint;
+}
+
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId redirectURL:(NSString *)activeDirectoryRedirectURL
+{
+    [ODClient setActiveDirectoryAppId:activeDirectoryAppId redirectURL:activeDirectoryRedirectURL flags:nil];
+}
+
 + (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
-                         scopes:(NSArray *)activeDirectoryScopes
+                    redirectURL:(NSString *)activeDirectoryRedirectURL
+                          flags:(NSDictionary *)flags
+{
+    // Default to MyFiles for OneDrive for Business
+    [ODClient setActiveDirectoryAppId:activeDirectoryAppId
+                           capability:@"MyFiles"
+                           resourceId:nil
+                          apiEndpoint:nil
+                          redirectURL:activeDirectoryRedirectURL
+                                flags:flags];
+}
+
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
+                     capability:(NSString *)activeDirectoryCapability
+                     resourceId:(NSString *)activeDirectoryResourceId
+                    apiEndpoint:(NSString *)activeDirectoryApiEndpoint
                     redirectURL:(NSString *)activeDirectoryRedirectURL
                           flags:(NSDictionary *)activeDirectoryFlags
 {
     NSParameterAssert(activeDirectoryAppId);
-    NSParameterAssert(activeDirectoryScopes);
     NSParameterAssert(activeDirectoryRedirectURL);
     
     ODAppConfiguration *defaultConfig = [ODAppConfiguration defaultConfiguration];
     defaultConfig.activeDirectoryAppId = activeDirectoryAppId;
-    defaultConfig.activeDirectoryScopes = activeDirectoryScopes;
+    defaultConfig.activeDirectoryCapability = activeDirectoryCapability;
     defaultConfig.activeDirectoryRedirectURL = activeDirectoryRedirectURL;
     defaultConfig.activeDirectoryFlags = activeDirectoryFlags;
+    defaultConfig.activeDirectoryResourceId = activeDirectoryResourceId;
+    defaultConfig.activeDirectoryApiEndpointURL = activeDirectoryApiEndpoint;
 }
 
 + (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
-                  scopes:(NSArray *)activeDirectoryScopes
-             redirectURL:(NSString *)activeDirectoryRedirectURL
+                     resourceId:(NSString *)activeDirectoryResourceId
+                    apiEndpoint:(NSString *)activeDirectoryApiEndpoint
+                    redirectURL:(NSString *)activeDirectoryRedirectURL
 {
-    [ODClient setActiveDirectoryAppId:activeDirectoryAppId scopes:activeDirectoryScopes redirectURL:activeDirectoryRedirectURL flags:nil];
+    NSParameterAssert(activeDirectoryResourceId);
+    
+    [ODClient setActiveDirectoryAppId:activeDirectoryAppId
+                           capability:nil
+                           resourceId:activeDirectoryResourceId
+                          apiEndpoint:activeDirectoryApiEndpoint
+                          redirectURL:activeDirectoryResourceId
+                                flags:nil];
+}
+
++ (void)setActiveDirectoryAppId:(NSString *)activeDirectoryAppId
+                     capability:(NSString *)activeDirectoryCapability
+                    redirectURL:(NSString *)activeDirectoryRedirectURL
+{
+    NSParameterAssert(activeDirectoryCapability);
+    
+    [ODClient setActiveDirectoryAppId:activeDirectoryAppId
+                           capability:activeDirectoryCapability
+                           resourceId:nil
+                          apiEndpoint:nil
+                          redirectURL:activeDirectoryRedirectURL
+                                flags:nil];
 }
 
 + (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
           microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
            microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
             activeDirectoryAppId:(NSString *)activeDirectoryAppId
-           activeDirectoryScopes:(NSArray *)activeDirectoryScopes
+       activeDirectoryCapability:(NSString *)activeDirectoryCapability
       activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
             activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags
 {
     [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId scopes:microsoftAccounntScopes flags:microsoftAccounntFlags];
-    [ODClient setActiveDirectoryAppId:activeDirectoryAppId scopes:activeDirectoryScopes redirectURL:activeDirectoryRedirectURL flags:activeDirectoryFlags];
+    [ODClient setActiveDirectoryAppId:activeDirectoryAppId
+                           capability:activeDirectoryCapability
+                           resourceId:nil
+                          apiEndpoint:nil
+                          redirectURL:activeDirectoryRedirectURL
+                                flags:activeDirectoryFlags];
+}
+
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
+          microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
+           microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
+            activeDirectoryAppId:(NSString *)activeDirectoryAppId
+       activeDirectoryResourceId:(NSString *)activeDirectoryResourceId
+      activeDirectoryApiEndpoint:(NSString *)activeDirectoryApiEndpoint
+      activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
+            activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags
+{
+    [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId scopes:microsoftAccounntScopes flags:microsoftAccounntFlags];
+    [ODClient setActiveDirectoryAppId:activeDirectoryAppId
+                           capability:nil
+                           resourceId:activeDirectoryResourceId
+                          apiEndpoint:activeDirectoryApiEndpoint
+                          redirectURL:activeDirectoryRedirectURL
+                                flags:activeDirectoryFlags];
 }
 
 + (void)setAuthProvider:(id <ODAuthProvider>)authProvider

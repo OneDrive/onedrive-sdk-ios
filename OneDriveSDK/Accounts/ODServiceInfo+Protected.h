@@ -35,9 +35,9 @@
     NSString *_discoveryServiceURL;
     NSString *_userEmail;
     NSString *_apiEndpoint;
+    NSString *_capability;
     NSArray *_scopes;
 }
-
 
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes flags:(NSDictionary *)flags;
 

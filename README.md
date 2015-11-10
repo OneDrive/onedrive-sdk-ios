@@ -82,7 +82,9 @@ Register your application by following [these](https://dev.onedrive.com/app-regi
 
 * You can set your application Id and scopes directly on the ODClient object. 
 
-* Call the class method `[ODClient setMicrosoftAccountAppId:<applicationId> scopes:<scopes>]` with a specified <applicationId> and <scopes>. For more info about scopes, see [Authentication scopes](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes).
+* For applications targeting OneDrive call the class method `[ODClient setMicrosoftAccountAppId:<applicationId> scopes:<scopes>]` with a specified `<applicationId>` and `<scopes>`. For more info about scopes, see [Authentication scopes](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes).
+
+* For applications targeting OneDrive for Business call the class method `[ODClient setActiveDirectoryAppId:<applicationId> redirectURL:<redirectURL>]`  with specified `<applicationId>` and `<redirectURL>`.  Note: the redirect URL must match the redirect URL that you specified in the [Azure Management Portal](https://manage.windowsazure.com/).
 
 ### 2.3 Getting an authenticated ODClient object
 
@@ -94,7 +96,7 @@ Register your application by following [these](https://dev.onedrive.com/app-regi
 * Get an authenticated ODClient via the clientWithCompletion method:
 
 ```objc
-ODClient *odClient = [ODClient clientWithCompletion:^(ODClient *client, NSError *error){
+[ODClient clientWithCompletion:^(ODClient *client, NSError *error){
     if (!error){
         self.odClient = client;
     }

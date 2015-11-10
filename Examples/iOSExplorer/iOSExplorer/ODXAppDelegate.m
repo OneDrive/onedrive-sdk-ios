@@ -37,19 +37,9 @@
     // Uncomment the correct call to test with ActiveDirectory or both types of apps.
     [ODClient setMicrosoftAccountAppId:@"0000000048160AF8" scopes:@[@"onedrive.readwrite"] ];
     
-    //[ODClient setActiveDirectoryAppId:<activeDirectoryId>
-    //                           scopes:<acitveDirectoryScopes>
-    //                      redirectURL:<activeDirectoryRedirectURL>
-    //                            flags:@{"NoThumbnails" : @(YES) }];
-    //
-    
-    //[ODClient setMicrosoftAccountAppId:<MSAAppId>
-    //            microsoftAccountScopes:<MSAScopes>
-    //             microsoftAccountFlags:<MSAFlags>
-    //              activeDirectoryAppId:<activeDirectoryId>
-    //             activeDirectoryScopes:<acitveDirectoryScopes
-    //        activeDirectoryRedirectURL:<activeDirectoryRedirectURL>
-    //              activeDirectoryFlags:<activeDirectoryFlags];
+    //[ODClient setActiveDirectoryAppId:<AAD_APPID>
+    //                      redirectURL:<AAD_REDIRECT_URI>
+    //                            flags:@{@"NoThumbnails" : @(YES)}];
     
     return YES;
 }

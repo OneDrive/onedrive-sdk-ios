@@ -87,7 +87,9 @@ static void *ProgressObserverContext = &ProgressObserverContext;
         if (!error){
             self.client = client;
             [self loadChildren];
-            self.navigationItem.rightBarButtonItem = self.actions;
+            dispatch_async(dispatch_get_main_queue(), ^(){
+                self.navigationItem.rightBarButtonItem = self.actions;
+            });
         }
         else{
             [self showErrorAlert:error];
@@ -105,12 +107,12 @@ static void *ProgressObserverContext = &ProgressObserverContext;
         self.client = nil;
         self.currentItem = nil;
         self.title = @"OneDrive";
-        self.navigationItem.hidesBackButton = YES;
         dispatch_async(dispatch_get_main_queue(), ^(){
+            self.navigationItem.hidesBackButton = YES;
+            self.navigationItem.rightBarButtonItem = self.signIn;
             // Reload from main thread
             [self.collectionView reloadData];
         });
-        self.navigationItem.rightBarButtonItem = self.signIn;    
     }];
 }
 

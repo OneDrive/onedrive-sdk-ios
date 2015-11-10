@@ -22,14 +22,22 @@
 
 #import "ODTestCase.h"
 
+@interface ODTestCase(){
+    NSDictionary *_cannedItem;
+}
+
+@end
+
 @implementation ODTestCase
+
+
 - (void)setUp{
     [super setUp];
     
     self.mockSession = OCMProtocolMock(@protocol(ODHttpProvider));
     self.mockAuthProvider = OCMProtocolMock(@protocol(ODAuthProvider));
     self.mockClient = OCMPartialMock([[ODClient alloc] initWithURL:[self.testBaseURL absoluteString] httpProvider:self.mockSession authProvider:self.mockAuthProvider]);
-    self.testBaseURL = [NSURL URLWithString:@"https://foo.com/bar/baz"];
+    self.testBaseURL = [NSURL URLWithString:@"https://foo.com/bar/baz"]; 
 }
 
 - (void) setAuthProvider:(id <ODAuthProvider> )mockAuthProvider
@@ -205,10 +213,26 @@ uploadTaskCompletionWithRequest:(NSMutableURLRequest *)mockRequest
     XCTAssertEqualObjects(request.HTTPMethod, expectedRequest.HTTPMethod);
     XCTAssertEqualObjects(request.HTTPBody, expectedRequest.HTTPBody);
     // all requests that were made have the SDK version on them
-    XCTAssertEqual([request.allHTTPHeaderFields count], [expectedRequest.allHTTPHeaderFields count] + 1);
+    XCTAssertEqual([request.allHTTPHeaderFields count], [expectedRequest.allHTTPHeaderFields count]);
     [expectedRequest.allHTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop){
         XCTAssertEqualObjects(request.allHTTPHeaderFields[key], value);
     }];
+}
+
+- (NSDictionary *)cannedItem
+{
+    if (!_cannedItem){
+        __block id class = [self class];
+        static NSDictionary *cannedItem = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            NSString *cannedItemPath = [[NSBundle bundleForClass:class] pathForResource:@"CannedItem" ofType:@"json"];
+            NSData *cannedItemData = [NSData dataWithContentsOfFile:cannedItemPath];
+            cannedItem = [NSJSONSerialization JSONObjectWithData:cannedItemData options:0 error:nil];
+        });
+        _cannedItem = cannedItem;
+    }
+    return _cannedItem;
 }
 
 @end

@@ -24,6 +24,10 @@
 
 @interface ODAADServiceInfo : ODServiceInfo
 
-- (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes redirectURL:(NSString *)redirectURL flags:(NSDictionary *)flags;
+- (instancetype)initWithClientId:(NSString *)clientId
+                      capability:(NSString *)capability
+                      resourceId:(NSString *)resourceId
+                     redirectURL:(NSString *)redirectURL
+                           flags:(NSDictionary *)flags;
 
 @end

@@ -21,6 +21,7 @@
 
 
 #import "ODObject.h"
+#import "NSDate+ODSerialization.h"
 
 @interface ODObject()
 
@@ -59,8 +60,11 @@
         if ([obj respondsToSelector:@selector(dictionaryFromItem)]){
             fullDictionary[key] = [obj dictionaryFromItem];
         }
+        else if ([obj respondsToSelector:@selector(od_toString)]){
+            fullDictionary[key] = [obj od_toString];
+        }
         else{
-            fullDictionary[key] = obj;
+            fullDictionary[key] = [obj description];
         }
     }];
     return fullDictionary;
@@ -68,15 +72,7 @@
 
 - (NSDate *)dateFromString:(NSString *)dateString
 {
-    NSDate *date = nil;
-    if (dateString){
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-        NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        [dateFormatter setLocale:posix];
-        date = [dateFormatter dateFromString:dateString];
-    }
-    return date;
+    return [NSDate od_dateFromString:dateString];
 }
 
 - (NSString *)description
@@ -84,5 +80,6 @@
     return [[self dictionaryFromItem] description];
 }
 
-
 @end
+
+

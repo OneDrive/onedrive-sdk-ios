@@ -6,10 +6,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-//  
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
-//  
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,13 +19,30 @@
 //  THE SOFTWARE.
 //
 
+#import "NSDate+ODSerialization.h"
 
-#import "ODServiceInfo.h"
+@implementation NSDate (Serialization)
 
-@interface ODMSAServiceInfo : ODServiceInfo
+- (NSString *)od_toString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:posix];
+    return [dateFormatter stringFromDate:self];
+}
 
-- (instancetype)initWithClientId:(NSString *)clientId
-                          scopes:(NSArray *)scopes
-                           flags:(NSDictionary *)flags
-                     apiEndpoint:(NSString *)apiEndpoint;
++ (instancetype)od_dateFromString:(NSString *)dateString
+{
+    NSDate *date = nil;
+    if (dateString){
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+        NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [dateFormatter setLocale:posix];
+        date = [dateFormatter dateFromString:dateString];
+    }
+    return date;   
+}
+
 @end

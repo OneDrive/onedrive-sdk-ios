@@ -23,6 +23,7 @@
 #define OneDriveSDK_ODAuthConstants_h
 
 typedef NS_ENUM(NSInteger, ODAccountType){
+    ODUnknownAccount = 0,
     ODMSAAccount = 1,
     ODADAccount = 2,
 };
@@ -43,6 +44,8 @@ typedef NS_ENUM(NSInteger, ODAuthErrorType) {
     /** You do not have the correct account information. */
     ODInvalidAccountType
 };
+
+extern NSString * const OD_SDK_VERSION;
 
 extern NSString * const OD_AUTH_ERROR_DOMAIN;
 extern NSString * const OD_AUTH_ERROR_KEY;
@@ -70,20 +73,32 @@ extern NSString * const OD_AUTH_TOKEN_ID;
 extern NSString * const OD_AUTH_USER_NAME;
 extern NSString * const OD_AUTH_USER_EMAIL;
 
+extern NSString * const OD_MSA_TELEMTRY_HEADER;
+extern NSString * const OD_AAD_TELEMTRY_HEADER;
+extern NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT;
 
-extern NSString * const OD_DISCOVERY_AUTH_SERVICE;
-extern NSString * const OD_DISCOVERY_TOKEN_SERVICE;
-extern NSString * const OD_DISCOVERY_RESROUCE;
-extern NSString * const OD_DISCOVERY_SERVICE;
 extern NSString * const OD_DISCOVERY_ACCOUNT_TYPE;
+extern NSString * const OD_DISCOVERY_ACCOUNT_TYPE_AAD;
+extern NSString * const OD_DISCOVERY_ACCOUNT_TYPE_MSA;
+extern NSString * const OD_DISCOVERY_SERVICE_RESOURCEID;
+extern NSString * const OD_DISCOVERY_SERVICE_URL;
+extern NSString * const OD_DISAMBIGUATION_URL;
 
-extern NSString * const ODLocalRedirectURL;
-extern NSString * const MSAEndpointHost;
-extern NSString * const MSAAuthURL;
-extern NSString * const MSATokenURL;
-extern NSString * const MSARedirectURL;
-extern NSString * const MSALogOutURL;
+extern NSString * const OD_MICROSOFT_ACCOUNT_ENDPOINT_HOST;
+extern NSString * const OD_MICROSOFT_ACCOUNT_AUTH_URL;
+extern NSString * const OD_MICROSOFT_ACCOUNT_TOKEN_URL;
+extern NSString * const OD_MICROSOFT_ACCOUNT_REDIRECT_URL;
+extern NSString * const OD_MICROSOFT_ACCOUNT_LOGOUT_URL;
+extern NSString * const OD_MICROSOFT_ACCOUNT_API_VERSION;
+extern NSString * const OD_MICROSOFT_ACCOUNT_ENDPOINT;
 
-extern NSString * const OD_microsoftAccounnt_ENDPOINT;
+extern NSString * const OD_DISCOVERY_REDIRECT_URL;
+extern NSString * const OD_MICROSOFT_ACCOUNT_ENDPOINT;
+
+extern NSString * const OD_ACTIVE_DIRECTORY_AUTH_URL;
+extern NSString * const OD_ACTIVE_DIRECTORY_AUTH_ENDPOINT_HOST;
+extern NSString * const OD_ACTIVE_DIRECTORY_URL_SUFFIX;
+
+extern NSString * const OD_MICROSOFT_ACCOUNT_API_VERSION;
 
 #endif

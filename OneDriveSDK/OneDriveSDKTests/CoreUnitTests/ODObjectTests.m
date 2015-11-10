@@ -38,16 +38,26 @@
     [super tearDown];
 }
 
+
 - (void)testNilDictionary{
     XCTAssertNil([[ODObject alloc] initWithDictionary:nil]);
 }
 
 - (void)testItemFromDictionary{
-    NSString *itemId = @"12345";
-    ODItem *testItem = [[ODItem alloc] initWithDictionary:@{ @"id" : itemId}];
+    ODItem *testItem = [[ODItem alloc] initWithDictionary:self.cannedItem];
     
-    XCTAssertEqualObjects(testItem.id, itemId);
+    XCTAssertEqualObjects(testItem.id, self.cannedItem[@"id"]);
+    XCTAssertNotNil(testItem.fileSystemInfo);
+    XCTAssertNotNil(testItem.fileSystemInfo.createdDateTime);
     XCTAssertNil(testItem.folder);
+}
+
+- (void)testItemFromDictionaryToJson{
+    ODItem *testItem = [[ODItem alloc] initWithDictionary:self.cannedItem];
+    NSError *error;
+    NSData *jsonBlob = [NSJSONSerialization dataWithJSONObject:[testItem dictionaryFromItem] options:0 error:&error];
+    XCTAssertNotNil(jsonBlob);
+    XCTAssertNil(error);
 }
 
 - (void)testFolder{
@@ -122,6 +132,26 @@
     testItem.fileSystemInfo.createdDateTime = date;
     
     XCTAssertNotNil(testItem.fileSystemInfo.createdDateTime);
+}
+
+- (void)testSerializeSetDate{
+    NSDate *now = [NSDate dateWithTimeIntervalSince1970:0];
+    ODItem *testItem = [[ODItem alloc] init];
+    testItem.fileSystemInfo = [[ODFileSystemInfo alloc] init];
+    testItem.fileSystemInfo.createdDateTime = [now copy];
+    
+    NSDictionary *itemDictionary = [testItem dictionaryFromItem];
+    XCTAssertNotNil(itemDictionary[@"fileSystemInfo"][@"createdDateTime"]);
+}
+
+- (void)testJsonSerializationItemWithChangedDate{
+    NSDate *now = [NSDate dateWithTimeIntervalSince1970:0];
+    ODItem *cannedItem = [[ODItem alloc] initWithDictionary:self.cannedItem];
+    cannedItem.fileSystemInfo.createdDateTime = now;
+    NSError *error = nil;
+    NSData *jsonBlob = [NSJSONSerialization dataWithJSONObject:[cannedItem dictionaryFromItem] options:0 error:&error];
+    XCTAssertNotNil(jsonBlob);
+    XCTAssertNil(error);
 }
 
 
