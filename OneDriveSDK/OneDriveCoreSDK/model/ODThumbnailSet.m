@@ -57,7 +57,9 @@
 {
     if (!_large){
         _large = [[ODThumbnail alloc] initWithDictionary:self.dictionary[@"large"]];
-        self.dictionary[@"large"] = _large;
+        if (_large){
+            self.dictionary[@"large"] = _large;
+        }
     }
     return _large;
 }
@@ -72,7 +74,9 @@
 {
     if (!_medium){
         _medium = [[ODThumbnail alloc] initWithDictionary:self.dictionary[@"medium"]];
-        self.dictionary[@"medium"] = _medium;
+        if (_medium){
+            self.dictionary[@"medium"] = _medium;
+        }
     }
     return _medium;
 }
@@ -87,7 +91,9 @@
 {
     if (!_small){
         _small = [[ODThumbnail alloc] initWithDictionary:self.dictionary[@"small"]];
-        self.dictionary[@"small"] = _small;
+        if (_small){
+            self.dictionary[@"small"] = _small;
+        }
     }
     return _small;
 }
@@ -102,7 +108,9 @@
 {
     if (!_source){
         _source = [[ODThumbnail alloc] initWithDictionary:self.dictionary[@"source"]];
-        self.dictionary[@"source"] = _source;
+        if (_source){
+            self.dictionary[@"source"] = _source;
+        }
     }
     return _source;
 }

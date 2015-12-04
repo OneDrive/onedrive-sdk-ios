@@ -48,7 +48,9 @@
 {
     if (!_grantedTo){
         _grantedTo = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"grantedTo"]];
-        self.dictionary[@"grantedTo"] = _grantedTo;
+        if (_grantedTo){
+            self.dictionary[@"grantedTo"] = _grantedTo;
+        }
     }
     return _grantedTo;
 }
@@ -73,7 +75,9 @@
 {
     if (!_invitation){
         _invitation = [[ODSharingInvitation alloc] initWithDictionary:self.dictionary[@"invitation"]];
-        self.dictionary[@"invitation"] = _invitation;
+        if (_invitation){
+            self.dictionary[@"invitation"] = _invitation;
+        }
     }
     return _invitation;
 }
@@ -88,7 +92,9 @@
 {
     if (!_inheritedFrom){
         _inheritedFrom = [[ODItemReference alloc] initWithDictionary:self.dictionary[@"inheritedFrom"]];
-        self.dictionary[@"inheritedFrom"] = _inheritedFrom;
+        if (_inheritedFrom){
+            self.dictionary[@"inheritedFrom"] = _inheritedFrom;
+        }
     }
     return _inheritedFrom;
 }
@@ -103,7 +109,9 @@
 {
     if (!_link){
         _link = [[ODSharingLink alloc] initWithDictionary:self.dictionary[@"link"]];
-        self.dictionary[@"link"] = _link;
+        if (_link){
+            self.dictionary[@"link"] = _link;
+        }
     }
     return _link;
 }

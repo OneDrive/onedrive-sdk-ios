@@ -42,7 +42,9 @@
 {
     if (!_hashes){
         _hashes = [[ODHashes alloc] initWithDictionary:self.dictionary[@"hashes"]];
-        self.dictionary[@"hashes"] = _hashes;
+        if (_hashes){
+            self.dictionary[@"hashes"] = _hashes;
+        }
     }
     return _hashes;
 }

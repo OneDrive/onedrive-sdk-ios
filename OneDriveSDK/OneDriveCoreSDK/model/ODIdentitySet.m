@@ -44,7 +44,9 @@
 {
     if (!_application){
         _application = [[ODIdentity alloc] initWithDictionary:self.dictionary[@"application"]];
-        self.dictionary[@"application"] = _application;
+        if (_application){
+            self.dictionary[@"application"] = _application;
+        }
     }
     return _application;
 }
@@ -59,7 +61,9 @@
 {
     if (!_device){
         _device = [[ODIdentity alloc] initWithDictionary:self.dictionary[@"device"]];
-        self.dictionary[@"device"] = _device;
+        if (_device){
+            self.dictionary[@"device"] = _device;
+        }
     }
     return _device;
 }
@@ -74,7 +78,9 @@
 {
     if (!_user){
         _user = [[ODIdentity alloc] initWithDictionary:self.dictionary[@"user"]];
-        self.dictionary[@"user"] = _user;
+        if (_user){
+            self.dictionary[@"user"] = _user;
+        }
     }
     return _user;
 }

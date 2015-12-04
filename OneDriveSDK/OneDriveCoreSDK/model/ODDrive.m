@@ -68,7 +68,9 @@
 {
     if (!_owner){
         _owner = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"owner"]];
-        self.dictionary[@"owner"] = _owner;
+        if (_owner){
+            self.dictionary[@"owner"] = _owner;
+        }
     }
     return _owner;
 }
@@ -83,7 +85,9 @@
 {
     if (!_quota){
         _quota = [[ODQuota alloc] initWithDictionary:self.dictionary[@"quota"]];
-        self.dictionary[@"quota"] = _quota;
+        if (_quota){
+            self.dictionary[@"quota"] = _quota;
+        }
     }
     return _quota;
 }

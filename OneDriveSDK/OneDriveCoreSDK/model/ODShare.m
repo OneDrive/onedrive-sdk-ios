@@ -65,7 +65,9 @@
 {
     if (!_owner){
         _owner = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"owner"]];
-        self.dictionary[@"owner"] = _owner;
+        if (_owner){
+            self.dictionary[@"owner"] = _owner;
+        }
     }
     return _owner;
 }

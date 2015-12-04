@@ -43,7 +43,9 @@
 {
     if (!_web){
         _web = [[ODOpenWithApp alloc] initWithDictionary:self.dictionary[@"web"]];
-        self.dictionary[@"web"] = _web;
+        if (_web){
+            self.dictionary[@"web"] = _web;
+        }
     }
     return _web;
 }
@@ -58,7 +60,9 @@
 {
     if (!_webEmbedded){
         _webEmbedded = [[ODOpenWithApp alloc] initWithDictionary:self.dictionary[@"webEmbedded"]];
-        self.dictionary[@"webEmbedded"] = _webEmbedded;
+        if (_webEmbedded){
+            self.dictionary[@"webEmbedded"] = _webEmbedded;
+        }
     }
     return _webEmbedded;
 }

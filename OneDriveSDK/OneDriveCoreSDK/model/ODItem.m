@@ -64,7 +64,9 @@
 {
     if (!_createdBy){
         _createdBy = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"createdBy"]];
-        self.dictionary[@"createdBy"] = _createdBy;
+        if (_createdBy){
+            self.dictionary[@"createdBy"] = _createdBy;
+        }
     }
     return _createdBy;
 }
@@ -133,7 +135,9 @@
 {
     if (!_lastModifiedBy){
         _lastModifiedBy = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"lastModifiedBy"]];
-        self.dictionary[@"lastModifiedBy"] = _lastModifiedBy;
+        if (_lastModifiedBy){
+            self.dictionary[@"lastModifiedBy"] = _lastModifiedBy;
+        }
     }
     return _lastModifiedBy;
 }
@@ -172,7 +176,9 @@
 {
     if (!_parentReference){
         _parentReference = [[ODItemReference alloc] initWithDictionary:self.dictionary[@"parentReference"]];
-        self.dictionary[@"parentReference"] = _parentReference;
+        if (_parentReference){
+            self.dictionary[@"parentReference"] = _parentReference;
+        }
     }
     return _parentReference;
 }
@@ -211,7 +217,9 @@
 {
     if (!_audio){
         _audio = [[ODAudio alloc] initWithDictionary:self.dictionary[@"audio"]];
-        self.dictionary[@"audio"] = _audio;
+        if (_audio){
+            self.dictionary[@"audio"] = _audio;
+        }
     }
     return _audio;
 }
@@ -226,7 +234,9 @@
 {
     if (!_deleted){
         _deleted = [[ODDeleted alloc] initWithDictionary:self.dictionary[@"deleted"]];
-        self.dictionary[@"deleted"] = _deleted;
+        if (_deleted){
+            self.dictionary[@"deleted"] = _deleted;
+        }
     }
     return _deleted;
 }
@@ -241,7 +251,9 @@
 {
     if (!_file){
         _file = [[ODFile alloc] initWithDictionary:self.dictionary[@"file"]];
-        self.dictionary[@"file"] = _file;
+        if (_file){
+            self.dictionary[@"file"] = _file;
+        }
     }
     return _file;
 }
@@ -256,7 +268,9 @@
 {
     if (!_fileSystemInfo){
         _fileSystemInfo = [[ODFileSystemInfo alloc] initWithDictionary:self.dictionary[@"fileSystemInfo"]];
-        self.dictionary[@"fileSystemInfo"] = _fileSystemInfo;
+        if (_fileSystemInfo){
+            self.dictionary[@"fileSystemInfo"] = _fileSystemInfo;
+        }
     }
     return _fileSystemInfo;
 }
@@ -271,7 +285,9 @@
 {
     if (!_folder){
         _folder = [[ODFolder alloc] initWithDictionary:self.dictionary[@"folder"]];
-        self.dictionary[@"folder"] = _folder;
+        if (_folder){
+            self.dictionary[@"folder"] = _folder;
+        }
     }
     return _folder;
 }
@@ -286,7 +302,9 @@
 {
     if (!_image){
         _image = [[ODImage alloc] initWithDictionary:self.dictionary[@"image"]];
-        self.dictionary[@"image"] = _image;
+        if (_image){
+            self.dictionary[@"image"] = _image;
+        }
     }
     return _image;
 }
@@ -301,7 +319,9 @@
 {
     if (!_location){
         _location = [[ODLocation alloc] initWithDictionary:self.dictionary[@"location"]];
-        self.dictionary[@"location"] = _location;
+        if (_location){
+            self.dictionary[@"location"] = _location;
+        }
     }
     return _location;
 }
@@ -316,7 +336,9 @@
 {
     if (!_openWith){
         _openWith = [[ODOpenWithSet alloc] initWithDictionary:self.dictionary[@"openWith"]];
-        self.dictionary[@"openWith"] = _openWith;
+        if (_openWith){
+            self.dictionary[@"openWith"] = _openWith;
+        }
     }
     return _openWith;
 }
@@ -331,7 +353,9 @@
 {
     if (!_photo){
         _photo = [[ODPhoto alloc] initWithDictionary:self.dictionary[@"photo"]];
-        self.dictionary[@"photo"] = _photo;
+        if (_photo){
+            self.dictionary[@"photo"] = _photo;
+        }
     }
     return _photo;
 }
@@ -346,7 +370,9 @@
 {
     if (!_searchResult){
         _searchResult = [[ODSearchResult alloc] initWithDictionary:self.dictionary[@"searchResult"]];
-        self.dictionary[@"searchResult"] = _searchResult;
+        if (_searchResult){
+            self.dictionary[@"searchResult"] = _searchResult;
+        }
     }
     return _searchResult;
 }
@@ -361,7 +387,9 @@
 {
     if (!_specialFolder){
         _specialFolder = [[ODSpecialFolder alloc] initWithDictionary:self.dictionary[@"specialFolder"]];
-        self.dictionary[@"specialFolder"] = _specialFolder;
+        if (_specialFolder){
+            self.dictionary[@"specialFolder"] = _specialFolder;
+        }
     }
     return _specialFolder;
 }
@@ -376,7 +404,9 @@
 {
     if (!_video){
         _video = [[ODVideo alloc] initWithDictionary:self.dictionary[@"video"]];
-        self.dictionary[@"video"] = _video;
+        if (_video){
+            self.dictionary[@"video"] = _video;
+        }
     }
     return _video;
 }

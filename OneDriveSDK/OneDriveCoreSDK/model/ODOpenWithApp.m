@@ -42,7 +42,9 @@
 {
     if (!_app){
         _app = [[ODIdentity alloc] initWithDictionary:self.dictionary[@"app"]];
-        self.dictionary[@"app"] = _app;
+        if (_app){
+            self.dictionary[@"app"] = _app;
+        }
     }
     return _app;
 }
