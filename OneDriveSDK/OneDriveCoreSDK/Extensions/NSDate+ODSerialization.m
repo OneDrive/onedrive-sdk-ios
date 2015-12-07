@@ -23,10 +23,13 @@
 
 @implementation NSDate (Serialization)
 
+static NSString *dateFormatWithMillis = @"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
+static NSString *dateFormatWithoutMillis = @"yyyy-MM-dd'T'HH:mm:ssZ";
+
 - (NSString *)od_toString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    [dateFormatter setDateFormat:dateFormatWithMillis];
     NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     [dateFormatter setLocale:posix];
     return [dateFormatter stringFromDate:self];
@@ -37,10 +40,15 @@
     NSDate *date = nil;
     if (dateString){
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+        [dateFormatter setDateFormat:dateFormatWithMillis];
         NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [dateFormatter setLocale:posix];
         date = [dateFormatter dateFromString:dateString];
+        // If we couldn't parse the date, it may have no milliseconds on the string.
+        if (!date){
+            [dateFormatter setDateFormat:dateFormatWithoutMillis];
+            date = [dateFormatter dateFromString:dateString];
+        }
     }
     return date;   
 }

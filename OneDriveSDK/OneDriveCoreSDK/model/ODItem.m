@@ -1,25 +1,26 @@
-//  Copyright 2015 Microsoft Corporation
+// Copyright (c) 2015 Microsoft Corporation
 // 
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 // 
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 // 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 // 
 // 
-//  This file was generated and any changes will be overwritten.
+// This file was generated and any chanes will be overwritten.
+
 
 #import "ODModels.h"
 #import "ODCollection.h"
@@ -63,6 +64,9 @@
 {
     if (!_createdBy){
         _createdBy = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"createdBy"]];
+        if (_createdBy){
+            self.dictionary[@"createdBy"] = _createdBy;
+        }
     }
     return _createdBy;
 }
@@ -131,6 +135,9 @@
 {
     if (!_lastModifiedBy){
         _lastModifiedBy = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"lastModifiedBy"]];
+        if (_lastModifiedBy){
+            self.dictionary[@"lastModifiedBy"] = _lastModifiedBy;
+        }
     }
     return _lastModifiedBy;
 }
@@ -169,6 +176,9 @@
 {
     if (!_parentReference){
         _parentReference = [[ODItemReference alloc] initWithDictionary:self.dictionary[@"parentReference"]];
+        if (_parentReference){
+            self.dictionary[@"parentReference"] = _parentReference;
+        }
     }
     return _parentReference;
 }
@@ -207,6 +217,9 @@
 {
     if (!_audio){
         _audio = [[ODAudio alloc] initWithDictionary:self.dictionary[@"audio"]];
+        if (_audio){
+            self.dictionary[@"audio"] = _audio;
+        }
     }
     return _audio;
 }
@@ -221,6 +234,9 @@
 {
     if (!_deleted){
         _deleted = [[ODDeleted alloc] initWithDictionary:self.dictionary[@"deleted"]];
+        if (_deleted){
+            self.dictionary[@"deleted"] = _deleted;
+        }
     }
     return _deleted;
 }
@@ -235,6 +251,9 @@
 {
     if (!_file){
         _file = [[ODFile alloc] initWithDictionary:self.dictionary[@"file"]];
+        if (_file){
+            self.dictionary[@"file"] = _file;
+        }
     }
     return _file;
 }
@@ -249,6 +268,9 @@
 {
     if (!_fileSystemInfo){
         _fileSystemInfo = [[ODFileSystemInfo alloc] initWithDictionary:self.dictionary[@"fileSystemInfo"]];
+        if (_fileSystemInfo){
+            self.dictionary[@"fileSystemInfo"] = _fileSystemInfo;
+        }
     }
     return _fileSystemInfo;
 }
@@ -263,6 +285,9 @@
 {
     if (!_folder){
         _folder = [[ODFolder alloc] initWithDictionary:self.dictionary[@"folder"]];
+        if (_folder){
+            self.dictionary[@"folder"] = _folder;
+        }
     }
     return _folder;
 }
@@ -277,6 +302,9 @@
 {
     if (!_image){
         _image = [[ODImage alloc] initWithDictionary:self.dictionary[@"image"]];
+        if (_image){
+            self.dictionary[@"image"] = _image;
+        }
     }
     return _image;
 }
@@ -291,6 +319,9 @@
 {
     if (!_location){
         _location = [[ODLocation alloc] initWithDictionary:self.dictionary[@"location"]];
+        if (_location){
+            self.dictionary[@"location"] = _location;
+        }
     }
     return _location;
 }
@@ -305,6 +336,9 @@
 {
     if (!_openWith){
         _openWith = [[ODOpenWithSet alloc] initWithDictionary:self.dictionary[@"openWith"]];
+        if (_openWith){
+            self.dictionary[@"openWith"] = _openWith;
+        }
     }
     return _openWith;
 }
@@ -319,6 +353,9 @@
 {
     if (!_photo){
         _photo = [[ODPhoto alloc] initWithDictionary:self.dictionary[@"photo"]];
+        if (_photo){
+            self.dictionary[@"photo"] = _photo;
+        }
     }
     return _photo;
 }
@@ -333,6 +370,9 @@
 {
     if (!_searchResult){
         _searchResult = [[ODSearchResult alloc] initWithDictionary:self.dictionary[@"searchResult"]];
+        if (_searchResult){
+            self.dictionary[@"searchResult"] = _searchResult;
+        }
     }
     return _searchResult;
 }
@@ -347,6 +387,9 @@
 {
     if (!_specialFolder){
         _specialFolder = [[ODSpecialFolder alloc] initWithDictionary:self.dictionary[@"specialFolder"]];
+        if (_specialFolder){
+            self.dictionary[@"specialFolder"] = _specialFolder;
+        }
     }
     return _specialFolder;
 }
@@ -361,6 +404,9 @@
 {
     if (!_video){
         _video = [[ODVideo alloc] initWithDictionary:self.dictionary[@"video"]];
+        if (_video){
+            self.dictionary[@"video"] = _video;
+        }
     }
     return _video;
 }

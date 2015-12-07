@@ -22,6 +22,7 @@
 
 #import "ODTestCase.h"
 #import "ODModels.h"
+#import "NSDate+ODSerialization.h"
 
 @interface ODObjectTests : ODTestCase
 @end
@@ -110,6 +111,18 @@
     XCTAssertEqual(itemDictionary[@"parentReference"][@"id"],@"foo");
 }
 
+- (void)testItemToData{
+    NSString *parentPath = @"foo/bar/baz";
+    ODItem *testItem = [[ODItem alloc] initWithDictionary:self.cannedItem];
+    testItem.parentReference.path = parentPath;
+    NSDictionary *updatedDictionary = [testItem dictionaryFromItem];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:updatedDictionary options:0 error:nil];
+    NSDictionary *dictionaryFromData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    ODItem *serializedItem = [[ODItem alloc] initWithDictionary:dictionaryFromData];
+    XCTAssertEqualObjects(serializedItem.parentReference.path, parentPath);
+}
+
 - (void)testDateString{
     NSDictionary *itemDictionary = @{ @"fileSystemInfo" : @{
                                               @"createdDateTime" : @"1991-07-01T08:42:42.422Z",
@@ -121,17 +134,14 @@
 }
 
 - (void)testSetDate{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    [dateFormatter setLocale:posix];
-    NSDate *date = [dateFormatter dateFromString:@"1951-09-22T09:42:42.4222Z"];
+    NSDate *date = [NSDate od_dateFromString:@"1951-09-22T09:42:42Z"];
     
     ODItem *testItem = [[ODItem alloc] init];
     testItem.fileSystemInfo = [[ODFileSystemInfo alloc] init];
     testItem.fileSystemInfo.createdDateTime = date;
     
     XCTAssertNotNil(testItem.fileSystemInfo.createdDateTime);
+    XCTAssertNotNil([testItem.fileSystemInfo.createdDateTime od_toString]);
 }
 
 - (void)testSerializeSetDate{
@@ -145,13 +155,18 @@
 }
 
 - (void)testJsonSerializationItemWithChangedDate{
-    NSDate *now = [NSDate dateWithTimeIntervalSince1970:0];
+    NSDate *now = [NSDate dateWithTimeIntervalSince1970:42];
     ODItem *cannedItem = [[ODItem alloc] initWithDictionary:self.cannedItem];
     cannedItem.fileSystemInfo.createdDateTime = now;
     NSError *error = nil;
     NSData *jsonBlob = [NSJSONSerialization dataWithJSONObject:[cannedItem dictionaryFromItem] options:0 error:&error];
     XCTAssertNotNil(jsonBlob);
     XCTAssertNil(error);
+   
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonBlob options:0 error:nil];
+    ODItem *serializedItem = [[ODItem alloc] initWithDictionary:jsonDictionary];
+    
+    XCTAssertEqualObjects(serializedItem.fileSystemInfo.createdDateTime, now);
 }
 
 
