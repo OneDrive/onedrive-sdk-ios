@@ -68,7 +68,16 @@
                                           if (!error){
                                               self.serviceInfo = serviceInfo;
                                           }
-                                          if (result.tokenCacheStoreItem.refreshToken){
+                                          if (!self.serviceInfo.apiEndpoint){
+                                              NSError *apiEndpointError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
+                                                                                              code:ODServiceError
+                                                                                          userInfo:@{
+                                                                                                     NSLocalizedDescriptionKey : @"There was a problem logging you in",
+                                                                                                     OD_AUTH_ERROR_KEY : @"Could not discover the api endpoint for the given user.  Make sure you have correctly enabled the SharePoint files permissions in Azure portal."
+                                                                                                    }];
+                                              completionHandler(apiEndpointError);
+                                          }
+                                          else if (result.tokenCacheStoreItem.refreshToken){
                                               [self.authContext acquireTokenByRefreshToken:result.tokenCacheStoreItem.refreshToken clientId:self.serviceInfo.appId resource:self.serviceInfo.resourceId completionBlock:^(ADAuthenticationResult *innerResult){
                                                   if (innerResult.status == AD_SUCCEEDED) {
                                                       innerResult.tokenCacheStoreItem.userInformation = result.tokenCacheStoreItem.userInformation;
@@ -82,12 +91,12 @@
                                               }];
                                           }
                                           else {
-                                              NSError *error = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
-                                                                                   code:ODServiceError
-                                                                               userInfo:@{
-                                                                                          NSLocalizedDescriptionKey : @"There was a problem logging you in",
-                                                                                          OD_AUTH_ERROR_KEY : @" The auth result must have a refresh token" }];
-                                              completionHandler(error);
+                                              NSError *noRefreshTokenError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
+                                                                                                 code:ODServiceError
+                                                                                             userInfo:@{
+                                                                                                        NSLocalizedDescriptionKey : @"There was a problem logging you in",
+                                                                                                        OD_AUTH_ERROR_KEY : @" The auth result must have a refresh token" }];
+                                              completionHandler(noRefreshTokenError);
                                           }
                                       }];
                                   }
