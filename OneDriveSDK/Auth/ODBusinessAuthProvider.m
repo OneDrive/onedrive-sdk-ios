@@ -73,7 +73,7 @@
                                                                                               code:ODServiceError
                                                                                           userInfo:@{
                                                                                                      NSLocalizedDescriptionKey : @"There was a problem logging you in",
-                                                                                                     OD_AUTH_ERROR_KEY : @"Could not discover the api endpoint for the given user.  Make sure you have correctly enabled the Sharepoint files permissions in Azure portal."
+                                                                                                     OD_AUTH_ERROR_KEY : @"Could not discover the api endpoint for the given user.  Make sure you have correctly enabled the SharePoint files permissions in Azure portal."
                                                                                                     }];
                                               completionHandler(apiEndpointError);
                                           }
