@@ -22,39 +22,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>NSExceptionRequiresForwardSecrecy</key>
-			<false/>
-			<key>NSIncludeSubdomains</key>
-			<true/>
-			<key>login.live.com</key>
-			<dict>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-				<key>NSIncludeSubmdomains</key>
-				<true/>
-			</dict>
-			<key>login.microsoftonline.com</key>
-			<dict>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-				<key>NSIncludeSubmdomains</key>
-				<true/>
-			</dict>
-			<key>login.windows.net</key>
-			<dict/>
-			<key>secure.aadcdn.microsoftonline-p.com</key>
-			<dict>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-				<key>NSIncludeSubmdomains</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
