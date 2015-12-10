@@ -48,7 +48,7 @@
 - (void) authenticateWithViewController:(UIViewController *)viewController completion:(void (^)(NSError *error))completionHandler;
 {
     // Get the view controller on the top of the stack
-    UIViewController *presentingViewController = [viewController childViewControllers][0];
+    UIViewController *presentingViewController = [[viewController childViewControllers] firstObject];
     // if the view controller's child is an ODAuthenticationViewController we just want to redirect to a new URL
     // not push another view controller
     if (presentingViewController && [presentingViewController respondsToSelector:@selector(redirectWithStartURL:endURL:success:)]){

@@ -44,7 +44,7 @@
     self.authContext.parentController = viewController;
     // If the disambiguation page is still being displayed remove it from the view
     if (self.authContext.parentController){
-        UIViewController *childViewController = [viewController childViewControllers][0];
+        UIViewController *childViewController = [[viewController childViewControllers] firstObject];
         if (childViewController && [childViewController respondsToSelector:@selector(redirectWithStartURL:endURL:success:)]){
             self.authContext.parentController = viewController.presentingViewController;
            dispatch_async(dispatch_get_main_queue(), ^{
