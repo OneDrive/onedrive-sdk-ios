@@ -37,9 +37,9 @@
     // Uncomment the correct call to test with ActiveDirectory or both types of apps.
     [ODClient setMicrosoftAccountAppId:@"0000000048160AF8" scopes:@[@"onedrive.readwrite"] ];
     
-    //[ODClient setActiveDirectoryAppId:<AAD_APPID>
-    //                      redirectURL:<AAD_REDIRECT_URI>
-    //                            flags:@{@"NoThumbnails" : @(YES)}];
+//    [ODClient setActiveDirectoryAppId:<AAD_APPID> /*App ID as registered in your instance of AAD*/
+//                          redirectURL:@"iOSExplorer://com.Microsoft.iOSExplorer" /*URL scheme to relaunch this app, defined in project settings. Must match a Redirect URI registered to this app in AAD.*/
+//                                flags:@{@"NoThumbnails" : @(YES)}];
     
     return YES;
 }

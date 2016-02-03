@@ -221,7 +221,7 @@ static void *ProgressObserverContext = &ProgressObserverContext;
         }
         [self.collectionView reloadData];
     }
-    else if ([item.file.mimeType isEqualToString:@"text/plain"]){
+    else if (item.file){
     ODURLSessionDownloadTask *task = [[[[self.client drive] items:item.id] contentRequest] downloadWithCompletion:^(NSURL *filePath, NSURLResponse *response, NSError *error){
         [self.progressController hideProgress];
             if (!error){
