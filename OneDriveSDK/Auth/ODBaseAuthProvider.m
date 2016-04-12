@@ -51,7 +51,7 @@
     UIViewController *presentingViewController = [[viewController childViewControllers] firstObject];
     // if the view controller's child is an ODAuthenticationViewController we just want to redirect to a new URL
     // not push another view controller
-    if (presentingViewController && [presentingViewController respondsToSelector:@selector(redirectWithStartURL:endURL:success:)]){
+    if (presentingViewController && [presentingViewController isKindOfClass:[ODAuthenticationViewController class]]){
         __block ODAuthenticationViewController *authViewController = (ODAuthenticationViewController *)presentingViewController;
         NSURL *authURL = [self authURL];
         [self.logger logWithLevel:ODLogDebug message:@"Authentication URL : %@", authURL];
@@ -147,6 +147,14 @@
 {
     NSParameterAssert(completionHandler);
     NSParameterAssert(request);
+    
+    // Ensure auth provider is ready to append auth headers
+    if (!self.accountSession) {
+        [self.logger logWithLevel:ODLogError message:@"Auth headers cannot be appended without first successfully authenticating."];
+        
+        completionHandler(nil, [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN code:ODInvalidAccountType userInfo:@{}]);
+        return;
+    }
     
     NSString *telemtryValue = [NSString stringWithFormat:OD_TELEMTRY_HEADER_VALUE_FORMAT, OD_SDK_VERSION];
     [request setValue:telemtryValue forHTTPHeaderField:self.telemtryHeaderField];

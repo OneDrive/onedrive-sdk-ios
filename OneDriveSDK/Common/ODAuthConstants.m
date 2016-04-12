@@ -40,6 +40,8 @@ NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT = @"SDK-Version=iOS-v%@";
 
 NSString * const OD_AUTH_ACCESS_TOKEN = @"access_token";
 NSString * const OD_AUTH_CODE = @"code";
+NSString * const OD_AUTH_DISPLAY = @"display";
+NSString * const OD_AUTH_DISPLAY_IOS_PHONE = @"ios_phone";
 NSString * const OD_AUTH_CLIENTID = @"client_id";
 NSString * const OD_AUTH_EXPIRES = @"expires_in";
 NSString * const OD_AUTH_GRANT_TYPE = @"grant_type";

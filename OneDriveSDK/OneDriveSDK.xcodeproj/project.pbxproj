@@ -538,8 +538,8 @@
 		10B4D1AF1AF821C40083D86C /* ODUploadSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODUploadSession.m; sourceTree = "<group>"; };
 		10B4D1B01AF821C40083D86C /* ODVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODVideo.h; sourceTree = "<group>"; };
 		10B4D1B11AF821C40083D86C /* ODVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODVideo.m; sourceTree = "<group>"; };
-		10B4D1B31AF821C40083D86C /* ODChildrenCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = ODChildrenCollectionRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		10B4D1B41AF821C40083D86C /* ODChildrenCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 2; path = ODChildrenCollectionRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10B4D1B31AF821C40083D86C /* ODChildrenCollectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = ODChildrenCollectionRequest.h; sourceTree = "<group>"; };
+		10B4D1B41AF821C40083D86C /* ODChildrenCollectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 2; path = ODChildrenCollectionRequest.m; sourceTree = "<group>"; };
 		10B4D1B51AF821C40083D86C /* ODChildrenCollectionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODChildrenCollectionRequestBuilder.h; sourceTree = "<group>"; };
 		10B4D1B61AF821C40083D86C /* ODChildrenCollectionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODChildrenCollectionRequestBuilder.m; sourceTree = "<group>"; };
 		10B4D1B71AF821C40083D86C /* ODClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = ODClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1380,6 +1380,7 @@
 				10B4D32A1AF827D80083D86C /* Frameworks */,
 				10B4D32B1AF827D80083D86C /* Resources */,
 				6571E6AB65E86A4F7FB685F3 /* Copy Pods Resources */,
+				C85DDFB8E2937AD6EFB526DE /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1540,6 +1541,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C85DDFB8E2937AD6EFB526DE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDKTests/Pods-OneDriveSDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
