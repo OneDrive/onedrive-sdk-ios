@@ -24,9 +24,21 @@
 
 @implementation ODQueryParameters
 
++ (NSCharacterSet*) allowedChars {
+    static NSCharacterSet *allowed;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMutableCharacterSet *temp = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+        [temp removeCharactersInString:@"?+=&"];
+        allowed = temp;
+    });
+    return allowed;
+}
+
 - (void)appendOption:(NSMutableDictionary *)headers queryParams:(NSMutableString *)queryParams
 {
-    NSString *parameterString = [NSString stringWithFormat:@"%@=%@", self.key, self.value];
+    NSString *encodedValue = [self.value stringByAddingPercentEncodingWithAllowedCharacters:[ODQueryParameters allowedChars]];
+    NSString *parameterString = [NSString stringWithFormat:@"%@=%@", self.key, encodedValue];
     if ([queryParams isEqual:@""]){
        [queryParams appendFormat:@"?%@",parameterString];
    }
