@@ -65,7 +65,9 @@
     NSParameterAssert(expectedByes);
     
     if (self.progress){
-        self.progress.totalUnitCount = expectedByes;
+        if (expectedByes != NSURLSessionTransferSizeUnknown) {
+            self.progress.totalUnitCount = expectedByes;
+        }
         self.progress.completedUnitCount = sentBytes;
     }
     
