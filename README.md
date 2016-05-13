@@ -18,6 +18,10 @@ Integrate the [OneDrive API](https://dev.onedrive.com/README.htm) into your iOS 
 
 Register your application by following [these](https://dev.onedrive.com/app-registration.htm) steps.
 
+### 2.2 Set up Keychain Sharing Entitlements in your Xcode Project
+
+Click on your project in the Navigator pane in Xcode. Click on your application target and then the "Capabilities" tab. Scroll down to "Keychain Sharing" and flip the switch on. Add "com.microsoft.adalcache" to that list.
+
 ### 2.2 Setting your application Id and scopes
 
 * You can set your application Id and scopes directly on the ODClient object. 
