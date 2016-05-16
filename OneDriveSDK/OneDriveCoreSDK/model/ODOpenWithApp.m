@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -75,14 +75,24 @@
     self.dictionary[@"editUrl"] = editUrl;
 }
 
-- (NSString *)postParameters
+- (NSString *)viewPostParameters
 {
-    return self.dictionary[@"postParameters"];
+    return self.dictionary[@"viewPostParameters"];
 }
 
-- (void)setPostParameters:(NSString *)postParameters
+- (void)setViewPostParameters:(NSString *)viewPostParameters
 {
-    self.dictionary[@"postParameters"] = postParameters;
+    self.dictionary[@"viewPostParameters"] = viewPostParameters;
+}
+
+- (NSString *)editPostParameters
+{
+    return self.dictionary[@"editPostParameters"];
+}
+
+- (void)setEditPostParameters:(NSString *)editPostParameters
+{
+    self.dictionary[@"editPostParameters"] = editPostParameters;
 }
 
 @end

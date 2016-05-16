@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -48,7 +48,9 @@
     ODLocation *_location;
     ODOpenWithSet *_openWith;
     ODPhoto *_photo;
+    ODItem *_remoteItem;
     ODSearchResult *_searchResult;
+    ODShared *_shared;
     ODSpecialFolder *_specialFolder;
     ODVideo *_video;
     ODCollection *_permissions;
@@ -366,6 +368,23 @@
     self.dictionary[@"photo"] = photo; 
 }
 
+- (ODItem *)remoteItem
+{
+    if (!_remoteItem){
+        _remoteItem = [[ODItem alloc] initWithDictionary:self.dictionary[@"remoteItem"]];
+        if (_remoteItem){
+            self.dictionary[@"remoteItem"] = _remoteItem;
+        }
+    }
+    return _remoteItem;
+}
+
+- (void)setRemoteItem:(ODItem *)remoteItem
+{
+    _remoteItem = remoteItem;
+    self.dictionary[@"remoteItem"] = remoteItem; 
+}
+
 - (ODSearchResult *)searchResult
 {
     if (!_searchResult){
@@ -381,6 +400,23 @@
 {
     _searchResult = searchResult;
     self.dictionary[@"searchResult"] = searchResult; 
+}
+
+- (ODShared *)shared
+{
+    if (!_shared){
+        _shared = [[ODShared alloc] initWithDictionary:self.dictionary[@"shared"]];
+        if (_shared){
+            self.dictionary[@"shared"] = _shared;
+        }
+    }
+    return _shared;
+}
+
+- (void)setShared:(ODShared *)shared
+{
+    _shared = shared;
+    self.dictionary[@"shared"] = shared; 
 }
 
 - (ODSpecialFolder *)specialFolder

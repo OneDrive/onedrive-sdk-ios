@@ -21,25 +21,19 @@
 // 
 // This file was generated and any changes will be overwritten.
 
+@class ODIdentitySet; 
 
-#import "ODODataEntities.h"
 
-@implementation ODThumbnailsCollectionRequestBuilder : ODCollectionRequestBuilder
+#import "ODObject.h"
 
-- (ODThumbnailsCollectionRequest*) request
-{
-    return [self requestWithOptions:nil];
-}
 
-- (ODThumbnailsCollectionRequest *)requestWithOptions:(NSArray *)options
-{
-    return [[ODThumbnailsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
-}
+/**
+* The header for type shared.
+*/
 
-- (ODThumbnailSetRequestBuilder *)thumbnailSet:(NSString *)thumbnailSet
-{
-    return [[ODThumbnailSetRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:thumbnailSet] 
-                                                   client:self.client];
-}
+@interface ODShared : ODObject
+
+@property ODIdentitySet *owner;
+@property NSString *scope;
 
 @end

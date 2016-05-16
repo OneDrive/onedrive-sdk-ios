@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 @class ODOpenWithApp; 
 
@@ -34,6 +34,6 @@
 @interface ODOpenWithSet : ODObject
 
 @property ODOpenWithApp *web;
-@property ODOpenWithApp *webEmbedded;
+@property ODOpenWithApp *webEmbed;
 
 @end

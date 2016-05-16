@@ -19,8 +19,9 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
+@class ODThumbnailSet; 
 
 
 #import "ODObject.h"
@@ -34,5 +35,6 @@
 
 @property NSString *displayName;
 @property NSString *id;
+@property ODThumbnailSet *thumbnails;
 
 @end

@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -134,6 +134,22 @@
 {
     _takenDateTime = takenDateTime;
     self.dictionary[@"takenDateTime"] = takenDateTime; 
+}
+
+
+- (int32_t)iso
+{
+    
+    if (self.dictionary[@"iso"]){
+        return [self.dictionary[@"iso"] intValue];
+    }
+    //default value if it doesn't exists
+    return [@(0) intValue];
+}
+
+- (void)setIso:(int32_t)iso
+{
+    self.dictionary[@"iso"] = @(iso);
 }
 
 @end

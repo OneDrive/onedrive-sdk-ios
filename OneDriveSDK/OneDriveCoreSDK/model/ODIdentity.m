@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -32,6 +32,7 @@
 
 @interface ODIdentity()
 {
+    ODThumbnailSet *_thumbnails;
 }
 @end
 
@@ -55,6 +56,23 @@
 - (void)setId:(NSString *)id
 {
     self.dictionary[@"id"] = id;
+}
+
+- (ODThumbnailSet *)thumbnails
+{
+    if (!_thumbnails){
+        _thumbnails = [[ODThumbnailSet alloc] initWithDictionary:self.dictionary[@"thumbnails"]];
+        if (_thumbnails){
+            self.dictionary[@"thumbnails"] = _thumbnails;
+        }
+    }
+    return _thumbnails;
+}
+
+- (void)setThumbnails:(ODThumbnailSet *)thumbnails
+{
+    _thumbnails = thumbnails;
+    self.dictionary[@"thumbnails"] = thumbnails; 
 }
 
 @end
