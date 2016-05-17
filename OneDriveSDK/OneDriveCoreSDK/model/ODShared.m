@@ -22,24 +22,48 @@
 // This file was generated and any changes will be overwritten.
 
 
-#import "ODODataEntities.h"
+#import "ODModels.h"
 
-@implementation ODThumbnailsCollectionRequestBuilder : ODCollectionRequestBuilder
+@interface ODObject()
 
-- (ODThumbnailsCollectionRequest*) request
+@property (strong, nonatomic) NSMutableDictionary *dictionary;
+
+@end
+
+@interface ODShared()
 {
-    return [self requestWithOptions:nil];
+    ODCollection *_effectiveRoles;
+    ODIdentitySet *_owner;
+}
+@end
+
+@implementation ODShared	
+
+- (ODIdentitySet *)owner
+{
+    if (!_owner){
+        _owner = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"owner"]];
+        if (_owner){
+            self.dictionary[@"owner"] = _owner;
+        }
+    }
+    return _owner;
 }
 
-- (ODThumbnailsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (void)setOwner:(ODIdentitySet *)owner
 {
-    return [[ODThumbnailsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    _owner = owner;
+    self.dictionary[@"owner"] = owner; 
 }
 
-- (ODThumbnailSetRequestBuilder *)thumbnailSet:(NSString *)thumbnailSet
+- (NSString *)scope
 {
-    return [[ODThumbnailSetRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:thumbnailSet] 
-                                                   client:self.client];
+    return self.dictionary[@"scope"];
+}
+
+- (void)setScope:(NSString *)scope
+{
+    self.dictionary[@"scope"] = scope;
 }
 
 @end

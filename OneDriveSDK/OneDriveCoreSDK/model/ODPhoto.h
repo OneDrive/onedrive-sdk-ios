@@ -19,9 +19,10 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 #import <UIKit/UiKit.h>
+
 
 #import "ODObject.h"
 
@@ -39,5 +40,6 @@
 @property CGFloat focalLength;
 @property CGFloat fNumber;
 @property NSDate *takenDateTime;
+@property int32_t iso;
 
 @end

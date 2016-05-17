@@ -19,8 +19,9 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
+@class ODIdentitySet; 
 
 
 #import "ODObject.h"
@@ -33,7 +34,9 @@
 @interface ODSharingInvitation : ODObject
 
 @property NSString *email;
-@property NSString *redeemedBy;
+@property ODIdentitySet *invitedBy;
 @property BOOL signInRequired;
+@property NSString *sendInvitationStatus;
+@property NSString *inviteErrorResolveUrl;
 
 @end

@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -33,7 +33,7 @@
 @interface ODOpenWithSet()
 {
     ODOpenWithApp *_web;
-    ODOpenWithApp *_webEmbedded;
+    ODOpenWithApp *_webEmbed;
 }
 @end
 
@@ -56,21 +56,21 @@
     self.dictionary[@"web"] = web; 
 }
 
-- (ODOpenWithApp *)webEmbedded
+- (ODOpenWithApp *)webEmbed
 {
-    if (!_webEmbedded){
-        _webEmbedded = [[ODOpenWithApp alloc] initWithDictionary:self.dictionary[@"webEmbedded"]];
-        if (_webEmbedded){
-            self.dictionary[@"webEmbedded"] = _webEmbedded;
+    if (!_webEmbed){
+        _webEmbed = [[ODOpenWithApp alloc] initWithDictionary:self.dictionary[@"webEmbed"]];
+        if (_webEmbed){
+            self.dictionary[@"webEmbed"] = _webEmbed;
         }
     }
-    return _webEmbedded;
+    return _webEmbed;
 }
 
-- (void)setWebEmbedded:(ODOpenWithApp *)webEmbedded
+- (void)setWebEmbed:(ODOpenWithApp *)webEmbed
 {
-    _webEmbedded = webEmbedded;
-    self.dictionary[@"webEmbedded"] = webEmbedded; 
+    _webEmbed = webEmbed;
+    self.dictionary[@"webEmbed"] = webEmbed; 
 }
 
 @end

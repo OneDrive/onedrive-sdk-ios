@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 @class ODIdentity; 
 
@@ -36,6 +36,7 @@
 @property ODIdentity *app;
 @property NSString *viewUrl;
 @property NSString *editUrl;
-@property NSString *postParameters;
+@property NSString *viewPostParameters;
+@property NSString *editPostParameters;
 
 @end

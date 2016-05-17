@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 #import "ODItemReference.h"
 #import "ODUploadSession.h"
@@ -38,6 +38,7 @@
 #import "ODQuota.h"
 #import "ODSearchResult.h"
 #import "ODSharingInvitation.h"
+#import "ODShared.h"
 #import "ODSharingLink.h"
 #import "ODSpecialFolder.h"
 #import "ODVideo.h"

@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -32,6 +32,7 @@
 
 @interface ODSharingInvitation()
 {
+    ODIdentitySet *_invitedBy;
 }
 @end
 
@@ -47,14 +48,21 @@
     self.dictionary[@"email"] = email;
 }
 
-- (NSString *)redeemedBy
+- (ODIdentitySet *)invitedBy
 {
-    return self.dictionary[@"redeemedBy"];
+    if (!_invitedBy){
+        _invitedBy = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"invitedBy"]];
+        if (_invitedBy){
+            self.dictionary[@"invitedBy"] = _invitedBy;
+        }
+    }
+    return _invitedBy;
 }
 
-- (void)setRedeemedBy:(NSString *)redeemedBy
+- (void)setInvitedBy:(ODIdentitySet *)invitedBy
 {
-    self.dictionary[@"redeemedBy"] = redeemedBy;
+    _invitedBy = invitedBy;
+    self.dictionary[@"invitedBy"] = invitedBy; 
 }
 
 
@@ -71,6 +79,26 @@
 - (void)setSignInRequired:(BOOL)signInRequired
 {
     self.dictionary[@"signInRequired"] = @(signInRequired);
+}
+
+- (NSString *)sendInvitationStatus
+{
+    return self.dictionary[@"sendInvitationStatus"];
+}
+
+- (void)setSendInvitationStatus:(NSString *)sendInvitationStatus
+{
+    self.dictionary[@"sendInvitationStatus"] = sendInvitationStatus;
+}
+
+- (NSString *)inviteErrorResolveUrl
+{
+    return self.dictionary[@"inviteErrorResolveUrl"];
+}
+
+- (void)setInviteErrorResolveUrl:(NSString *)inviteErrorResolveUrl
+{
+    self.dictionary[@"inviteErrorResolveUrl"] = inviteErrorResolveUrl;
 }
 
 @end

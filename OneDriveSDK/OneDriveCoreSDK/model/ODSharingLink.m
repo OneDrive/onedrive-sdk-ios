@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 
 #import "ODModels.h"
@@ -73,6 +73,26 @@
 - (void)setWebUrl:(NSString *)webUrl
 {
     self.dictionary[@"webUrl"] = webUrl;
+}
+
+- (NSString *)webHtml
+{
+    return self.dictionary[@"webHtml"];
+}
+
+- (void)setWebHtml:(NSString *)webHtml
+{
+    self.dictionary[@"webHtml"] = webHtml;
+}
+
+- (NSString *)configuratorUrl
+{
+    return self.dictionary[@"configuratorUrl"];
+}
+
+- (void)setConfiguratorUrl:(NSString *)configuratorUrl
+{
+    self.dictionary[@"configuratorUrl"] = configuratorUrl;
 }
 
 @end

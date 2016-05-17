@@ -19,9 +19,9 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
-@class ODIdentitySet, ODItemReference, ODAudio, ODDeleted, ODFile, ODFileSystemInfo, ODFolder, ODImage, ODLocation, ODOpenWithSet, ODPhoto, ODSearchResult, ODSpecialFolder, ODVideo, ODPermission, ODThumbnailSet, ODCollection; 
+@class ODIdentitySet, ODItemReference, ODAudio, ODDeleted, ODFile, ODFileSystemInfo, ODFolder, ODImage, ODLocation, ODOpenWithSet, ODPhoto, ODSearchResult, ODShared, ODSpecialFolder, ODVideo, ODPermission, ODThumbnailSet, ODCollection; 
 
 #import "ODObject.h"
 
@@ -53,7 +53,9 @@
 @property ODLocation *location;
 @property ODOpenWithSet *openWith;
 @property ODPhoto *photo;
+@property ODItem *remoteItem;
 @property ODSearchResult *searchResult;
+@property ODShared *shared;
 @property ODSpecialFolder *specialFolder;
 @property ODVideo *video;
 @property (readonly) ODCollection *permissions;

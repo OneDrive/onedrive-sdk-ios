@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 // 
 // 
-// This file was generated and any chanes will be overwritten.
+// This file was generated and any changes will be overwritten.
 
 @class ODIdentity; 
 
@@ -36,5 +36,7 @@
 @property ODIdentity *application;
 @property NSString *type;
 @property NSString *webUrl;
+@property NSString *webHtml;
+@property NSString *configuratorUrl;
 
 @end
