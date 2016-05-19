@@ -58,4 +58,6 @@ typedef void (^ODEndURLCompletion)(NSURL *endURL, NSError *error);
  */
 - (void)loadInitialRequest;
 
+@property (nonatomic) NSTimeInterval requestTimeout;
+
 @end
