@@ -24,6 +24,7 @@
 #import "ADTokenCacheStoreItem.h"
 #import "ODAccountSession.h"
 #import "ODServiceInfo.h"
+#import "MF_Base32Additions.h"
 
 @implementation ODAADAccountBridge
 
@@ -38,19 +39,29 @@
     cacheItem.accessToken = account.accessToken;
     cacheItem.refreshToken = account.refreshToken;
     cacheItem.expiresOn = account.expires;
-    cacheItem.userInformation = [ADUserInformation userInformationWithUserId:account.accountId error:nil];
+    NSString *adalSafeUserId = [ODAADAccountBridge adalSafeUserIdFromString:account.accountId];
+    cacheItem.userInformation = [ADUserInformation userInformationWithUserId:adalSafeUserId error:nil];
     return cacheItem;
 }
 
 + (ODAccountSession *)accountSessionFromCacheItem:(ADTokenCacheStoreItem *)cacheStoreItem serviceInfo:(ODServiceInfo *)serviceInfo
 {
     NSParameterAssert(cacheStoreItem);
+    NSString *decodedUserId = [ODAADAccountBridge stringFromAdalSafeUserId:cacheStoreItem.userInformation.userId];
     
-    return [[ODAccountSession alloc] initWithId:cacheStoreItem.userInformation.userId
+    return [[ODAccountSession alloc] initWithId:decodedUserId
                                             accessToken:cacheStoreItem.accessToken
                                           expires:cacheStoreItem.expiresOn
                                           refreshToken:cacheStoreItem.refreshToken
                                           serviceInfo:serviceInfo];
+}
+
++ (NSString*)adalSafeUserIdFromString:(NSString *)input {
+    return [[input base32String] lowercaseString];
+}
+
++ (NSString*)stringFromAdalSafeUserId:(NSString *)userId {
+    return [NSString stringFromBase32String:userId];
 }
 
 @end

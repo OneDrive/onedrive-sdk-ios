@@ -27,7 +27,6 @@
 #import "ODAuthHelper.h"
 #import "ODAuthConstants.h"
 #import "ODAccountSession.h"
-#import "ODAADAccountBridge.h"
 #import "ODAuthenticationViewController.h"
 
 @interface ODBusinessAuthProvider(){
@@ -113,7 +112,11 @@
 
 - (void)setAccountSessionWithAuthResult:(ADAuthenticationResult *)result
 {
-    self.accountSession = [ODAADAccountBridge accountSessionFromCacheItem:result.tokenCacheStoreItem serviceInfo:self.serviceInfo];
+    self.accountSession = [[ODAccountSession alloc] initWithId:result.tokenCacheStoreItem.userInformation.userId
+                                                   accessToken:result.tokenCacheStoreItem.accessToken
+                                                       expires:result.tokenCacheStoreItem.expiresOn
+                                                  refreshToken:result.tokenCacheStoreItem.refreshToken
+                                                   serviceInfo:self.serviceInfo];
     if (self.accountSession.refreshToken){
         [self.accountStore storeCurrentAccount:self.accountSession];
     }

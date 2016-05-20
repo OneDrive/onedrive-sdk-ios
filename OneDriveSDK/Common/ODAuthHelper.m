@@ -24,7 +24,6 @@
 #import "ODAccountSession.h"
 #import "ODAuthConstants.h"
 #import "ODServiceInfo.h"
-#import "MF_Base32Additions.h"
 
 @implementation ODAuthHelper
 
@@ -67,14 +66,6 @@
         accountId = session[OD_AUTH_TOKEN_ID];
     }
     if (accountId && expires){
-        // HACK: The default account store we use is ADAL, which lowercases user ID.
-        //       User ID seems to sometimes be a case-sensitive string, and we were running
-        //       into an issue where given a saved user ID, we couldn't find the matching
-        //       account session in the account store due to casing mismatch. As a workaround,
-        //       since we only use userId as a key to lookup its associated account session,
-        //       we convert it to Base32 (case insensitive) and lowercase it, thus guaranteeing
-        //       a unique all-lowercase key for any given case-sensitive userId received.
-        accountId = [[accountId base32String] lowercaseString];
         return [[ODAccountSession alloc] initWithId:accountId
                                         accessToken:session[OD_AUTH_ACCESS_TOKEN]
                                             expires:expires
