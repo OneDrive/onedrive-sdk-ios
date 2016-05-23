@@ -24,15 +24,18 @@
 #import "ODAuthHelper.h"
 #import "ODAuthConstants.h"
 
+#define REQUEST_TIMEOUT_DEFAULT 60
+
 @interface ODAuthenticationViewController() <UIWebViewDelegate>
 
 @property UIWebView *webView;
 
 @property NSURLRequest *initialRequest;
-
 @property (strong, nonatomic) ODEndURLCompletion successCompletion;
-
 @property (strong, nonatomic) NSURL *endURL;
+
+@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic) BOOL isComplete;
 
 @end
 
@@ -47,13 +50,18 @@
         _endURL = endURL;
         _initialRequest = [NSURLRequest requestWithURL:startURL];
         _successCompletion = sucessCompletion;
-        
+        _requestTimeout = REQUEST_TIMEOUT_DEFAULT;
+        _isComplete = NO;
     }
     return self;
 }
 
 - (void)cancel
 {
+    [self.timer invalidate];
+    self.timer = nil;
+    self.isComplete = YES;
+    
     NSError *cancelError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN code:ODAuthCanceled userInfo:@{}];
     if (self.successCompletion){
         self.successCompletion(nil, cancelError);
@@ -102,9 +110,27 @@
     [super viewWillDisappear:animated];
 }
 
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.requestTimeout target:self selector:@selector(failWithTimeout) userInfo:nil repeats:NO];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([[request.URL absoluteString] hasPrefix:[self.endURL absoluteString]]){
+    if ([[[request.URL absoluteString] lowercaseString] hasPrefix:[[self.endURL absoluteString] lowercaseString]]){
+        self.isComplete = YES;
+        [self.timer invalidate];
+        self.timer = nil;
+        
         self.successCompletion(request.URL, nil);
         return NO;
     }
@@ -113,7 +139,37 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    [self.timer invalidate];
+    self.timer = nil;
     
+    if (NSURLErrorCancelled == error.code)
+    {
+        //This is a common error that webview generates and could be ignored.
+        //See this thread for details: https://discussions.apple.com/thread/1727260
+        return;
+    }
+    
+    if([error.domain isEqual:@"WebKitErrorDomain"]){
+        return;
+    }
+    
+    // Ignore failures that are triggered after we have found the end URL
+    if (self.isComplete)
+    {
+        //We expect to get an error here, as we intentionally fail to navigate to the final redirect URL.
+        return;
+    }
+    
+    if (self.successCompletion) {
+        self.successCompletion(nil, error);
+    }
+}
+
+- (void)failWithTimeout
+{
+    [self webView:self.webView didFailLoadWithError:[NSError errorWithDomain:NSURLErrorDomain
+                                                                    code:NSURLErrorTimedOut
+                                                                userInfo:nil]];
 }
 
 @end
