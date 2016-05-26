@@ -44,6 +44,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Auth" do |oda|
     oda.dependency 'ADALiOS', '~> 1.2'
+    oda.dependency 'Base32', '~> 1.1'
     oda.dependency 'OneDriveSDK/Common'
 
     oda.source_files = "OneDriveSDK/Auth/*.{h,m}", "OneDriveSDK/Accounts/*.{h,m}"

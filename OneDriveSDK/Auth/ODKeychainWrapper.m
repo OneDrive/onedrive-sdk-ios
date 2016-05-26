@@ -29,6 +29,7 @@
 #import "ODAuthConstants.h"
 #import "ODAADAccountBridge.h"
 #import "ODServiceInfo.h"
+#import "MF_Base32Additions.h"
 
 
 @interface ODKeychainWrapper ()
@@ -63,8 +64,9 @@
 {
     NSParameterAssert(accountId);
     
-    ADTokenCacheStoreKey *accountKey = [self cacheKeyFromAccountId:accountId serviceInfo:serviceInfo];
-    ADTokenCacheStoreItem *item =[self.keychainStore getItemWithKey:accountKey userId:accountId error:nil];
+    NSString *adalSafeUserId = [ODAADAccountBridge adalSafeUserIdFromString:accountId];
+    ADTokenCacheStoreKey *accountKey = [self cacheKeyFromServiceInfo:serviceInfo];
+    ADTokenCacheStoreItem *item =[self.keychainStore getItemWithKey:accountKey userId:adalSafeUserId error:nil];
     ODAccountSession *session = nil;
     if (item){
         session = [ODAADAccountBridge accountSessionFromCacheItem:item serviceInfo:serviceInfo];
@@ -77,15 +79,13 @@
 {
     NSParameterAssert(account);
     
-    ADTokenCacheStoreItem *accountItem = [ODAADAccountBridge cacheItemFromAccountSession:account];
-    ADTokenCacheStoreKey *key = [self cacheKeyFromAccountId:account.accountId serviceInfo:account.serviceInfo];
-    [self.keychainStore removeItemWithKey:key userId:accountItem.userInformation.userId error:nil];
+    NSString *adalSafeUserId = [ODAADAccountBridge adalSafeUserIdFromString:account.accountId];
+    ADTokenCacheStoreKey *key = [self cacheKeyFromServiceInfo:account.serviceInfo];
+    [self.keychainStore removeItemWithKey:key userId:adalSafeUserId error:nil];
 }
 
-- (ADTokenCacheStoreKey *)cacheKeyFromAccountId:(NSString*)accountId serviceInfo:(ODServiceInfo *)serviceInfo
+- (ADTokenCacheStoreKey *)cacheKeyFromServiceInfo:(ODServiceInfo *)serviceInfo
 {
-    NSParameterAssert(accountId);
-    
     return [ADTokenCacheStoreKey keyWithAuthority:serviceInfo.authorityURL resource:serviceInfo.resourceId clientId:serviceInfo.appId error:nil];
 }
 

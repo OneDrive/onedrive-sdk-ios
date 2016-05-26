@@ -43,4 +43,16 @@
  */
 + (ODAccountSession *)accountSessionFromCacheItem:(ADTokenCacheStoreItem *)cacheStoreItem serviceInfo:(ODServiceInfo *)serviceInfo;
 
+/**
+ Encodes the input string in a format that will not be semantically changed when ADAL normalizes it
+ @param input The string to be encoded in an ADAL-normalization-safe manner
+ */
++ (NSString*)adalSafeUserIdFromString:(NSString*)input;
+
+/**
+ Decodes the given ADAL-normalization-safe encoded user ID to a plaintext string
+ @param userId The user ID to be decoded from ADAL-normalization-safe form
+ */
++ (NSString*)stringFromAdalSafeUserId:(NSString*)userId;
+
 @end
