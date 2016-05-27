@@ -290,9 +290,9 @@
 		7CF525F71CEA7EA300E7F086 /* ODVersionsCollectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF5259E1CEA7EA300E7F086 /* ODVersionsCollectionRequest.m */; };
 		7CF525F81CEA7EA300E7F086 /* ODVersionsCollectionRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF5259F1CEA7EA300E7F086 /* ODVersionsCollectionRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF525F91CEA7EA300E7F086 /* ODVersionsCollectionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF525A01CEA7EA300E7F086 /* ODVersionsCollectionRequestBuilder.m */; };
-		7CF8FE291CF8C79C003164AB /* ODDriveRecentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF8FE251CF8C79C003164AB /* ODDriveRecentRequest.h */; };
+		7CF8FE291CF8C79C003164AB /* ODDriveRecentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF8FE251CF8C79C003164AB /* ODDriveRecentRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF8FE2A1CF8C79C003164AB /* ODDriveRecentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8FE261CF8C79C003164AB /* ODDriveRecentRequest.m */; };
-		7CF8FE2B1CF8C79C003164AB /* ODDriveRecentRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF8FE271CF8C79C003164AB /* ODDriveRecentRequestBuilder.h */; };
+		7CF8FE2B1CF8C79C003164AB /* ODDriveRecentRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF8FE271CF8C79C003164AB /* ODDriveRecentRequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF8FE2C1CF8C79C003164AB /* ODDriveRecentRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8FE281CF8C79C003164AB /* ODDriveRecentRequestBuilder.m */; };
 		F2D50F58096095AB1860B79B /* libPods-OneDriveSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F15415D48153E70243F2B4 /* libPods-OneDriveSDK.a */; };
 /* End PBXBuildFile section */
@@ -1239,7 +1239,6 @@
 				10B4D2511AF821C40083D86C /* ODSelectOptions.h in Headers */,
 				7CF525E01CEA7EA300E7F086 /* ODSharesCollectionRequest.h in Headers */,
 				10B4D2231AF821C40083D86C /* ODAuthHelper.h in Headers */,
-				7CF8FE2B1CF8C79C003164AB /* ODDriveRecentRequestBuilder.h in Headers */,
 				10B4D2421AF821C40083D86C /* ODURLSessionUploadTask.h in Headers */,
 				10345C1C1BED5068000A3166 /* NSDate+ODSerialization.h in Headers */,
 				10B4D23C1AF821C40083D86C /* ODURLSessionDataTask.h in Headers */,
@@ -1263,7 +1262,6 @@
 				7CF525191CEA7E9B00E7F086 /* ODFolder.h in Headers */,
 				7CF5252C1CEA7E9B00E7F086 /* ODOpenWithSet.h in Headers */,
 				10B4D24C1AF821C40083D86C /* ODOrderByOptions.h in Headers */,
-				7CF8FE291CF8C79C003164AB /* ODDriveRecentRequest.h in Headers */,
 				7CF525461CEA7E9B00E7F086 /* ODVideo.h in Headers */,
 				10B4D2481AF821C40083D86C /* ODIfMatch.h in Headers */,
 				10B4D24A1AF821C40083D86C /* ODIfNoneMatch.h in Headers */,
@@ -1301,6 +1299,8 @@
 				7CF525F81CEA7EA300E7F086 /* ODVersionsCollectionRequestBuilder.h in Headers */,
 				7CF525251CEA7E9B00E7F086 /* ODItemReference.h in Headers */,
 				7CF525AB1CEA7EA300E7F086 /* ODDrivesCollectionRequest.h in Headers */,
+				7CF8FE2B1CF8C79C003164AB /* ODDriveRecentRequestBuilder.h in Headers */,
+				7CF8FE291CF8C79C003164AB /* ODDriveRecentRequest.h in Headers */,
 				7CF525151CEA7E9B00E7F086 /* ODFile.h in Headers */,
 				101104141B1E8F9400A83BAB /* ODBusinessAuthProvider.h in Headers */,
 				10492F9B1B6168A5004AB045 /* ODNSURLSessionTaskDelegate.h in Headers */,
