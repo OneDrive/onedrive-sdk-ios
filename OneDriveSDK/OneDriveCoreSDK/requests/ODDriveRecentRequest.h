@@ -27,17 +27,13 @@
 
 
 
+@class ODURLSessionDataTask;
 
-#import "ODObject.h"
+#import "ODCollectionRequest.h"
 
+@interface ODDriveRecentRequest : ODCollectionRequest
 
-/**
-* The header for type image.
-*/
+@property (readonly) NSMutableURLRequest *mutableRequest;
 
-@interface ODImage : ODObject
-
-@property int32_t height;
-@property int32_t width;
-
+- (ODURLSessionDataTask *)executeWithCompletion:(void (^)(ODCollection *response, ODDriveRecentRequest *nextRequest, NSError *error))completionHandler;
 @end

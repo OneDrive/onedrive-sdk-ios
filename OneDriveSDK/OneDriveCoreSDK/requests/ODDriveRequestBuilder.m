@@ -18,8 +18,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // 
-// 
-// This file was generated and any changes will be overwritten.
+// CodeGen: b53160c326682c5d0326144548f8f1a5297b0f62
+
+
+//////////////////////////////////////////////////////////////////
+// This file was generated and any changes will be overwritten. //
+//////////////////////////////////////////////////////////////////
+
 
 
 #import "ODODataEntities.h"
@@ -68,6 +73,11 @@
 - (ODDriveRequest *) requestWithOptions:(NSArray *)options
 {
     return [[ODDriveRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+}
+
+- (ODDriveRecentRequestBuilder *)recent
+{
+    return [[ODDriveRecentRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"view.recent"] client:self.client];
 }
 
 @end

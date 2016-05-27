@@ -27,17 +27,16 @@
 
 
 
+#import "ODODataEntities.h"
+#import "ODModels.h"
+#import "ODRequestBuilder.h"
 
-#import "ODObject.h"
+@class ODDriveRecentRequest;
 
+@interface ODDriveRecentRequestBuilder : ODRequestBuilder
 
-/**
-* The header for type image.
-*/
+- (ODDriveRecentRequest *)request;
 
-@interface ODImage : ODObject
-
-@property int32_t height;
-@property int32_t width;
+- (ODDriveRecentRequest *)requestWithOptions:(NSArray *)options;
 
 @end

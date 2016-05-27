@@ -31,7 +31,6 @@
 #import "ODODataEntities.h"
 #import "ODModels.h"
 #import "ODURLSessionDataTask.h"
-#import "ODItemDeltaCollection.h"
 
 @interface ODRequest()
 
@@ -43,39 +42,17 @@
 
 @end
 
-@interface ODItemDeltaRequest()
 
-@property NSString *token;
+@implementation ODDriveRecentRequest
 
-@end
-
-@implementation ODItemDeltaRequest
-
-- (instancetype)initWithToken:(NSString *)token URL:(NSURL *)url options:(NSArray *)options client:(ODClient *)client 
-{
-    self = [super initWithURL:url options:options client:client];
-    if (self){
-        _token = token;
-    }
-    return self;
-}
 
 - (NSMutableURLRequest *)mutableRequest
 {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    if (self.token){
-        params[@"token"] = self.token;
-    }
-
-    [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop){
-        [self.options addObject:[[ODQueryParameters alloc] initWithKey:key value:value]];
-    }];
-
     return [self requestWithMethod:@"GET" body:nil headers:nil];
 }
 
 
-- (ODURLSessionDataTask *)executeWithCompletion:(void (^)(ODItemDeltaCollection *response, ODItemDeltaRequest *nextRequest, NSError *error))completionHandler
+- (ODURLSessionDataTask *)executeWithCompletion:(void (^)(ODCollection *response, ODDriveRecentRequest *nextRequest, NSError *error))completionHandler
 {
 
     ODURLSessionDataTask *task = [self collectionTaskWithRequest:self.mutableRequest
@@ -83,18 +60,14 @@
                                                                      return [[ODItem alloc] initWithDictionary:responseObject];
                                                                  }
                                                       completion:^(ODCollection *collectionResponse, NSError *error){
-                                      ODItemDeltaCollection *collection= nil;
-                                      if(collectionResponse){
-                                          collection = [[ODItemDeltaCollection alloc] initWithCollection:collectionResponse];
-                                      }
-                                      if(!error && collection.nextLink && completionHandler){
-                                              ODItemDeltaRequest *nextRequest = [[ODItemDeltaRequest alloc] initWithURL:collection.nextLink
+                                      if(!error && collectionResponse.nextLink && completionHandler){
+                                              ODDriveRecentRequest *nextRequest = [[ODDriveRecentRequest alloc] initWithURL:collectionResponse.nextLink
                                                                                                                   options:nil
                                                                                                                   client:self.client];
-                                          completionHandler(collection, nextRequest, nil);
+                                          completionHandler(collectionResponse, nextRequest, nil);
                                       }
                                       else if(completionHandler){
-                                          completionHandler(collection, nil, error);
+                                          completionHandler(collectionResponse, nil, error);
                                       }
                                   }];
     [task execute];

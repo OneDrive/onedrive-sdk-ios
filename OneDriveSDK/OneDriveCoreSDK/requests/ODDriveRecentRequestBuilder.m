@@ -27,17 +27,19 @@
 
 
 
+#import "ODODataEntities.h"
 
-#import "ODObject.h"
 
+@implementation ODDriveRecentRequestBuilder
 
-/**
-* The header for type image.
-*/
+- (ODDriveRecentRequest *)request
+{
+    return [self requestWithOptions:nil];
+}
 
-@interface ODImage : ODObject
-
-@property int32_t height;
-@property int32_t width;
+- (ODDriveRecentRequest *)requestWithOptions:(NSArray *)options
+{
+    return [[ODDriveRecentRequest alloc] initWithURL:self.requestURL client:self.client];
+}
 
 @end
