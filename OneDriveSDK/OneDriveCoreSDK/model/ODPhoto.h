@@ -21,7 +21,7 @@
 // 
 // This file was generated and any changes will be overwritten.
 
-#import <UIKit/UiKit.h>
+#import <UIKit/UIKit.h>
 
 
 #import "ODObject.h"
