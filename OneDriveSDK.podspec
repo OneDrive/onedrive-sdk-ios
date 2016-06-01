@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OneDriveSDK"
-  s.version      = "1.1.2"
+  s.version      = "1.2.0"
   s.summary      = "OneDrive iOS SDK"
 
   s.description  = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
 
-  s.author        = { "onedriveapi " => "onedriveapi@microsoft.com" }
+  s.author        = { "onedriveapi " => "onedrivesdkowners@microsoft.com" }
   s.social_media_url = "http://twitter.com/onedrivedev"
 
   s.platform     = :ios, "7.0"
