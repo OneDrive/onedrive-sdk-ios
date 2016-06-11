@@ -24,7 +24,7 @@
 #import "ODAuthHelper.h"
 #import "ODAuthConstants.h"
 
-#define REQUEST_TIMEOUT_DEFAULT 60
+#define kRequestTimeoutDefault  60
 
 @interface ODAuthenticationViewController() <UIWebViewDelegate>
 
@@ -50,7 +50,7 @@
         _endURL = endURL;
         _initialRequest = [NSURLRequest requestWithURL:startURL];
         _successCompletion = sucessCompletion;
-        _requestTimeout = REQUEST_TIMEOUT_DEFAULT;
+        _requestTimeout = kRequestTimeoutDefault;
         _isComplete = NO;
     }
     return self;
@@ -58,13 +58,16 @@
 
 - (void)cancel
 {
-    [self.timer invalidate];
-    self.timer = nil;
-    self.isComplete = YES;
-    
-    NSError *cancelError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN code:ODAuthCanceled userInfo:@{}];
-    if (self.successCompletion){
-        self.successCompletion(nil, cancelError);
+    if (!self.isComplete)
+    {
+        [self.timer invalidate];
+        self.timer = nil;
+        self.isComplete = YES;
+        
+        NSError *cancelError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN code:ODAuthCanceled userInfo:@{}];
+        if (self.successCompletion){
+            self.successCompletion(nil, cancelError);
+        }
     }
 }
 

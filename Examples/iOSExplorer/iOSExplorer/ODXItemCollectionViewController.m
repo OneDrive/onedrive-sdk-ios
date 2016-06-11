@@ -503,7 +503,20 @@ static void *ProgressObserverContext = &ProgressObserverContext;
 
 - (void)showErrorAlert:(NSError*)error
 {
-    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"There was an Error!"
+    NSString *errorMsg;
+    if ([error isAuthCanceledError]) {
+        errorMsg = @"Sign-in was canceled!";
+    }
+    else if ([error isAuthenticationError]) {
+        errorMsg = @"There was an error in the sign-in flow!";
+    }
+    else if ([error isClientError]) {
+        errorMsg = @"Oops, we sent a bad request!";
+    }
+    else {
+        errorMsg = @"Uh oh, an error occurred!";
+    }
+    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:errorMsg
                                                                         message:[NSString stringWithFormat:@"%@", error]
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];

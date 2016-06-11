@@ -44,6 +44,9 @@
     }
     else{
         [self.logger logWithLevel:ODLogWarn message:@"Authentication provider doesn't respond to signOutWithCompletion"];
+        if (completionHandler) {
+            completionHandler(nil);
+        }
     }
 }
 

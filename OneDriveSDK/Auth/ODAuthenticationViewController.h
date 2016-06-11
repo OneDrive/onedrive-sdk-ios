@@ -58,6 +58,12 @@ typedef void (^ODEndURLCompletion)(NSURL *endURL, NSError *error);
  */
 - (void)loadInitialRequest;
 
+/**
+ Aborts the OAuth flow. If the auth flow has already completed this is a no-op,
+   otherwise the success completion will be called with code ODAuthCanceled.
+ */
+- (void)cancel;
+
 @property (nonatomic) NSTimeInterval requestTimeout;
 
 @end

@@ -28,6 +28,12 @@
 #import "ODAuthenticationViewController.H"
 #import "ODAuthProvider+Protected.h"
 
+@interface ODBaseAuthProvider ()
+@property (nonatomic, strong) ODAuthenticationViewController *authViewController;
+@property (nonatomic, strong) NSURLSessionDataTask *getTokenTask;
+@end
+
+
 @implementation ODBaseAuthProvider
 
 - (instancetype)initWithServiceInfo:(ODServiceInfo *)serviceInfo
@@ -52,10 +58,10 @@
     // if the view controller's child is an ODAuthenticationViewController we just want to redirect to a new URL
     // not push another view controller
     if (presentingViewController && [presentingViewController isKindOfClass:[ODAuthenticationViewController class]]){
-        __block ODAuthenticationViewController *authViewController = (ODAuthenticationViewController *)presentingViewController;
+        self.authViewController = (ODAuthenticationViewController *)presentingViewController;
         NSURL *authURL = [self authURL];
         [self.logger logWithLevel:ODLogDebug message:@"Authentication URL : %@", authURL];
-        [authViewController redirectWithStartURL:authURL
+        [self.authViewController redirectWithStartURL:authURL
                                           endURL:[NSURL URLWithString:self.serviceInfo.redirectURL]
                                           success:^(NSURL *endURL, NSError *error){
                                               [self authorizationFlowCompletedWithURL:endURL
@@ -65,25 +71,25 @@
                                           }];
     }
     else {
-        __block ODAuthenticationViewController *authViewController =
+        self.authViewController =
         [[ODAuthenticationViewController alloc] initWithStartURL:[self authURL]
                                                           endURL:[NSURL URLWithString:self.serviceInfo.redirectURL]
                                                          success:^(NSURL *endURL, NSError *error){
                                                              [self authorizationFlowCompletedWithURL:endURL
                                                                                                error:error
-                                                                            presentingViewController:authViewController
+                                                                            presentingViewController:self.authViewController
                                                                                           completion:completionHandler];
                                                            
                                                        }];
         dispatch_async(dispatch_get_main_queue(), ^{
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authViewController];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.authViewController];
             navController.modalPresentationStyle = viewController.modalPresentationStyle;
             UIViewController *viewControllerToPresentOn = viewController;
             while (viewControllerToPresentOn.presentedViewController) {
                 viewControllerToPresentOn = viewControllerToPresentOn.presentedViewController;
             }
             [viewControllerToPresentOn presentViewController:navController animated:YES  completion:^{
-                [authViewController loadInitialRequest];
+                [self.authViewController loadInitialRequest];
             }];
         });
     }
@@ -94,25 +100,32 @@
                  presentingViewController:(UIViewController *)presentingViewController
                                completion:(AuthCompletion)completionHandler
 {
-    // Always remove the auth view when we finished loading.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [presentingViewController dismissViewControllerAnimated:NO completion:nil];
-    });
-    
     if (!error){
         [self.logger logWithLevel:ODLogDebug message:@"Response from auth service", endURL];
         NSString *code = [ODAuthHelper codeFromCodeFlowRedirectURL:endURL];
         if (code){
-            [self getTokenWithCode:code completion:completionHandler];
+            [self getTokenWithCode:code completion:^(NSError *error) {
+                [self dismissAndCompleteAuthorizationWithError:error completion:completionHandler];
+            }];
         }
         else{
             [self.logger logWithLevel:ODLogError message:@"Error reading code from response"];
-            completionHandler([self errorFromURL:endURL]);
+            [self dismissAndCompleteAuthorizationWithError:[self errorFromURL:endURL] completion:completionHandler];
         }
     }
     else{
-        completionHandler(error);
+        [self dismissAndCompleteAuthorizationWithError:error completion:completionHandler];
     }
+}
+
+- (void)dismissAndCompleteAuthorizationWithError:(NSError*)error completion:(AuthCompletion)completionHandler {
+    __block ODAuthenticationViewController *authVC = self.authViewController;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [authVC dismissViewControllerAnimated:NO completion:nil];
+    });
+    self.authViewController = nil;
+    self.getTokenTask = nil;
+    completionHandler(error);
 }
 
 - (void)authenticateWithAccountSession:(ODAccountSession *)session completion:(void (^)(NSError *))completionHandler
@@ -192,8 +205,22 @@
 - (void)signOutWithCompletion:(void (^)(NSError *))completionHandler
 {
     [self.logger logWithLevel:ODLogDebug message:@"Signing out session: %@", self.accountSession.accountId];
-    [self.accountStore deleteAccount:self.accountSession];
-    self.accountSession = nil;
+    
+    // If we are in the middle of authentication, abort that with code 'canceled'
+    if (self.authViewController || self.getTokenTask) {
+        if (self.authViewController) {
+            [self.authViewController cancel];  // will invoke completion with ODAuthCanceled
+        }
+        if (self.getTokenTask) {
+            [self.getTokenTask cancel];  // will invoke completion with NSURLErrorCancelled
+        }
+    }
+    
+    if (self.accountSession) {
+        [self.accountStore deleteAccount:self.accountSession];
+        self.accountSession = nil;
+    }
+    
     NSURLRequest *logoutRequest = [self logoutRequest];
     if (logoutRequest){
         [[self.httpProvider dataTaskWithRequest:[self logoutRequest] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
@@ -216,15 +243,22 @@
 {
     NSURLRequest *request = [self tokenRequestWithCode:code];
     [self.logger logWithLevel:ODLogDebug message:@"Requesting token with request %@", request];
-    [[self.httpProvider dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        self.accountSession = [self accountSessionWithData:data response:response error:&error];
-        if (self.accountSession.refreshToken){
-            [self.accountStore storeCurrentAccount:self.accountSession];
+    self.getTokenTask = [self.httpProvider dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (!error) {
+            self.accountSession = [self accountSessionWithData:data response:response error:&error];
+            if (self.accountSession.refreshToken){
+                [self.accountStore storeCurrentAccount:self.accountSession];
+            }
         }
+        else if (error.code == NSURLErrorCancelled) {
+                error = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN code:ODAuthCanceled userInfo:@{}];
+        }
+        
         if (completion){
             completion(error);
         }
-    }] resume];
+    }];
+    [self.getTokenTask resume];
 }
 
 - (NSError *)errorFromURL:(NSURL *)url
