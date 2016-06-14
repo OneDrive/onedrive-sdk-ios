@@ -119,7 +119,7 @@
 }
 
 - (void)dismissAndCompleteAuthorizationWithError:(NSError*)error completion:(AuthCompletion)completionHandler {
-    __block ODAuthenticationViewController *authVC = self.authViewController;
+    ODAuthenticationViewController *authVC = self.authViewController;
     dispatch_async(dispatch_get_main_queue(), ^{
         [authVC dismissViewControllerAnimated:NO completion:nil];
     });
