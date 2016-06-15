@@ -43,16 +43,19 @@
 - (instancetype)initWithClientId:(NSString *)clientId
                       capability:(NSString *)capability
                       resourceId:(NSString *)resourceId
+                     apiEndpoint:(NSString *)apiEndpoint
                      redirectURL:(NSString *)redirectURL
                            flags:(NSDictionary *)flags
 {
     NSParameterAssert(redirectURL);
+    NSParameterAssert(apiEndpoint || [OD_DISCOVERY_SERVICE_URL containsString:resourceId]);
     
     self = [super initWithClientId:clientId scopes:nil flags:flags];
     if (self){
         _capability = capability;
         _redirectURL = redirectURL;
         _resourceId = resourceId;
+        _apiEndpoint = apiEndpoint;
         _authorityURL = [OD_ACTIVE_DIRECTORY_AUTH_URL copy];
         _discoveryServiceURL = [OD_DISCOVERY_SERVICE_URL copy];
     }
