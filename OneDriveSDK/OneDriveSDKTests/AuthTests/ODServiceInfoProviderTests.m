@@ -81,6 +81,7 @@
     appconfig.activeDirectoryAppId = @"foo";
     appconfig.activeDirectoryRedirectURL = @"bar";
     appconfig.activeDirectoryResourceId = @"quz";
+    appconfig.activeDirectoryApiEndpointURL = @"quxx";
     
     [self.serviceInfoProvider getServiceInfoWithViewController:[[UIViewController alloc] init]
                                               appConfiguration:appconfig
@@ -88,6 +89,7 @@
                                                         XCTAssertNil(error);
                                                         XCTAssertEqual(serviceInfo.accountType, ODADAccount);
                                                         XCTAssertEqual(serviceInfo.resourceId, appconfig.activeDirectoryResourceId);
+                                                        XCTAssertEqual(serviceInfo.apiEndpoint, appconfig.activeDirectoryApiEndpointURL);
                                                     }];   
 }
 
