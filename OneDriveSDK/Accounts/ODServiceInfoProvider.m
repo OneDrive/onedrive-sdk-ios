@@ -148,6 +148,7 @@
                 serviceInfo = [[ODAADServiceInfo alloc] initWithClientId:appConfig.activeDirectoryAppId
                                                               capability:appConfig.activeDirectoryCapability
                                                               resourceId:resourceId
+                                                             apiEndpoint:appConfig.activeDirectoryApiEndpointURL
                                                              redirectURL:appConfig.activeDirectoryRedirectURL
                                                                    flags:appConfig.activeDirectoryFlags];
             }

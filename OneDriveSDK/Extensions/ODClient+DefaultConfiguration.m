@@ -165,7 +165,7 @@
                            capability:nil
                            resourceId:activeDirectoryResourceId
                           apiEndpoint:activeDirectoryApiEndpoint
-                          redirectURL:activeDirectoryResourceId
+                          redirectURL:activeDirectoryRedirectURL
                                 flags:nil];
 }
 
@@ -183,15 +183,15 @@
                                 flags:nil];
 }
 
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-          microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
-           microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+          microsoftAccountScopes:(NSArray *)microsoftAccountScopes
+           microsoftAccountFlags:(NSDictionary *)microsoftAccountFlags
             activeDirectoryAppId:(NSString *)activeDirectoryAppId
        activeDirectoryCapability:(NSString *)activeDirectoryCapability
       activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
             activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags
 {
-    [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId scopes:microsoftAccounntScopes flags:microsoftAccounntFlags];
+    [ODClient setMicrosoftAccountAppId:microsoftAccountAppId scopes:microsoftAccountScopes flags:microsoftAccountFlags];
     [ODClient setActiveDirectoryAppId:activeDirectoryAppId
                            capability:activeDirectoryCapability
                            resourceId:nil
@@ -200,16 +200,16 @@
                                 flags:activeDirectoryFlags];
 }
 
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-          microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
-           microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+          microsoftAccountScopes:(NSArray *)microsoftAccountScopes
+           microsoftAccountFlags:(NSDictionary *)microsoftAccountFlags
             activeDirectoryAppId:(NSString *)activeDirectoryAppId
        activeDirectoryResourceId:(NSString *)activeDirectoryResourceId
       activeDirectoryApiEndpoint:(NSString *)activeDirectoryApiEndpoint
       activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
             activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags
 {
-    [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId scopes:microsoftAccounntScopes flags:microsoftAccounntFlags];
+    [ODClient setMicrosoftAccountAppId:microsoftAccountAppId scopes:microsoftAccountScopes flags:microsoftAccountFlags];
     [ODClient setActiveDirectoryAppId:activeDirectoryAppId
                            capability:nil
                            resourceId:activeDirectoryResourceId
