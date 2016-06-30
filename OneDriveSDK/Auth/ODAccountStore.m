@@ -191,6 +191,14 @@ static const NSString *ODAccountSessions = @"accountSessions";
     @synchronized(self.accountSessions){
         self.accountSessions[account.accountId] = account;
     }
+    
+    // If 'currentAccountSession' has the same accountID as 'account', update it as well.
+    if(self.currentAccountSession != nil
+       && [self.currentAccountSession.accountId isEqualToString:account.accountId])
+    {
+        self.currentAccountSession = account;
+    }
+    
     [self storeAccounts];
 }
 
