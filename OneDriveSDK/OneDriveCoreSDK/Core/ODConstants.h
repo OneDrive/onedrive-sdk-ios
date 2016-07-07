@@ -51,6 +51,7 @@ typedef NS_ENUM(NSInteger, ODExpectedResponseCodes){
     ODOK = 200,
     ODCreated = 201,
     ODAccepted = 202,
+    ODPartialContent = 206,
     ODNotModified = 304,
 };
 
