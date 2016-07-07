@@ -53,22 +53,22 @@
 + (void)authenticatedClientWithCompletion:(ODClientAuthenticationCompletion)completion;
 
 /**
- Sets the OneDrive microsoftAccounnt app information. @see https://dev.onedrive.com/auth/msa_oauth.htm
- @param  microsoftAccounntAppId The application id. Must not be nil.
- @param  microsoftAccounntScopes The scopes to be used with authentication. Must not be nil.
- @param  microsoftAccounntFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccounnt authentication flow.
+ Sets the OneDrive microsoftAccount app information. @see https://dev.onedrive.com/auth/msa_oauth.htm
+ @param  microsoftAccountAppId The application id. Must not be nil.
+ @param  microsoftAccountScopes The scopes to be used with authentication. Must not be nil.
+ @param  microsoftAccountFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccount authentication flow.
  */
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-                          scopes:(NSArray *)microsoftAccounntScopes
-                           flags:(NSDictionary *)microsoftAccounntFlags;
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+                          scopes:(NSArray *)microsoftAccountScopes
+                           flags:(NSDictionary *)microsoftAccountFlags;
 
 /**
- Calls setmicrosoftAccounntAppId:scopes:flags: with no flags.
- @param  microsoftAccounntAppId The application id. Must not be nil.
- @param  microsoftAccounntScopes The scopes to be used with authentication. Must not be nil.
+ Calls setMicrosoftAccountAppId:scopes:flags: with no flags. @see https://dev.onedrive.com/auth/msa_oauth.htm
+ @param  microsoftAccountAppId The application id. Must not be nil.
+ @param  microsoftAccountScopes The scopes to be used with authentication. Must not be nil.
  */
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-                          scopes:(NSArray *)microsoftAccounntScopes;
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+                          scopes:(NSArray *)microsoftAccountScopes;
 
 
 
@@ -128,36 +128,36 @@
                           flags:(NSDictionary *)activeDirectoryFlags;
 
 /**
- Calls the setActiveDirectoryAppId and setMicrosoftAccountAppId methods to set both microsoftAccounnt and Business application info.
- @param  microsoftAccounntAppId The application id. Must not be nil.
- @param  microsoftAccounntScopes The scopes to be used with authentication. Must not be nil.
- @param  microsoftAccounntFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccounnt authentication flow.
+ Calls the setActiveDirectoryAppId and setMicrosoftAccountAppId methods to set both microsoftAccount and Business application info.
+ @param  microsoftAccountAppId The application id. Must not be nil.
+ @param  microsoftAccountScopes The scopes to be used with authentication. Must not be nil.
+ @param  microsoftAccountFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccount authentication flow.
  @param  activeDirectoryAppId The application id. Must not be nil.
  @param  activeDirectoryCapabilty The active directroy capability must not be nil
  @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
  @param  activeDirectoryFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive for Business authentication flow.
  */
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-          microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
-           microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+          microsoftAccountScopes:(NSArray *)microsoftAccountScopes
+           microsoftAccountFlags:(NSDictionary *)microsoftAccountFlags
            activeDirectoryAppId:(NSString *)activeDirectoryAppId
        activeDirectoryCapability:(NSString *)activeDirectoryCapability
      activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
            activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags;
 /**
- Calls the setActiveDirectoryAppId and setMicrosoftAccountAppId methods to set both microsoftAccounnt and Business application info.
- @param  microsoftAccounntAppId The application id. Must not be nil.
- @param  microsoftAccounntScopes The scopes to be used with authentication. Must not be nil.
- @param  microsoftAccounntFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccounnt authentication flow.
+ Calls the setActiveDirectoryAppId and setMicrosoftAccountAppId methods to set both microsoftAccount and Business application info.
+ @param  microsoftAccountAppId The application id. Must not be nil.
+ @param  microsoftAccountScopes The scopes to be used with authentication. Must not be nil.
+ @param  microsoftAccountFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive microsoftAccount authentication flow.
  @param  activeDirectoryAppId The application id. Must not be nil.
  @param  activeDirectoryResouceId The active directroy resource Id. Must not be nil.
  @param  activeDirectoryApiEndpoint The active directroy Api Endpoint. Must not be nil.
  @param  activeDirectoryRedirectURL The redirect url to be used with Azure Active Directory. Must not be nil.
  @param  activeDirectoryFlags A user defined dictionary to be passed through to the client when authenticated using the OneDrive for Business authentication flow.
  */
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-          microsoftAccountScopes:(NSArray *)microsoftAccounntScopes
-           microsoftAccountFlags:(NSDictionary *)microsoftAccounntFlags
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+          microsoftAccountScopes:(NSArray *)microsoftAccountScopes
+           microsoftAccountFlags:(NSDictionary *)microsoftAccountFlags
             activeDirectoryAppId:(NSString *)activeDirectoryAppId
        activeDirectoryResourceId:(NSString *)activeDirectoryResourceId
       activeDirectoryApiEndpoint:(NSString *)activeDirectoryApiEndpoint
