@@ -86,34 +86,34 @@
     return [ODClient clientsFromAppConfig:[ODAppConfiguration defaultConfiguration]];
 }
 
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-                          scopes:(NSArray *)microsoftAccounntScopes
-                           flags:(NSDictionary *)microsoftAccounntFlags
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+                          scopes:(NSArray *)microsoftAccountScopes
+                           flags:(NSDictionary *)microsoftAccountFlags
 {
-    NSParameterAssert(microsoftAccounntAppId);
-    NSParameterAssert(microsoftAccounntScopes);
+    NSParameterAssert(microsoftAccountAppId);
+    NSParameterAssert(microsoftAccountScopes);
     // default to OneDrive
     NSString *onedriveApiEndpoint  = [NSString stringWithFormat:@"%@/%@", OD_MICROSOFT_ACCOUNT_ENDPOINT, OD_MICROSOFT_ACCOUNT_API_VERSION];
-    [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId
-                                scopes:microsoftAccounntScopes
-                                 flags:microsoftAccounntFlags
+    [ODClient setMicrosoftAccountAppId:microsoftAccountAppId
+                                scopes:microsoftAccountScopes
+                                 flags:microsoftAccountFlags
                            apiEndpoint:onedriveApiEndpoint];
 }
 
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId scopes:(NSArray *)microsoftAccounntScopes
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId scopes:(NSArray *)microsoftAccountScopes
 {
-    [ODClient setMicrosoftAccountAppId:microsoftAccounntAppId scopes:microsoftAccounntScopes flags:nil];
+    [ODClient setMicrosoftAccountAppId:microsoftAccountAppId scopes:microsoftAccountScopes flags:nil];
 }
 
-+ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccounntAppId
-                          scopes:(NSArray *)microsoftAccounntScopes
-                           flags:(NSDictionary *)microsoftAccounntFlags
++ (void)setMicrosoftAccountAppId:(NSString *)microsoftAccountAppId
+                          scopes:(NSArray *)microsoftAccountScopes
+                           flags:(NSDictionary *)microsoftAccountFlags
                      apiEndpoint:(NSString *)apiEndpoint
 {
     ODAppConfiguration *defaultConfig = [ODAppConfiguration defaultConfiguration];
-    defaultConfig.microsoftAccountAppId = microsoftAccounntAppId;
-    defaultConfig.microsoftAccountScopes = microsoftAccounntScopes;
-    defaultConfig.microsoftAccountFlags = microsoftAccounntFlags;
+    defaultConfig.microsoftAccountAppId = microsoftAccountAppId;
+    defaultConfig.microsoftAccountScopes = microsoftAccountScopes;
+    defaultConfig.microsoftAccountFlags = microsoftAccountFlags;
     defaultConfig.microsoftAccountApiEndpoint = apiEndpoint;
 }
 
