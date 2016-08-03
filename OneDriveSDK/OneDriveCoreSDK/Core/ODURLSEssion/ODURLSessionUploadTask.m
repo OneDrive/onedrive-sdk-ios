@@ -70,7 +70,7 @@
 -(NSURLSessionUploadTask *)taskWithRequest:(NSMutableURLRequest *)request
 {
     NSURLSessionUploadTask *uploadTask = nil;
-    NSProgress *progress = [self createProgress];
+    NSProgress *progress = self.progress;
     if (self.data){
         uploadTask = [self.client.httpProvider uploadTaskWithRequest:request fromData:self.data progress:&progress completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
             [self onCompletion:data response:response error:error];
