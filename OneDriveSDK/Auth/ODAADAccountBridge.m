@@ -20,11 +20,13 @@
 //
 
 #import "ODAADAccountBridge.h"
-#import "ADUserInformation.h"
-#import "ADTokenCacheStoreItem.h"
+
+#import <ADALiOS/ADUserInformation.h>
+#import <ADALiOS/ADTokenCacheStoreItem.h>
+#import <Base32/MF_Base32Additions.h>
+
 #import "ODAccountSession.h"
 #import "ODServiceInfo.h"
-#import "MF_Base32Additions.h"
 
 @implementation ODAADAccountBridge
 

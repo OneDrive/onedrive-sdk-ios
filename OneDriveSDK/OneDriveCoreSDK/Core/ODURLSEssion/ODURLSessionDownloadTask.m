@@ -55,7 +55,7 @@
 - (NSURLSessionDownloadTask *)taskWithRequest:(NSMutableURLRequest *)request
 {
     [self.client.logger logWithLevel:ODLogVerbose message:@"Creating download task with request : %@", request];
-    NSProgress *progress = [self createProgress];
+    NSProgress *progress = self.progress;
     return [self.client.httpProvider downloadTaskWithRequest:request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
         _state = ODTaskCompleted;
         NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
