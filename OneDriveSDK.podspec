@@ -39,6 +39,7 @@ Pod::Spec.new do |s|
     usm.dependency 'OneDriveSDK/Common'
     usm.source_files = "OneDriveSDK/OneDriveSDK/ODURLSessionManager/*{h,m}", "OneDriveSDK/OneDriveSDK/*{h,m}"
     usm.public_header_files = "OneDriveSDK/OneDriveSDK/**/*.h"
+    usm.exclude_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h"
   end
 
 
