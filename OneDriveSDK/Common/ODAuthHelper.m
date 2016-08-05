@@ -94,8 +94,14 @@
             NSArray *keyValuePair = [queryItem componentsSeparatedByString:@"="];
             if(keyValuePair.count == 2)
             {
-                NSString *key = [[keyValuePair objectAtIndex:0] stringByRemovingPercentEncoding];
-                NSString *value = [[keyValuePair objectAtIndex:1] stringByRemovingPercentEncoding];
+                NSString *key = [keyValuePair objectAtIndex:0];
+                key = [key stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+                key = [key stringByRemovingPercentEncoding];
+                
+                NSString *value = [keyValuePair objectAtIndex:1];
+                value = [value stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+                value = [value stringByRemovingPercentEncoding];
+
                 params[key] = value;
             }
         }
