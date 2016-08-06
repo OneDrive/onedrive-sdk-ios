@@ -23,7 +23,7 @@ If there was an error in either of these steps, the error will be returned.
 If you want to invoke the UI, you can make a direct call to authenticatedClientWithCompletion:
 
 ```objc
-[ODClient authenticatedClientWithCompletion:(ODClient *client, NSError *error){
+[ODClient authenticatedClientWithCompletion:^(ODClient *client, NSError *error){
     if (!error){
         self.odclient = client;
     }
