@@ -97,6 +97,13 @@
 @property (strong, nonatomic) NSDictionary *activeDirectoryFlags;
 
 /**
+ API endpoint to use if not overridden by the auth provider. If the app is configured to
+   use MSA or AAD, the apiEndpoints specified for those configurations (or retrieved via
+   the resource discovery process) will take precedence.
+ */
+@property (strong, nonatomic) NSString *defaultApiEndpoint;
+
+/**
  The parent view controller to present the Authentication View controller on top of.
  @warning If no ParentAuthController is provided, the default will be the root view controller of the application.
  */

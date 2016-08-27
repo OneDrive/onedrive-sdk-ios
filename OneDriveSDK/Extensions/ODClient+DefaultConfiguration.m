@@ -23,13 +23,13 @@
 #import "ODAppConfiguration+DefaultConfiguration.h"
 #import "ODAccountSession.h"
 #import "ODAuthProvider.h"
+#import "ODNullAuthProvider.h"
 
 @implementation ODClient (DefaultConfiguration)
 
 + (void)clientWithCompletion:(ODClientAuthenticationCompletion)completion
 {
     NSParameterAssert(completion);
-    
     ODClient *client = [ODClient loadCurrentClient];
     if (client){
         completion(client, nil);
@@ -216,6 +216,14 @@
                           apiEndpoint:activeDirectoryApiEndpoint
                           redirectURL:activeDirectoryRedirectURL
                                 flags:activeDirectoryFlags];
+}
+
++ (void)setAuthenticationChallengeDelegate:(nonnull id<ODAuthenticationChallengeDelegate>)delegate apiEndpoint:(nonnull NSString *)apiEndpoint
+{
+    NSParameterAssert(delegate);
+    [[ODAppConfiguration defaultConfiguration].httpProvider setAuthenticationChallengeDelegate:delegate];
+    [ODAppConfiguration defaultConfiguration].authProvider = [ODNullAuthProvider authProvider];
+    [ODAppConfiguration defaultConfiguration].defaultApiEndpoint = apiEndpoint;
 }
 
 + (void)setAuthProvider:(id <ODAuthProvider>)authProvider

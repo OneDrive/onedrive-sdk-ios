@@ -42,8 +42,9 @@
                         appConfiguration:(ODAppConfiguration *)appConfig
                               completion:(disambiguationCompletion)completionHandler;
 {
-    NSParameterAssert(viewController);
     NSParameterAssert(appConfig);
+    NSParameterAssert(viewController);
+    NSParameterAssert(appConfig.microsoftAccountAppId || appConfig.activeDirectoryAppId);
     
     self.appConfig = appConfig;
     self.completionHandler = completionHandler;
@@ -60,7 +61,6 @@
         ODServiceInfo *serviceInfo = [self serviceInfoWithType:ODADAccount appConfig:self.appConfig];
         self.completionHandler(viewController, serviceInfo, nil);
     }
-    
 }
 
 - (void)discoverServiceInfoWithViewController:(UIViewController *)viewController
