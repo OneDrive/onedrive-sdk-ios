@@ -24,6 +24,11 @@
 
 @implementation ODURLSessionProgressTask
 
+- (void)execute {
+    [self createProgress];
+    [super execute];
+}
+
 - (NSProgress *)createProgress
 {
     NSProgress *progress = [NSProgress progressWithTotalUnitCount:0];

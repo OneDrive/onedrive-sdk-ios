@@ -55,13 +55,15 @@
 - (NSURLSessionDownloadTask *)taskWithRequest:(NSMutableURLRequest *)request
 {
     [self.client.logger logWithLevel:ODLogVerbose message:@"Creating download task with request : %@", request];
-    NSProgress *progress = [self createProgress];
+    NSProgress *progress = self.progress;
     return [self.client.httpProvider downloadTaskWithRequest:request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
         _state = ODTaskCompleted;
         NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
         [self.client.logger logWithLevel:ODLogVerbose message:@"Received download response with http status code %ld", statusCode];
-        if (!error && statusCode != ODOK) {
-            // The only response that should allow for the binary data to be in the file is a 200, otherwise it will be empty (304 no body)
+        if (!error && statusCode != ODOK && statusCode != ODPartialContent) {
+            // The only responses that should allow for the binary data to be in the file are a 200
+            // (for all file content downloaded successfully) or a 206 (for the requested file range
+            // downloaded successfully), otherwise it will be empty (304 no body)
             // or contain the error json blob which will be passed back in the error object if it exists
             // because this is a download task it will download the response to disk instead of memory
             if ( statusCode != ODNotModified){

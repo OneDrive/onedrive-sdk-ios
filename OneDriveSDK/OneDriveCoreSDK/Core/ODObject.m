@@ -64,7 +64,7 @@
             fullDictionary[key] = [obj od_toString];
         }
         else{
-            fullDictionary[key] = [obj description];
+            fullDictionary[key] = obj;
         }
     }];
     return fullDictionary;

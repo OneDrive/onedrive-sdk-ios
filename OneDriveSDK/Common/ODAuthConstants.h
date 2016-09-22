@@ -58,6 +58,8 @@ extern NSString * const OD_API_HEADER_ACCEPT;
 
 extern NSString * const OD_AUTH_ACCESS_TOKEN;
 extern NSString * const OD_AUTH_CODE;
+extern NSString * const OD_AUTH_DISPLAY;
+extern NSString * const OD_AUTH_DISPLAY_IOS_PHONE;
 extern NSString * const OD_AUTH_CLIENTID;
 extern NSString * const OD_AUTH_EXPIRES;
 extern NSString * const OD_AUTH_GRANT_TYPE;

@@ -22,7 +22,7 @@
 #import <Foundation/Foundation.h>
 #import "ODAuthConstants.h"
 
-NSString * const OD_SDK_VERSION = @"1.1.0";
+NSString * const OD_SDK_VERSION = @"1.1.2";
 
 NSString * const OD_AUTH_ERROR_DOMAIN = @"com.microsoft.onedrivesdk.autherror";
 NSString * const OD_AUTH_ERROR_KEY = @"ODAuthErrorKey";
@@ -33,13 +33,15 @@ NSString * const OD_API_HEADER_CONTENTTYPE_FORMENCODED = @"application/x-www-for
 NSString * const OD_API_HEADER_APPLICATION_JSON = @"application/json";
 NSString * const OD_API_HEADER_ACCEPT = @"accept";
 
-NSString * const OD_MSA_TELEMTRY_HEADER = @"X-Request-Stats";
+NSString * const OD_MSA_TELEMTRY_HEADER = @"X-RequestStats";
 NSString * const OD_AAD_TELEMTRY_HEADER = @"X-ClientService-ClientTag";
 
 NSString * const OD_TELEMTRY_HEADER_VALUE_FORMAT = @"SDK-Version=iOS-v%@";
 
 NSString * const OD_AUTH_ACCESS_TOKEN = @"access_token";
 NSString * const OD_AUTH_CODE = @"code";
+NSString * const OD_AUTH_DISPLAY = @"display";
+NSString * const OD_AUTH_DISPLAY_IOS_PHONE = @"ios_phone";
 NSString * const OD_AUTH_CLIENTID = @"client_id";
 NSString * const OD_AUTH_EXPIRES = @"expires_in";
 NSString * const OD_AUTH_GRANT_TYPE = @"grant_type";

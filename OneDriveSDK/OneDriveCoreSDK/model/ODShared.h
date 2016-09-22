@@ -26,18 +26,19 @@
 //////////////////////////////////////////////////////////////////
 
 
+@class ODIdentitySet; 
 
 
 #import "ODObject.h"
 
 
 /**
-* The header for type image.
+* The header for type shared.
 */
 
-@interface ODImage : ODObject
+@interface ODShared : ODObject
 
-@property int32_t height;
-@property int32_t width;
+@property ODIdentitySet *owner;
+@property NSString *scope;
 
 @end

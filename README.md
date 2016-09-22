@@ -14,69 +14,13 @@ Integrate the [OneDrive API](https://dev.onedrive.com/README.htm) into your iOS 
 
 ## 2. Getting started
 
-#### Note: iOS 9 App Transport Security (ATS)
-
-If you are targeting iOS 9 with XCode 7, you need to temporarily enable PFS exceptions for the following domains:
-
-* login.live.com
-* login.microsoftonline.com
-* login.windows.net
-* secure.aadcdn.microsoftonline-p.com
-
-To do this, add the following to your Info.plist :
-
-```xml
-<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>login.windows.net</key>
-			<dict/>
-			<key>NSIncludeSubdomains</key>
-			<true/>
-			<key>NSExceptionRequiresForwardSecrecy</key>
-			<false/>
-			<key>secure.aadcdn.microsoftonline-p.com</key>
-			<dict>
-				<key>NSIncludeSubmdomains</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>login.microsoftonline.com</key>
-			<dict>
-				<key>NSIncludeSubmdomains</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>login.live.com</key>
-			<dict>
-				<key>NSIncludeSubmdomains</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-		</dict>
-	</dict>
-```
-You can also see [OneDriveAPIExplorer](Examples/iOSExplorer) for an example.
-
-These domains enable MSA and standard AAD authentication. It's possible that an AAD domain has a multifactor auth flow or ADFS integration would send you to another domain. If you're targeting a customer set, you'll need to add exceptions for those domains to your app or disable ATS all together. To disable ATFS entirely add the following to your Info.plist:
-
-**Warning** This it not the recommended approach and is only necessary if you wish to target all tenants that do not use standard AAD authentication and do not support Transport Layer Security v1.2.
-
-```xml
-<key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowArbitraryLoads</key>
-        <true/>
-    </dict>
-```
-
 ### 2.1 Register your application
 
 Register your application by following [these](https://dev.onedrive.com/app-registration.htm) steps.
+
+### 2.2 Set up Keychain Sharing Entitlements in your Xcode Project
+
+Click on your project in the Navigator pane in Xcode. Click on your application target and then the "Capabilities" tab. Scroll down to "Keychain Sharing" and flip the switch on. Add "com.microsoft.adalcache" to that list.
 
 ### 2.2 Setting your application Id and scopes
 
@@ -146,7 +90,7 @@ For known issues, see [issues](https://github.com/OneDrive/onedrive-sdk-ios/issu
 
 [License](LICENSE.txt)
 
-
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 
 

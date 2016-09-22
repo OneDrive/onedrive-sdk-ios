@@ -85,11 +85,27 @@
 {
     NSParameterAssert(url);
     
-    NSArray *queryParams = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO].queryItems;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [queryParams enumerateObjectsUsingBlock:^(NSURLQueryItem *queryItem, NSUInteger index, BOOL *stop){
-        params[queryItem.name] = queryItem.value;
-    }];
+    if(url.query != nil && url.query.length > 0)
+    {
+        NSArray *queryItems = [url.query componentsSeparatedByString:@"&"];
+        for(NSString *queryItem in queryItems)
+        {
+            NSArray *keyValuePair = [queryItem componentsSeparatedByString:@"="];
+            if(keyValuePair.count == 2)
+            {
+                NSString *key = [keyValuePair objectAtIndex:0];
+                key = [key stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+                key = [key stringByRemovingPercentEncoding];
+                
+                NSString *value = [keyValuePair objectAtIndex:1];
+                value = [value stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+                value = [value stringByRemovingPercentEncoding];
+
+                params[key] = value;
+            }
+        }
+    }
     return params;
 }
 
@@ -97,14 +113,18 @@
 {
     NSParameterAssert(params);
     
-    NSMutableArray *queryItems = [NSMutableArray array];
-    [params enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop){
-        [queryItems addObject:[NSURLQueryItem queryItemWithName:key value:value]];
-    }];
+    NSMutableString *queryParams = [NSMutableString string];
+    for(NSString *key in params.allKeys)
+    {
+        [queryParams appendFormat:@"&%@=%@", key, params[key]];
+    }
     
-    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@""];
-    urlComponents.queryItems = queryItems;
-    return urlComponents.query;
+    // Remove first '&'
+    if(queryParams.length > 0) {
+        [queryParams deleteCharactersInRange:NSMakeRange(0, 1)];
+    }
+    
+    return queryParams;
 }
 
 + (BOOL)shouldRefreshSession:(ODAccountSession *)session

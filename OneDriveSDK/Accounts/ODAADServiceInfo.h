@@ -27,6 +27,7 @@
 - (instancetype)initWithClientId:(NSString *)clientId
                       capability:(NSString *)capability
                       resourceId:(NSString *)resourceId
+                     apiEndpoint:(NSString *)apiEndpoint
                      redirectURL:(NSString *)redirectURL
                            flags:(NSDictionary *)flags;
 

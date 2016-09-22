@@ -21,13 +21,12 @@
 
 
 #import "ODBusinessAuthProvider.h"
-#import "ADAuthenticationContext.h"
+#import <ADALiOS/ADAuthenticationContext.h>
 #import "ODServiceInfo.h"
 #import "ODAuthProvider+Protected.h"
 #import "ODAuthHelper.h"
 #import "ODAuthConstants.h"
 #import "ODAccountSession.h"
-#import "ODAADAccountBridge.h"
 #import "ODAuthenticationViewController.h"
 
 @interface ODBusinessAuthProvider(){
@@ -44,7 +43,7 @@
     self.authContext.parentController = viewController;
     // If the disambiguation page is still being displayed remove it from the view
     if (self.authContext.parentController){
-        UIViewController *childViewController = [viewController childViewControllers][0];
+        UIViewController *childViewController = [[viewController childViewControllers] firstObject];
         if (childViewController && [childViewController respondsToSelector:@selector(redirectWithStartURL:endURL:success:)]){
             self.authContext.parentController = viewController.presentingViewController;
            dispatch_async(dispatch_get_main_queue(), ^{
@@ -68,7 +67,16 @@
                                           if (!error){
                                               self.serviceInfo = serviceInfo;
                                           }
-                                          if (result.tokenCacheStoreItem.refreshToken){
+                                          if (!self.serviceInfo.apiEndpoint){
+                                              NSError *apiEndpointError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
+                                                                                              code:ODServiceError
+                                                                                          userInfo:@{
+                                                                                                     NSLocalizedDescriptionKey : @"There was a problem logging you in",
+                                                                                                     OD_AUTH_ERROR_KEY : @"Could not discover the api endpoint for the given user.  Make sure you have correctly enabled the SharePoint files permissions in Azure portal."
+                                                                                                    }];
+                                              completionHandler(apiEndpointError);
+                                          }
+                                          else if (result.tokenCacheStoreItem.refreshToken){
                                               [self.authContext acquireTokenByRefreshToken:result.tokenCacheStoreItem.refreshToken clientId:self.serviceInfo.appId resource:self.serviceInfo.resourceId completionBlock:^(ADAuthenticationResult *innerResult){
                                                   if (innerResult.status == AD_SUCCEEDED) {
                                                       innerResult.tokenCacheStoreItem.userInformation = result.tokenCacheStoreItem.userInformation;
@@ -82,12 +90,12 @@
                                               }];
                                           }
                                           else {
-                                              NSError *error = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
-                                                                                   code:ODServiceError
-                                                                               userInfo:@{
-                                                                                          NSLocalizedDescriptionKey : @"There was a problem logging you in",
-                                                                                          OD_AUTH_ERROR_KEY : @" The auth result must have a refresh token" }];
-                                              completionHandler(error);
+                                              NSError *noRefreshTokenError = [NSError errorWithDomain:OD_AUTH_ERROR_DOMAIN
+                                                                                                 code:ODServiceError
+                                                                                             userInfo:@{
+                                                                                                        NSLocalizedDescriptionKey : @"There was a problem logging you in",
+                                                                                                        OD_AUTH_ERROR_KEY : @" The auth result must have a refresh token" }];
+                                              completionHandler(noRefreshTokenError);
                                           }
                                       }];
                                   }
@@ -104,7 +112,11 @@
 
 - (void)setAccountSessionWithAuthResult:(ADAuthenticationResult *)result
 {
-    self.accountSession = [ODAADAccountBridge accountSessionFromCacheItem:result.tokenCacheStoreItem serviceInfo:self.serviceInfo];
+    self.accountSession = [[ODAccountSession alloc] initWithId:result.tokenCacheStoreItem.userInformation.userId
+                                                   accessToken:result.tokenCacheStoreItem.accessToken
+                                                       expires:result.tokenCacheStoreItem.expiresOn
+                                                  refreshToken:result.tokenCacheStoreItem.refreshToken
+                                                   serviceInfo:self.serviceInfo];
     if (self.accountSession.refreshToken){
         [self.accountStore storeCurrentAccount:self.accountSession];
     }

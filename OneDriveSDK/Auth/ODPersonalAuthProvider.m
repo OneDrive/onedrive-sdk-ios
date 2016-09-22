@@ -40,7 +40,8 @@
     return @{ OD_AUTH_CLIENTID : self.serviceInfo.appId,
               OD_AUTH_RESPONSE_TYPE : OD_AUTH_CODE,
               OD_AUTH_REDIRECT_URI : self.serviceInfo.redirectURL,
-              OD_AUTH_SCOPE : [self.serviceInfo.scopes componentsJoinedByString:@","]
+              OD_AUTH_SCOPE : [self.serviceInfo.scopes componentsJoinedByString:@","],
+              OD_AUTH_DISPLAY : OD_AUTH_DISPLAY_IOS_PHONE
             };
 }
 

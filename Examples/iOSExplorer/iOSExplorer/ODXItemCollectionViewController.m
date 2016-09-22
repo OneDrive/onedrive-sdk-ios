@@ -221,38 +221,41 @@ static void *ProgressObserverContext = &ProgressObserverContext;
         }
         [self.collectionView reloadData];
     }
-    else if ([item.file.mimeType isEqualToString:@"text/plain"]){
+    else if (item.file){
     ODURLSessionDownloadTask *task = [[[[self.client drive] items:item.id] contentRequest] downloadWithCompletion:^(NSURL *filePath, NSURLResponse *response, NSError *error){
         [self.progressController hideProgress];
-            if (!error){
-                NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-                NSString *newFilePath = [documentPath stringByAppendingPathComponent:item.name];
-                [[NSFileManager defaultManager] moveItemAtURL:filePath toURL:[NSURL fileURLWithPath:newFilePath] error:nil];
-                ODXTextViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"FileViewController"];
-                [newController setItemSaveCompletion:^(ODItem *newItem){
-                    if (newItem){
-                        if (![self.itemsLookup containsObject:newItem.id]){
-                            [self.itemsLookup addObject:newItem.id];
+            if (!error) {
+                if ([item.file.mimeType isEqualToString:@"text/plain"]) {
+                    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+                    NSString *newFilePath = [documentPath stringByAppendingPathComponent:item.name];
+                    [[NSFileManager defaultManager] moveItemAtURL:filePath toURL:[NSURL fileURLWithPath:newFilePath] error:nil];
+                    ODXTextViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"FileViewController"];
+                    [newController setItemSaveCompletion:^(ODItem *newItem){
+                        if (newItem){
+                            if (![self.itemsLookup containsObject:newItem.id]){
+                                [self.itemsLookup addObject:newItem.id];
+                            }
+                            self.items[newItem.id] = newItem;
+                            dispatch_async(dispatch_get_main_queue(), ^(){
+                                [self.collectionView reloadData];
+                            });
                         }
-                        self.items[newItem.id] = newItem;
-                        dispatch_async(dispatch_get_main_queue(), ^(){
-                            [self.collectionView reloadData];
-                        });
-                    }
-                }];
-                newController.title = item.name;
-                newController.item = item;
-                newController.client = self.client;
-                newController.filePath = newFilePath;
-                dispatch_async(dispatch_get_main_queue(), ^(){
-                    [super.navigationController pushViewController:newController animated:YES];
-                });
+                    }];
+                    newController.title = item.name;
+                    newController.item = item;
+                    newController.client = self.client;
+                    newController.filePath = newFilePath;
+                    dispatch_async(dispatch_get_main_queue(), ^(){
+                        [super.navigationController pushViewController:newController animated:YES];
+                    });
+                }
             }
             else{
                 [self showErrorAlert:error];
                 [self.selectedItems removeObject:item];
             }
         }];
+        task.progress.totalUnitCount = item.size;
         [self.progressController showProgressWithTitle:[NSString stringWithFormat:@"Downloading %@", item.name] progress:task.progress];
     }
 }
@@ -500,7 +503,20 @@ static void *ProgressObserverContext = &ProgressObserverContext;
 
 - (void)showErrorAlert:(NSError*)error
 {
-    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"There was an Error!"
+    NSString *errorMsg;
+    if ([error isAuthCanceledError]) {
+        errorMsg = @"Sign-in was canceled!";
+    }
+    else if ([error isAuthenticationError]) {
+        errorMsg = @"There was an error in the sign-in flow!";
+    }
+    else if ([error isClientError]) {
+        errorMsg = @"Oops, we sent a bad request!";
+    }
+    else {
+        errorMsg = @"Uh oh, an error occurred!";
+    }
+    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:errorMsg
                                                                         message:[NSString stringWithFormat:@"%@", error]
                                                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];

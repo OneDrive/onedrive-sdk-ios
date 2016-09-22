@@ -27,17 +27,48 @@
 
 
 
+#import "ODModels.h"
 
-#import "ODObject.h"
+@interface ODObject()
 
+@property (strong, nonatomic) NSMutableDictionary *dictionary;
 
-/**
-* The header for type image.
-*/
+@end
 
-@interface ODImage : ODObject
+@interface ODShared()
+{
+    ODCollection *_effectiveRoles;
+    ODIdentitySet *_owner;
+}
+@end
 
-@property int32_t height;
-@property int32_t width;
+@implementation ODShared	
+
+- (ODIdentitySet *)owner
+{
+    if (!_owner){
+        _owner = [[ODIdentitySet alloc] initWithDictionary:self.dictionary[@"owner"]];
+        if (_owner){
+            self.dictionary[@"owner"] = _owner;
+        }
+    }
+    return _owner;
+}
+
+- (void)setOwner:(ODIdentitySet *)owner
+{
+    _owner = owner;
+    self.dictionary[@"owner"] = owner; 
+}
+
+- (NSString *)scope
+{
+    return self.dictionary[@"scope"];
+}
+
+- (void)setScope:(NSString *)scope
+{
+    self.dictionary[@"scope"] = scope;
+}
 
 @end

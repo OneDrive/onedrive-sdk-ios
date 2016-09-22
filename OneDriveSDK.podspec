@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OneDriveSDK"
-  s.version      = "1.1.0"
+  s.version      = "1.2.2"
   s.summary      = "OneDrive iOS SDK"
 
   s.description  = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
 
-  s.author        = { "onedriveapi " => "onedriveapi@microsoft.com" }
+  s.author        = { "onedriveapi " => "onedrivesdkowners@microsoft.com" }
   s.social_media_url = "http://twitter.com/onedrivedev"
 
   s.platform     = :ios, "7.0"
@@ -39,11 +39,13 @@ Pod::Spec.new do |s|
     usm.dependency 'OneDriveSDK/Common'
     usm.source_files = "OneDriveSDK/OneDriveSDK/ODURLSessionManager/*{h,m}", "OneDriveSDK/OneDriveSDK/*{h,m}"
     usm.public_header_files = "OneDriveSDK/OneDriveSDK/**/*.h"
+    usm.exclude_files = "OneDriveSDK/OneDriveSDK/OneDriveSDK.h"
   end
 
 
   s.subspec "Auth" do |oda|
-    oda.dependency 'ADALiOS', '~> 1.2.4'
+    oda.dependency 'ADALiOS', '~> 1.2'
+    oda.dependency 'Base32', '~> 1.1'
     oda.dependency 'OneDriveSDK/Common'
 
     oda.source_files = "OneDriveSDK/Auth/*.{h,m}", "OneDriveSDK/Accounts/*.{h,m}"
