@@ -188,6 +188,10 @@
     if (self.authenticationChallengeDelegate) {
         [self.authenticationChallengeDelegate URLSession:session didReceiveChallenge:challenge completionHandler:completionHandler];
     }
+    else
+    {
+        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
+    }
 }
 
 - (void)URLSession:(NSURLSession *)session
