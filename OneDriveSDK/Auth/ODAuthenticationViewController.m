@@ -83,6 +83,7 @@
     self.endURL = endURL;
     self.successCompletion = successCompletion;
     self.initialRequest = [NSURLRequest requestWithURL:startURL];
+    self.isComplete = NO;
     [self.webView loadRequest:self.initialRequest];
 }
 
