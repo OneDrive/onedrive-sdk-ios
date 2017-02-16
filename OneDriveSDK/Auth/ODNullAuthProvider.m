@@ -6,10 +6,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-//  
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
-//  
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,42 +20,25 @@
 //
 
 
-#import "ODClient+HelperMethods.h"
-#import "ODDriveRequestBuilder.h"
-#import "ODAuthProvider.h"
+#import "ODNullAuthProvider.h"
 
-@implementation ODClient (HelperMethods)
+@interface ODNullAuthProvider ()
+@property (nonatomic, strong) NSDictionary *serviceFlags;
+@end
 
+@implementation ODNullAuthProvider
 
-- (ODDriveRequestBuilder *)drive
-{
-    return [[ODDriveRequestBuilder alloc] initWithURL:[self.baseURL URLByAppendingPathComponent:@"drive/"] client:self];
++ (ODNullAuthProvider*)authProvider {
+    return [[ODNullAuthProvider alloc] init];
 }
 
-- (ODItemRequestBuilder *)root
-{
-    return [[self drive] items:@"root"];
+- (NSString*)baseURL {
+    return nil;
 }
 
-- (void)signOutWithCompletion:(void (^)(NSError *error))completionHandler
+- (void) appendAuthHeaders:(NSMutableURLRequest *)request completion:(void (^)(NSMutableURLRequest *requests, NSError *error))completionHandler
 {
-    if ([self.authProvider respondsToSelector:@selector(signOutWithCompletion:)]){
-        [self.authProvider signOutWithCompletion:completionHandler];
-    }
-    else if ([[self.httpProvider authenticationChallengeDelegate] respondsToSelector:@selector(signOutWithCompletion:)]) {
-        [[self.httpProvider authenticationChallengeDelegate] signOutWithCompletion:completionHandler];
-    }
-    else{
-        [self.logger logWithLevel:ODLogWarn message:@"Authentication provider doesn't respond to signOutWithCompletion"];
-        if (completionHandler) {
-            completionHandler(nil);
-        }
-    }
-}
-
-- (NSDictionary *)serviceFlags
-{
-    return self.authProvider.serviceFlags;
+    completionHandler(request, nil);
 }
 
 @end

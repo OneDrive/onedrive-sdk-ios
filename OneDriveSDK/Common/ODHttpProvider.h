@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ODAuthenticationChallengeDelegate.h"
 
 /**
  Completion handler to be called from ODHttpProvider on download completion.
@@ -35,6 +36,11 @@ typedef void (^ODRawUploadCompletionHandler)(NSData *data, NSURLResponse *respon
  Completion handler to be called form ODHttpProvider on a data task completion.
  */
 typedef void (^ODDataCompletionHandler)(NSData *data, NSURLResponse *response, NSError *error);
+
+/**
+ Completion block passed to an ODAuthenticationChallengeHandler, to be invoked by the handler when the challenge is ready to be completed.
+ */
+typedef void (^NSURLSessionChallengeCompletion)(NSURLSessionAuthChallengeDisposition, NSURLCredential *);
 
 /**
  The `ODHttpProvider` protocol is meant to inject all network access from ODClient and ODRequests.
@@ -84,5 +90,8 @@ typedef void (^ODDataCompletionHandler)(NSData *data, NSURLResponse *response, N
                                          fromData:(NSData *)data
                                          progress:(NSProgress * __autoreleasing *)progress
                                 completionHandler:(ODRawUploadCompletionHandler)completionHandler;
+
+@optional
+@property (nonatomic, strong) id <ODAuthenticationChallengeDelegate> authenticationChallengeDelegate;
 
 @end

@@ -38,4 +38,11 @@
  */
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)urlSessionConfiguration;
 
+/**
+ *  Sets a delegate for network authentication challenges. See definition of
+ *      ODAuthenticationChallengeDelegate for more information.
+ *  @param handler Authentication challenge delegate
+ */
+- (void)setAuthenticationChallengeDelegate:(id<ODAuthenticationChallengeDelegate>)delegate;
+
 @end

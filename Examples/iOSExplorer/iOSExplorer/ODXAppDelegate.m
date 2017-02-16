@@ -30,16 +30,19 @@
 @implementation ODXAppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    
-    // Uncomment the correct call to test with ActiveDirectory or both types of apps.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Uncomment one or both of the following to test with Microsoft Account and/or ActiveDirectory
     [ODClient setMicrosoftAccountAppId:@"0000000048160AF8" scopes:@[@"onedrive.readwrite"] ];
     
     //[ODClient setActiveDirectoryAppId:<AAD_APPID>
     //                      redirectURL:<AAD_REDIRECT_URI>
     //                            flags:@{@"NoThumbnails" : @(YES)}];
+    
+    
+    // Uncomment the following to test with NTLM authentication for on-premise deployments
+//    id <ODAuthenticationChallengeDelegate> authDelegate = [ODPasswordAuthChallengeDelegate delegateWithPersistence:NSURLCredentialPersistenceForSession];
+//    [ODClient setAuthenticationChallengeDelegate:authDelegate apiEndpoint:@"{Corporate OD4B Base URL}/_api/v2.0"];
     
     return YES;
 }

@@ -34,6 +34,8 @@
 
 @implementation ODURLSessionManager
 
+@synthesize authenticationChallengeDelegate;
+
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)urlSessionConfiguration
 {
     self = [super init];
@@ -178,6 +180,17 @@
         [delegate task:downloadTask didCompleteWithError:nil];
         // remove the task now so we don't call the completion handler when the completion delegate method gets called
         [self removeTaskDelegateForTask:downloadTask];
+    }
+}
+
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+{
+    if (self.authenticationChallengeDelegate) {
+        [self.authenticationChallengeDelegate URLSession:session didReceiveChallenge:challenge completionHandler:completionHandler];
+    }
+    else
+    {
+        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
     }
 }
 

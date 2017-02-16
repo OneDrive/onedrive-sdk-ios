@@ -28,8 +28,10 @@
 
 + (ODClient *)currentClientWithAppConfig:(ODAppConfiguration *)appConfig
 {
-    // There must be at least one App Id
-    NSParameterAssert(appConfig.microsoftAccountAppId || appConfig.activeDirectoryAppId);
+    // currentClientWithAppConfig only applies for OAuth based auth (as opposed to network auth like NTLM).
+    if (!(appConfig.microsoftAccountAppId || appConfig.activeDirectoryAppId)) {
+        return nil;
+    }
     
     ODClient *currentClient = nil;
     ODAccountSession *session = [ODClient currentSessionFromAccountStore:appConfig.accountStore];
@@ -130,6 +132,7 @@
 {
     ODClient *client = [[ODClient alloc] init];
     client.logger = appConfig.logger;
+    client.baseURL = [NSURL URLWithString:appConfig.defaultApiEndpoint];
     [client authenticateWithAppConfig:appConfig completion:^(NSError *error){
         if (!error){
             completion(client, error);
@@ -168,8 +171,9 @@
             [self onAuthenticationCompletionWithError:error authProvider:authProvider httpProvider:httpProvider completion:completion];
         }];
     }
-    else{
+    else {
         [logger logWithLevel:ODLogWarn message:@"Auth provider doesn't respond to authenticateWithViewController"];
+        [self onAuthenticationCompletionWithError:nil authProvider:authProvider httpProvider:httpProvider completion:completion];
     }
 }
 
@@ -177,6 +181,7 @@
                       completion:(void (^)(NSError *error))completion
 {
     NSParameterAssert(appConfig);
+    NSParameterAssert(appConfig.authProvider || appConfig.serviceInfoProvider);
     
     __block UIViewController *rootViewController = appConfig.parentAuthController;
     if (appConfig.authProvider){
@@ -218,7 +223,9 @@
                                  completion:(void (^)(NSError *error))completion
 {
     if (!error){
-        self.baseURL = [NSURL URLWithString:authProvider.baseURL];
+        if (authProvider.baseURL) {
+            self.baseURL = [NSURL URLWithString:authProvider.baseURL];
+        }
         self.authProvider = authProvider;
         self.httpProvider = httpProvider;
     }

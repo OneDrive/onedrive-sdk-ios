@@ -163,6 +163,14 @@
       activeDirectoryApiEndpoint:(NSString *)activeDirectoryApiEndpoint
       activeDirectoryRedirectURL:(NSString *)activeDirectoryRedirectURL
             activeDirectoryFlags:(NSDictionary *)activeDirectoryFlags;
+
+/**
+ Use this method to configure the SDK for NTLM instead of OAuth (MSA or AAD).
+ @param handler Auth challenge handler. See definition of ODAuthenticationChallengeHandler for more information.
+ @param apiEndpoint API endpoint to make OneDrive requests against.
+ */
++ (void)setAuthenticationChallengeDelegate:(id<ODAuthenticationChallengeDelegate>)delegate apiEndpoint:(NSString *)apiEndpoint;
+
 /**
  Sets the authentication provider.
  @param authProvider The auth provider.
