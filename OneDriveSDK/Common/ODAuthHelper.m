@@ -66,6 +66,9 @@
         accountId = session[OD_AUTH_TOKEN_ID];
     }
     if (accountId && expires){
+        // Normalize accountId
+        accountId = [accountId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        accountId = [accountId lowercaseString];
         return [[ODAccountSession alloc] initWithId:accountId
                                         accessToken:session[OD_AUTH_ACCESS_TOKEN]
                                             expires:expires
