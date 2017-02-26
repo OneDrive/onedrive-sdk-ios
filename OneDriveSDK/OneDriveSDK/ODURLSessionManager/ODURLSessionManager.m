@@ -39,7 +39,7 @@
     self = [super init];
     if (self){
         _urlSessionConfiguration = urlSessionConfiguration;
-        _urlSession = [NSURLSession sessionWithConfiguration:urlSessionConfiguration delegate:self delegateQueue:nil];
+        _urlSession = [NSURLSession sessionWithConfiguration:urlSessionConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
         _taskDelegates = [NSMutableDictionary dictionary];
     }
     return self;
