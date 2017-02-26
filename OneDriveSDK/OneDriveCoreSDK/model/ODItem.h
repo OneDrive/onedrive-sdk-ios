@@ -37,6 +37,7 @@
 
 @interface ODItem : ODObject
 
+@property NSString *downloadURL;
 @property ODIdentitySet *createdBy;
 @property NSDate *createdDateTime;
 @property NSString *cTag;

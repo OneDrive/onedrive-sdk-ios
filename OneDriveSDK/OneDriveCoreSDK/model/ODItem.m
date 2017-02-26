@@ -39,6 +39,7 @@
 
 @interface ODItem()
 {
+    NSString *_downloadURL;
     ODIdentitySet *_createdBy;
     NSDate *_createdDateTime;
     ODIdentitySet *_lastModifiedBy;
@@ -65,7 +66,20 @@
 }
 @end
 
-@implementation ODItem	
+@implementation ODItem
+
+-(NSString *)downloadURL {
+    
+    if (!_downloadURL) {
+        _downloadURL = self.dictionary[@"@content.downloadURL"];
+    }
+    return _downloadURL;
+}
+
+-(void)setDownloadURL:(NSString *)downloadURL {
+    _downloadURL = downloadURL;
+    self.dictionary[@"@content.downloadUrl"] = _downloadURL;
+}
 
 - (ODIdentitySet *)createdBy
 {
