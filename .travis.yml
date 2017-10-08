@@ -7,5 +7,6 @@ before_install:
     - cd OneDriveSDK && pod install
 
 script : 
+    - xcodebuild -workspace OneDriveSDK.xcworkspace -scheme OneDriveSDKTests -sdk iphonesimulator build-for-testing
     - xctool -workspace OneDriveSDK.xcworkspace -scheme OneDriveSDKTests -sdk iphonesimulator run-tests
 
