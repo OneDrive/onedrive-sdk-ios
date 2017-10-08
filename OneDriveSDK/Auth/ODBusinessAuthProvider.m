@@ -21,7 +21,7 @@
 
 
 #import "ODBusinessAuthProvider.h"
-#import <ADALiOS/ADAuthenticationContext.h>
+#import <ADAL/ADAuthenticationContext.h>
 #import "ODServiceInfo.h"
 #import "ODAuthProvider+Protected.h"
 #import "ODAuthHelper.h"

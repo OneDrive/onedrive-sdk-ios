@@ -22,10 +22,10 @@
 
 #import "ODKeychainWrapper.h"
 
-#import <ADALiOS/ADKeychainTokenCacheStore.h>
-#import <ADALiOS/ADTokenCacheStoreKey.h>
-#import <ADALiOS/ADTokenCacheStoreItem.h>
-#import <ADALiOS/ADUserInformation.h>
+#import <ADAL/ADKeychainTokenCacheStore.h>
+#import <ADAL/ADTokenCacheStoreKey.h>
+#import <ADAL/ADTokenCacheStoreItem.h>
+#import <ADAL/ADUserInformation.h>
 #import <Base32/MF_Base32Additions.h>
 
 #import "ODAccountSession.h"
