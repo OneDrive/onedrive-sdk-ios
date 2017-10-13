@@ -25,7 +25,7 @@
 #import "ODAccountSession.h"
 #import "ODServiceInfo.h"
 #import "ODAppConfiguration.h"
-#import "ODAuthenticationViewController.H"
+#import "ODAuthenticationViewController.h"
 #import "ODAuthProvider+Protected.h"
 
 @interface ODBaseAuthProvider ()
