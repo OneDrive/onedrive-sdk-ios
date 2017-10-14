@@ -5,5 +5,5 @@ before_install:
     - brew outdated xctool || brew upgrade xctool
     - cd OneDriveSDK && pod install
 
-xcode_workspace: OneDriveSDK\OneDriveSDK.xcworkspace
-xcode_scheme: OneDriveSDKTests
+script: 
+    - xcodebuild build test -workspace OneDriveSDK/OneDriveSDK.xcworkspace -scheme OneDriveSDKTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8'
