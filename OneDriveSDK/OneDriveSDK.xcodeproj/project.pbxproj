@@ -298,13 +298,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		10702E8C1B6005E2001A85FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ED7D7564B828593FD49B33F10C288624;
-			remoteInfo = ADALiOS;
-		};
 		10702E8E1B6005E2001A85FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
@@ -339,6 +332,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3779FF1A3326CCC7241686C314038226;
 			remoteInfo = Base32;
+		};
+		7CB44A631F905959002EA05F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10FEDA091B2F727F0087C4D6 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D6558A4790762DAAC9C39ECAE5E41B;
+			remoteInfo = ADAL;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1140,7 +1140,7 @@
 		10FEDA0A1B2F727F0087C4D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10702E8D1B6005E2001A85FF /* libADALiOS.a */,
+				7CB44A641F905959002EA05F /* libADAL.a */,
 				7C3640D81CEF92A500C3C34A /* libBase32.a */,
 				10702E8F1B6005E2001A85FF /* libOCMock.a */,
 				10FEDA111B2F727F0087C4D6 /* libPods-OneDriveSDK.a */,
@@ -1328,12 +1328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10B4D1361AF8215D0083D86C /* Build configuration list for PBXNativeTarget "OneDriveSDK" */;
 			buildPhases = (
-				40E37A4C6F880EE888BC1750 /* Check Pods Manifest.lock */,
+				40E37A4C6F880EE888BC1750 /* [CP] Check Pods Manifest.lock */,
 				10B4D11B1AF8215D0083D86C /* Sources */,
 				10B4D11C1AF8215D0083D86C /* Frameworks */,
 				10B4D11D1AF8215D0083D86C /* Headers */,
 				10B4D11E1AF8215D0083D86C /* Resources */,
-				95C8F43AA7F2936CE94EF4CE /* Copy Pods Resources */,
+				95C8F43AA7F2936CE94EF4CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1348,12 +1348,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10B4D3361AF827D80083D86C /* Build configuration list for PBXNativeTarget "OneDriveSDKTests" */;
 			buildPhases = (
-				C503E913A39CE9C0B7FBB048 /* Check Pods Manifest.lock */,
+				C503E913A39CE9C0B7FBB048 /* [CP] Check Pods Manifest.lock */,
 				10B4D3291AF827D80083D86C /* Sources */,
 				10B4D32A1AF827D80083D86C /* Frameworks */,
 				10B4D32B1AF827D80083D86C /* Resources */,
-				6571E6AB65E86A4F7FB685F3 /* Copy Pods Resources */,
-				C85DDFB8E2937AD6EFB526DE /* Embed Pods Frameworks */,
+				6571E6AB65E86A4F7FB685F3 /* [CP] Copy Pods Resources */,
+				C85DDFB8E2937AD6EFB526DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1371,7 +1371,7 @@
 		10B4D1171AF8215D0083D86C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
 					10B4D11F1AF8215D0083D86C = {
@@ -1407,13 +1407,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		10702E8D1B6005E2001A85FF /* libADALiOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libADALiOS.a;
-			remoteRef = 10702E8C1B6005E2001A85FF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		10702E8F1B6005E2001A85FF /* libOCMock.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1442,6 +1435,13 @@
 			remoteRef = 7C3640D71CEF92A500C3C34A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7CB44A641F905959002EA05F /* libADAL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libADAL.a;
+			remoteRef = 7CB44A631F905959002EA05F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1463,74 +1463,88 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		40E37A4C6F880EE888BC1750 /* Check Pods Manifest.lock */ = {
+		40E37A4C6F880EE888BC1750 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneDriveSDK-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6571E6AB65E86A4F7FB685F3 /* Copy Pods Resources */ = {
+		6571E6AB65E86A4F7FB685F3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDKTests/Pods-OneDriveSDKTests-resources.sh",
+				"${PODS_ROOT}/ADAL/ADALiOS/ADALiOS/ADAL_iPad_Storyboard.storyboard",
+				"${PODS_ROOT}/ADAL/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDKTests/Pods-OneDriveSDKTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95C8F43AA7F2936CE94EF4CE /* Copy Pods Resources */ = {
+		95C8F43AA7F2936CE94EF4CE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDK/Pods-OneDriveSDK-resources.sh",
+				"${PODS_ROOT}/ADAL/ADALiOS/ADALiOS/ADAL_iPad_Storyboard.storyboard",
+				"${PODS_ROOT}/ADAL/ADALiOS/ADALiOS/ADAL_iPhone_Storyboard.storyboard",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneDriveSDK/Pods-OneDriveSDK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C503E913A39CE9C0B7FBB048 /* Check Pods Manifest.lock */ = {
+		C503E913A39CE9C0B7FBB048 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneDriveSDKTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C85DDFB8E2937AD6EFB526DE /* Embed Pods Frameworks */ = {
+		C85DDFB8E2937AD6EFB526DE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1718,13 +1732,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1734,6 +1756,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1764,13 +1787,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1779,6 +1810,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1799,6 +1831,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 11BC54005EED17791D179C16 /* Pods-OneDriveSDK.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1816,6 +1849,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E3D8C1D3DE438DDC5A5C689 /* Pods-OneDriveSDK.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
