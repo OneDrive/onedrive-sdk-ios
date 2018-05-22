@@ -21,6 +21,9 @@
 @class ODCollection;
 
 #import "ODRequest.h"
+#import "ODItem.h"
+
+typedef void (^ODItemCompletionHandler)(ODItem *response, NSError *error);
 
 /**
  An `ODRequest` that is used to make collection requests from the service.
