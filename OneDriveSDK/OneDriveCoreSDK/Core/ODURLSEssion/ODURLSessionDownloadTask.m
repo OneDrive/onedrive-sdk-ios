@@ -57,7 +57,7 @@
     [self.client.logger logWithLevel:ODLogVerbose message:@"Creating download task with request : %@", request];
     NSProgress *progress = self.progress;
     return [self.client.httpProvider downloadTaskWithRequest:request progress:&progress completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
-        _state = ODTaskCompleted;
+        self->_state = ODTaskCompleted;
         NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
         [self.client.logger logWithLevel:ODLogVerbose message:@"Received download response with http status code %ld", statusCode];
         if (!error && statusCode != ODOK && statusCode != ODPartialContent) {
