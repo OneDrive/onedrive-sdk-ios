@@ -77,7 +77,7 @@ For a complete sample application, see [OneDriveAPIExplorer](Examples/iOSExplore
 For a more detailed documentation see:
 
 * [Overview](docs/overview.md)
-* [Auth] (docs/auth.md)
+* [Auth](docs/auth.md)
 * [Items](docs/items.md)
 * [Collections](docs/collections.md)
 * [Errors](docs/errors.md)
