@@ -120,8 +120,8 @@ typedef id (^ODObjectWithDictionary)(NSDictionary *response);
 
 /**
  Creates an `ODURLSessionDataTask` with the given request.
- @param The request to create the task with.
- @param castBlock A block that converts an NSDictionary to an ODObject. 
+ @param request The request to create the task with.
+ @param castBlock A block that converts an NSDictionary to an ODObject.
  @param completionHandler The completion handler to be called when the task has finished.
  */
 - (ODURLSessionDataTask *)taskWithRequest:(NSMutableURLRequest *)request
