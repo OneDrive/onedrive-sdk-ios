@@ -43,7 +43,7 @@
 
 /**
  Creates an NSDate from a string returned by the server.
- @param A date string in ISO 1601 format.
+ @param dateString date string in ISO 1601 format.
  @return An NSDate object of the string.
  */
 - (NSDate *)dateFromString:(NSString *)dateString;
