@@ -53,14 +53,14 @@
     [self.client.authProvider appendAuthHeaders:self.request completion:^(NSMutableURLRequest *request, NSError *error){
         if (self.state != ODTaskCanceled){
             if (!error){
-                _state = ODTaskExecuting;
-                _innerTask = [self taskWithRequest:request];
+                self->_state = ODTaskExecuting;
+                self->_innerTask = [self taskWithRequest:request];
                 [self.client.logger logWithLevel:ODLogInfo message:@"Created NSURLSessionTask"];
-                [self.client.logger logWithLevel:ODLogVerbose message:@"Task Id : %ld", _innerTask.taskIdentifier];
-                [_innerTask resume];
+                [self.client.logger logWithLevel:ODLogVerbose message:@"Task Id : %ld", self->_innerTask.taskIdentifier];
+                [self->_innerTask resume];
             }
             else{
-                _state = ODTaskAuthFailed;
+                self->_state = ODTaskAuthFailed;
                 [self.client.logger logWithLevel:ODLogError message:@"Authentication Failed with error :%@", error];
                 [self authenticationFailedWithError:error];
             }

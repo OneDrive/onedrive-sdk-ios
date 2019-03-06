@@ -32,8 +32,6 @@
 #import "ODModels.h"
 #import "ODCollectionRequest.h"
 
-typedef void (^ODItemCompletionHandler)(ODItem *response, NSError *error);
-
 typedef void (^ODSharedCompletionHandler)(ODCollection *response, ODSharedCollectionRequest *nextRequest, NSError *error);
 
 @interface ODSharedCollectionRequest : ODCollectionRequest
