@@ -146,7 +146,8 @@
                           completion:(void (^)(NSError *error))completion
 {
     
-    UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    //UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController; // For iPadOS multiview PS-1468
     [self authenticateWithAuthProvider:authProvider
                             httpProvider:httpProvider
                                 logger:logger
