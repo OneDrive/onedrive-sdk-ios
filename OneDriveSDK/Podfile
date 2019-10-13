@@ -3,6 +3,7 @@
 
 target 'OneDriveSDK' do
     pod 'ADAL', '~> 1.2'
+    #pod 'ADAL'
     pod 'Base32', '~> 1.1'
 end
 

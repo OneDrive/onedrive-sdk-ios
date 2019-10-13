@@ -26,7 +26,8 @@
 - (UIViewController *)parentAuthController
 {
     if (!_parentAuthController){
-        _parentAuthController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        //_parentAuthController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        _parentAuthController = [UIApplication sharedApplication].keyWindow.rootViewController;  // For iPadOS multiview PS-1468
     }
     return _parentAuthController;
 }
