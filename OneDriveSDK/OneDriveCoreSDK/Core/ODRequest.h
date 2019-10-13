@@ -6,10 +6,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-//  
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
-//  
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -105,7 +105,7 @@ typedef id (^ODObjectWithDictionary)(NSDictionary *response);
 - (instancetype) ifMatch:(NSString *)ifMatch;
 
 /**
- Appends an ifNoneMatch header to the request. 
+ Appends an ifNoneMatch header to the request.
  @param ifNoneMatch A string of comma separated etags/ctags.
  @return An ODRequest that represents the same request with the appended options.
  */
@@ -121,7 +121,7 @@ typedef id (^ODObjectWithDictionary)(NSDictionary *response);
 /**
  Creates an `ODURLSessionDataTask` with the given request.
  @param request The request to create the task with.
- @param castBlock A block that converts an NSDictionary to an ODObject. 
+ @param castBlock A block that converts an NSDictionary to an ODObject.
  @param completionHandler The completion handler to be called when the task has finished.
  */
 - (ODURLSessionDataTask *)taskWithRequest:(NSMutableURLRequest *)request
