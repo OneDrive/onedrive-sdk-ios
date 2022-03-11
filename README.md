@@ -1,3 +1,20 @@
+# Note: OneDrive SDK for iOS to be deprecated / archived, please use Microsoft Graph SDKs instead
+
+## What is happening?
+As of March 10, 2022 the OneDrive SDK for iOS is beginning the process of being deprecated and ultimately the project archived.
+
+## Why is this happening?
+There are several reasons why we are choosing to end support for this SDK.  Most importantly in the time since this SDK was last updated we have seen the emergence of Microsoft Graph as the preferred path for interfacing with OneDrive programmatically.  Microsoft Graph receives the latest and greatest updates and provides more up-to-date SDKs as well.
+
+Additionally the OneDrive SDK for iOS currently uses the UIWebView component that has been marked deprecated by Apple.  Although no current deadline for updating applications has been provided ([see article](https://developer.apple.com/news/?id=edwud51q)) we expect this functionality to stop working at some point in an iOS update.
+
+## How do I make the transition to Microsoft Graph?
+To get started with Microsoft Graph on iOS please use the following resources:
+* [Get started with Microsoft Graph and iOS](https://developer.microsoft.com/en-us/graph/get-started/ios)
+* [Microsoft Graph SDK for ObjC](https://github.com/microsoftgraph/msgraph-sdk-objc)
+* [MSAL Authentication Provider for Objective C](https://github.com/microsoftgraph/msgraph-sdk-objc-auth)
+* [Microsoft Graph Models SDK](https://github.com/microsoftgraph/msgraph-sdk-objc-models)
+ 
 # Get started with the OneDrive SDK for iOS
 
 [![Build Status](https://travis-ci.org/OneDrive/onedrive-sdk-ios.svg?branch=master)](https://travis-ci.org/OneDrive/onedrive-sdk-ios)
