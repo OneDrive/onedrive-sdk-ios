@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author        = { "onedriveapi " => "onedrivesdkowners@microsoft.com" }
   s.social_media_url = "http://twitter.com/onedrivedev"
 
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "10.0"
 
   s.source       = { :git => "https://github.com/OneDrive/onedrive-sdk-ios.git",
                      :tag => "#{s.version}"}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "013497A1490C327E1CE875543A4F73E2"
+               BlueprintIdentifier = "06842996ED311B892CDAE5AEB60CEE41"
                BuildableName = "libPods-OneDriveSDKTests.a"
                BlueprintName = "Pods-OneDriveSDKTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -40,7 +40,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -70,7 +69,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -98,7 +96,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "013497A1490C327E1CE875543A4F73E2"
+            BlueprintIdentifier = "06842996ED311B892CDAE5AEB60CEE41"
             BuildableName = "libPods-OneDriveSDKTests.a"
             BlueprintName = "Pods-OneDriveSDKTests"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
